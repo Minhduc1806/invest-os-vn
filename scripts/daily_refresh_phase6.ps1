@@ -49,6 +49,7 @@ Run-Step "audit" "python scripts\phase4_real_data_gap_audit.py --mode eod"
 Run-Step "E2E" "python scripts\phase4_e2e.py"
 Run-Step "validate reports" "python scripts\validate_phase5_reports.py"
 Run-Step "telegram digest" "python scripts\daily_telegram_digest.py"
+Run-Step "dashboard" "python scripts\build_dashboard.py"
 Run-Optional-Step "telegram send optional" "python scripts\send_telegram_digest.py"
 
 Write-Output "PHASE6_DAILY_REFRESH_OK" | Tee-Object -FilePath $log -Append
