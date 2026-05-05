@@ -1,0 +1,592 @@
+{
+  "as_of": "2026-05-05T17:07:19.496Z",
+  "results": [
+    {
+      "ticker": "FPT",
+      "cafef": {
+        "source": "CafeF rendered browser + same-origin Ajax",
+        "ticker": "FPT",
+        "url": "https://cafef.vn/du-lieu/hose/fpt-bao-cao-tai-chinh.chn",
+        "title": "FPT: Báo cáo tài chính - Công ty Cổ phần FPT",
+        "screenshot": "outputs/browser_financial_pages/cafef_FPT_financial_page.png",
+        "api_status": 200,
+        "document_count": 201,
+        "documents": [
+          {
+            "id": "69f0726ad02b4661764f99be",
+            "Type": 0,
+            "Quarter": 1,
+            "Year": 2026,
+            "Time": "Q1/2026",
+            "Name": "Báo cáo tài chính công ty mẹ quý 1 năm 2026",
+            "IconFile": "https://cafefnew.mediacdn.vn/Blazor/Images/pdf.svg",
+            "Link": "https://cafefnew.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/20260424_-_FPT_-_BCTC_rieng_Quy_1_nam_2026_1777344035.pdf"
+          },
+          {
+            "id": "69f07307d02b4661764f99bf",
+            "Type": 0,
+            "Quarter": 1,
+            "Year": 2026,
+            "Time": "Q1/2026",
+            "Name": "Báo cáo tài chính hợp nhất quý 1 năm 2026",
+            "IconFile": "https://cafefnew.mediacdn.vn/Blazor/Images/pdf.svg",
+            "Link": "https://cafefnew.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/20260424_-_FPT_-_BCTC_hop_nhat_Quy_1_nam_2026_1777344030.pdf"
+          },
+          {
+            "id": "69bd0588b51797afb2ee4751",
+            "Type": 0,
+            "Quarter": 5,
+            "Year": 2025,
+            "Time": "CN/2025",
+            "Name": "Báo cáo tài chính công ty mẹ năm 2025 (đã kiểm toán)",
+            "IconFile": "https://cafefnew.mediacdn.vn/Blazor/Images/pdf.svg",
+            "Link": "https://cafefnew.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/20260319_-_FPT_-_BCTC_rieng_nam_2025_da_kiem_toan_1773994892.pdf"
+          },
+          {
+            "id": "69bd0630b51797afb2ee4752",
+            "Type": 0,
+            "Quarter": 5,
+            "Year": 2025,
+            "Time": "CN/2025",
+            "Name": "Báo cáo tài chính hợp nhất năm 2025 (đã kiểm toán)",
+            "IconFile": "https://cafefnew.mediacdn.vn/Blazor/Images/pdf.svg",
+            "Link": "https://cafefnew.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/20260319_-_FPT_-_BCTC_hop_nhat_nam_2025_da_kiem_toan_1773994300.pdf"
+          },
+          {
+            "id": "69782505dd24a1ce9f55a5bc",
+            "Type": 0,
+            "Quarter": 4,
+            "Year": 2025,
+            "Time": "Q4/2025",
+            "Name": "Báo cáo tài chính công ty mẹ quý 4 năm 2025",
+            "IconFile": "https://cafefnew.mediacdn.vn/Blazor/Images/pdf.svg",
+            "Link": "https://cafefnew.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/20260126_-_FPT_-_BCTC_cong_ty_me_Quy_4_2025_1769480748.pdf"
+          },
+          {
+            "id": "69782530dd24a1ce9f55a5bd",
+            "Type": 0,
+            "Quarter": 4,
+            "Year": 2025,
+            "Time": "Q4/2025",
+            "Name": "Báo cáo tài chính hợp nhất quý 4 năm 2025",
+            "IconFile": "https://cafefnew.mediacdn.vn/Blazor/Images/pdf.svg",
+            "Link": "https://cafefnew.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/20260126_-_FPT_-_BCTC_hop_nhat_Quy_4_2025_1769480313.pdf"
+          },
+          {
+            "id": "68fb3007d7802457ec16f7ac",
+            "Type": 0,
+            "Quarter": 3,
+            "Year": 2025,
+            "Time": "Q3/2025",
+            "Name": "Báo cáo tài chính quý 3 năm 2025",
+            "IconFile": "https://cafefnew.mediacdn.vn/Blazor/Images/pdf.svg",
+            "Link": "https://cafefnew.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/20251023_-_FPT_-_BCTC_cong_ty_me_Quy_3_2025_1761281525.pdf"
+          },
+          {
+            "id": "68fb3373d7802457ec16f7b2",
+            "Type": 0,
+            "Quarter": 3,
+            "Year": 2025,
+            "Time": "Q3/2025",
+            "Name": "Báo cáo tài chính công ty mẹ quý 3 năm 2025",
+            "IconFile": "https://cafefnew.mediacdn.vn/Blazor/Images/pdf.svg",
+            "Link": "https://cafefnew.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/20251023_-_FPT_-_BCTC_cong_ty_me_Quy_3_2025_1761280418.pdf"
+          },
+          {
+            "id": "68fedecfd780242ad00d02ff",
+            "Type": 0,
+            "Quarter": 3,
+            "Year": 2025,
+            "Time": "Q3/2025",
+            "Name": "Báo cáo tài chính hợp nhất quý 3 năm 2025",
+            "IconFile": "https://cafefnew.mediacdn.vn/Blazor/Images/pdf.svg",
+            "Link": "https://cafefnew.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/FPT_Baocaotaichinh_Q3_2025_Hopnhat_27102025095406.pdf"
+          },
+          {
+            "id": "688047a6d780242f9c9bb8e2",
+            "Type": 0,
+            "Quarter": 2,
+            "Year": 2025,
+            "Time": "Q2/2025",
+            "Name": "Báo cáo tài chính công ty mẹ quý 2 năm 2025",
+            "IconFile": "https://cafefnew.mediacdn.vn/Blazor/Images/pdf.svg",
+            "Link": "https://cafefnew.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/FPT_25Q2_BCTC_M.pdf"
+          },
+          {
+            "id": "68804ab1d780242f9c9bb8f1",
+            "Type": 0,
+            "Quarter": 2,
+            "Year": 2025,
+            "Time": "Q2/2025",
+            "Name": "Báo cáo tài chính hợp nhất quý 2 năm 2025",
+            "IconFile": "https://cafefnew.mediacdn.vn/Blazor/Images/pdf.svg",
+            "Link": "https://cafefnew.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/FPT_Baocaotaichinh_Q2_2025_Hopnhat_23072025093633.pdf"
+          },
+          {
+            "id": "68a8338ad7802454d46623c6",
+            "Type": 0,
+            "Quarter": 2,
+            "Year": 2025,
+            "Time": "Q2/2025",
+            "Name": "Báo cáo tài chính hợp nhất quý 2 năm 2025 (đã soát xét)",
+            "IconFile": "https://cafefnew.mediacdn.vn/Blazor/Images/pdf.svg",
+            "Link": "https://cafefnew.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/20250820_-_FPT_-_BCTC_hop_nhat_ban_nien_da_soat_xet_nam_2025_1755747309.pdf"
+          },
+          {
+            "id": "682d5587d780244170cb73a4",
+            "Type": 0,
+            "Quarter": 1,
+            "Year": 2025,
+            "Time": "Q1/2025",
+            "Name": "Báo cáo tài chính công ty mẹ quý 1 năm 2025",
+            "IconFile": "https://cafefnew.mediacdn.vn/Blazor/Images/pdf.svg",
+            "Link": "https://cafefnew.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/FPT_25Q1_BCTC_M.pdf"
+          },
+          {
+            "id": "682d82bcd780244170cb73db",
+            "Type": 0,
+            "Quarter": 1,
+            "Year": 2025,
+            "Time": "Q1/2025",
+            "Name": "Báo cáo tài chính hợp nhất quý 1 năm 2025",
+            "IconFile": "https://cafefnew.mediacdn.vn/Blazor/Images/pdf.svg",
+            "Link": "https://cafefnew.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/FPT_Baocaotaichinh_Q1_2025_Hopnhat_21052025143732.pdf"
+          },
+          {
+            "id": "67d7e371d7802404043b660d",
+            "Type": 0,
+            "Quarter": 5,
+            "Year": 2024,
+            "Time": "CN/2024",
+            "Name": "Báo cáo tài chính công ty mẹ năm 2024 (đã kiểm toán)",
+            "IconFile": "https://cafefnew.mediacdn.vn/Blazor/Images/pdf.svg",
+            "Link": "https://cafefnew.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/FPT_24CN_BCTC_MKT.pdf"
+          },
+          {
+            "id": "67d92d8cd7802439f02a4d7f",
+            "Type": 0,
+            "Quarter": 5,
+            "Year": 2024,
+            "Time": "CN/2024",
+            "Name": "Báo cáo tài chính hợp nhất năm 2024 (đã kiểm toán)",
+            "IconFile": "https://cafefnew.mediacdn.vn/Blazor/Images/pdf.svg",
+            "Link": "https://cafefnew.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/FPT_Baocaotaichinh_2024_Kiemtoan_Hopnhat_18032025152340.pdf"
+          },
+          {
+            "id": "67a57855d780242378b52820",
+            "Type": 0,
+            "Quarter": 4,
+            "Year": 2024,
+            "Time": "Q4/2024",
+            "Name": "Báo cáo tài chính hợp nhất quý 4 năm 2024",
+            "IconFile": "https://cafefnew.mediacdn.vn/Blazor/Images/pdf.svg",
+            "Link": "https://cafefnew.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/0006913580246913581cng-ty-c-phn-fpt24012025-000000bo-co-ti-chnh-hp-nht-qu.pdf"
+          },
+          {
+            "id": "67a57f4fd780242378b5286f",
+            "Type": 0,
+            "Quarter": 4,
+            "Year": 2024,
+            "Time": "Q4/2024",
+            "Name": "Báo cáo tài chính công ty mẹ quý 4 năm 2024",
+            "IconFile": "https://cafefnew.mediacdn.vn/Blazor/Images/pdf.svg",
+            "Link": "https://cafefnew.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/0006913580246913581cng-ty-c-phn-fpt24012025-000000bo-co-ti-chnh-m-qu.pdf"
+          },
+          {
+            "id": "671b0cc0d780244a5cf99bce",
+            "Type": 0,
+            "Quarter": 3,
+            "Year": 2024,
+            "Time": "Q3/2024",
+            "Name": "Báo cáo tài chính hợp nhất quý 3 năm 2024",
+            "IconFile": "https://cafefnew.mediacdn.vn/Blazor/Images/pdf.svg",
+            "Link": "https://cafefnew.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/000004940711462450593cng-ty-c-phn-fpt23102024-000000bo-co-ti-chnh-hp-nht-qu.pdf"
+          },
+          {
+            "id": "671b0cc5d780244a5cf99bd1",
+            "Type": 0,
+            "Quarter": 3,
+            "Year": 2024,
+            "Time": "Q3/2024",
+            "Name": "Báo cáo tài chính công ty mẹ quý 3 năm 2024",
+            "IconFile": "https://cafefnew.mediacdn.vn/Blazor/Images/pdf.svg",
+            "Link": "https://cafefnew.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/000004940711462450593cng-ty-c-phn-fpt23102024-000000bo-co-ti-chnh-m-qu.pdf"
+          }
+        ]
+      },
+      "vietstock": {
+        "source": "Vietstock rendered browser",
+        "ticker": "FPT",
+        "url": "https://finance.vietstock.vn/FPT/tai-tai-lieu.htm",
+        "title": "FPT: CTCP FPT - FPT Corp - Tải tài liệu | VietstockFinance",
+        "screenshot": "outputs/browser_financial_pages/vietstock_FPT_documents_page.png",
+        "table_count": 3,
+        "tables": [
+          {
+            "index": 0,
+            "text": "Hỗ trợ:data@vietstock.vnHotline:0908 16 98 98 ",
+            "rows": [
+              [
+                "Hỗ trợ:",
+                "data@vietstock.vn"
+              ],
+              [
+                "Hotline:",
+                "0908 16 98 98"
+              ]
+            ]
+          },
+          {
+            "index": 1,
+            "text": "#Gói sản phẩmTừ ngàyĐến ngàyTrạng thái",
+            "rows": [
+              [
+                "#",
+                "Gói sản phẩm",
+                "Từ ngày",
+                "Đến ngày",
+                "Trạng thái"
+              ]
+            ]
+          },
+          {
+            "index": 2,
+            "text": "Tệp tinKích thước",
+            "rows": [
+              [
+                "Tệp tin",
+                "Kích thước"
+              ]
+            ]
+          }
+        ],
+        "links": [
+          {
+            "text": "Báo cáo phân tíchBáo cáo phân tích vĩ mô mới nhất",
+            "href": "https://finance.vietstock.vn/vi-mo/bao-cao-phan-tich"
+          },
+          {
+            "text": "Báo cáo tài chínhFile Báo cáo tài chính dạng pdf, Excel",
+            "href": "https://finance.vietstock.vn/tai-lieu/bao-cao-tai-chinh.htm"
+          },
+          {
+            "text": "Báo cáo quản trịFile báo cáo quản trị hằng năm và bán niên",
+            "href": "https://finance.vietstock.vn/tai-lieu/bao-cao-tinh-hinh-quan-tri.htm"
+          },
+          {
+            "text": "Báo cáo thường niênFile báo cáo thường niên",
+            "href": "https://finance.vietstock.vn/tai-lieu/bao-cao-thuong-nien.htm"
+          },
+          {
+            "text": "Báo cáo phân tíchTrang báo cáo phân tích từ các tổ chức phân tích uy tín",
+            "href": "https://finance.vietstock.vn/bao-cao-phan-tich"
+          },
+          {
+            "text": "Nghiên cứu - Phân tíchBáo cáo nghiên cứu - Phân tích do Vietstock thực hiện",
+            "href": "https://finance.vietstock.vn/bao-cao-phan-tich/nghien-cuu-phan-tich"
+          },
+          {
+            "text": "Vĩ mô - Chiến lược thị trườngBáo cáo phân tích vĩ mô và thị trường",
+            "href": "https://finance.vietstock.vn/bao-cao-phan-tich/vi-mo-chien-luoc-thi-truong"
+          },
+          {
+            "text": "Phân tích ngànhBáo cáo phân tích ngành",
+            "href": "https://finance.vietstock.vn/bao-cao-phan-tich/phan-tich-nganh"
+          },
+          {
+            "text": "Phân tích doanh nghiệpBáo cáo phân tích doanh nghiệp",
+            "href": "https://finance.vietstock.vn/bao-cao-phan-tich/phan-tich-doanh-nghiep"
+          },
+          {
+            "text": "Tài liệu tham khảoBáo cáo phân tích doanh nghiệp",
+            "href": "https://finance.vietstock.vn/bao-cao-phan-tich/tai-lieu-tham-khao"
+          },
+          {
+            "text": "Báo cáo tài chínhXuất báo cáo tài chính doanh nghiệp",
+            "href": "javascript:void(0)"
+          },
+          {
+            "text": "Báo cáo tài chính ngànhXuất báo cáo tài chính ngành",
+            "href": "javascript:void(0)"
+          },
+          {
+            "text": "Báo cáo phân tích",
+            "href": "https://finance.vietstock.vn/vi-mo/bao-cao-phan-tich"
+          },
+          {
+            "text": "Báo cáo tài chính",
+            "href": "https://finance.vietstock.vn/tai-lieu/bao-cao-tai-chinh.htm"
+          },
+          {
+            "text": "Báo cáo quản trị",
+            "href": "https://finance.vietstock.vn/tai-lieu/bao-cao-tinh-hinh-quan-tri.htm"
+          },
+          {
+            "text": "Báo cáo thường niên",
+            "href": "https://finance.vietstock.vn/tai-lieu/bao-cao-thuong-nien.htm"
+          },
+          {
+            "text": "Báo cáo phân tích",
+            "href": "https://finance.vietstock.vn/bao-cao-phan-tich"
+          },
+          {
+            "text": "Báo cáo tài chính",
+            "href": "javascript:void(0)"
+          },
+          {
+            "text": "Báo cáo tài chính ngành",
+            "href": "javascript:void(0)"
+          },
+          {
+            "text": "Báo cáo phân tích",
+            "href": "https://finance.vietstock.vn/vi-mo/bao-cao-phan-tich"
+          },
+          {
+            "text": "Báo cáo tài chính",
+            "href": "https://finance.vietstock.vn/tai-lieu/bao-cao-tai-chinh.htm"
+          },
+          {
+            "text": "Báo cáo quản trị",
+            "href": "https://finance.vietstock.vn/tai-lieu/bao-cao-tinh-hinh-quan-tri.htm"
+          },
+          {
+            "text": "Báo cáo thường niên",
+            "href": "https://finance.vietstock.vn/tai-lieu/bao-cao-thuong-nien.htm"
+          },
+          {
+            "text": "Báo cáo phân tích",
+            "href": "https://finance.vietstock.vn/bao-cao-phan-tich"
+          },
+          {
+            "text": "Báo cáo tài chính",
+            "href": "javascript:void(0)"
+          },
+          {
+            "text": "Báo cáo tài chính ngành",
+            "href": "javascript:void(0)"
+          },
+          {
+            "text": "Báo cáo phân tích",
+            "href": "https://finance.vietstock.vn/vi-mo/bao-cao-phan-tich"
+          },
+          {
+            "text": "Báo cáo phân tích",
+            "href": "https://finance.vietstock.vn/bao-cao-phan-tich"
+          },
+          {
+            "text": "Báo cáo tài chính",
+            "href": "javascript:void(0)"
+          },
+          {
+            "text": "Báo cáo tài chính ngành",
+            "href": "javascript:void(0)"
+          },
+          {
+            "text": "Báo cáo phân tích",
+            "href": "https://finance.vietstock.vn/vi-mo/bao-cao-phan-tich"
+          },
+          {
+            "text": "Báo cáo phân tích",
+            "href": "https://finance.vietstock.vn/bao-cao-phan-tich"
+          },
+          {
+            "text": "Báo cáo tài chính",
+            "href": "javascript:void(0)"
+          },
+          {
+            "text": "Báo cáo tài chính ngành",
+            "href": "javascript:void(0)"
+          },
+          {
+            "text": "Hướng dẫn sử dụng",
+            "href": "https://static1.vietstock.vn/vietstock/2025/VSTF_Huong_dan_su_dung_2025.pdf"
+          },
+          {
+            "text": "Phân ngành VS-Sector",
+            "href": "https://static1.vietstock.vn/vietstock/2025/VS-SECTOR_2.0_2025.pdf"
+          },
+          {
+            "text": "Báo cáo tài chính",
+            "href": ""
+          },
+          {
+            "text": "Báo cáo quản trị",
+            "href": ""
+          },
+          {
+            "text": "Báo cáo thường niên",
+            "href": ""
+          },
+          {
+            "text": "Báo cáo tài chính",
+            "href": ""
+          },
+          {
+            "text": "Báo cáo quản trị",
+            "href": ""
+          },
+          {
+            "text": "Báo cáo thường niên",
+            "href": ""
+          },
+          {
+            "text": "Nghị quyết đại hội đồng cổ đông thường niên năm 2026\n21/04/2026 08:48",
+            "href": "https://static2.vietstock.vn/data/HOSE/2026/NGHI%20QUYET%20DHCD/VN/FPT_Nghiquyet_DHDCD%20thuong%20nien_2026.pdf"
+          },
+          {
+            "text": "Điều lệ năm 2026\n20/04/2026 11:58",
+            "href": "https://static2.vietstock.vn/data/HOSE/2026/KHAC/VN/FPT_DIEULE_2026.pdf"
+          },
+          {
+            "text": "Tài liệu đại hội đồng cổ đông thường niên năm 2026\n23/03/2026 08:49",
+            "href": "https://static2.vietstock.vn/data/HOSE/2026/TAI%20LIEU%20DHCD/VN/FPT_TAILIEU_DHDCD%20thuong%20nien_2026.pdf"
+          },
+          {
+            "text": "Nghị quyết HĐQT số 01.01-2026/NQ-HĐQTFPT ngày 27/01/2026\n30/01/2026 08:20",
+            "href": "https://static2.vietstock.vn/data/HOSE/2026/NGHI%20QUYET%20HDQT/VN/20260128___fpt___nghi_quyet_hdqt_so_01_01_2026.pdf"
+          },
+          {
+            "text": "Nghị quyết HĐQT số 02.01-2026/NQ-HĐQTFPT ngày 27/01/2026\n30/01/2026 08:20",
+            "href": "https://static2.vietstock.vn/data/HOSE/2026/NGHI%20QUYET%20HDQT/VN/20260128___fpt___nghi_quyet_hdqt_so_02_01_2026.pdf"
+          },
+          {
+            "text": "Báo cáo tài chính Công ty mẹ quý 1 năm 2026\n28/04/2026 10:19",
+            "href": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/FPT_Baocaotaichinh_Q1_2026_Congtyme.pdf"
+          },
+          {
+            "text": "Báo cáo tài chính Hợp nhất quý 1 năm 2026\n28/04/2026 10:19",
+            "href": "https://static2.vietstock.vn/data/HOSE/2026/BCTC/VN/QUY%201/FPT_Baocaotaichinh_Q1_2026_Hopnhat.pdf"
+          },
+          {
+            "text": "Báo cáo thường niên năm 2025\n09/04/2026 09:45",
+            "href": "https://static2.vietstock.vn/data/HOSE/2025/BCTN/VN/FPT_Baocaothuongnien_2025.pdf"
+          },
+          {
+            "text": "Giải trình kết quả kinh doanh Hợp nhất Kiểm toán năm 2025\n20/03/2026 17:47",
+            "href": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/NAM/FPT_Giaitrinh_KQKD_2025_Kiemtoan_Hopnhat.pdf"
+          },
+          {
+            "text": "Báo cáo tài chính Hợp nhất Kiểm toán năm 2025\n20/03/2026 11:01",
+            "href": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/NAM/FPT_Baocaotaichinh_2025_Kiemtoan_Hopnhat.pdf"
+          },
+          {
+            "text": "Báo cáo tài chính Công ty mẹ Kiểm toán năm 2025\n20/03/2026 11:01",
+            "href": "https://static2.vietstock.vn/data/HOSE/2025/BCTC/VN/NAM/FPT_Baocaotaichinh_2025_Kiemtoan_Congtyme.pdf"
+          },
+          {
+            "text": "Báo cáo tình hình quản trị năm 2025 (điều chỉnh)\n23/02/2026 15:21",
+            "href": "https://static2.vietstock.vn/data/HOSE/2025/BCTHQT/VN/NAM/FPT_Baocaoquantri_2025_DieuChinh.pdf"
+          },
+          {
+            "text": "Báo cáo tình hình quản trị năm 2025\n02/02/2026 10:31",
+            "href": "https://static2.vietstock.vn/data/HOSE/2025/BCTHQT/VN/NAM/FPT_Baocaoquantri_2025.pdf"
+          },
+          {
+            "text": "Nghị quyết HĐQT về việc tạm ứng cổ tức đợt 1 năm 2025 bằng tiền mặt\n15/11/2025 08:39",
+            "href": "https://static2.vietstock.vn/data/HOSE/2025/NGHI%20QUYET%20HDQT/VN/20251114___fpt___nghi_quyet_hdqt_so_01_11_2025_ve_viec_tam_ung_co_tuc_dot_1_nam_2025_bang_tien.pdf"
+          },
+          {
+            "text": "Nghị quyết HĐQT số 01.07 ngày 30/07/2025\n31/07/2025 17:00",
+            "href": "https://static2.vietstock.vn/data/HOSE/2025/NGHI%20QUYET%20HDQT/VN/20250730___fpt___nghi_quyet_hdqt_so_01_07_2025_ve_viec_tang_von_dieu_le.pdf"
+          },
+          {
+            "text": "Điều lệ năm 2025\n31/07/2025 15:26",
+            "href": "https://static2.vietstock.vn/data/HOSE/2025/KHAC/VN/FPT_DIEULE_2025_1.pdf"
+          },
+          {
+            "text": "Nghị quyết HĐQT về việc lựa chọn công ty kiểm toán BCTC năm 2025\n18/06/2025 16:54",
+            "href": "https://static2.vietstock.vn/data/HOSE/2025/NGHI%20QUYET%20HDQT/VN/20250617___fpt___nghi_quyet_hdqt_so_01_06_2025_ve_viec_lua_chon_don_vi_kiem_toan_bctc_nam_2025.pdf"
+          },
+          {
+            "text": "Điều lệ năm 2025\n22/05/2025 08:20",
+            "href": "https://static2.vietstock.vn/data/HOSE/2025/KHAC/VN/FPT_DIEULE_2025.pdf"
+          },
+          {
+            "text": "Nghị quyết HĐQT về việc tăng Vốn điều lệ sau phát hành ESOP\n22/05/2025 08:54",
+            "href": "https://static2.vietstock.vn/data/HOSE/2025/NGHI%20QUYET%20HDQT/VN/20250520___fpt___nghi_quyet_hdqt_01_05_2025_ve_viec_tang_von_sau_phat_hanh_esop.pdf"
+          },
+          {
+            "text": "Nghị quyết đại hội đồng cổ đông thường niên năm 2025\n18/04/2025 15:59",
+            "href": "https://static2.vietstock.vn/data/HOSE/2025/NGHI%20QUYET%20DHCD/VN/FPT_Nghiquyet_DHDCD%20thuong%20nien_2025.pdf"
+          },
+          {
+            "text": "Báo cáo phân tích",
+            "href": "https://dichvu.vietstock.vn/truyen-thong-tai-chinh/bao-cao-phan-tich"
+          },
+          {
+            "text": "Khóa học online - Đọc hiểu Báo cáo Tài chính",
+            "href": "https://dichvu.vietstock.vn/dao-tao/khoa-hoc-online---doc-hieu-bao-cao-tai-chinh?index=26"
+          },
+          {
+            "text": "Hướng dẫn sử dụng",
+            "href": "https://static1.vietstock.vn/vietstock/2024/VSTF-Huong-dan-su-dung-2024.pdf"
+          },
+          {
+            "text": "Phân ngành VS-Sector",
+            "href": "https://static1.vietstock.vn/vietstock/2024/Vietstock_Phuong-phap-luan-phan-nganh-VSSector-GICS_v2024.pdf"
+          },
+          {
+            "text": "Báo cáo phân tích",
+            "href": "https://finance.vietstock.vn/vi-mo/bao-cao-phan-tich"
+          },
+          {
+            "text": "Báo cáo tài chính",
+            "href": "https://finance.vietstock.vn/tai-lieu/bao-cao-tai-chinh.htm"
+          },
+          {
+            "text": "Báo cáo quản trị",
+            "href": "https://finance.vietstock.vn/tai-lieu/bao-cao-tinh-hinh-quan-tri.htm"
+          },
+          {
+            "text": "Báo cáo thường niên",
+            "href": "https://finance.vietstock.vn/tai-lieu/bao-cao-thuong-nien.htm"
+          },
+          {
+            "text": "Báo cáo phân tích",
+            "href": "https://finance.vietstock.vn/bao-cao-phan-tich"
+          },
+          {
+            "text": "Báo cáo tài chính",
+            "href": "https://finance.vietstock.vn/truy-xuat-du-lieu/bao-cao-tai-chinh.htm"
+          },
+          {
+            "text": "Báo cáo tài chính ngành",
+            "href": "https://finance.vietstock.vn/truy-xuat-du-lieu/bao-cao-tai-chinh-nganh.htm"
+          },
+          {
+            "text": "Vận tải",
+            "href": "https://finance.vietstock.vn/nganh/2030-van-tai-.htm"
+          },
+          {
+            "text": "-  Vận tải và logistics hàng không",
+            "href": "https://finance.vietstock.vn/nganh/203010-van-tai-va-logistics-hang-khong-.htm"
+          },
+          {
+            "text": "-  Vận tải biển",
+            "href": "https://finance.vietstock.vn/nganh/203030-van-tai-bien-.htm"
+          },
+          {
+            "text": "-  Vận tải mặt đất",
+            "href": "https://finance.vietstock.vn/nganh/203040-van-tai-mat-dat-.htm"
+          },
+          {
+            "text": "Khóa học online - Đọc hiểu Báo cáo Tài chính  Khai giảng: 12/05/2026 | Thời gian: Tối 3, 5 | Số buổi: 3 | Học phí: 1.700.000 đ",
+            "href": "https://dichvu.vietstock.vn/dao-tao/khoa-hoc-online---doc-hieu-bao-cao-tai-chinh?index=26"
+          },
+          {
+            "text": "Báo cáo phân tích",
+            "href": "https://dichvu.vietstock.vn/truyen-thong-tai-chinh/bao-cao-phan-tich"
+          },
+          {
+            "text": "DataFeed - Intergrated Economic and Financial Data for Vietnam",
+            "href": "https://dichvu.vietstock.vn/financial-data/datafeed---intergrated-economic-and-financial-data-for-vietnam"
+          },
+          {
+            "text": "VietstockFinance - Financial data and Investment analysis tools",
+            "href": "https://dichvu.vietstock.vn/financial-data/vietstockfinance---financial-data-and-investment-analysis-tools"
+          }
+        ]
+      }
+    }
+  ]
+}
