@@ -7,6 +7,7 @@ base markdown as final artifact instead of faking agent output.
 """
 from __future__ import annotations
 import argparse, json, os, shutil, subprocess, sys
+from subprocess import TimeoutExpired
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -150,7 +151,7 @@ def call_agent(agent_id: str, prompt: str, timeout: int = 180, fallback_shim: bo
     prompt_path.write_text(prompt, encoding="utf-8")
     cli = shutil.which("openclaw")
     if cli:
-        max_prompt = 3500
+        max_prompt = 1800
         if len(prompt) > max_prompt:
             prompt = prompt[:max_prompt] + "\n[TRUNCATED: see tool_outputs/quality_report files in manifest]"
         prompt_path.write_text(prompt, encoding="utf-8")
@@ -159,8 +160,11 @@ def call_agent(agent_id: str, prompt: str, timeout: int = 180, fallback_shim: bo
         cmd = f'"{exe}" agent --agent {agent_id} --session-id {session_id} --message "{prompt.replace(chr(34), chr(39))}" --json --timeout {timeout}'
         env = os.environ.copy()
         env["PYTHONIOENCODING"] = "utf-8"
-        proc = subprocess.run(cmd, cwd=ROOT, text=True, capture_output=True, timeout=timeout + 60, env=env, encoding="utf-8", errors="replace")
-        result = {"runtime": "gateway/openclaw_agent", "called": True, "agent_id": agent_id, "session_id": session_id, "returncode": proc.returncode, "stdout": proc.stdout, "stderr": proc.stderr, "prompt_file": str(prompt_path), "out_file": str(out_path)}
+        try:
+            proc = subprocess.run(cmd, cwd=ROOT, text=True, capture_output=True, timeout=timeout + 60, env=env, encoding="utf-8", errors="replace")
+            result = {"runtime": "gateway/openclaw_agent", "called": True, "agent_id": agent_id, "session_id": session_id, "returncode": proc.returncode, "stdout": proc.stdout, "stderr": proc.stderr, "prompt_file": str(prompt_path), "out_file": str(out_path)}
+        except TimeoutExpired as exc:
+            result = {"runtime": "gateway/openclaw_agent", "called": True, "agent_id": agent_id, "session_id": session_id, "returncode": 124, "stdout": exc.stdout or "", "stderr": (exc.stderr or "") + f"\nTIMEOUT after {timeout + 60}s", "timed_out": True, "prompt_file": str(prompt_path), "out_file": str(out_path)}
         out_path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
         return result
     if not fallback_shim:
@@ -199,7 +203,7 @@ def main() -> int:
     save_json(qpath, quality)
 
     tool_payload = load_json(json_path) if json_path.exists() else {"error": "missing tool json"}
-    summary_payload = json.dumps(tool_payload, ensure_ascii=False)[:2500]
+    summary_payload = json.dumps(tool_payload, ensure_ascii=False)[:1200]
     lead_prompt = f"""Read AGENTS.md. Lead agent for {args.pipeline}.
 Return a Vietnamese Markdown review only.
 Contract:
@@ -237,7 +241,8 @@ Quality: {json.dumps(quality, ensure_ascii=False)}"""
             lead_review_for_final = "[lead omitted: invalid markdown contract; use tool output and quality report only]"
         else:
             lead_review_for_final = (lead_text or "")[:2500]
-    final = call_agent(agent_cfg["final_writer"], final_prompt + "\nValidated lead review:\n" + lead_review_for_final, timeout=args.agent_timeout, fallback_shim=args.fallback_shim, session_suffix=session_suffix + "-final") if args.call_agents else {"called": False, "agent_id": agent_cfg["final_writer"], "reason": "--call-agents not set", "prompt": final_prompt}
+    final_timeout = max(args.agent_timeout * 2, args.agent_timeout + 120)
+    final = call_agent(agent_cfg["final_writer"], final_prompt + "\nValidated lead review:\n" + lead_review_for_final, timeout=final_timeout, fallback_shim=args.fallback_shim, session_suffix=session_suffix + "-final") if args.call_agents else {"called": False, "agent_id": agent_cfg["final_writer"], "reason": "--call-agents not set", "prompt": final_prompt}
     if args.call_agents and final.get("stdout"):
         final_text = extract_agent_text(final["stdout"])
         final["extracted_text_preview"] = (final_text or "")[:300]

@@ -87,7 +87,7 @@ def main() -> int:
     all_errors: list[str] = []
     try:
         for pipeline in PIPELINES:
-            cmd = [sys.executable, "scripts/phase3_orchestrator.py", "--pipeline", pipeline, "--universe", "investable", "--call-agents", "--allow-quality-warnings", "--agent-timeout", "60"]
+            cmd = [sys.executable, "scripts/phase3_orchestrator.py", "--pipeline", pipeline, "--universe", "investable", "--call-agents", "--allow-quality-warnings", "--agent-timeout", "120"]
             print("RUN", " ".join(cmd), flush=True)
             proc = subprocess.run(cmd, cwd=ROOT, text=True, encoding="utf-8", errors="replace")
             if proc.returncode != 0:
