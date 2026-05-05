@@ -1,0 +1,21 @@
+name: eod_market_brief
+description: Production workflow for Vietnam Invest OS
+agents:
+  - market-strategist
+  - financial-news-editor
+  - investment-data-designer
+
+trigger:
+  type: manual_or_schedule
+steps:
+  - load_inputs
+  - validate_freshness
+  - run_agents_parallel_when_possible
+  - merge_outputs
+  - quality_gate
+  - deliver_report
+quality_gate:
+  require_sources: true
+  require_as_of: true
+  require_invalidation: true
+  forbid_unverified_leadership: true

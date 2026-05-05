@@ -1,0 +1,28 @@
+name: fdata_hose_full_universe
+description: Build complete HOSE listed stock dataset from local FData, no liquidity filter.
+trigger:
+  type: manual_or_after_fdata_update
+steps:
+  - decode_fdata_metadata
+  - build_hose_all_bars
+  - compute_hose_full_breadth
+  - run_signal_scanner_on_hose_all_if_requested
+commands:
+  decode_metadata: python scripts/fdata_proto_tool.py --sample FPT,MWG,VCB,SSI
+  build_hose: python scripts/fdata_hose_universe.py --timeframe EOD
+  breadth_hose: python scripts/fdata_hose_breadth.py
+  signal_hose: python scripts/run_pipeline.py --config orchestrator.yaml --pipeline stock_signal_scan --live
+outputs:
+  hose_all_bars_json: data_live/fdata_hose_all_bars.json
+  hose_all_report_md: outputs/fdata_hose_all_bars.md
+  hose_breadth_json: outputs/fdata_hose_breadth.json
+  hose_breadth_md: outputs/fdata_hose_breadth.md
+quality_gate:
+  expected_exchange: HOSE
+  fdata_exchange: HSX
+  no_liquidity_filter: true
+  min_parsed_symbols: 400
+  require_latest_date_single_day: true
+notes:
+  - fdata_investable_bars.json chỉ dùng cho investable/signal filtered universe.
+  - HOSE all listed universe dùng fdata_hose_all_bars.json.

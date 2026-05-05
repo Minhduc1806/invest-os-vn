@@ -1,0 +1,29 @@
+name: fdata_daily_all
+description: Full daily FData pipeline with HOSE all universe and investable signal universe.
+trigger:
+  type: manual_or_after_eod_update
+steps:
+  - refresh_metadata_and_icb
+  - build_hose_full_universe_no_filter
+  - build_investable_filtered_universe
+  - run_hose_quality_report
+  - run_hose_breadth
+  - run_hose_leadership
+  - run_signal_scanner_hose_all
+  - run_signal_scanner_investable
+  - write_daily_summary
+command: python scripts/run_fdata_daily_all.py
+outputs:
+  summary_md: outputs/fdata_daily_all_summary.md
+  summary_json: outputs/fdata_daily_all_summary.json
+  quality: outputs/fdata_hose_quality_report.md
+  breadth: outputs/fdata_hose_breadth.md
+  leadership: outputs/hose_leadership.md
+  signals_hose_all: outputs/stock_signal_scan_hose_all.json
+  signals_investable: outputs/stock_signal_scan_investable.json
+quality_gate:
+  hose_min_bars: 400
+  require_signal_modes:
+    - hose_all
+    - investable
+  no_overwrite_between_modes: true

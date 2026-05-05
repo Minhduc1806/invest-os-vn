@@ -1,0 +1,27 @@
+name: eod_vn_report
+description: Generate complete Vietnam stock market EOD report from FData outputs.
+trigger:
+  type: schedule
+  cron: "15 15 * * 1-5"
+  timezone: Asia/Ho_Chi_Minh
+commands:
+  - python scripts/run_fdata_daily_all.py
+  - python scripts/eod_vn_report.py
+inputs:
+  - outputs/fdata_hose_quality_report.json
+  - outputs/fdata_hose_breadth.json
+  - outputs/hose_leadership.json
+  - outputs/stock_signal_scan_investable.json
+outputs:
+  json: outputs/eod_vn_report.json
+  markdown: outputs/eod_vn_report.md
+universe_rules:
+  market_breadth_leadership: hose_all
+  trade_signal: investable
+  portfolio_action: investable + holdings
+  mixing: forbidden
+quality_gate:
+  require_hose_full_for_market: true
+  require_investable_for_signals: true
+  require_sources: true
+  require_risk_warnings: true

@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Runtime / local state
+.openclaw/
+logs/
+*.log
+
+# Generated run artifacts
+scripts/results/
+outputs/*.tmp
+outputs/*.bak
+
+# Local-only data/secrets
+state/
+data_live/portfolio_real.json

@@ -1,0 +1,41 @@
+name: fdata_metadata_decode
+description: Decode FData Common metadata to recover full ticker/exchange/type/company/sector information.
+trigger:
+  type: manual_or_on_fdata_common_change
+inputs:
+  common_dir: C:\Users\DUC\Documents\FDATA\Common
+  files:
+    - symbols.dat
+    - symbolInfo.dat
+    - ICBs.dat
+    - types.dat
+steps:
+  - read_binary_files
+  - parse_symbols_dat_direct_records
+  - parse_symbolInfo_dat_best_effort_protobuf
+  - build_fieldmap_for_unknown_fields
+  - generate_sector_candidates
+  - validate_sample_tickers
+  - write_data_live_outputs
+outputs:
+  symbols_full: data_live/fdata_symbols_full.json
+  fieldmap: data_live/fdata_proto_fieldmap.json
+  sector_candidates: data_live/fdata_sector_candidates.json
+quality_gate:
+  min_symbols: 1000
+  required_sample_tickers:
+    - FPT
+    - MWG
+    - VCB
+    - SSI
+  required_fields:
+    - ticker
+    - name
+    - exchange
+    - type
+    - code
+next_skill:
+  - fdata_full_market_adapter
+notes:
+  - symbols.dat decode now works for ticker/name/exchange/type/code.
+  - symbolInfo.dat still needs exact industry/ICB reverse-engineering.
