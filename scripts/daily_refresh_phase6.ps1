@@ -1,4 +1,5 @@
 $ErrorActionPreference = "Stop"
+$InformationPreference = "Continue"
 Set-Location "C:\Users\DUC\.openclaw\workspace\invest-os-vn"
 
 $logDir = "logs"
@@ -9,8 +10,13 @@ $log = Join-Path $logDir "phase6_daily_refresh_$stamp.log"
 function Run-Step($name, $cmd) {
   Write-Output "=== $name ===" | Tee-Object -FilePath $log -Append
   Write-Output $cmd | Tee-Object -FilePath $log -Append
-  cmd /c $cmd 2>&1 | Tee-Object -FilePath $log -Append
-  if ($LASTEXITCODE -ne 0) { throw "$name failed with exit code $LASTEXITCODE" }
+  $oldEap = $ErrorActionPreference
+  $ErrorActionPreference = "Continue"
+  $output = & cmd.exe /c $cmd 2>&1
+  $exitCode = $LASTEXITCODE
+  $ErrorActionPreference = $oldEap
+  $output | ForEach-Object { $_.ToString() } | Tee-Object -FilePath $log -Append
+  if ($exitCode -ne 0) { throw "$name failed with exit code $exitCode" }
 }
 
 # TE direct HTTP often 403. If browser-extracted cache already fresh, macro parser validates it.

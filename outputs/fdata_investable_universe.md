@@ -1,6 +1,6 @@
 # FData Investable Universe Filter
 
-As of: 2026-05-05T18:56:16+07:00
+As of: 2026-05-05T19:10:08+07:00
 
 Input: 1677 symbols
 Kept: 247

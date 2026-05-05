@@ -1,7 +1,7 @@
 # Bản tin sau phiên 2026-05-05
 
 ## Kết luận chính
-Thị trường nghiêng risk_off với risk appetite 52.5/100. Bằng chứng chính: VNINDEX 1.12%, value 0 tỷ VND; Breadth adv/dec 0.89 (33/37).
+Thị trường nghiêng risk_off với risk appetite 52.5/100. Bằng chứng chính: VNINDEX 1.12%, value 0 tỷ VND; Breadth adv/dec 0.50 (9/18).
 
 ## Regime & rủi ro
 risk_off | 52.5
@@ -10,8 +10,8 @@ risk_off | 52.5
 | Ngành | % phiên | GTGD tỷ | RS20D |
 | --- | --- | --- | --- |
 | Bất động sản | 5.01% | 0 | 3.19 |
+| Khác | 0.07% | 0 | -0.61 |
 | Ngân hàng | -0.88% | 0 | -0.68 |
-| Bán lẻ | -0.12% | 0 | -0.69 |
 
 ## Cổ phiếu cần theo dõi
 - Câu chuyện PNJ (PNJ): Câu chuyện PNJ

@@ -1,15 +1,15 @@
 {
-  "run_id": "stock_signal_scan_2026-05-05T18:56:17+07:00",
-  "as_of": "2026-05-05T18:56:16+07:00",
+  "run_id": "stock_signal_scan_2026-05-05T19:10:11+07:00",
+  "as_of": "2026-05-05T19:10:08+07:00",
   "pipeline": "stock_signal_scan",
   "universe_mode": "investable",
   "market_regime": {
-    "as_of": "2026-05-05T18:56:05+07:00",
+    "as_of": "2026-05-05T19:09:51+07:00",
     "regime": "risk_off",
     "risk_appetite": 52.5,
     "evidence": [
       "VNINDEX 1.12%, value 0 tỷ VND",
-      "Breadth adv/dec 0.89 (33/37)",
+      "Breadth adv/dec 0.50 (9/18)",
       "Sector positive ratio 50%",
       "Foreign net flow 0 tỷ VND"
     ],
@@ -21,16 +21,16 @@
         "relative_strength_20d": 3.19
       },
       {
+        "name": "Khác",
+        "change_pct": 0.07,
+        "value_bil_vnd": 0,
+        "relative_strength_20d": -0.61
+      },
+      {
         "name": "Ngân hàng",
         "change_pct": -0.88,
         "value_bil_vnd": 0,
         "relative_strength_20d": -0.68
-      },
-      {
-        "name": "Bán lẻ",
-        "change_pct": -0.12,
-        "value_bil_vnd": 0,
-        "relative_strength_20d": -0.69
       }
     ],
     "source": "vnstock_history_adapter_partial_market",

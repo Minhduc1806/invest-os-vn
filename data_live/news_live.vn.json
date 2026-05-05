@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-05-05T18:24:13+07:00",
+  "as_of": "2026-05-05T19:10:09+07:00",
   "source": [
     "Trading Economics",
     "PNJ investor relations",
@@ -9,28 +9,28 @@
     {
       "name": "Trading Economics",
       "url": "https://tradingeconomics.com/vietnam/news",
-      "fetched_at": "2026-05-05T18:24:12+07:00",
+      "fetched_at": "2026-05-05T19:10:09+07:00",
       "error": "HTTP Error 403: Forbidden"
     },
     {
       "name": "PNJ investor relations",
       "url": "https://www.pnj.com.vn/quan-he-co-dong/",
-      "fetched_at": "2026-05-05T18:24:13+07:00",
-      "sha256": "96b58f6ce04ba42eaf3ae4ca320a2e8d15c4512f26ea1ba12fe8849e4446a990"
+      "fetched_at": "2026-05-05T19:10:09+07:00",
+      "sha256": "082870fa37b39567b7fe3201b645a9e1654739748cda0ac5e7ff18057315f983"
     },
     {
       "name": "CafeF lãi suất - tỷ giá",
       "url": "https://cafef.vn/du-lieu/lai-suat-ngan-hang.chn",
-      "fetched_at": "2026-05-05T18:24:13+07:00",
-      "sha256": "7e8475271396d26137841bd129bffd3a1971298771c595588e5ad43995ed6f4e"
+      "fetched_at": "2026-05-05T19:10:09+07:00",
+      "sha256": "062d8f18b9e2c03d85cc45298d8969ea772244059793633734dd2464f97e956a"
     }
   ],
   "items": [
     {
       "title": "Câu chuyện PNJ",
       "url": "https://www.pnj.com.vn/cau-chuyen-pnj.html",
-      "timestamp": "2026-05-05T18:24:13+07:00",
-      "published_at": "2026-05-05T18:24:13+07:00",
+      "timestamp": "2026-05-05T19:10:09+07:00",
+      "published_at": "2026-05-05T19:10:09+07:00",
       "source": "PNJ investor relations",
       "dedupe_key": "3b69ae9372294ef27d1a9487846bf7f43cc15508",
       "tickers": [
@@ -41,8 +41,8 @@
     {
       "title": "Quan hệ cổ đông (IR)",
       "url": "https://www.pnj.com.vn/quan-he-co-dong/dai-hoi-dong-co-dong/",
-      "timestamp": "2026-05-05T18:24:13+07:00",
-      "published_at": "2026-05-05T18:24:13+07:00",
+      "timestamp": "2026-05-05T19:10:09+07:00",
+      "published_at": "2026-05-05T19:10:09+07:00",
       "source": "PNJ investor relations",
       "dedupe_key": "c8127c0e52f8e8f626762383b9a509ad506e19ce",
       "tickers": [
@@ -53,8 +53,8 @@
     {
       "title": "Tài khoản của tôi",
       "url": "https://www.pnj.com.vn/customer/home",
-      "timestamp": "2026-05-05T18:24:13+07:00",
-      "published_at": "2026-05-05T18:24:13+07:00",
+      "timestamp": "2026-05-05T19:10:09+07:00",
+      "published_at": "2026-05-05T19:10:09+07:00",
       "source": "PNJ investor relations",
       "dedupe_key": "7aaf033a5d9dc7b1570885912acb2f96d5ef8eae",
       "tickers": [
@@ -65,8 +65,8 @@
     {
       "title": "Hàng đặt trước",
       "url": "https://www.pnj.com.vn/hang-dat-truoc/?sort_by=timestamp&sort_order=desc?features_hash=43-19673",
-      "timestamp": "2026-05-05T18:24:13+07:00",
-      "published_at": "2026-05-05T18:24:13+07:00",
+      "timestamp": "2026-05-05T19:10:09+07:00",
+      "published_at": "2026-05-05T19:10:09+07:00",
       "source": "PNJ investor relations",
       "dedupe_key": "5300648068cd0aeb85e39c9b284b5aec026d170a",
       "tickers": [
@@ -77,8 +77,8 @@
     {
       "title": "Bảng giá điện tử",
       "url": "https://liveboard.cafef.vn",
-      "timestamp": "2026-05-05T18:24:13+07:00",
-      "published_at": "2026-05-05T18:24:13+07:00",
+      "timestamp": "2026-05-05T19:10:09+07:00",
+      "published_at": "2026-05-05T19:10:09+07:00",
       "source": "CafeF lãi suất - tỷ giá",
       "dedupe_key": "c8071649c6e74c39cc80563176d677dbc21a4c4b",
       "tickers": [],
@@ -87,8 +87,8 @@
     {
       "title": "Danh mục đầu tư",
       "url": "https://cafef.vn/du-lieu/danh-muc-dau-tu.chn",
-      "timestamp": "2026-05-05T18:24:13+07:00",
-      "published_at": "2026-05-05T18:24:13+07:00",
+      "timestamp": "2026-05-05T19:10:09+07:00",
+      "published_at": "2026-05-05T19:10:09+07:00",
       "source": "CafeF lãi suất - tỷ giá",
       "dedupe_key": "8f9ca38c37c636d6ef0e9eb4a8de0d667170deb5",
       "tickers": [],
@@ -97,8 +97,8 @@
     {
       "title": "Đổi mật khẩu",
       "url": "https://cafef.vn/thay-doi-mat-khau.chn",
-      "timestamp": "2026-05-05T18:24:13+07:00",
-      "published_at": "2026-05-05T18:24:13+07:00",
+      "timestamp": "2026-05-05T19:10:09+07:00",
+      "published_at": "2026-05-05T19:10:09+07:00",
       "source": "CafeF lãi suất - tỷ giá",
       "dedupe_key": "5ab232bff6e72a967f4e833d57ec0c9d3effbfbc",
       "tickers": [],
@@ -107,8 +107,8 @@
     {
       "title": "Đọc nhanh >>",
       "url": "https://cafef.vn/doc-nhanh.chn",
-      "timestamp": "2026-05-05T18:24:13+07:00",
-      "published_at": "2026-05-05T18:24:13+07:00",
+      "timestamp": "2026-05-05T19:10:09+07:00",
+      "published_at": "2026-05-05T19:10:09+07:00",
       "source": "CafeF lãi suất - tỷ giá",
       "dedupe_key": "b354f2011f4eaa2eb72da48af373d9ca1cb4eec0",
       "tickers": [],
