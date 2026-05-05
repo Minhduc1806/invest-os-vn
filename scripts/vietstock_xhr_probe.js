@@ -1,0 +1,7 @@
+const { chromium } = require('playwright');
+const fs=require('fs'), path=require('path'); const ROOT=path.resolve(__dirname,'..');
+(async()=>{const browser=await chromium.launch({headless:true}); const page=await browser.newPage({viewport:{width:1440,height:1200}}); const events=[];
+page.on('request',r=>{if(['xhr','fetch','document'].includes(r.resourceType()))events.push({k:'req',t:r.resourceType(),m:r.method(),u:r.url(),post:r.postData()});});
+page.on('response',async r=>{let rt=r.request().resourceType(); if(!['xhr','fetch','document'].includes(rt))return; let h=r.headers()['content-type']||'', body=''; try{if(/json|html|text/i.test(h))body=(await r.text()).slice(0,3000)}catch(e){} events.push({k:'res',t:rt,s:r.status(),u:r.url(),ct:h,body});});
+for(const u of ['https://finance.vietstock.vn/FPT/tai-chinh.htm','https://finance.vietstock.vn/FPT/bao-cao-tai-chinh.htm']){try{await page.goto(u,{waitUntil:'domcontentloaded',timeout:45000}); await page.waitForTimeout(10000);}catch(e){events.push({k:'err',u,error:String(e)})}}
+const tables=await page.$$eval('table',ts=>ts.map((t,i)=>({i,id:t.id,cls:t.className,text:t.innerText.slice(0,2000)}))); await page.screenshot({path:path.join(ROOT,'outputs','vietstock_xhr_probe.png'),fullPage:true}).catch(()=>{}); await browser.close(); const out={as_of:new Date().toISOString(),events,tables}; fs.writeFileSync(path.join(ROOT,'data_live','vietstock_xhr_probe.vn.json'),JSON.stringify(out,null,2),'utf8'); console.log(JSON.stringify(out,null,2).slice(0,8000));})();
