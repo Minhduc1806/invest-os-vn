@@ -1,10 +1,10 @@
 {
-  "as_of": "2026-05-05T20:09:58+07:00",
+  "as_of": "2026-05-05T23:08:16+07:00",
   "source": [
     {
       "name": "Trading Economics",
       "url": "https://tradingeconomics.com/vietnam/stock-market",
-      "fetched_at": "2026-05-05T20:09:51+07:00",
+      "fetched_at": "2026-05-05T23:08:09+07:00",
       "sha256": null,
       "error_code": "provider_down",
       "error": "HTTP Error 403: Forbidden"
@@ -12,7 +12,7 @@
     {
       "name": "Trading Economics interest rate",
       "url": "C:\\Users\\DUC\\.openclaw\\workspace\\invest-os-vn\\data_live\\raw\\te_interest_rate_fetch_text.txt",
-      "fetched_at": "2026-05-05T20:09:51+07:00",
+      "fetched_at": "2026-05-05T23:08:09+07:00",
       "sha256": "03fdb469ce3e0b764e24cfac927b58f30c94404fc396b33cb2d6cd1ad0523dfe",
       "source_mode": "extracted_text_cache",
       "fallback_from": "https://tradingeconomics.com/vietnam/interest-rate"
@@ -20,50 +20,50 @@
     {
       "name": "World Bank CPI",
       "url": "https://api.worldbank.org/v2/country/VN/indicator/FP.CPI.TOTL.ZG?format=json&per_page=5",
-      "fetched_at": "2026-05-05T20:09:51+07:00",
+      "fetched_at": "2026-05-05T23:08:10+07:00",
       "sha256": "1b807381782fa59a82b238bf626f4cd8e19802744dbf605f066ecfa0cd341569"
     },
     {
       "name": "World Bank unemployment",
       "url": "https://api.worldbank.org/v2/country/VN/indicator/SL.UEM.TOTL.ZS?format=json&per_page=5",
-      "fetched_at": "2026-05-05T20:09:51+07:00",
+      "fetched_at": "2026-05-05T23:08:10+07:00",
       "sha256": "1fd8a24251c2a807e5150959c110fef6e47988d6423dca3b4300898cc987129b"
     },
     {
       "name": "SBV interest rates",
       "url": "https://www.sbv.gov.vn/webcenter/portal/vi/menu/trangchu/lstk",
-      "fetched_at": "2026-05-05T20:09:54+07:00",
-      "sha256": "c5ff452dac9ee37c3f464bbda890be0900a8c1ff60a4f7754da64f8a1bed7e3c"
+      "fetched_at": "2026-05-05T23:08:12+07:00",
+      "sha256": "685be3117a54961b5867408d13b787f83e3829f6ea2dda97c7751553b78bf757"
     },
     {
       "name": "SBV exchange rates",
       "url": "https://www.sbv.gov.vn/webcenter/portal/vi/menu/rm/tygia",
-      "fetched_at": "2026-05-05T20:09:56+07:00",
-      "sha256": "2f6a2fce8dbea77e14c4ccd04314077481f05f4c7f531234bb6115e1970efc90"
+      "fetched_at": "2026-05-05T23:08:15+07:00",
+      "sha256": "378dd06988f5872a0bb324593b3667efafa401a89adb3775570499898beb459b"
     },
     {
       "name": "CafeF",
       "url": "https://cafef.vn/du-lieu/lai-suat-ngan-hang.chn",
-      "fetched_at": "2026-05-05T20:09:57+07:00",
-      "sha256": "a289cff941b1906deff1ebc341948f8cf154e1cf4dbcc67dae0d2ffbe1a01622"
+      "fetched_at": "2026-05-05T23:08:15+07:00",
+      "sha256": "0f93a6d977b80311aa8e74cc310e32f1c9d4f65679492a63f9f26091ddd4b489"
     },
     {
       "name": "WebGia deposit rates",
       "url": "https://webgia.com/lai-suat/",
-      "fetched_at": "2026-05-05T20:09:57+07:00",
-      "sha256": "61746cb37f2ee3981dc6010c3654db3bca342812095d0504b8ff5a61e5ce2225"
+      "fetched_at": "2026-05-05T23:08:16+07:00",
+      "sha256": "9c030366f87ce524121c0965e407d95cba3ed5a4d373b8b3beb05a993c6f458a"
     },
     {
       "name": "WebGia USD FX",
       "url": "https://webgia.com/ty-gia/usd/",
-      "fetched_at": "2026-05-05T20:09:57+07:00",
+      "fetched_at": "2026-05-05T23:08:16+07:00",
       "sha256": "6b3c238ebcf1f3c07cf0e556faa82c6b8fe96840ff4b6b7e9962a2d855843a0b"
     },
     {
       "name": "Vietcombank exchange rates",
       "url": "https://portal.vietcombank.com.vn/UserControls/TVPortal.TyGia/pXML.aspx",
-      "fetched_at": "2026-05-05T20:09:58+07:00",
-      "sha256": "5f503945544767e31b9f8fd7744579b4495cc3d0952d1aa4e087c25048dcc418"
+      "fetched_at": "2026-05-05T23:08:16+07:00",
+      "sha256": "fc0ff0ed0601097f6356608d9fc2748585e369e2cf282d908a096a277b2ed71f"
     }
   ],
   "rates": {
@@ -71,36 +71,170 @@
       "value": 4.5,
       "unit": "percent",
       "source": "Trading Economics / State Bank of Vietnam",
-      "timestamp": "2026-05-05T20:09:58+07:00"
+      "timestamp": "2026-05-05T23:08:16+07:00"
     },
     "deposit_rates": {
       "unit": "%/year",
       "by_bank": {
-        "Agribank": {
-          "24m": {
-            "value": 5.3,
-            "source": "WebGia",
-            "source_quality": "secondary",
-            "confidence": 0.55
-          }
-        },
-        "BIDV": {
+        "ABBank": {
+          "1m": {
+            "value": 3.6,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
           "3m": {
-            "value": 2.3,
-            "source": "WebGia",
-            "source_quality": "secondary",
-            "confidence": 0.55
+            "value": 3.8,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "6m": {
+            "value": 6.05,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "9m": {
+            "value": 6.05,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "12m": {
+            "value": 6.05,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "18m": {
+            "value": 5.6,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "24m": {
+            "value": 5.6,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
           }
         },
         "Hong Leong": {
-          "3m": {
-            "value": 4.3,
+          "6m": {
+            "value": 4.37,
+            "source": "WebGia",
+            "source_quality": "secondary",
+            "confidence": 0.55
+          },
+          "9m": {
+            "value": 7.33,
             "source": "WebGia",
             "source_quality": "secondary",
             "confidence": 0.55
           }
         },
-        "OCB": {
+        "MB": {
+          "1m": {
+            "value": 3.7,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "3m": {
+            "value": 4.1,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "6m": {
+            "value": 4.6,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "9m": {
+            "value": 4.6,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "12m": {
+            "value": 6.3,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "18m": {
+            "value": 6.3,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "24m": {
+            "value": 7.2,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          }
+        },
+        "PGBank": {
+          "3m": {
+            "value": 4.75,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "13m": {
+            "value": 6.3,
+            "source": "WebGia",
+            "source_quality": "secondary",
+            "confidence": 0.55
+          },
+          "1m": {
+            "value": 4.75,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "6m": {
+            "value": 6.6,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "9m": {
+            "value": 6.6,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "12m": {
+            "value": 6.7,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "18m": {
+            "value": 6.8,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "24m": {
+            "value": 6.8,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          }
+        },
+        "Saigonbank": {
+          "3m": {
+            "value": 4.37,
+            "source": "WebGia",
+            "source_quality": "secondary",
+            "confidence": 0.55
+          },
           "13m": {
             "value": 6.3,
             "source": "WebGia",
@@ -108,65 +242,887 @@
             "confidence": 0.55
           }
         },
-        "PVcomBank": {
-          "3m": {
-            "value": 3.3,
-            "source": "WebGia",
-            "source_quality": "secondary",
-            "confidence": 0.55
-          }
-        },
-        "VIB": {
-          "9m": {
-            "value": 5.3,
-            "source": "WebGia",
-            "source_quality": "secondary",
-            "confidence": 0.55
-          }
-        },
-        "Vietcombank": {
-          "36m": {
-            "value": 6.3,
-            "source": "WebGia",
-            "source_quality": "secondary",
-            "confidence": 0.55
-          }
-        },
-        "VietinBank": {
+        "SCB": {
           "1m": {
             "value": 0.3,
             "source": "WebGia",
             "source_quality": "secondary",
             "confidence": 0.55
+          },
+          "24m": {
+            "value": 3.39,
+            "source": "WebGia",
+            "source_quality": "secondary",
+            "confidence": 0.55
+          }
+        },
+        "MSB": {
+          "1m": {
+            "value": 3.6,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "3m": {
+            "value": 3.6,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "6m": {
+            "value": 4.7,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "9m": {
+            "value": 4.7,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "12m": {
+            "value": 5.3,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "18m": {
+            "value": 5.3,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "24m": {
+            "value": 5.3,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          }
+        },
+        "ACB": {
+          "1m": {
+            "value": 4.0,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "3m": {
+            "value": 4.4,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "6m": {
+            "value": 4.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "9m": {
+            "value": 4.7,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "12m": {
+            "value": 5.3,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "18m": {
+            "value": 5.4,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "24m": {
+            "value": 5.4,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          }
+        },
+        "Agribank": {
+          "1m": {
+            "value": 2.6,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "3m": {
+            "value": 2.9,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "6m": {
+            "value": 4.0,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "9m": {
+            "value": 4.0,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "12m": {
+            "value": 5.9,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "18m": {
+            "value": 5.9,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "24m": {
+            "value": 6.0,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          }
+        },
+        "BIDV": {
+          "1m": {
+            "value": 2.1,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "3m": {
+            "value": 2.4,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "6m": {
+            "value": 3.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "9m": {
+            "value": 3.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "12m": {
+            "value": 5.9,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "18m": {
+            "value": 5.9,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "24m": {
+            "value": 6.0,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          }
+        },
+        "KienlongBank": {
+          "1m": {
+            "value": 3.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "3m": {
+            "value": 3.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "6m": {
+            "value": 5.3,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "9m": {
+            "value": 4.9,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "12m": {
+            "value": 5.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "18m": {
+            "value": 5.05,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "24m": {
+            "value": 5.05,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          }
+        },
+        "LPBank": {
+          "1m": {
+            "value": 4.4,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "3m": {
+            "value": 4.4,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "6m": {
+            "value": 6.2,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "9m": {
+            "value": 6.2,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "12m": {
+            "value": 6.3,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "18m": {
+            "value": 6.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "24m": {
+            "value": 6.6,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          }
+        },
+        "OCB": {
+          "1m": {
+            "value": 4.75,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "3m": {
+            "value": 4.75,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "6m": {
+            "value": 6.4,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "9m": {
+            "value": 6.4,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "12m": {
+            "value": 6.7,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "18m": {
+            "value": 6.6,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "24m": {
+            "value": 6.8,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          }
+        },
+        "SeABank": {
+          "1m": {
+            "value": 3.95,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "3m": {
+            "value": 4.45,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "6m": {
+            "value": 4.75,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "9m": {
+            "value": 4.95,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "12m": {
+            "value": 5.1,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "18m": {
+            "value": 5.75,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "24m": {
+            "value": 5.75,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          }
+        },
+        "TPBank": {
+          "1m": {
+            "value": 4.2,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "3m": {
+            "value": 4.2,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "6m": {
+            "value": 5.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "18m": {
+            "value": 5.9,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          }
+        },
+        "VIB": {
+          "1m": {
+            "value": 4.55,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "3m": {
+            "value": 4.75,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "6m": {
+            "value": 5.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "9m": {
+            "value": 5.6,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "12m": {
+            "value": 6.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "18m": {
+            "value": 5.7,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "24m": {
+            "value": 5.8,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          }
+        },
+        "Vietcombank": {
+          "1m": {
+            "value": 2.1,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "3m": {
+            "value": 2.4,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "6m": {
+            "value": 3.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "9m": {
+            "value": 3.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "12m": {
+            "value": 5.9,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "24m": {
+            "value": 6.0,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          }
+        },
+        "VietinBank": {
+          "1m": {
+            "value": 2.1,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "3m": {
+            "value": 2.4,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "6m": {
+            "value": 3.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "9m": {
+            "value": 3.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "12m": {
+            "value": 5.9,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "18m": {
+            "value": 5.9,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "24m": {
+            "value": 6.0,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
           }
         },
         "VPBank": {
-          "13m": {
-            "value": 6.36,
-            "source": "WebGia",
-            "source_quality": "secondary",
-            "confidence": 0.55
+          "1m": {
+            "value": 4.75,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "3m": {
+            "value": 4.75,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "6m": {
+            "value": 5.9,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "9m": {
+            "value": 6.1,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "12m": {
+            "value": 6.1,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "18m": {
+            "value": 6.1,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "24m": {
+            "value": 5.4,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
           }
         },
-        "VRB": {
+        "SHB": {
+          "1m": {
+            "value": 3.9,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "3m": {
+            "value": 4.2,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "6m": {
+            "value": 5.2,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "9m": {
+            "value": 5.2,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "12m": {
+            "value": 5.6,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "18m": {
+            "value": 5.7,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
           "24m": {
-            "value": 5.3,
-            "source": "WebGia",
-            "source_quality": "secondary",
-            "confidence": 0.55
+            "value": 5.8,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          }
+        },
+        "HDBank": {
+          "1m": {
+            "value": 3.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "3m": {
+            "value": 3.6,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "6m": {
+            "value": 5.4,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "9m": {
+            "value": 5.2,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "12m": {
+            "value": 5.7,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "18m": {
+            "value": 6.0,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "24m": {
+            "value": 5.4,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          }
+        },
+        "NCB": {
+          "1m": {
+            "value": 4.3,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "3m": {
+            "value": 4.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "6m": {
+            "value": 6.0,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "9m": {
+            "value": 6.05,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "12m": {
+            "value": 6.07,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "18m": {
+            "value": 6.0,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "24m": {
+            "value": 5.9,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          }
+        },
+        "VietABank": {
+          "1m": {
+            "value": 4.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "3m": {
+            "value": 4.7,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "6m": {
+            "value": 5.9,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "9m": {
+            "value": 5.9,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "12m": {
+            "value": 6.0,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "18m": {
+            "value": 6.1,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "24m": {
+            "value": 6.2,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          }
+        },
+        "Sacombank": {
+          "1m": {
+            "value": 4.75,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "3m": {
+            "value": 4.75,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "6m": {
+            "value": 6.6,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "9m": {
+            "value": 6.6,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "12m": {
+            "value": 6.6,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "18m": {
+            "value": 6.6,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "24m": {
+            "value": 7.0,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          }
+        },
+        "Eximbank": {
+          "1m": {
+            "value": 3.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "3m": {
+            "value": 3.6,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "6m": {
+            "value": 4.7,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "9m": {
+            "value": 4.7,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "12m": {
+            "value": 5.0,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "18m": {
+            "value": 5.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "24m": {
+            "value": 5.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          }
+        },
+        "VietBank": {
+          "1m": {
+            "value": 4.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "3m": {
+            "value": 4.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "6m": {
+            "value": 6.0,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "9m": {
+            "value": 6.1,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "12m": {
+            "value": 6.2,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "18m": {
+            "value": 6.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
+          },
+          "24m": {
+            "value": 6.5,
+            "source": "CafeF",
+            "source_quality": "primary",
+            "confidence": 0.85
           }
         }
       },
       "source": "CafeF primary; WebGia secondary",
       "source_quality": "mixed",
-      "confidence": 0.55,
-      "timestamp": "2026-05-05T20:09:58+07:00"
+      "confidence": 0.85,
+      "timestamp": "2026-05-05T23:08:16+07:00"
     },
     "usd_vnd": {
       "value": 26126.0,
       "unit": "VND/USD",
       "source": "CafeF/SBV",
-      "timestamp": "2026-05-05T20:09:58+07:00"
+      "timestamp": "2026-05-05T23:08:16+07:00"
     }
   },
   "series": [
@@ -176,7 +1132,7 @@
       "unit": "percent",
       "reference_period": "latest",
       "source": "Trading Economics / State Bank of Vietnam",
-      "timestamp": "2026-05-05T20:09:51+07:00"
+      "timestamp": "2026-05-05T23:08:09+07:00"
     },
     {
       "name": "Vietnam Inflation Rate",
@@ -184,7 +1140,7 @@
       "unit": "percent",
       "reference_period": "2024",
       "source": "World Bank",
-      "timestamp": "2026-05-05T20:09:51+07:00"
+      "timestamp": "2026-05-05T23:08:10+07:00"
     },
     {
       "name": "Vietnam Unemployment Rate",
@@ -192,7 +1148,7 @@
       "unit": "percent",
       "reference_period": "2025",
       "source": "World Bank",
-      "timestamp": "2026-05-05T20:09:51+07:00"
+      "timestamp": "2026-05-05T23:08:10+07:00"
     }
   ],
   "parse_quality": {
@@ -200,8 +1156,7 @@
     "missing_fields": [],
     "warnings": [
       "Trading Economics:provider_down:HTTP Error 403: Forbidden",
-      "Trading Economics interest rate:provider_down:HTTP Error 403: Forbidden;used_extracted_text_cache",
-      "CafeF deposit primary parser: no stable bank-tenor table parsed"
+      "Trading Economics interest rate:provider_down:HTTP Error 403: Forbidden;used_extracted_text_cache"
     ]
   },
   "quality_score": 0.95,

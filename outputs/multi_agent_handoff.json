@@ -1,0 +1,177 @@
+{
+  "as_of": "2026-05-05T23:11:54+07:00",
+  "pipeline": "daily_production",
+  "handoffs": [
+    {
+      "agent": "market-strategist",
+      "output": {
+        "regime": "neutral",
+        "breadth": {
+          "advancers": 9,
+          "decliners": 18,
+          "unchanged": 0,
+          "new_high_20d": null,
+          "new_low_20d": null
+        },
+        "indices": [
+          {
+            "symbol": "VNINDEX",
+            "close": 1874.85,
+            "change_pct": 1.12,
+            "volume_mn": 773.45,
+            "value_bil_vnd": 0,
+            "above_ma20_pct": 100.0
+          },
+          {
+            "symbol": "VN30",
+            "close": 2032.3,
+            "change_pct": 0.88,
+            "volume_mn": 340.36,
+            "value_bil_vnd": 0,
+            "above_ma20_pct": 100.0
+          },
+          {
+            "symbol": "HNXINDEX",
+            "close": 247.42,
+            "change_pct": -1.05,
+            "volume_mn": 68.28,
+            "value_bil_vnd": 0,
+            "above_ma20_pct": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "agent": "rates-fixed-income-analyst",
+      "input_from": [
+        "market-strategist"
+      ],
+      "output": {
+        "policy_rate_pct": 4.5,
+        "deposit_confidence": 0.85
+      }
+    },
+    {
+      "agent": "fundamental-analyst",
+      "input_from": [
+        "market-strategist",
+        "rates-fixed-income-analyst"
+      ],
+      "output": {
+        "deep_dive": [
+          {
+            "ticker": "FPT",
+            "fundamental_score": 75,
+            "thesis": "- Công nghệ:+ Nhóm dịch vụ: Tư vấn Chuyển đổi số, Chuyển đổi xanh và Chuyển đổi trí tuệ nhân tạo; Thiết kế, triển khai, tích hợp, vận hành, bảo trì, kiểm thử... các hệ thống CNTT; Dịch vụ an toàn, an ninh mạng; Cung cấp các giải pháp dựa trên các nền tảng công",
+            "key_risks": [
+              "financial_statement_empty_free_provider; deep dive limited to real company profile"
+            ]
+          },
+          {
+            "ticker": "MWG",
+            "fundamental_score": 75,
+            "thesis": "- Lĩnh vực hoạt động chủ yếu là: mua bán, bảo hành, sửa chữa: thiết bị tin học, điện thoại, linh kiện và phụ kiện điện thoại với thương hiệu Thế Giới Di Động, các mặt hàng điện máy với thương hiệu Điện Máy Xanh, các mặt hàng lương thực, thực phẩm, đồ uống và c",
+            "key_risks": [
+              "financial_statement_empty_free_provider; deep dive limited to real company profile"
+            ]
+          },
+          {
+            "ticker": "VCB",
+            "fundamental_score": 75,
+            "thesis": "- Dịch vụ tài khoản; huy động vốn (tiền gửi tiết kiệm, trái phiếu, kỳ phiếu); cho vay (ngăn, trung, dài hạn); bảo lãnh; chiết khấu chứng từ; thanh toán quốc tế; chuyển tiền; thẻ; nhờ thu; mua bán ngoại tệ; ngân hàng đại lý; bao thanh toán; Các dịch vụ khác the",
+            "key_risks": [
+              "financial_statement_empty_free_provider; deep dive limited to real company profile"
+            ]
+          },
+          {
+            "ticker": "SSI",
+            "fundamental_score": 75,
+            "thesis": "- Dịch vụ chứng khoán. - Dịch vụ ngân hàng đầu tư. - Quản lý quỹ, nguồn vốn và kinh doanh tài chính",
+            "key_risks": [
+              "financial_statement_empty_free_provider; deep dive limited to real company profile"
+            ]
+          }
+        ],
+        "limitation": "Finance statements empty in free vnstock; no full valuation"
+      }
+    },
+    {
+      "agent": "equity-technical-analyst",
+      "input_from": [
+        "market-strategist",
+        "fundamental-analyst"
+      ],
+      "output": {
+        "scan_file": "outputs/stock_signal_scan_investable.json"
+      }
+    },
+    {
+      "agent": "quant-researcher",
+      "input_from": [
+        "equity-technical-analyst"
+      ],
+      "output": {
+        "backtest_files": [
+          "outputs/historical_backtest.md",
+          "outputs/rolling_walk_forward_backtest.md"
+        ]
+      }
+    },
+    {
+      "agent": "portfolio-advisor",
+      "input_from": [
+        "market-strategist",
+        "equity-technical-analyst",
+        "quant-researcher"
+      ],
+      "output": {
+        "portfolio_file": "outputs/portfolio_daily.json"
+      }
+    },
+    {
+      "agent": "wealth-asset-manager",
+      "input_from": [
+        "portfolio-advisor",
+        "rates-fixed-income-analyst"
+      ],
+      "output": {
+        "asset_ledger_status": "not_live_configured"
+      }
+    },
+    {
+      "agent": "financial-news-editor",
+      "input_from": [
+        "market-strategist",
+        "rates-fixed-income-analyst",
+        "fundamental-analyst",
+        "equity-technical-analyst",
+        "quant-researcher",
+        "portfolio-advisor",
+        "wealth-asset-manager"
+      ],
+      "output": {
+        "news_count": 7,
+        "digest_file": "outputs/telegram_digest.txt"
+      }
+    },
+    {
+      "agent": "investment-data-designer",
+      "input_from": [
+        "market-strategist",
+        "rates-fixed-income-analyst",
+        "fundamental-analyst",
+        "equity-technical-analyst",
+        "quant-researcher",
+        "portfolio-advisor",
+        "wealth-asset-manager",
+        "financial-news-editor"
+      ],
+      "output": {
+        "dashboard_file": "outputs/dashboard.html",
+        "validation": "validated_json_only"
+      }
+    }
+  ],
+  "status": "deterministic_handoff_loop_complete",
+  "autonomy_level": "scripted_autonomous; not LLM subagent runtime"
+}

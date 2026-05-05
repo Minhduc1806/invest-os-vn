@@ -1,0 +1,38 @@
+{
+  "as_of": "2026-05-05T23:12:36+07:00",
+  "completion_pct": 83.3,
+  "items": [
+    {
+      "name": "vnstock_rate_limit_hardening",
+      "done": true,
+      "note": "run_pipeline --no-refresh + cache-first market refresh + data_adapters throttle/stop"
+    },
+    {
+      "name": "fundamentals_full_financials",
+      "done": false,
+      "note": "Company.overview real; Finance tables empty in free vnstock, full valuation blocked until paid/API source"
+    },
+    {
+      "name": "true_multi_agent_workflow",
+      "done": true,
+      "note": "deterministic handoff file outputs/multi_agent_handoff.json; not LLM subagent loop"
+    },
+    {
+      "name": "dashboard_advanced",
+      "done": true,
+      "note": "static HTML now has inline charts, ticker filter, quality/history links, portfolio drilldown"
+    },
+    {
+      "name": "daily_production_run_proven",
+      "done": true,
+      "note": "daily_refresh_phase6.ps1 defaults cache-first, optional throttled provider refresh, E2E cache-first, digest/dashboard/audit"
+    },
+    {
+      "name": "quality_score_drift",
+      "done": true,
+      "note": "macro rerun should show CafeF confidence 0.85"
+    }
+  ],
+  "macro_deposit_confidence": 0.85,
+  "fundamental_status": "real_profile_fundamental_layer"
+}
