@@ -111,6 +111,14 @@ def normalize_bank_name(cell: str) -> str | None:
     key = re.sub(r"[^a-z0-9 ]", "", text.lower()).strip()
     return BANK_ALIASES.get(key)
 
+def add_deposit_source_quality(by_bank: dict[str, Any], source: str = "WebGia") -> dict[str, Any]:
+    quality = "secondary" if source == "WebGia" else "primary"
+    confidence = 0.55 if source == "WebGia" else 0.85
+    return {
+        bank: {tenor: {"value": rate, "source": source, "source_quality": quality, "confidence": confidence} for tenor, rate in rates.items()}
+        for bank, rates in by_bank.items()
+    }
+
 def parse_webgia_deposit_rates(html: str) -> dict[str, Any]:
     tenors = VALID_TENORS
     by_bank: dict[str, dict[str, float]] = {}
@@ -326,7 +334,7 @@ def main() -> int:
         "source": sources_meta,
         "rates": {
             "policy_rate_pct": {"value": policy.get("value") if policy else None, "unit": "percent", "source": policy.get("source") if policy else "Trading Economics/SBV", "timestamp": now_iso()},
-            "deposit_rates": {"unit": "%/year", "by_bank": deposit_rates, "source": "WebGia", "timestamp": now_iso()},
+            "deposit_rates": {"unit": "%/year", "by_bank": add_deposit_source_quality(deposit_rates, "WebGia"), "source": "WebGia", "source_quality": "secondary", "confidence": 0.55, "timestamp": now_iso()},
             "usd_vnd": {"value": usd_vnd, "unit": "VND/USD", "source": "CafeF/SBV", "timestamp": now_iso()},
         },
         "series": series,

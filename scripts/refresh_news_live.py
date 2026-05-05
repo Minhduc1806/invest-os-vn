@@ -17,6 +17,8 @@ from urllib.parse import urljoin
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data_live" / "news_live.vn.json"
+RAW = ROOT / "data_live" / "raw"
+TE_CACHE = RAW / "te_news_fetch_text.txt"
 SOURCES = [
     {"name": "Trading Economics", "url": "https://tradingeconomics.com/vietnam/news"},
     {"name": "PNJ investor relations", "url": "https://www.pnj.com.vn/quan-he-co-dong/"},
@@ -27,6 +29,15 @@ DIRTY = re.compile(r"\b(mock|sample|placeholder|TBD)\b", re.I)
 
 def now_iso() -> str:
     return datetime.now().astimezone().isoformat(timespec="seconds")
+
+
+def read_text_cache(path: Path) -> str:
+    if not path.exists():
+        raise FileNotFoundError(str(path))
+    age_min = (datetime.now().astimezone() - datetime.fromtimestamp(path.stat().st_mtime).astimezone()).total_seconds() / 60
+    if age_min > 1440:
+        raise RuntimeError(f"stale_te_news_cache>{int(age_min)}m")
+    return path.read_text(encoding="utf-8", errors="replace")
 
 
 def fetch(url: str) -> str:
@@ -40,6 +51,30 @@ def strip(text: str) -> str:
     text = re.sub(r"<style.*?</style>", " ", text, flags=re.S | re.I)
     text = re.sub(r"<[^>]+>", " ", text)
     return re.sub(r"\s+", " ", text).strip()
+
+
+def extract_te_text_items(source: dict[str, str], text: str, limit: int = 5) -> list[dict[str, str]]:
+    items: list[dict[str, str]] = []
+    for line in [x.strip(" -•\t") for x in text.splitlines()]:
+        if len(line) < 18 or DIRTY.search(line):
+            continue
+        if not re.search(r"Vietnam|VN|VND|stock|market|interest|inflation|econom", line, re.I):
+            continue
+        key = hashlib.sha1((source["url"] + line).encode("utf-8")).hexdigest()
+        items.append({
+            "title": line[:220],
+            "url": source["url"],
+            "timestamp": now_iso(),
+            "published_at": now_iso(),
+            "source": source["name"],
+            "source_mode": "extracted_text_cache",
+            "dedupe_key": key,
+            "tickers": [],
+            "summary": line[:240],
+        })
+        if len(items) >= limit:
+            break
+    return items
 
 
 def extract_links(source: dict[str, str], html: str, limit: int = 5) -> list[dict[str, str]]:
@@ -118,6 +153,18 @@ def main() -> int:
             meta.append({"name": src["name"], "url": src["url"], "fetched_at": now_iso(), "sha256": hashlib.sha256(html.encode("utf-8")).hexdigest()})
             all_items.extend(extract_links(src, html, limit=4))
         except Exception as exc:
+            if src["name"] == "Trading Economics":
+                try:
+                    text = read_text_cache(TE_CACHE)
+                    sha = hashlib.sha256(text.encode("utf-8")).hexdigest()
+                    all_items.extend(extract_te_text_items(src, text, limit=4))
+                    warnings.append(f"{src['name']}:provider_down:{exc};used_extracted_text_cache")
+                    meta.append({"name": src["name"], "url": str(TE_CACHE), "fallback_from": src["url"], "fetched_at": now_iso(), "sha256": sha, "source_mode": "extracted_text_cache"})
+                    continue
+                except Exception as cache_exc:
+                    warnings.append(f"{src['name']}:provider_down:{exc};cache:{cache_exc}")
+                    meta.append({"name": src["name"], "url": src["url"], "fetched_at": now_iso(), "error": f"{exc}; cache:{cache_exc}"})
+                    continue
             warnings.append(f"{src['name']}:provider_down:{exc}")
             meta.append({"name": src["name"], "url": src["url"], "fetched_at": now_iso(), "error": str(exc)})
     deduped = list({item["dedupe_key"]: item for item in all_items}.values())
