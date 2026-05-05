@@ -1,0 +1,20 @@
+{
+  "as_of": "2026-05-05T23:46:54+07:00",
+  "engines": {
+    "rapidocr_onnxruntime": {
+      "available": true,
+      "module": "<module 'rapidocr_onnxruntime' from 'C:\\\\Python314\\\\Lib\\\\site-packages\\\\rapidocr_onnxruntime\\\\__init__.py'>",
+      "onnxruntime": "1.25.0"
+    },
+    "paddleocr_ppstructure": {
+      "available": false,
+      "paddleocr_version": "3.5.0",
+      "paddle_version": null,
+      "error": "paddle runtime missing; Python 3.14 has no paddlepaddle wheel"
+    },
+    "tesseract": {
+      "available": false,
+      "error": "not installed or not on PATH; winget installer hung/was terminated"
+    }
+  }
+}
