@@ -1,15 +1,15 @@
 {
-  "run_id": "eod_market_brief_2026-05-05T17:01:48+07:00",
-  "as_of": "2026-05-05T16:57:38+07:00",
+  "run_id": "eod_market_brief_2026-05-05T18:06:34+07:00",
+  "as_of": "2026-05-05T18:06:21+07:00",
   "pipeline": "eod_market_brief",
   "market_regime": {
-    "as_of": "2026-05-05T16:57:38+07:00",
+    "as_of": "2026-05-05T18:06:21+07:00",
     "regime": "risk_off",
     "risk_appetite": 52.5,
     "evidence": [
       "VNINDEX 1.12%, value 0 tỷ VND",
-      "Breadth adv/dec 0.47 (8/17)",
-      "Sector positive ratio 33%",
+      "Breadth adv/dec 0.84 (31/37)",
+      "Sector positive ratio 50%",
       "Foreign net flow 0 tỷ VND"
     ],
     "top_sectors_by_data": [
@@ -35,7 +35,7 @@
     "source": "vnstock_history_adapter_partial_market",
     "confidence": 0.74
   },
-  "market_thesis": "Thị trường nghiêng risk_off với risk appetite 52.5/100. Bằng chứng chính: VNINDEX 1.12%, value 0 tỷ VND; Breadth adv/dec 0.47 (8/17).",
+  "market_thesis": "Thị trường nghiêng risk_off với risk appetite 52.5/100. Bằng chứng chính: VNINDEX 1.12%, value 0 tỷ VND; Breadth adv/dec 0.84 (31/37).",
   "sector_table": [
     [
       "Bất động sản",
@@ -88,7 +88,6 @@
     "Trading Economics",
     "PNJ investor relations",
     "CafeF lãi suất - tỷ giá",
-    "Trading Economics interest rate text",
     "Trading Economics interest rate",
     "World Bank CPI",
     "World Bank unemployment",
