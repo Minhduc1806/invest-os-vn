@@ -1,26 +1,45 @@
 {
-  "run_id": "portfolio_daily_advice_2026-05-05T12:39:06+07:00",
-  "as_of": "YYYY-MM-DDTHH:MM:SS+07:00",
+  "run_id": "portfolio_daily_advice_2026-05-05T17:01:48+07:00",
+  "as_of": "2026-05-05T15:51:00+07:00",
   "pipeline": "portfolio_daily_advice",
-  "nav_vnd": 0,
-  "equity_value_vnd": 0,
+  "nav_vnd": 1020966015,
+  "equity_value_vnd": 2183760000,
   "cash_vnd": 0,
-  "cash_pct": 0,
-  "total_pnl_vnd": 0,
-  "total_pnl_pct": 0,
-  "positions": [],
-  "sector_weights": {},
-  "ticker_news": {},
+  "cash_pct": 0.0,
+  "total_pnl_vnd": -136080000,
+  "total_pnl_pct": -5.87,
+  "positions": [
+    {
+      "ticker": "PNJ",
+      "sector": "unknown",
+      "value_vnd": 2183760000,
+      "pnl_vnd": -136080000,
+      "pnl_pct": -5.87,
+      "technical_status": "avoid",
+      "weight_pct": 213.89
+    }
+  ],
+  "sector_weights": {
+    "unknown": 213.89
+  },
+  "ticker_news": {
+    "PNJ": [
+      "PNJ công bố trang báo cáo tháng cho nhà đầu tư"
+    ]
+  },
   "risks": [
-    "Danh mục chưa có vị thế; trạng thái cash-only/no holdings."
+    "PNJ vượt max position 25% NAV.",
+    "Tiền mặt dưới ngưỡng tối thiểu."
   ],
   "actions": [
-    "Không có cổ phiếu để khuyến nghị mua/bán; giữ tiền mặt đến khi nhập positions thật hoặc có kế hoạch giải ngân."
+    "PNJ: rà soát điểm giảm rủi ro vì tín hiệu kỹ thuật chưa đủ mạnh."
   ],
   "sources": [
-    "manual_real_portfolio_required",
+    "user_provided_real_portfolio_telegram_2026-05-05",
     "vnstock_history_adapter_partial_market",
-    "mock_news_hub",
+    "Trading Economics",
+    "PNJ investor relations",
+    "CafeF lãi suất - tỷ giá",
     "fdata_universe_filter"
   ],
   "confidence": 0.76,

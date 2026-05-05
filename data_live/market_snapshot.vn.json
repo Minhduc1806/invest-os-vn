@@ -1,64 +1,76 @@
 {
-  "as_of": "2026-05-05T12:37:02+07:00",
+  "as_of": "2026-05-05T16:57:38+07:00",
   "source": "vnstock_history_adapter_partial_market",
   "market": "VN",
   "indices": [
     {
       "symbol": "VNINDEX",
-      "close": 1869.02,
-      "change_pct": 0.81,
-      "volume_mn": 355.13,
+      "close": 1874.85,
+      "change_pct": 1.12,
+      "volume_mn": 773.45,
       "value_bil_vnd": 0,
       "above_ma20_pct": 100.0
     },
     {
       "symbol": "VN30",
-      "close": 2022.69,
-      "change_pct": 0.4,
-      "volume_mn": 145.88,
+      "close": 2032.3,
+      "change_pct": 0.88,
+      "volume_mn": 340.36,
       "value_bil_vnd": 0,
       "above_ma20_pct": 100.0
     },
     {
       "symbol": "HNXINDEX",
-      "close": 246.82,
-      "change_pct": -1.29,
-      "volume_mn": 31.1,
+      "close": 247.42,
+      "change_pct": -1.05,
+      "volume_mn": 68.28,
       "value_bil_vnd": 0,
       "above_ma20_pct": 0.0
     }
   ],
   "breadth": {
-    "advancers": 0,
-    "decliners": 4,
+    "advancers": 8,
+    "decliners": 17,
     "unchanged": 0,
     "new_high_20d": null,
     "new_low_20d": null
   },
   "sectors": [
     {
-      "name": "Công nghệ",
-      "change_pct": -0.81,
+      "name": "Khác",
+      "change_pct": -0.15,
       "value_bil_vnd": 0,
-      "relative_strength_20d": -1.24
+      "relative_strength_20d": -0.77
+    },
+    {
+      "name": "Công nghệ",
+      "change_pct": 0.81,
+      "value_bil_vnd": 0,
+      "relative_strength_20d": -1.12
     },
     {
       "name": "Bán lẻ",
       "change_pct": -0.12,
       "value_bil_vnd": 0,
-      "relative_strength_20d": -0.66
+      "relative_strength_20d": -0.69
     },
     {
       "name": "Ngân hàng",
-      "change_pct": -1.48,
+      "change_pct": -0.88,
       "value_bil_vnd": 0,
-      "relative_strength_20d": -0.75
+      "relative_strength_20d": -0.68
     },
     {
       "name": "Chứng khoán",
       "change_pct": -1.44,
       "value_bil_vnd": 0,
-      "relative_strength_20d": -1.12
+      "relative_strength_20d": -1.15
+    },
+    {
+      "name": "Bất động sản",
+      "change_pct": 5.01,
+      "value_bil_vnd": 0,
+      "relative_strength_20d": 3.19
     }
   ],
   "foreign_flow": {

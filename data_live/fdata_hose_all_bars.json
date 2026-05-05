@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-05-05T11:09:10+07:00",
+  "as_of": "2026-05-05T15:54:24+07:00",
   "source": "fdata_hose_all_listed",
   "timeframe": "EOD",
   "exchange": "HOSE",
@@ -10803,6 +10803,5 @@
     "VEOF",
     "VESAF"
   ],
-  "insufficient": [],
-  "quality_score": 0.99
+  "insufficient": []
 }

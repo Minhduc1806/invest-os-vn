@@ -1,6 +1,6 @@
 # FData HOSE All Listed Universe
 
-As of: 2026-05-05T11:09:10+07:00
+As of: 2026-05-05T15:54:24+07:00
 
 Exchange: HOSE (FData HSX)
 

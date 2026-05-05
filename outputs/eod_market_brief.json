@@ -1,83 +1,81 @@
 {
-  "run_id": "eod_market_brief_2026-05-05T12:41:19+07:00",
-  "as_of": "2026-05-05T12:37:02+07:00",
+  "run_id": "eod_market_brief_2026-05-05T17:01:48+07:00",
+  "as_of": "2026-05-05T16:57:38+07:00",
   "pipeline": "eod_market_brief",
   "market_regime": {
-    "as_of": "2026-05-05T12:37:02+07:00",
+    "as_of": "2026-05-05T16:57:38+07:00",
     "regime": "risk_off",
-    "risk_appetite": 55.0,
+    "risk_appetite": 52.5,
     "evidence": [
-      "VNINDEX 0.81%, value 0 tỷ VND",
-      "Breadth adv/dec 0.00 (0/4)",
-      "Sector positive ratio 0%",
+      "VNINDEX 1.12%, value 0 tỷ VND",
+      "Breadth adv/dec 0.47 (8/17)",
+      "Sector positive ratio 33%",
       "Foreign net flow 0 tỷ VND"
     ],
     "top_sectors_by_data": [
       {
-        "name": "Bán lẻ",
-        "change_pct": -0.12,
+        "name": "Bất động sản",
+        "change_pct": 5.01,
         "value_bil_vnd": 0,
-        "relative_strength_20d": -0.66
+        "relative_strength_20d": 3.19
       },
       {
         "name": "Ngân hàng",
-        "change_pct": -1.48,
+        "change_pct": -0.88,
         "value_bil_vnd": 0,
-        "relative_strength_20d": -0.75
+        "relative_strength_20d": -0.68
       },
       {
-        "name": "Chứng khoán",
-        "change_pct": -1.44,
+        "name": "Bán lẻ",
+        "change_pct": -0.12,
         "value_bil_vnd": 0,
-        "relative_strength_20d": -1.12
+        "relative_strength_20d": -0.69
       }
     ],
     "source": "vnstock_history_adapter_partial_market",
     "confidence": 0.74
   },
-  "market_thesis": "Thị trường nghiêng risk_off với risk appetite 55.0/100. Bằng chứng chính: VNINDEX 0.81%, value 0 tỷ VND; Breadth adv/dec 0.00 (0/4).",
+  "market_thesis": "Thị trường nghiêng risk_off với risk appetite 52.5/100. Bằng chứng chính: VNINDEX 1.12%, value 0 tỷ VND; Breadth adv/dec 0.47 (8/17).",
   "sector_table": [
+    [
+      "Bất động sản",
+      "5.01%",
+      0,
+      3.19
+    ],
+    [
+      "Ngân hàng",
+      "-0.88%",
+      0,
+      -0.68
+    ],
     [
       "Bán lẻ",
       "-0.12%",
       0,
-      -0.66
-    ],
-    [
-      "Ngân hàng",
-      "-1.48%",
-      0,
-      -0.75
-    ],
-    [
-      "Chứng khoán",
-      "-1.44%",
-      0,
-      -1.12
+      -0.69
     ]
   ],
   "news_brief": [
     {
-      "title": "FPT công bố hợp đồng chuyển đổi số mới",
-      "tickers": [
-        "FPT"
-      ],
-      "url": "https://example.com/fpt-contract",
-      "summary": "Doanh nghiệp công nghệ ghi nhận hợp đồng mới trong mảng dịch vụ CNTT."
-    },
-    {
-      "title": "Thanh khoản hệ thống ngân hàng duy trì ổn định",
+      "title": "VN-Index tăng trong phiên 05/05/2026 theo Trading Economics",
       "tickers": [],
-      "url": "https://example.com/sbv-liquidity",
-      "summary": "Lãi suất liên ngân hàng ít biến động, tín hiệu áp lực thanh khoản chưa tăng mạnh."
+      "url": "https://tradingeconomics.com/vietnam/stock-market",
+      "summary": "Trading Economics ghi nhận chỉ số chứng khoán Việt Nam ở 1.873 điểm ngày 05/05/2026, tăng 1,04% so với phiên trước; tháng gần nhất tăng 11,84%."
     },
     {
-      "title": "Doanh số bán lẻ cải thiện so với cùng kỳ",
+      "title": "PNJ công bố trang báo cáo tháng cho nhà đầu tư",
       "tickers": [
-        "MWG"
+        "PNJ"
       ],
-      "url": "https://example.com/retail-sales",
-      "summary": "Dữ liệu bán lẻ hỗ trợ kỳ vọng hồi phục tiêu dùng."
+      "url": "https://www.pnj.com.vn/quan-he-co-dong/bao-cao-thang-en/",
+      "summary": "Trang quan hệ cổ đông PNJ liệt kê các báo cáo kết quả kinh doanh theo tháng/quý; nguồn dùng để kiểm tra tin doanh nghiệp PNJ, chưa suy diễn tăng trưởng nếu không có báo cáo mới trong ngày."
+    },
+    {
+      "title": "CafeF cập nhật trang lãi suất - tỷ giá ngày 05/05/2026",
+      "tickers": [],
+      "url": "https://cafef.vn/du-lieu/lai-suat-ngan-hang.chn",
+      "summary": "CafeF ghi ngày cập nhật Thứ Ba 05/05/2026 cho dữ liệu lãi suất ngân hàng và tỷ giá ngoại tệ; lãi suất hiển thị là lãi suất gửi tiết kiệm tại quầy, trả lãi cuối kỳ."
     }
   ],
   "next_session_conditions": [
@@ -87,8 +85,19 @@
   ],
   "sources": [
     "vnstock_history_adapter_partial_market",
-    "mock_news_hub",
-    "mock_macro_provider"
+    "Trading Economics",
+    "PNJ investor relations",
+    "CafeF lãi suất - tỷ giá",
+    "Trading Economics interest rate text",
+    "Trading Economics interest rate",
+    "World Bank CPI",
+    "World Bank unemployment",
+    "SBV interest rates",
+    "SBV exchange rates",
+    "CafeF",
+    "WebGia deposit rates",
+    "WebGia USD FX",
+    "Vietcombank exchange rates"
   ],
   "confidence": 0.74,
   "disclaimer": "Thông tin hỗ trợ quyết định, không phải khuyến nghị đầu tư cá nhân hóa bắt buộc mua/bán.",
