@@ -14,6 +14,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import time
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -120,7 +121,25 @@ def get_vnstock():
         return None
 
 
+RATE_LIMIT_STOP = False
+LAST_PROVIDER_CALL = 0.0
+
+def provider_throttle(min_interval_sec: float = 3.2) -> None:
+    global LAST_PROVIDER_CALL
+    now = time.monotonic()
+    wait = min_interval_sec - (now - LAST_PROVIDER_CALL)
+    if wait > 0:
+        time.sleep(wait)
+    LAST_PROVIDER_CALL = time.monotonic()
+
+def is_rate_limit_error(exc: Exception) -> bool:
+    text = str(exc).lower()
+    return "rate limit" in text or "giới hạn api" in text or "limit exceeded" in text or "20 requests" in text
+
 def fetch_history_vnstock(ticker: str, days: int = 260) -> List[Dict[str, Any]]:
+    global RATE_LIMIT_STOP
+    if RATE_LIMIT_STOP:
+        return []
     vnstock = get_vnstock()
     if vnstock is None:
         return []
@@ -131,6 +150,7 @@ def fetch_history_vnstock(ticker: str, days: int = 260) -> List[Dict[str, Any]]:
     errors = []
     # vnstock 3.x Quote API
     try:
+        provider_throttle()
         q = vnstock.Quote(symbol=ticker, source="VCI")
         df = q.history(start=start_s, end=end_s, interval="1D")
         recs = to_records(df)
@@ -138,8 +158,12 @@ def fetch_history_vnstock(ticker: str, days: int = 260) -> List[Dict[str, Any]]:
             return recs[-days:]
     except Exception as e:
         errors.append(str(e))
+        if is_rate_limit_error(e):
+            RATE_LIMIT_STOP = True
+            return []
     # legacy style fallback
     try:
+        provider_throttle()
         stock = vnstock.Vnstock().stock(symbol=ticker, source="VCI")
         df = stock.quote.history(start=start_s, end=end_s, interval="1D")
         recs = to_records(df)
@@ -147,6 +171,8 @@ def fetch_history_vnstock(ticker: str, days: int = 260) -> List[Dict[str, Any]]:
             return recs[-days:]
     except Exception as e:
         errors.append(str(e))
+        if is_rate_limit_error(e):
+            RATE_LIMIT_STOP = True
     return []
 
 
@@ -163,7 +189,9 @@ def build_ohlcv_live(tickers: List[str]) -> Dict[str, Any]:
     for t in tickers:
         rows = fetch_history_vnstock(t, 260)
         if not rows:
-            warnings.append(f"{t}: no_history")
+            warnings.append(f"{t}: provider_rate_limit_stop" if RATE_LIMIT_STOP else f"{t}: no_history")
+            if RATE_LIMIT_STOP:
+                break
             continue
         closes = [num(pick(r, ["close"])) for r in rows if num(pick(r, ["close"]), 0) > 0]
         vols = [num(pick(r, ["volume", "Volume", "vol"])) for r in rows]
@@ -206,7 +234,9 @@ def build_market_live(tickers: List[str]) -> Dict[str, Any]:
     for sym in idx_symbols:
         rows = fetch_history_vnstock(sym, 60)
         if not rows:
-            warnings.append(f"{sym}: no_index_history")
+            warnings.append(f"{sym}: provider_rate_limit_stop" if RATE_LIMIT_STOP else f"{sym}: no_index_history")
+            if RATE_LIMIT_STOP:
+                break
             continue
         closes = [num(pick(r, ["close"])) for r in rows if num(pick(r, ["close"]), 0) > 0]
         vols = [num(pick(r, ["volume", "vol"])) for r in rows]

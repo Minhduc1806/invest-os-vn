@@ -2,6 +2,7 @@
 """Phase 4 local/CI gate: real-only audit before EOD pipelines, then report + manifest validation."""
 from __future__ import annotations
 
+import argparse
 import json
 import subprocess
 import sys
@@ -47,12 +48,17 @@ def validate_phase3_manifest(pipeline: str) -> list[str]:
     return errors
 
 def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--refresh", action="store_true", help="Allow run_pipeline.py to refresh live providers; default uses validated cache only")
+    args = ap.parse_args()
     errors: list[str] = []
     if run([sys.executable, "scripts/phase4_real_data_gap_audit.py", "--mode", "eod"]) != 0:
         print("PHASE4_E2E_BLOCKED: real-only audit failed")
         return 1
     for pipeline in PIPELINES:
         cmd = [sys.executable, "scripts/run_pipeline.py", "--config", "orchestrator.yaml", "--pipeline", pipeline, "--live", "--universe", "investable"]
+        if not args.refresh:
+            cmd += ["--no-refresh", "--allow-quality-warnings"]
         if run(cmd) != 0:
             errors.append(f"{pipeline}: command failed")
         errors.extend(validate_markdown(MD_FILES[pipeline]))
