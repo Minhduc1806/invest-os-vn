@@ -1,6 +1,6 @@
 {
-  "as_of": "2026-05-05T23:23:23+07:00",
-  "source": "CafeF BCTC PDFs via FileBCTC.ashx + pdfplumber/PyMuPDF",
+  "as_of": "2026-05-05T23:29:54+07:00",
+  "source": "CafeF BCTC PDFs via FileBCTC.ashx + pdfplumber/PyMuPDF/RapidOCR",
   "documents": [
     {
       "ticker": "FPT",
@@ -28,911 +28,323 @@
           "page": 1,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": "CÔNG TY CỔ PHẦN FPT Digitally signed by CÔNG TY CỔ PHẦN FPT Date: 2026.04.24 18:26:49 +07'00'"
+          "text_head": "CÔNG TY CỔ PHẦN FPT Digitally signed by CÔNG TY CỔ PHẦN FPT Date: 2026.04.24 18:26:49 +07'00'",
+          "extractor": "pymupdf_text"
         },
         {
           "page": 2,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 3,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 4,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 5,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 6,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 7,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 8,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 9,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 10,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 11,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 12,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 13,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 14,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 15,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 16,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 17,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 18,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 19,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 20,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 21,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 22,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 23,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 24,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 25,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 26,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 27,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 28,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 29,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 30,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 31,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 32,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 33,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 34,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 35,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 36,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 37,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 38,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 39,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 40,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 41,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 42,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 43,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 44,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 45,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         },
         {
           "page": 46,
           "statement_hint": null,
           "table_count": 0,
-          "text_head": ""
-        }
-      ],
-      "parse_counts": {
-        "income_statement": 0,
-        "balance_sheet": 0,
-        "cash_flow": 0
-      }
-    },
-    {
-      "ticker": "MWG",
-      "document": {
-        "id": "69f0256a0e2af2b2ab45b0e4",
-        "ticker": "MWG",
-        "name": "Báo cáo tài chính hợp nhất quý 1 năm 2026",
-        "time": "Q1/2026",
-        "year": 2026,
-        "quarter": 1,
-        "type": 0,
-        "format": "pdf",
-        "url": "https://cafefnew.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/20260424_-_MWG_-_BCTC_Hop_Nhat_Quy_1_Nam_2026_1777027877.pdf",
-        "source": "CafeF FileBCTC.ashx"
-      },
-      "pdf_path": "data_live\\raw\\cafef_pdfs\\MWG_69f0256a0e2af2b2ab45b0e4.pdf",
-      "sha256": "02bf5fd8916a36312b8c037d8d442dad56dcf7bd4b876f3b8439d7082455f10a",
-      "statements": {
-        "income_statement": [],
-        "balance_sheet": [],
-        "cash_flow": []
-      },
-      "page_audit": [
-        {
-          "page": 1,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": "Ký bởi: CÔNG TY CỔ PHẦN ĐẦU TƯ THẾ GIỚI DI ĐỘNG Ký ngày: 24/4/2026 16:49:18 Signature Not Verified"
-        },
-        {
-          "page": 2,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 3,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 4,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 5,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 6,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 7,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 8,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 9,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 10,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 11,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 12,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 13,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 14,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 15,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 16,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 17,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 18,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 19,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 20,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 21,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 22,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 23,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 24,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 25,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 26,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 27,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 28,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 29,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 30,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 31,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 32,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 33,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 34,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 35,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 36,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 37,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 38,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 39,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 40,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 41,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 42,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 43,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        }
-      ],
-      "parse_counts": {
-        "income_statement": 0,
-        "balance_sheet": 0,
-        "cash_flow": 0
-      }
-    },
-    {
-      "ticker": "VCB",
-      "document": {
-        "id": "69f8077bfd4848eba8a89c74",
-        "ticker": "VCB",
-        "name": "Báo cáo tài chính hợp nhất quý 1 năm 2026",
-        "time": "Q1/2026",
-        "year": 2026,
-        "quarter": 1,
-        "type": 0,
-        "format": "pdf",
-        "url": "https://cafefnew.mediacdn.vn/Images/Uploaded/DuLieuDownload/BCTC/20260429_-_VCB_-_BCTC_hop_nhat_Q1.2026_1777452360.pdf",
-        "source": "CafeF FileBCTC.ashx"
-      },
-      "pdf_path": "data_live\\raw\\cafef_pdfs\\VCB_69f8077bfd4848eba8a89c74.pdf",
-      "sha256": "fd4d634f10478caa9f5f1e0b2b85f3dbae86d1f619e20f2e797ffb6ede244879",
-      "statements": {
-        "income_statement": [],
-        "balance_sheet": [],
-        "cash_flow": []
-      },
-      "page_audit": [
-        {
-          "page": 1,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": "Ký bởi: Ngân Hàng Thương Mại Cổ Phần Ngoại Thương Việt Nam Ký ngày: 29/4/2026 11:22:10 Signature Not Verified"
-        },
-        {
-          "page": 2,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 3,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 4,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 5,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 6,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 7,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 8,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 9,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 10,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 11,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 12,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 13,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 14,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 15,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 16,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 17,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 18,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 19,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 20,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 21,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 22,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 23,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 24,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 25,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 26,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 27,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 28,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 29,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 30,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 31,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 32,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 33,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 34,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 35,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 36,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 37,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 38,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 39,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 40,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 41,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 42,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 43,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 44,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 45,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 46,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 47,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 48,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 49,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 50,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 51,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 52,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
-        },
-        {
-          "page": 53,
-          "statement_hint": null,
-          "table_count": 0,
-          "text_head": ""
+          "text_head": "",
+          "extractor": "rapidocr_onnxruntime"
         }
       ],
       "parse_counts": {
@@ -945,8 +357,7 @@
   "parse_quality": {
     "required_passed": false,
     "warnings": [
-      "SSI:pdf_parse_error:HTTP Error 404: NOT FOUND",
-      "image_based_pdf_ocr_needed:FPT,MWG,VCB"
+      "image_based_pdf_no_statement_tables_detected:FPT"
     ],
     "no_sample_fallback": true
   },

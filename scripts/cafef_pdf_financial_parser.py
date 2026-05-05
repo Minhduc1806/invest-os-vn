@@ -15,6 +15,7 @@ STATEMENT_KEYS={
 
 def now_iso(): return datetime.now().astimezone().isoformat(timespec='seconds')
 def norm(s): return re.sub(r'\s+',' ',str(s or '').replace('\n',' ')).strip()
+def keep_lines(s): return '\n'.join(norm(x) for x in str(s or '').splitlines())
 def val(x):
     s=norm(x).replace(' ','')
     if not s or not NUM.match(s): return None
@@ -25,8 +26,15 @@ def val(x):
     except Exception: return None
 def classify(text):
     t=text.lower()
+    t_ascii=(t.replace('á','a').replace('à','a').replace('ả','a').replace('ã','a').replace('ạ','a').replace('ă','a').replace('ắ','a').replace('ằ','a').replace('ẳ','a').replace('ẵ','a').replace('ặ','a').replace('â','a').replace('ấ','a').replace('ầ','a').replace('ẩ','a').replace('ẫ','a').replace('ậ','a')
+             .replace('đ','d').replace('é','e').replace('è','e').replace('ẻ','e').replace('ẽ','e').replace('ẹ','e').replace('ê','e').replace('ế','e').replace('ề','e').replace('ể','e').replace('ễ','e').replace('ệ','e')
+             .replace('í','i').replace('ì','i').replace('ỉ','i').replace('ĩ','i').replace('ị','i').replace('ó','o').replace('ò','o').replace('ỏ','o').replace('õ','o').replace('ọ','o').replace('ô','o').replace('ố','o').replace('ồ','o').replace('ổ','o').replace('ỗ','o').replace('ộ','o').replace('ơ','o').replace('ớ','o').replace('ờ','o').replace('ở','o').replace('ỡ','o').replace('ợ','o')
+             .replace('ú','u').replace('ù','u').replace('ủ','u').replace('ũ','u').replace('ụ','u').replace('ư','u').replace('ứ','u').replace('ừ','u').replace('ử','u').replace('ữ','u').replace('ự','u').replace('ý','y').replace('ỳ','y').replace('ỷ','y').replace('ỹ','y').replace('ỵ','y'))
     for k,words in STATEMENT_KEYS.items():
-        if any(w in t for w in words): return k
+        if any(w in t or w in t_ascii for w in words): return k
+    if 'ket qua hoat dong kinh doanh' in t_ascii or 'doanh thu' in t_ascii: return 'income_statement'
+    if 'can doi ke toan' in t_ascii or 'tai san' in t_ascii or 'von chu so huu' in t_ascii: return 'balance_sheet'
+    if 'luu chuyen tien' in t_ascii: return 'cash_flow'
     return None
 def download(url,ticker,doc_id):
     RAW.mkdir(parents=True,exist_ok=True); p=RAW/f'{ticker}_{doc_id}.pdf'
@@ -39,27 +47,61 @@ def parse_text_lines(text, statement, page_no):
     for line in text.splitlines():
         line=norm(line)
         if len(line)<8: continue
-        parts=line.split()
-        nums=[]
-        while parts and val(parts[-1]) is not None:
-            nums.insert(0,val(parts.pop()))
-        label=' '.join(parts).strip(' -')
-        if label and nums:
-            items.append({'label':label,'raw':[line],'values':nums,'header':[],'page':page_no,'extractor':'text_line'})
+        found=re.findall(r'\(?-?\d[\d\.]{2,}(?:,\d+)?\)?', line)
+        nums=[val(x) for x in found]
+        label=line
+        for x in found: label=label.replace(x,' ')
+        label=norm(label).strip(' -')
+        if label and any(v is not None for v in nums):
+            items.append({'label':label,'raw':[line],'values':[v for v in nums if v is not None],'header':[],'page':page_no,'extractor':'text_line'})
     return items
+
+def ocr_page_text(fitz_page, dpi=180):
+    try:
+        from rapidocr_onnxruntime import RapidOCR
+        import fitz
+        if not hasattr(ocr_page_text, '_engine'):
+            ocr_page_text._engine = RapidOCR()
+        dpi=max(dpi,216)
+        pix=fitz_page.get_pixmap(matrix=fitz.Matrix(dpi/72, dpi/72), alpha=False)
+        result, _ = ocr_page_text._engine(pix.tobytes('png'))
+        if not result: return ''
+        lines=[]
+        for item in result:
+            if len(item) >= 2:
+                text=item[1]
+                # rapidocr_onnxruntime returns [box, text, score]; older variants may nest text.
+                if isinstance(text, (list, tuple)) and text:
+                    text=text[0]
+                lines.append(str(text))
+        return '\n'.join(lines)
+    except Exception as e:
+        return ''
+
+def classify_with_context(text, current):
+    st=classify(text)
+    if st: return st
+    return current
 
 def parse_pdf(path):
     import pdfplumber, fitz
     statements={k:[] for k in STATEMENT_KEYS}; pages=[]
     fitz_doc=fitz.open(path)
+    current_statement=None
     with pdfplumber.open(path) as pdf:
         for i,page in enumerate(pdf.pages,1):
             text=norm(page.extract_text() or '')
+            extractor='pdfplumber_text'
             if not text and i-1 < len(fitz_doc):
-                text=fitz_doc[i-1].get_text()
-            st=classify(text)
+                text=fitz_doc[i-1].get_text(); extractor='pymupdf_text'
+            if not norm(text) and i-1 < len(fitz_doc):
+                text=ocr_page_text(fitz_doc[i-1]); extractor='rapidocr_onnxruntime'
+            else:
+                text=keep_lines(text)
+            st=classify_with_context(text, current_statement)
+            if classify(text): current_statement=classify(text)
             tables=page.extract_tables() or []
-            pages.append({'page':i,'statement_hint':st,'table_count':len(tables),'text_head':norm(text)[:240]})
+            pages.append({'page':i,'statement_hint':st,'table_count':len(tables),'text_head':norm(text)[:240],'extractor':extractor})
             if st:
                 statements[st].extend(parse_text_lines(text, st, i))
             for tb in tables:
@@ -97,8 +139,8 @@ def main():
         except Exception as e: warnings.append(f"{d.get('ticker')}:pdf_parse_error:{e}")
     ok=bool(out_docs) and any(sum(x['parse_counts'].values())>0 for x in out_docs)
     ocr_needed=[x['ticker'] for x in out_docs if sum(x['parse_counts'].values())==0]
-    if ocr_needed: warnings.append('image_based_pdf_ocr_needed:'+','.join(ocr_needed))
-    out={'as_of':now_iso(),'source':'CafeF BCTC PDFs via FileBCTC.ashx + pdfplumber/PyMuPDF','documents':out_docs,'parse_quality':{'required_passed':ok,'warnings':warnings,'no_sample_fallback':True},'quality_score':0.82 if ok else 0.4,'status':'real_cafef_pdf_line_items' if ok else 'pdf_line_item_parse_failed'}
+    if ocr_needed: warnings.append('image_based_pdf_no_statement_tables_detected:'+','.join(ocr_needed))
+    out={'as_of':now_iso(),'source':'CafeF BCTC PDFs via FileBCTC.ashx + pdfplumber/PyMuPDF/RapidOCR','documents':out_docs,'parse_quality':{'required_passed':ok,'warnings':warnings,'no_sample_fallback':True},'quality_score':0.82 if ok else 0.4,'status':'real_cafef_pdf_line_items' if ok else 'pdf_line_item_parse_failed'}
     (LIVE/'cafef_financial_statements_structured.vn.json').write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding='utf-8')
     print(json.dumps({'status':out['status'],'documents':len(out_docs),'counts':[x['parse_counts'] for x in out_docs],'warnings':warnings},ensure_ascii=False,indent=2))
 if __name__=='__main__': main()
