@@ -1,0 +1,17 @@
+{
+  "as_of": "2026-05-04T15:00:00+07:00",
+  "source": "mock_asset_ledger",
+  "account_id": "demo_investor_001",
+  "assets": [
+    {"asset_type": "cash", "name": "VND", "value_vnd": 250000000},
+    {"asset_type": "equity", "name": "Vietnam stocks", "value_vnd": 545550000},
+    {"asset_type": "gold", "name": "SJC", "quantity": 2, "unit": "tael", "price_vnd": 85000000, "value_vnd": 170000000}
+  ],
+  "liabilities": [
+    {"type": "margin_debt", "value_vnd": 0}
+  ],
+  "cashflows": [
+    {"date": "2026-05-02", "type": "deposit", "value_vnd": 50000000, "note": "Nạp tiền"}
+  ],
+  "quality_score": 0.97
+}

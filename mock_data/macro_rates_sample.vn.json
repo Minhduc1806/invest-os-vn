@@ -1,0 +1,14 @@
+{
+  "as_of": "2026-05-04T11:00:00+07:00",
+  "source": "mock_macro_provider",
+  "rates": {
+    "overnight_interbank_pct": 3.2,
+    "one_week_interbank_pct": 3.6,
+    "gov_bond_10y_pct": 3.05,
+    "deposit_12m_avg_pct": 5.1
+  },
+  "fx": {"usd_vnd": 25420, "change_pct_5d": 0.18},
+  "global": {"dxy": 105.2, "us10y_pct": 4.55, "brent": 83.4},
+  "liquidity_assessment": "neutral",
+  "quality_score": 0.92
+}

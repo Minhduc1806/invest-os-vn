@@ -1,0 +1,15 @@
+{
+  "as_of": "2026-05-04T15:00:00+07:00",
+  "source": "mock_portfolio_db",
+  "account_id": "demo_investor_001",
+  "risk_profile": "balanced",
+  "cash_vnd": 250000000,
+  "margin_debt_vnd": 0,
+  "positions": [
+    {"ticker": "FPT", "quantity": 2000, "avg_cost": 105000, "last_price": 118500, "sector": "Công nghệ"},
+    {"ticker": "MWG", "quantity": 3000, "avg_cost": 58000, "last_price": 61200, "sector": "Bán lẻ"},
+    {"ticker": "VCB", "quantity": 1500, "avg_cost": 92000, "last_price": 89500, "sector": "Ngân hàng"}
+  ],
+  "constraints": {"max_position_pct": 0.25, "min_cash_pct": 0.10},
+  "quality_score": 0.98
+}

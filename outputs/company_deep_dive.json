@@ -1,0 +1,59 @@
+{
+  "run_id": "company_deep_dive_FPT_2026-05-04T19:45:12+07:00",
+  "as_of": "2026-04-30T00:00:00+07:00",
+  "pipeline": "company_deep_dive",
+  "ticker": "FPT",
+  "business": "Dịch vụ CNTT, viễn thông, giáo dục.",
+  "sector": "Công nghệ",
+  "financial_quality": "ROE 26.5%, tăng trưởng LNST 21.0%, D/E 0.42.",
+  "valuation": "P/E 24.8, P/B 5.9, EV/EBITDA 16.2. Nhận định: cao hơn cần biên an toàn.",
+  "peer_percentile": {
+    "growth": 0.82,
+    "quality": 0.88,
+    "valuation_cheapness": 0.35
+  },
+  "technical_snapshot": {
+    "ticker": "FPT",
+    "exchange": "HOSE",
+    "close": 118500,
+    "change_pct": 1.72,
+    "volume": 4200000,
+    "vol_ratio_20d": 1.35,
+    "ma20": 114200,
+    "ma50": 110500,
+    "ma200": 101000,
+    "rsi14": 63,
+    "atr14_pct": 2.1,
+    "rs_20d": 0.88
+  },
+  "news": [
+    {
+      "id": "n001",
+      "time": "2026-05-04T09:00:00+07:00",
+      "url": "https://example.com/fpt-contract",
+      "title": "FPT công bố hợp đồng chuyển đổi số mới",
+      "tickers": [
+        "FPT"
+      ],
+      "topic": "doanh_nghiep",
+      "summary": "Doanh nghiệp công nghệ ghi nhận hợp đồng mới trong mảng dịch vụ CNTT."
+    }
+  ],
+  "risks": [
+    "Định giá cao hơn trung vị ngành",
+    "Phụ thuộc tăng trưởng đơn hàng quốc tế"
+  ],
+  "watch_conditions": [
+    "Kết quả kinh doanh quý tới xác nhận tăng trưởng.",
+    "Giá không thủng vùng hỗ trợ kỹ thuật chính.",
+    "Định giá không mở rộng quá nhanh so với tăng trưởng lợi nhuận."
+  ],
+  "sources": [
+    "mock_fundamental_provider",
+    "mock_news_hub",
+    "mock_ohlcv_provider"
+  ],
+  "confidence": 0.73,
+  "disclaimer": "Company deep dive là hồ sơ tham chiếu, không phải lệnh mua/bán.",
+  "quality_warnings": []
+}

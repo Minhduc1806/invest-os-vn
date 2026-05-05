@@ -1,0 +1,10 @@
+{
+  "runtime": "gateway/openclaw_agent",
+  "called": true,
+  "agent_id": "portfolio-advisor",
+  "returncode": 0,
+  "stdout": "[plugins] Registered 5 NeuralMemory tools + 2 compat shims (sync)\n[plugins] NeuralMemory registered (brain: default, autoContext: true, autoCapture: true, autoFlush: true, autoConsolidate: true) — tools will be loaded dynamically from MCP on service start\nOK\n",
+  "stderr": "",
+  "prompt_file": "C:\\Users\\DUC\\.openclaw\\workspace\\invest-os-vn\\scripts\\results\\portfolio-advisor_prompt.txt",
+  "out_file": "C:\\Users\\DUC\\.openclaw\\workspace\\invest-os-vn\\scripts\\results\\portfolio-advisor_agent_call.json"
+}

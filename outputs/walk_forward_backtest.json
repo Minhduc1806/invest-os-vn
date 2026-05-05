@@ -1,0 +1,169 @@
+{
+  "as_of": "2026-05-05T03:16:08+07:00",
+  "source": "walk_forward_backtest",
+  "split": {
+    "train_start": "2025-05-09",
+    "train_end": "2026-02-03",
+    "test_start": "2026-02-04",
+    "test_end": "2026-05-05"
+  },
+  "rule": "NO NEW BUY unless risk_on; neutral/risk_off -> zero new buys; Tier A requires regime-matched setup and sector learned from train",
+  "calibration": {
+    "preferred_setups_by_regime": {
+      "risk_on": [
+        "pullback",
+        "trend_follow",
+        "breakout",
+        "base_building"
+      ]
+    },
+    "preferred_sectors_by_regime": {
+      "risk_on": [
+        "Thực phẩm và đồ uống",
+        "Bán lẻ",
+        "Ngân hàng",
+        "Xây dựng và Vật liệu",
+        "Bất động sản",
+        "Dịch vụ tài chính",
+        "Bảo hiểm",
+        "Tài nguyên Cơ bản",
+        "Dầu khí",
+        "Du lịch và Giải trí"
+      ]
+    },
+    "train_setup_edge_by_regime": {
+      "risk_on": {
+        "pullback": {
+          "n": 998,
+          "avg": 1.3348895958702434,
+          "win": 53.50701402805611
+        },
+        "trend_follow": {
+          "n": 1816,
+          "avg": 1.6381779966768746,
+          "win": 50.27533039647577
+        },
+        "breakout": {
+          "n": 1119,
+          "avg": 2.721862207852828,
+          "win": 56.12153708668453
+        },
+        "base_building": {
+          "n": 1148,
+          "avg": 1.6503724406446831,
+          "win": 53.83275261324042
+        }
+      }
+    },
+    "train_sector_edge_by_regime": {
+      "risk_on": {
+        "Hóa chất": {
+          "n": 406,
+          "avg": 0.39074021625865346,
+          "win": 51.724137931034484
+        },
+        "Thực phẩm và đồ uống": {
+          "n": 642,
+          "avg": 2.4094116220539923,
+          "win": 54.67289719626168
+        },
+        "Bán lẻ": {
+          "n": 374,
+          "avg": 1.9630819643805135,
+          "win": 56.951871657754005
+        },
+        "Ngân hàng": {
+          "n": 282,
+          "avg": 2.903962975464609,
+          "win": 63.12056737588653
+        },
+        "Xây dựng và Vật liệu": {
+          "n": 809,
+          "avg": 2.5511393579179633,
+          "win": 50.30902348578492
+        },
+        "Hàng cá nhân & Gia dụng": {
+          "n": 247,
+          "avg": 0.4744394725667899,
+          "win": 43.7246963562753
+        },
+        "Truyền thông": {
+          "n": 28,
+          "avg": -2.9515928252046786,
+          "win": 10.714285714285714
+        },
+        "Bất động sản": {
+          "n": 671,
+          "avg": 2.549634693120334,
+          "win": 59.165424739195224
+        },
+        "Dịch vụ tài chính": {
+          "n": 359,
+          "avg": 2.00624191189328,
+          "win": 58.495821727019504
+        },
+        "Hàng & Dịch vụ Công nghiệp": {
+          "n": 112,
+          "avg": -0.5719410192175418,
+          "win": 33.035714285714285
+        },
+        "Điện, nước & xăng dầu khí đốt": {
+          "n": 197,
+          "avg": -0.6373681035164928,
+          "win": 30.96446700507614
+        },
+        "Bảo hiểm": {
+          "n": 157,
+          "avg": 2.437155058291121,
+          "win": 54.14012738853503
+        },
+        "Tài nguyên Cơ bản": {
+          "n": 137,
+          "avg": 3.570547029241992,
+          "win": 61.31386861313869
+        },
+        "Dầu khí": {
+          "n": 54,
+          "avg": 4.344143007593178,
+          "win": 66.66666666666666
+        },
+        "Công nghệ Thông tin": {
+          "n": 138,
+          "avg": 0.48798708346573416,
+          "win": 50.72463768115942
+        },
+        "Ô tô và phụ tùng": {
+          "n": 121,
+          "avg": 0.6760336478461733,
+          "win": 51.2396694214876
+        },
+        "Du lịch và Giải trí": {
+          "n": 68,
+          "avg": 2.496274484716289,
+          "win": 54.41176470588235
+        },
+        "Y tế": {
+          "n": 279,
+          "avg": 0.8022865901564035,
+          "win": 51.61290322580645
+        }
+      }
+    }
+  },
+  "train_signals": 5081,
+  "test_signals": 0,
+  "test_regime_signal_counts": {
+    "risk_on": 0,
+    "neutral": 0,
+    "risk_off": 0
+  },
+  "test_summary_by_regime": {
+    "risk_on_Tier A": {},
+    "risk_on_Tier B": {},
+    "neutral_Tier A": {},
+    "neutral_Tier B": {},
+    "risk_off_Tier A": {},
+    "risk_off_Tier B": {}
+  },
+  "test_items_sample": []
+}

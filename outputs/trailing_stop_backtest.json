@@ -1,0 +1,27 @@
+{
+  "source": "trailing_stop_backtest",
+  "note": "Proxy test on historical_backtest items_sample Tier A; full implementation should replay bars per signal.",
+  "summary": {
+    "fixed_stop_T10": {
+      "n": 94,
+      "avg_ret": 1.44,
+      "win_rate": 51.1,
+      "avg_mae": -3.62,
+      "stop_hit": 6.4
+    },
+    "time_stop_T5_if_negative": {
+      "n": 94,
+      "avg_ret": 2.08,
+      "win_rate": 38.3,
+      "avg_mae": -2.6,
+      "stop_hit": 55.3
+    },
+    "breakeven_after_positive_T5": {
+      "n": 94,
+      "avg_ret": 1.5,
+      "win_rate": 51.1,
+      "avg_mae": -3.62,
+      "stop_hit": 3.2
+    }
+  }
+}

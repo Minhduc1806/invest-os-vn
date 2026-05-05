@@ -1,0 +1,53 @@
+{
+  "source": "backtest_calibration",
+  "based_on": "historical_backtest by_setup_T20/by_sector_T20",
+  "setup_modifiers": {
+    "breakout": 7.98,
+    "base_building": 8.21,
+    "trend_follow": 3.19,
+    "pullback": 3.34
+  },
+  "sector_modifiers": {
+    "Dầu khí": 12,
+    "Ngân hàng": 9.39,
+    "Thực phẩm và đồ uống": 7.48,
+    "Dịch vụ tài chính": 6.04,
+    "Bảo hiểm": 5.66,
+    "Tài nguyên Cơ bản": 6.44,
+    "Bất động sản": 4.81,
+    "Xây dựng và Vật liệu": 2.84,
+    "Bán lẻ": 5.21,
+    "Du lịch và Giải trí": 4.86,
+    "Y tế": 2.16,
+    "Hóa chất": 1.98,
+    "Hàng cá nhân & Gia dụng": 1.26,
+    "Điện, nước & xăng dầu khí đốt": -5.54,
+    "Ô tô và phụ tùng": -2.57,
+    "Hàng & Dịch vụ Công nghiệp": -10.5,
+    "Công nghệ Thông tin": -6.88
+  },
+  "preferred_setups": [
+    "breakout",
+    "base_building"
+  ],
+  "weak_setups": [
+    "trend_follow",
+    "pullback"
+  ],
+  "preferred_sectors": [
+    "Dầu khí",
+    "Ngân hàng",
+    "Thực phẩm và đồ uống",
+    "Dịch vụ tài chính",
+    "Bảo hiểm",
+    "Tài nguyên Cơ bản",
+    "Bất động sản"
+  ],
+  "weak_sectors": [
+    "Điện, nước & xăng dầu khí đốt",
+    "Ô tô và phụ tùng",
+    "Hàng & Dịch vụ Công nghiệp",
+    "Công nghệ Thông tin"
+  ],
+  "tier_a_rule_hint": "Tier A should require backtest-positive setup/sector, not raw R/R only."
+}

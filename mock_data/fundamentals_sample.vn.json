@@ -1,0 +1,27 @@
+{
+  "as_of": "2026-04-30T00:00:00+07:00",
+  "source": "mock_fundamental_provider",
+  "companies": [
+    {
+      "ticker": "FPT",
+      "exchange": "HOSE",
+      "sector": "Công nghệ",
+      "business": "Dịch vụ CNTT, viễn thông, giáo dục.",
+      "financials": {"revenue_growth_yoy": 0.19, "net_profit_growth_yoy": 0.21, "roe": 0.265, "debt_to_equity": 0.42, "gross_margin": 0.39},
+      "valuation": {"pe_ttm": 24.8, "pb": 5.9, "ev_ebitda": 16.2},
+      "peer_percentile": {"growth": 0.82, "quality": 0.88, "valuation_cheapness": 0.35},
+      "risks": ["Định giá cao hơn trung vị ngành", "Phụ thuộc tăng trưởng đơn hàng quốc tế"]
+    },
+    {
+      "ticker": "MWG",
+      "exchange": "HOSE",
+      "sector": "Bán lẻ",
+      "business": "Bán lẻ điện thoại, điện máy, bách hóa.",
+      "financials": {"revenue_growth_yoy": 0.08, "net_profit_growth_yoy": 0.32, "roe": 0.145, "debt_to_equity": 0.68, "gross_margin": 0.22},
+      "valuation": {"pe_ttm": 20.1, "pb": 3.1, "ev_ebitda": 11.7},
+      "peer_percentile": {"growth": 0.60, "quality": 0.55, "valuation_cheapness": 0.48},
+      "risks": ["Biên lợi nhuận bán lẻ biến động", "Cạnh tranh ngành cao"]
+    }
+  ],
+  "quality_score": 0.91
+}

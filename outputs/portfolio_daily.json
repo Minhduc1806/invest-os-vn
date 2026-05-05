@@ -1,0 +1,45 @@
+{
+  "run_id": "portfolio_daily_advice_2026-05-05T11:20:54+07:00",
+  "as_of": "YYYY-MM-DDTHH:MM:SS+07:00",
+  "pipeline": "portfolio_daily_advice",
+  "nav_vnd": 0,
+  "equity_value_vnd": 0,
+  "cash_vnd": 0,
+  "cash_pct": 0,
+  "total_pnl_vnd": 0,
+  "total_pnl_pct": 0,
+  "positions": [],
+  "sector_weights": {},
+  "ticker_news": {},
+  "risks": [
+    "Danh mục chưa có vị thế; trạng thái cash-only/no holdings."
+  ],
+  "actions": [
+    "Không có cổ phiếu để khuyến nghị mua/bán; giữ tiền mặt đến khi nhập positions thật hoặc có kế hoạch giải ngân."
+  ],
+  "sources": [
+    "manual_real_portfolio_required",
+    "vnstock_history_adapter_partial_market",
+    "mock_news_hub",
+    "fdata_universe_filter"
+  ],
+  "confidence": 0.76,
+  "disclaimer": "Kế hoạch danh mục cần đối chiếu khẩu vị rủi ro thật và lệnh thực tế.",
+  "quality_warnings": [],
+  "production_phase_3": {
+    "orchestrator_calls_agents": true,
+    "lead_agent": "portfolio-advisor",
+    "agents": [
+      "portfolio-advisor",
+      "financial-news-editor",
+      "equity-technical-analyst"
+    ],
+    "tool_outputs": [
+      "tools/portfolio_engine.spec.md",
+      "tools/news_ingest.spec.md",
+      "tools/technical_engine.spec.md"
+    ],
+    "quality_report": [],
+    "final_writer": "portfolio-advisor"
+  }
+}

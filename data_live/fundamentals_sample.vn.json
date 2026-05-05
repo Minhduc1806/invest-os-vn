@@ -1,0 +1,50 @@
+{
+  "as_of": "2026-05-04T19:53:50+07:00",
+  "source": "vnstock_company_finance_partial",
+  "companies": [
+    {
+      "ticker": "FPT",
+      "exchange": "VN",
+      "sector": "unknown",
+      "business": "",
+      "financials": {},
+      "valuation": {},
+      "peer_percentile": {},
+      "risks": []
+    },
+    {
+      "ticker": "MWG",
+      "exchange": "VN",
+      "sector": "unknown",
+      "business": "",
+      "financials": {},
+      "valuation": {},
+      "peer_percentile": {},
+      "risks": []
+    },
+    {
+      "ticker": "VCB",
+      "exchange": "VN",
+      "sector": "unknown",
+      "business": "",
+      "financials": {},
+      "valuation": {},
+      "peer_percentile": {},
+      "risks": []
+    },
+    {
+      "ticker": "SSI",
+      "exchange": "VN",
+      "sector": "unknown",
+      "business": "",
+      "financials": {},
+      "valuation": {},
+      "peer_percentile": {},
+      "risks": []
+    }
+  ],
+  "quality_score": 0.72,
+  "warnings": [
+    "fundamental_schema_partial"
+  ]
+}

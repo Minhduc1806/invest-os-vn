@@ -1,0 +1,1094 @@
+{
+  "0001": {
+    "icb_code": "0001",
+    "icb_name": "Dầu khí",
+    "icb_order": 1,
+    "icb_level": 4
+  },
+  "1000": {
+    "icb_code": "1000",
+    "icb_name": "Nguyên vật liệu",
+    "icb_order": 1000,
+    "icb_level": 1
+  },
+  "2000": {
+    "icb_code": "2000",
+    "icb_name": "Công nghiệp",
+    "icb_order": 2000,
+    "icb_level": 1
+  },
+  "3000": {
+    "icb_code": "3000",
+    "icb_name": "Hàng Tiêu dùng",
+    "icb_order": 3000,
+    "icb_level": 1
+  },
+  "4000": {
+    "icb_code": "4000",
+    "icb_name": "Dược phẩm và Y tế",
+    "icb_order": 4000,
+    "icb_level": 1
+  },
+  "5000": {
+    "icb_code": "5000",
+    "icb_name": "Dịch vụ Tiêu dùng",
+    "icb_order": 5000,
+    "icb_level": 1
+  },
+  "6000": {
+    "icb_code": "6000",
+    "icb_name": "Viễn thông",
+    "icb_order": 6000,
+    "icb_level": 1
+  },
+  "7000": {
+    "icb_code": "7000",
+    "icb_name": "Tiện ích Cộng đồng",
+    "icb_order": 7000,
+    "icb_level": 1
+  },
+  "8000": {
+    "icb_code": "8000",
+    "icb_name": "Tài chính",
+    "icb_order": 8000,
+    "icb_level": 1
+  },
+  "9000": {
+    "icb_code": "9000",
+    "icb_name": "Công nghệ Thông tin",
+    "icb_order": 9000,
+    "icb_level": 1
+  },
+  "0500": {
+    "icb_code": "0500",
+    "icb_name": "Dầu khí",
+    "icb_order": 500,
+    "icb_level": 2
+  },
+  "1300": {
+    "icb_code": "1300",
+    "icb_name": "Hóa chất",
+    "icb_order": 1300,
+    "icb_level": 2
+  },
+  "1700": {
+    "icb_code": "1700",
+    "icb_name": "Tài nguyên Cơ bản",
+    "icb_order": 1700,
+    "icb_level": 2
+  },
+  "2300": {
+    "icb_code": "2300",
+    "icb_name": "Xây dựng và Vật liệu",
+    "icb_order": 2300,
+    "icb_level": 2
+  },
+  "2700": {
+    "icb_code": "2700",
+    "icb_name": "Hàng & Dịch vụ Công nghiệp",
+    "icb_order": 2700,
+    "icb_level": 2
+  },
+  "3300": {
+    "icb_code": "3300",
+    "icb_name": "Ô tô và phụ tùng",
+    "icb_order": 3300,
+    "icb_level": 2
+  },
+  "3500": {
+    "icb_code": "3500",
+    "icb_name": "Thực phẩm và đồ uống",
+    "icb_order": 3500,
+    "icb_level": 2
+  },
+  "3700": {
+    "icb_code": "3700",
+    "icb_name": "Hàng cá nhân & Gia dụng",
+    "icb_order": 3700,
+    "icb_level": 2
+  },
+  "4500": {
+    "icb_code": "4500",
+    "icb_name": "Y tế",
+    "icb_order": 4500,
+    "icb_level": 2
+  },
+  "5300": {
+    "icb_code": "5300",
+    "icb_name": "Bán lẻ",
+    "icb_order": 5300,
+    "icb_level": 2
+  },
+  "5500": {
+    "icb_code": "5500",
+    "icb_name": "Truyền thông",
+    "icb_order": 5500,
+    "icb_level": 2
+  },
+  "5700": {
+    "icb_code": "5700",
+    "icb_name": "Du lịch và Giải trí",
+    "icb_order": 5700,
+    "icb_level": 2
+  },
+  "6500": {
+    "icb_code": "6500",
+    "icb_name": "Viễn thông",
+    "icb_order": 6500,
+    "icb_level": 2
+  },
+  "7500": {
+    "icb_code": "7500",
+    "icb_name": "Điện, nước & xăng dầu khí đốt",
+    "icb_order": 7500,
+    "icb_level": 2
+  },
+  "8300": {
+    "icb_code": "8300",
+    "icb_name": "Ngân hàng",
+    "icb_order": 8300,
+    "icb_level": 2
+  },
+  "8500": {
+    "icb_code": "8500",
+    "icb_name": "Bảo hiểm",
+    "icb_order": 8500,
+    "icb_level": 2
+  },
+  "8600": {
+    "icb_code": "8600",
+    "icb_name": "Bất động sản",
+    "icb_order": 8600,
+    "icb_level": 2
+  },
+  "8700": {
+    "icb_code": "8700",
+    "icb_name": "Dịch vụ tài chính",
+    "icb_order": 8700,
+    "icb_level": 2
+  },
+  "8900": {
+    "icb_code": "8900",
+    "icb_name": "Đầu tư chứng khoán/phi chứng khoán",
+    "icb_order": 8900,
+    "icb_level": 2
+  },
+  "9500": {
+    "icb_code": "9500",
+    "icb_name": "Công nghệ Thông tin",
+    "icb_order": 9500,
+    "icb_level": 2
+  },
+  "0530": {
+    "icb_code": "0530",
+    "icb_name": "Sản xuất Dầu khí",
+    "icb_order": 530,
+    "icb_level": 3
+  },
+  "0570": {
+    "icb_code": "0570",
+    "icb_name": "Thiết bị, Dịch vụ và Phân phối Dầu khí",
+    "icb_order": 570,
+    "icb_level": 3
+  },
+  "0580": {
+    "icb_code": "0580",
+    "icb_name": "Năng lượng thay thế",
+    "icb_order": 580,
+    "icb_level": 3
+  },
+  "1350": {
+    "icb_code": "1350",
+    "icb_name": "Hóa chất",
+    "icb_order": 1350,
+    "icb_level": 3
+  },
+  "1730": {
+    "icb_code": "1730",
+    "icb_name": "Lâm nghiệp và Giấy",
+    "icb_order": 1730,
+    "icb_level": 3
+  },
+  "1750": {
+    "icb_code": "1750",
+    "icb_name": "Kim loại",
+    "icb_order": 1750,
+    "icb_level": 3
+  },
+  "1770": {
+    "icb_code": "1770",
+    "icb_name": "Khai khoáng",
+    "icb_order": 1770,
+    "icb_level": 3
+  },
+  "2350": {
+    "icb_code": "2350",
+    "icb_name": "Xây dựng và Vật liệu",
+    "icb_order": 2350,
+    "icb_level": 3
+  },
+  "2710": {
+    "icb_code": "2710",
+    "icb_name": "Hàng không & Quốc phòng",
+    "icb_order": 2710,
+    "icb_level": 3
+  },
+  "2720": {
+    "icb_code": "2720",
+    "icb_name": "Hàng công nghiệp",
+    "icb_order": 2720,
+    "icb_level": 3
+  },
+  "2730": {
+    "icb_code": "2730",
+    "icb_name": "Điện tử & Thiết bị điện",
+    "icb_order": 2730,
+    "icb_level": 3
+  },
+  "2750": {
+    "icb_code": "2750",
+    "icb_name": "Công nghiệp nặng",
+    "icb_order": 2750,
+    "icb_level": 3
+  },
+  "2770": {
+    "icb_code": "2770",
+    "icb_name": "Vận tải",
+    "icb_order": 2770,
+    "icb_level": 3
+  },
+  "2790": {
+    "icb_code": "2790",
+    "icb_name": "Tư vấn & Hỗ trợ Kinh doanh",
+    "icb_order": 2790,
+    "icb_level": 3
+  },
+  "3350": {
+    "icb_code": "3350",
+    "icb_name": "Ô tô và phụ tùng",
+    "icb_order": 3350,
+    "icb_level": 3
+  },
+  "3530": {
+    "icb_code": "3530",
+    "icb_name": "Bia và đồ uống",
+    "icb_order": 3530,
+    "icb_level": 3
+  },
+  "3570": {
+    "icb_code": "3570",
+    "icb_name": "Sản xuất thực phẩm",
+    "icb_order": 3570,
+    "icb_level": 3
+  },
+  "3720": {
+    "icb_code": "3720",
+    "icb_name": "Hàng gia dụng",
+    "icb_order": 3720,
+    "icb_level": 3
+  },
+  "3740": {
+    "icb_code": "3740",
+    "icb_name": "Hàng hóa giải trí",
+    "icb_order": 3740,
+    "icb_level": 3
+  },
+  "3760": {
+    "icb_code": "3760",
+    "icb_name": "Hàng cá nhân",
+    "icb_order": 3760,
+    "icb_level": 3
+  },
+  "3780": {
+    "icb_code": "3780",
+    "icb_name": "Thuốc lá",
+    "icb_order": 3780,
+    "icb_level": 3
+  },
+  "4530": {
+    "icb_code": "4530",
+    "icb_name": "Thiết bị và Dịch vụ Y tế",
+    "icb_order": 4530,
+    "icb_level": 3
+  },
+  "4570": {
+    "icb_code": "4570",
+    "icb_name": "Dược phẩm",
+    "icb_order": 4570,
+    "icb_level": 3
+  },
+  "5330": {
+    "icb_code": "5330",
+    "icb_name": "Phân phối thực phẩm & dược phẩm",
+    "icb_order": 5330,
+    "icb_level": 3
+  },
+  "5370": {
+    "icb_code": "5370",
+    "icb_name": "Bán lẻ",
+    "icb_order": 5370,
+    "icb_level": 3
+  },
+  "5550": {
+    "icb_code": "5550",
+    "icb_name": "Truyền thông",
+    "icb_order": 5550,
+    "icb_level": 3
+  },
+  "5750": {
+    "icb_code": "5750",
+    "icb_name": "Du lịch & Giải trí",
+    "icb_order": 5750,
+    "icb_level": 3
+  },
+  "6530": {
+    "icb_code": "6530",
+    "icb_name": "Viễn thông cố định",
+    "icb_order": 6530,
+    "icb_level": 3
+  },
+  "6570": {
+    "icb_code": "6570",
+    "icb_name": "Viễn thông di động",
+    "icb_order": 6570,
+    "icb_level": 3
+  },
+  "7530": {
+    "icb_code": "7530",
+    "icb_name": "Sản xuất & Phân phối Điện",
+    "icb_order": 7530,
+    "icb_level": 3
+  },
+  "7570": {
+    "icb_code": "7570",
+    "icb_name": "Nước & Khí đốt",
+    "icb_order": 7570,
+    "icb_level": 3
+  },
+  "8350": {
+    "icb_code": "8350",
+    "icb_name": "Ngân hàng",
+    "icb_order": 8350,
+    "icb_level": 3
+  },
+  "8530": {
+    "icb_code": "8530",
+    "icb_name": "Bảo hiểm phi nhân thọ",
+    "icb_order": 8530,
+    "icb_level": 3
+  },
+  "8570": {
+    "icb_code": "8570",
+    "icb_name": "Bảo hiểm nhân thọ",
+    "icb_order": 8570,
+    "icb_level": 3
+  },
+  "8580": {
+    "icb_code": "8580",
+    "icb_name": "Công ty bảo hiểm",
+    "icb_order": 8580,
+    "icb_level": 3
+  },
+  "8630": {
+    "icb_code": "8630",
+    "icb_name": "Bất động sản",
+    "icb_order": 8630,
+    "icb_level": 3
+  },
+  "8670": {
+    "icb_code": "8670",
+    "icb_name": "Quỹ ủy thác BĐS",
+    "icb_order": 8670,
+    "icb_level": 3
+  },
+  "8770": {
+    "icb_code": "8770",
+    "icb_name": "Dịch vụ tài chính",
+    "icb_order": 8770,
+    "icb_level": 3
+  },
+  "8780": {
+    "icb_code": "8780",
+    "icb_name": "Công ty Chứng khoán",
+    "icb_order": 8780,
+    "icb_level": 3
+  },
+  "8980": {
+    "icb_code": "8980",
+    "icb_name": "Quỹ đóng",
+    "icb_order": 8980,
+    "icb_level": 3
+  },
+  "8990": {
+    "icb_code": "8990",
+    "icb_name": "Quỹ mở",
+    "icb_order": 8990,
+    "icb_level": 3
+  },
+  "9530": {
+    "icb_code": "9530",
+    "icb_name": "Phần mềm & Dịch vụ Máy tính",
+    "icb_order": 9530,
+    "icb_level": 3
+  },
+  "9570": {
+    "icb_code": "9570",
+    "icb_name": "Thiết bị và Phần cứng",
+    "icb_order": 9570,
+    "icb_level": 3
+  },
+  "0533": {
+    "icb_code": "0533",
+    "icb_name": "Sản xuất và Khai thác dầu khí",
+    "icb_order": 533,
+    "icb_level": 4
+  },
+  "0537": {
+    "icb_code": "0537",
+    "icb_name": "Tổ hợp Dầu khí",
+    "icb_order": 537,
+    "icb_level": 4
+  },
+  "0573": {
+    "icb_code": "0573",
+    "icb_name": "Thiết bị và Dịch vụ Dầu khí",
+    "icb_order": 573,
+    "icb_level": 4
+  },
+  "0577": {
+    "icb_code": "0577",
+    "icb_name": "Ống dẫn Dầu",
+    "icb_order": 577,
+    "icb_level": 4
+  },
+  "0583": {
+    "icb_code": "0583",
+    "icb_name": "Thiết bị năng lượng tái chế",
+    "icb_order": 583,
+    "icb_level": 4
+  },
+  "0587": {
+    "icb_code": "0587",
+    "icb_name": "Nhiên liệu thay thế",
+    "icb_order": 587,
+    "icb_level": 4
+  },
+  "1353": {
+    "icb_code": "1353",
+    "icb_name": "Nhựa, cao su & sợi",
+    "icb_order": 1353,
+    "icb_level": 4
+  },
+  "1357": {
+    "icb_code": "1357",
+    "icb_name": "Sản phẩm hóa dầu, Nông dược & Hóa chất khác",
+    "icb_order": 1357,
+    "icb_level": 4
+  },
+  "1733": {
+    "icb_code": "1733",
+    "icb_name": "Lâm sản và Chế biến gỗ",
+    "icb_order": 1733,
+    "icb_level": 4
+  },
+  "1737": {
+    "icb_code": "1737",
+    "icb_name": "Sản xuất giấy",
+    "icb_order": 1737,
+    "icb_level": 4
+  },
+  "1753": {
+    "icb_code": "1753",
+    "icb_name": "Nhôm",
+    "icb_order": 1753,
+    "icb_level": 4
+  },
+  "1755": {
+    "icb_code": "1755",
+    "icb_name": "Kim Loại màu",
+    "icb_order": 1755,
+    "icb_level": 4
+  },
+  "1757": {
+    "icb_code": "1757",
+    "icb_name": "Thép và sản phẩm thép",
+    "icb_order": 1757,
+    "icb_level": 4
+  },
+  "1771": {
+    "icb_code": "1771",
+    "icb_name": "Khai thác Than",
+    "icb_order": 1771,
+    "icb_level": 4
+  },
+  "1773": {
+    "icb_code": "1773",
+    "icb_name": "Đá quý và Kim cương",
+    "icb_order": 1773,
+    "icb_level": 4
+  },
+  "1775": {
+    "icb_code": "1775",
+    "icb_name": "Khai khoáng ",
+    "icb_order": 1775,
+    "icb_level": 4
+  },
+  "1777": {
+    "icb_code": "1777",
+    "icb_name": "Khai thác vàng",
+    "icb_order": 1777,
+    "icb_level": 4
+  },
+  "1779": {
+    "icb_code": "1779",
+    "icb_name": "Bạch kim & Kim loại quý khác",
+    "icb_order": 1779,
+    "icb_level": 4
+  },
+  "2353": {
+    "icb_code": "2353",
+    "icb_name": "Vật liệu xây dựng & Nội thất",
+    "icb_order": 2353,
+    "icb_level": 4
+  },
+  "2357": {
+    "icb_code": "2357",
+    "icb_name": "Xây dựng",
+    "icb_order": 2357,
+    "icb_level": 4
+  },
+  "2713": {
+    "icb_code": "2713",
+    "icb_name": "Hàng không",
+    "icb_order": 2713,
+    "icb_level": 4
+  },
+  "2717": {
+    "icb_code": "2717",
+    "icb_name": "Quốc phòng",
+    "icb_order": 2717,
+    "icb_level": 4
+  },
+  "2723": {
+    "icb_code": "2723",
+    "icb_name": "Containers & Đóng gói",
+    "icb_order": 2723,
+    "icb_level": 4
+  },
+  "2727": {
+    "icb_code": "2727",
+    "icb_name": "Công nghiệp phức hợp",
+    "icb_order": 2727,
+    "icb_level": 4
+  },
+  "2733": {
+    "icb_code": "2733",
+    "icb_name": "Hàng điện & điện tử",
+    "icb_order": 2733,
+    "icb_level": 4
+  },
+  "2737": {
+    "icb_code": "2737",
+    "icb_name": "Thiết bị điện",
+    "icb_order": 2737,
+    "icb_level": 4
+  },
+  "2753": {
+    "icb_code": "2753",
+    "icb_name": "Xe tải & Đóng tàu",
+    "icb_order": 2753,
+    "icb_level": 4
+  },
+  "2757": {
+    "icb_code": "2757",
+    "icb_name": "Máy công nghiệp",
+    "icb_order": 2757,
+    "icb_level": 4
+  },
+  "2771": {
+    "icb_code": "2771",
+    "icb_name": "Chuyển phát nhanh",
+    "icb_order": 2771,
+    "icb_level": 4
+  },
+  "2773": {
+    "icb_code": "2773",
+    "icb_name": "Vận tải Thủy",
+    "icb_order": 2773,
+    "icb_level": 4
+  },
+  "2775": {
+    "icb_code": "2775",
+    "icb_name": "Đường sắt",
+    "icb_order": 2775,
+    "icb_level": 4
+  },
+  "2777": {
+    "icb_code": "2777",
+    "icb_name": "Kho bãi, hậu cần và bảo dưỡng",
+    "icb_order": 2777,
+    "icb_level": 4
+  },
+  "2779": {
+    "icb_code": "2779",
+    "icb_name": "Dịch vụ vận tải",
+    "icb_order": 2779,
+    "icb_level": 4
+  },
+  "2791": {
+    "icb_code": "2791",
+    "icb_name": "Tư vấn & Hỗ trợ KD",
+    "icb_order": 2791,
+    "icb_level": 4
+  },
+  "2793": {
+    "icb_code": "2793",
+    "icb_name": "Đào tạo & Việc làm",
+    "icb_order": 2793,
+    "icb_level": 4
+  },
+  "2795": {
+    "icb_code": "2795",
+    "icb_name": "Quản lý Tài chính",
+    "icb_order": 2795,
+    "icb_level": 4
+  },
+  "2797": {
+    "icb_code": "2797",
+    "icb_name": "Nhà cung cấp thiết bị",
+    "icb_order": 2797,
+    "icb_level": 4
+  },
+  "2799": {
+    "icb_code": "2799",
+    "icb_name": "Chất thải & Môi trường",
+    "icb_order": 2799,
+    "icb_level": 4
+  },
+  "3353": {
+    "icb_code": "3353",
+    "icb_name": "Sản xuất ô tô",
+    "icb_order": 3353,
+    "icb_level": 4
+  },
+  "3355": {
+    "icb_code": "3355",
+    "icb_name": "Phụ tùng ô tô",
+    "icb_order": 3355,
+    "icb_level": 4
+  },
+  "3357": {
+    "icb_code": "3357",
+    "icb_name": "Lốp xe",
+    "icb_order": 3357,
+    "icb_level": 4
+  },
+  "3533": {
+    "icb_code": "3533",
+    "icb_name": "Sản xuất bia ",
+    "icb_order": 3533,
+    "icb_level": 4
+  },
+  "3535": {
+    "icb_code": "3535",
+    "icb_name": "Vang & Rượu mạnh",
+    "icb_order": 3535,
+    "icb_level": 4
+  },
+  "3537": {
+    "icb_code": "3537",
+    "icb_name": "Đồ uống & giải khát",
+    "icb_order": 3537,
+    "icb_level": 4
+  },
+  "3573": {
+    "icb_code": "3573",
+    "icb_name": "Nuôi trồng nông & hải sản",
+    "icb_order": 3573,
+    "icb_level": 4
+  },
+  "3577": {
+    "icb_code": "3577",
+    "icb_name": "Thực phẩm",
+    "icb_order": 3577,
+    "icb_level": 4
+  },
+  "3722": {
+    "icb_code": "3722",
+    "icb_name": "Đồ gia dụng lâu bền",
+    "icb_order": 3722,
+    "icb_level": 4
+  },
+  "3724": {
+    "icb_code": "3724",
+    "icb_name": "Đồ gia dụng một lần",
+    "icb_order": 3724,
+    "icb_level": 4
+  },
+  "3726": {
+    "icb_code": "3726",
+    "icb_name": "Thiết bị gia dụng",
+    "icb_order": 3726,
+    "icb_level": 4
+  },
+  "3728": {
+    "icb_code": "3728",
+    "icb_name": "Xây nhà",
+    "icb_order": 3728,
+    "icb_level": 4
+  },
+  "3743": {
+    "icb_code": "3743",
+    "icb_name": "Điện tử tiêu dùng",
+    "icb_order": 3743,
+    "icb_level": 4
+  },
+  "3745": {
+    "icb_code": "3745",
+    "icb_name": "Sản phẩm nghệ thuật",
+    "icb_order": 3745,
+    "icb_level": 4
+  },
+  "3747": {
+    "icb_code": "3747",
+    "icb_name": "Đồ chơi",
+    "icb_order": 3747,
+    "icb_level": 4
+  },
+  "3763": {
+    "icb_code": "3763",
+    "icb_name": "Hàng May mặc",
+    "icb_order": 3763,
+    "icb_level": 4
+  },
+  "3765": {
+    "icb_code": "3765",
+    "icb_name": "Giầy dép",
+    "icb_order": 3765,
+    "icb_level": 4
+  },
+  "3767": {
+    "icb_code": "3767",
+    "icb_name": "Hàng cá nhân",
+    "icb_order": 3767,
+    "icb_level": 4
+  },
+  "3785": {
+    "icb_code": "3785",
+    "icb_name": "Thuốc lá",
+    "icb_order": 3785,
+    "icb_level": 4
+  },
+  "4533": {
+    "icb_code": "4533",
+    "icb_name": "Chăm sóc y tế",
+    "icb_order": 4533,
+    "icb_level": 4
+  },
+  "4535": {
+    "icb_code": "4535",
+    "icb_name": "Thiết bị y tế",
+    "icb_order": 4535,
+    "icb_level": 4
+  },
+  "4537": {
+    "icb_code": "4537",
+    "icb_name": "Dụng cụ y tế",
+    "icb_order": 4537,
+    "icb_level": 4
+  },
+  "4573": {
+    "icb_code": "4573",
+    "icb_name": "Công nghệ sinh học",
+    "icb_order": 4573,
+    "icb_level": 4
+  },
+  "4577": {
+    "icb_code": "4577",
+    "icb_name": "Dược phẩm",
+    "icb_order": 4577,
+    "icb_level": 4
+  },
+  "5333": {
+    "icb_code": "5333",
+    "icb_name": "Phân phối dược phẩm",
+    "icb_order": 5333,
+    "icb_level": 4
+  },
+  "5337": {
+    "icb_code": "5337",
+    "icb_name": "Phân phối thực phẩm",
+    "icb_order": 5337,
+    "icb_level": 4
+  },
+  "5371": {
+    "icb_code": "5371",
+    "icb_name": "Bán lẻ hàng may mặc",
+    "icb_order": 5371,
+    "icb_level": 4
+  },
+  "5373": {
+    "icb_code": "5373",
+    "icb_name": "Bán lẻ phức hợp",
+    "icb_order": 5373,
+    "icb_level": 4
+  },
+  "5375": {
+    "icb_code": "5375",
+    "icb_name": "Phân phối nội thất",
+    "icb_order": 5375,
+    "icb_level": 4
+  },
+  "5377": {
+    "icb_code": "5377",
+    "icb_name": "Dịch vụ tiêu dùng chuyên ngành",
+    "icb_order": 5377,
+    "icb_level": 4
+  },
+  "5379": {
+    "icb_code": "5379",
+    "icb_name": "Phân phối hàng chuyên dụng",
+    "icb_order": 5379,
+    "icb_level": 4
+  },
+  "5553": {
+    "icb_code": "5553",
+    "icb_name": "Giải trí & Truyền thông",
+    "icb_order": 5553,
+    "icb_level": 4
+  },
+  "5555": {
+    "icb_code": "5555",
+    "icb_name": "Dịch vụ truyền thông",
+    "icb_order": 5555,
+    "icb_level": 4
+  },
+  "5557": {
+    "icb_code": "5557",
+    "icb_name": "Sách, ấn bản & sản phẩm văn hóa",
+    "icb_order": 5557,
+    "icb_level": 4
+  },
+  "5751": {
+    "icb_code": "5751",
+    "icb_name": "Hàng không",
+    "icb_order": 5751,
+    "icb_level": 4
+  },
+  "5752": {
+    "icb_code": "5752",
+    "icb_name": "Gambling",
+    "icb_order": 5752,
+    "icb_level": 4
+  },
+  "5753": {
+    "icb_code": "5753",
+    "icb_name": "Khách sạn",
+    "icb_order": 5753,
+    "icb_level": 4
+  },
+  "5755": {
+    "icb_code": "5755",
+    "icb_name": "Dịch vụ giải trí",
+    "icb_order": 5755,
+    "icb_level": 4
+  },
+  "5757": {
+    "icb_code": "5757",
+    "icb_name": "Nhà hàng và quán bar",
+    "icb_order": 5757,
+    "icb_level": 4
+  },
+  "5759": {
+    "icb_code": "5759",
+    "icb_name": "Vận tải hành khách & Du lịch",
+    "icb_order": 5759,
+    "icb_level": 4
+  },
+  "6535": {
+    "icb_code": "6535",
+    "icb_name": "Viễn thông cố định",
+    "icb_order": 6535,
+    "icb_level": 4
+  },
+  "6575": {
+    "icb_code": "6575",
+    "icb_name": "Viễn thông di động",
+    "icb_order": 6575,
+    "icb_level": 4
+  },
+  "7535": {
+    "icb_code": "7535",
+    "icb_name": "Sản xuất & Phân phối Điện",
+    "icb_order": 7535,
+    "icb_level": 4
+  },
+  "7573": {
+    "icb_code": "7573",
+    "icb_name": "Phân phối xăng dầu & khí đốt",
+    "icb_order": 7573,
+    "icb_level": 4
+  },
+  "7575": {
+    "icb_code": "7575",
+    "icb_name": "Tiện ích khác",
+    "icb_order": 7575,
+    "icb_level": 4
+  },
+  "7577": {
+    "icb_code": "7577",
+    "icb_name": "Nước",
+    "icb_order": 7577,
+    "icb_level": 4
+  },
+  "8355": {
+    "icb_code": "8355",
+    "icb_name": "Ngân hàng",
+    "icb_order": 8355,
+    "icb_level": 4
+  },
+  "8532": {
+    "icb_code": "8532",
+    "icb_name": "Bảo hiểm phức hợp",
+    "icb_order": 8532,
+    "icb_level": 4
+  },
+  "8534": {
+    "icb_code": "8534",
+    "icb_name": "Môi giới bảo hiểm",
+    "icb_order": 8534,
+    "icb_level": 4
+  },
+  "8536": {
+    "icb_code": "8536",
+    "icb_name": "Bảo hiểm phi nhân thọ",
+    "icb_order": 8536,
+    "icb_level": 4
+  },
+  "8538": {
+    "icb_code": "8538",
+    "icb_name": "Tái bảo hiểm",
+    "icb_order": 8538,
+    "icb_level": 4
+  },
+  "8575": {
+    "icb_code": "8575",
+    "icb_name": "Bảo hiểm nhân thọ",
+    "icb_order": 8575,
+    "icb_level": 4
+  },
+  "8581": {
+    "icb_code": "8581",
+    "icb_name": "Công ty bảo hiểm",
+    "icb_order": 8581,
+    "icb_level": 4
+  },
+  "8633": {
+    "icb_code": "8633",
+    "icb_name": "Bất động sản",
+    "icb_order": 8633,
+    "icb_level": 4
+  },
+  "8637": {
+    "icb_code": "8637",
+    "icb_name": "Tư Vấn, Định giá, Môi giới Bất động sản",
+    "icb_order": 8637,
+    "icb_level": 4
+  },
+  "8677": {
+    "icb_code": "8677",
+    "icb_name": "Quỹ ủy thác BĐS",
+    "icb_order": 8677,
+    "icb_level": 4
+  },
+  "8771": {
+    "icb_code": "8771",
+    "icb_name": "Quản lý tài sản",
+    "icb_order": 8771,
+    "icb_level": 4
+  },
+  "8773": {
+    "icb_code": "8773",
+    "icb_name": "Tài chính cá nhân",
+    "icb_order": 8773,
+    "icb_level": 4
+  },
+  "8775": {
+    "icb_code": "8775",
+    "icb_name": "Tài chính đặc biệt",
+    "icb_order": 8775,
+    "icb_level": 4
+  },
+  "8777": {
+    "icb_code": "8777",
+    "icb_name": "Môi giới chứng khoán",
+    "icb_order": 8777,
+    "icb_level": 4
+  },
+  "8779": {
+    "icb_code": "8779",
+    "icb_name": "Cầm cố",
+    "icb_order": 8779,
+    "icb_level": 4
+  },
+  "8781": {
+    "icb_code": "8781",
+    "icb_name": "Công ty Chứng khoán",
+    "icb_order": 8781,
+    "icb_level": 4
+  },
+  "8985": {
+    "icb_code": "8985",
+    "icb_name": "Quỹ đóng",
+    "icb_order": 8985,
+    "icb_level": 4
+  },
+  "8995": {
+    "icb_code": "8995",
+    "icb_name": "Quỹ mở",
+    "icb_order": 8995,
+    "icb_level": 4
+  },
+  "9533": {
+    "icb_code": "9533",
+    "icb_name": "Dịch vụ Máy tính",
+    "icb_order": 9533,
+    "icb_level": 4
+  },
+  "9535": {
+    "icb_code": "9535",
+    "icb_name": "Internet",
+    "icb_order": 9535,
+    "icb_level": 4
+  },
+  "9537": {
+    "icb_code": "9537",
+    "icb_name": "Phần mềm",
+    "icb_order": 9537,
+    "icb_level": 4
+  },
+  "9572": {
+    "icb_code": "9572",
+    "icb_name": "Phần cứng",
+    "icb_order": 9572,
+    "icb_level": 4
+  },
+  "9574": {
+    "icb_code": "9574",
+    "icb_name": "Thiết bị văn phòng",
+    "icb_order": 9574,
+    "icb_level": 4
+  },
+  "9576": {
+    "icb_code": "9576",
+    "icb_name": "Bán dẫn",
+    "icb_order": 9576,
+    "icb_level": 4
+  },
+  "9578": {
+    "icb_code": "9578",
+    "icb_name": "Thiết bị viễn thông",
+    "icb_order": 9578,
+    "icb_level": 4
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "as_of": "YYYY-MM-DDTHH:MM:SS+07:00",
+  "source": "manual_real_portfolio_required",
+  "account_id": "duc_real",
+  "risk_profile": "balanced",
+  "cash_vnd": 0,
+  "margin_debt_vnd": 0,
+  "positions": [],
+  "constraints": {"max_position_pct": 0.25, "min_cash_pct": 0.10},
+  "status": "placeholder_not_real",
+  "required_fields_note": "Nhập cash, margin_debt, risk_profile, positions: ticker, quantity, avg_cost, last_price, sector. Không dùng ví dụ FPT làm danh mục thật."
+}

@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "required": [
+    "ticker",
+    "status",
+    "entry_zone",
+    "risk",
+    "confidence"
+  ],
+  "properties": {
+    "ticker": {
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "actionable",
+        "watch",
+        "idea",
+        "avoid"
+      ]
+    },
+    "entry_zone": {
+      "type": "string"
+    },
+    "invalidation": {
+      "type": "string"
+    },
+    "risk": {
+      "type": "string"
+    },
+    "confidence": {
+      "type": "number"
+    }
+  }
+}

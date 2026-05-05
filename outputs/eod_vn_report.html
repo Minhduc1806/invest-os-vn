@@ -1,0 +1,96 @@
+<html><head><meta charset="utf-8"><style>body{font-family:Arial;margin:24px;background:#f7f8fa;color:#111}.card{background:white;border-radius:12px;padding:16px;margin:14px 0;box-shadow:0 1px 6px #ddd}table{border-collapse:collapse;width:100%;font-size:13px}th,td{border-bottom:1px solid #eee;padding:6px;text-align:left}.A{border-left:6px solid #0a7}.B{border-left:6px solid #d90}.R{border-left:6px solid #c33}.pill{display:inline-block;padding:4px 8px;border-radius:99px;background:#eee}</style></head><body><h1>DUC AI Investment OS — EOD Dashboard</h1><div class='card'><b>Market regime</b>: <span class='pill'>neutral</span> — neutral: ưu tiên pullback/base, breakout cần R/R >2.5<h2>NO NEW BUY</h2><p>Chỉ quản trị danh mục: giữ mã mạnh hơn thị trường, giảm mã gãy stop/yếu hơn VNINDEX.</p></div><div class='card A'><h2>Tier A</h2><table class=""><tr><th>ticker</th><th>action_type</th><th>candidate_score</th><th>rr_ratio</th><th>entry_condition</th></tr></table></div><div class='card B'><h2>Tier B</h2><table class=""><tr><th>ticker</th><th>action_type</th><th>candidate_score</th><th>rr_ratio</th><th>entry_condition</th></tr><tr><td>VIC</td><td>watch_only</td><td>66.09</td><td>1.5</td><td>watch_only: chờ pullback về hỗ trợ 150.90 hoặc vượt kháng cự 227.80</td></tr><tr><td>DIG</td><td>watch_only</td><td>57.79</td><td>1.84</td><td>watch_only: chờ pullback về hỗ trợ 13.85 hoặc vượt kháng cự 16.50</td></tr><tr><td>L14</td><td>watch_only</td><td>48.9</td><td>1.5</td><td>watch_only: chờ pullback về hỗ trợ 22.50 hoặc vượt kháng cự 27.70</td></tr><tr><td>ASM</td><td>watch_only</td><td>47.8</td><td>1.5</td><td>watch_only/avoid: setup chưa đủ điều kiện</td></tr><tr><td>L40</td><td>watch_only</td><td>42.08</td><td>1.3</td><td>watch_only/avoid: setup chưa đủ điều kiện</td></tr><tr><td>SGR</td><td>watch_only</td><td>41.76</td><td>1.5</td><td>watch_only/avoid: setup chưa đủ điều kiện</td></tr><tr><td>PVP</td><td>watch_only</td><td>41.52</td><td>1.5</td><td>watch_only: chờ pullback về hỗ trợ 15.15 hoặc vượt kháng cự 20.00</td></tr><tr><td>KSB</td><td>watch_only</td><td>39.4</td><td>1.5</td><td>watch_only/avoid: setup chưa đủ điều kiện</td></tr><tr><td>NHH</td><td>watch_only</td><td>37.28</td><td>1.5</td><td>watch_only/avoid: setup chưa đủ điều kiện</td></tr><tr><td>ABW</td><td>watch_only</td><td>34.74</td><td>1.3</td><td>watch_only/avoid: setup chưa đủ điều kiện</td></tr><tr><td>APH</td><td>watch_only</td><td>27.52</td><td>1.5</td><td>watch_only/avoid: setup chưa đủ điều kiện</td></tr></table></div><div class='card'><h2>Portfolio</h2><table class=""><tr><th>ticker</th><th>sector</th><th>weight_pct</th><th>bucket</th><th>action</th><th>target_weight_pct</th></tr><tr><td>FPT</td><td>Công nghệ Thông tin</td><td>54.13</td><td>Rejected</td><td>GIẢM rủi ro / không mua thêm</td><td>49.13</td></tr></table></div><div class='card'><h2>Backtest summary</h2><pre>{
+  &quot;Tier A&quot;: {
+    &quot;T+1&quot;: {
+      &quot;n&quot;: 1380,
+      &quot;avg_ret&quot;: 0.18,
+      &quot;win_rate&quot;: 46.2,
+      &quot;expectancy&quot;: 0.18,
+      &quot;target_hit&quot;: 0.0,
+      &quot;stop_hit&quot;: 0.2,
+      &quot;avg_mae&quot;: -1.56
+    },
+    &quot;T+3&quot;: {
+      &quot;n&quot;: 1380,
+      &quot;avg_ret&quot;: 0.54,
+      &quot;win_rate&quot;: 49.2,
+      &quot;expectancy&quot;: 0.54,
+      &quot;target_hit&quot;: 0.6,
+      &quot;stop_hit&quot;: 0.9,
+      &quot;avg_mae&quot;: -2.97
+    },
+    &quot;T+5&quot;: {
+      &quot;n&quot;: 1380,
+      &quot;avg_ret&quot;: 0.92,
+      &quot;win_rate&quot;: 51.4,
+      &quot;expectancy&quot;: 0.92,
+      &quot;target_hit&quot;: 1.7,
+      &quot;stop_hit&quot;: 2.0,
+      &quot;avg_mae&quot;: -3.78
+    },
+    &quot;T+10&quot;: {
+      &quot;n&quot;: 1380,
+      &quot;avg_ret&quot;: 2.01,
+      &quot;win_rate&quot;: 55.8,
+      &quot;expectancy&quot;: 2.01,
+      &quot;target_hit&quot;: 6.6,
+      &quot;stop_hit&quot;: 4.9,
+      &quot;avg_mae&quot;: -5.02
+    },
+    &quot;T+20&quot;: {
+      &quot;n&quot;: 1380,
+      &quot;avg_ret&quot;: 3.73,
+      &quot;win_rate&quot;: 56.5,
+      &quot;expectancy&quot;: 3.73,
+      &quot;target_hit&quot;: 15.7,
+      &quot;stop_hit&quot;: 11.5,
+      &quot;avg_mae&quot;: -6.38
+    }
+  },
+  &quot;Tier B&quot;: {
+    &quot;T+1&quot;: {
+      &quot;n&quot;: 6806,
+      &quot;avg_ret&quot;: -0.01,
+      &quot;win_rate&quot;: 41.0,
+      &quot;expectancy&quot;: -0.01,
+      &quot;target_hit&quot;: 0.0,
+      &quot;stop_hit&quot;: 0.6,
+      &quot;avg_mae&quot;: -1.57
+    },
+    &quot;T+3&quot;: {
+      &quot;n&quot;: 6806,
+      &quot;avg_ret&quot;: 0.16,
+      &quot;win_rate&quot;: 45.7,
+      &quot;expectancy&quot;: 0.16,
+      &quot;target_hit&quot;: 0.6,
+      &quot;stop_hit&quot;: 3.0,
+      &quot;avg_mae&quot;: -2.86
+    },
+    &quot;T+5&quot;: {
+      &quot;n&quot;: 6806,
+      &quot;avg_ret&quot;: 0.27,
+      &quot;win_rate&quot;: 46.0,
+      &quot;expectancy&quot;: 0.27,
+      &quot;target_hit&quot;: 1.9,
+      &quot;stop_hit&quot;: 5.8,
+      &quot;avg_mae&quot;: -3.67
+    },
+    &quot;T+10&quot;: {
+      &quot;n&quot;: 6806,
+      &quot;avg_ret&quot;: 0.6,
+      &quot;win_rate&quot;: 45.1,
+      &quot;expectancy&quot;: 0.6,
+      &quot;target_hit&quot;: 6.0,
+      &quot;stop_hit&quot;: 12.6,
+      &quot;avg_mae&quot;: -5.02
+    },
+    &quot;T+20&quot;: {
+      &quot;n&quot;: 6806,
+      &quot;avg_ret&quot;: 1.0,
+      &quot;win_rate&quot;: 45.3,
+      &quot;expectancy&quot;: 1.0,
+      &quot;target_hit&quot;: 13.0,
+      &quot;stop_hit&quot;: 23.5,
+      &quot;avg_mae&quot;: -6.76
+    }
+  }
+}</pre></div></body></html>

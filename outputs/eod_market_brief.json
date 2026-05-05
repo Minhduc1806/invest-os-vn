@@ -1,0 +1,113 @@
+{
+  "run_id": "eod_market_brief_2026-05-05T12:04:06+07:00",
+  "as_of": "2026-05-05T12:01:25+07:00",
+  "pipeline": "eod_market_brief",
+  "market_regime": {
+    "as_of": "2026-05-05T12:01:25+07:00",
+    "regime": "risk_off",
+    "risk_appetite": 55.0,
+    "evidence": [
+      "VNINDEX 0.81%, value 0 tỷ VND",
+      "Breadth adv/dec 0.25 (2/8)",
+      "Sector positive ratio 17%",
+      "Foreign net flow 0 tỷ VND"
+    ],
+    "top_sectors_by_data": [
+      {
+        "name": "Bất động sản",
+        "change_pct": 5.48,
+        "value_bil_vnd": 0,
+        "relative_strength_20d": 3.31
+      },
+      {
+        "name": "Bán lẻ",
+        "change_pct": -0.12,
+        "value_bil_vnd": 0,
+        "relative_strength_20d": -0.66
+      },
+      {
+        "name": "Ngân hàng",
+        "change_pct": -1.46,
+        "value_bil_vnd": 0,
+        "relative_strength_20d": -0.71
+      }
+    ],
+    "source": "vnstock_history_adapter_partial_market",
+    "confidence": 0.74
+  },
+  "market_thesis": "Thị trường nghiêng risk_off với risk appetite 55.0/100. Bằng chứng chính: VNINDEX 0.81%, value 0 tỷ VND; Breadth adv/dec 0.25 (2/8).",
+  "sector_table": [
+    [
+      "Bất động sản",
+      "5.48%",
+      0,
+      3.31
+    ],
+    [
+      "Bán lẻ",
+      "-0.12%",
+      0,
+      -0.66
+    ],
+    [
+      "Ngân hàng",
+      "-1.46%",
+      0,
+      -0.71
+    ]
+  ],
+  "news_brief": [
+    {
+      "title": "FPT công bố hợp đồng chuyển đổi số mới",
+      "tickers": [
+        "FPT"
+      ],
+      "url": "https://example.com/fpt-contract",
+      "summary": "Doanh nghiệp công nghệ ghi nhận hợp đồng mới trong mảng dịch vụ CNTT."
+    },
+    {
+      "title": "Thanh khoản hệ thống ngân hàng duy trì ổn định",
+      "tickers": [],
+      "url": "https://example.com/sbv-liquidity",
+      "summary": "Lãi suất liên ngân hàng ít biến động, tín hiệu áp lực thanh khoản chưa tăng mạnh."
+    },
+    {
+      "title": "Doanh số bán lẻ cải thiện so với cùng kỳ",
+      "tickers": [
+        "MWG"
+      ],
+      "url": "https://example.com/retail-sales",
+      "summary": "Dữ liệu bán lẻ hỗ trợ kỳ vọng hồi phục tiêu dùng."
+    }
+  ],
+  "next_session_conditions": [
+    "Ưu tiên giải ngân nếu VNINDEX giữ trên tham chiếu và breadth tiếp tục > 1.2.",
+    "Giảm tốc nếu thanh khoản tăng nhưng breadth xấu đi hoặc basis phái sinh âm rộng.",
+    "Không gọi nhóm dẫn dắt nếu sector ranking không duy trì qua ít nhất 2 phiên."
+  ],
+  "sources": [
+    "vnstock_history_adapter_partial_market",
+    "mock_news_hub",
+    "mock_macro_provider"
+  ],
+  "confidence": 0.74,
+  "disclaimer": "Thông tin hỗ trợ quyết định, không phải khuyến nghị đầu tư cá nhân hóa bắt buộc mua/bán.",
+  "quality_warnings": [],
+  "production_phase_3": {
+    "orchestrator_calls_agents": true,
+    "lead_agent": "market-strategist",
+    "agents": [
+      "market-strategist",
+      "financial-news-editor",
+      "rates-fixed-income-analyst",
+      "investment-data-designer"
+    ],
+    "tool_outputs": [
+      "tools/market_data.spec.md",
+      "tools/news_ingest.spec.md",
+      "tools/report_delivery.spec.md"
+    ],
+    "quality_report": [],
+    "final_writer": "financial-news-editor"
+  }
+}

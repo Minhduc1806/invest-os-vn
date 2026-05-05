@@ -1,0 +1,117 @@
+{
+  "run_id": "stock_signal_scan_2026-05-05T04:19:52+07:00",
+  "as_of": "2026-05-04T15:00:00+07:00",
+  "pipeline": "stock_signal_scan",
+  "universe_mode": "unknown",
+  "market_regime": {
+    "as_of": "2026-05-04T15:00:00+07:00",
+    "regime": "risk_on",
+    "risk_appetite": 95.0,
+    "evidence": [
+      "VNINDEX 0.72%, value 18450 tỷ VND",
+      "Breadth adv/dec 1.35 (238/176)",
+      "Sector positive ratio 75%",
+      "Foreign net flow -320 tỷ VND"
+    ],
+    "top_sectors_by_data": [
+      {
+        "name": "Công nghệ",
+        "change_pct": 1.25,
+        "value_bil_vnd": 1850,
+        "relative_strength_20d": 0.82
+      },
+      {
+        "name": "Chứng khoán",
+        "change_pct": 1.1,
+        "value_bil_vnd": 2100,
+        "relative_strength_20d": 0.55
+      },
+      {
+        "name": "Ngân hàng",
+        "change_pct": 0.48,
+        "value_bil_vnd": 5200,
+        "relative_strength_20d": 0.15
+      }
+    ],
+    "source": "mock_vn_market_provider",
+    "confidence": 0.74
+  },
+  "signals": [
+    {
+      "ticker": "FPT",
+      "status": "actionable",
+      "score": 1.0,
+      "entry_zone": "116,100-119,700",
+      "invalidation": "Đóng cửa dưới 113,800 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.1%, RSI14 63, vol_ratio_20d 1.35",
+      "confidence": 0.85,
+      "evidence": [
+        "Close 118,500 vs MA20 114,200 vs MA50 110,500",
+        "RS20D 0.88, volume ratio 1.35"
+      ]
+    },
+    {
+      "ticker": "MWG",
+      "status": "actionable",
+      "score": 1.0,
+      "entry_zone": "60,000-61,800",
+      "invalidation": "Đóng cửa dưới 58,800 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.6%, RSI14 58, vol_ratio_20d 1.18",
+      "confidence": 0.85,
+      "evidence": [
+        "Close 61,200 vs MA20 59,800 vs MA50 57,500",
+        "RS20D 0.52, volume ratio 1.18"
+      ]
+    },
+    {
+      "ticker": "SSI",
+      "status": "actionable",
+      "score": 1.0,
+      "entry_zone": "35,900-37,000",
+      "invalidation": "Đóng cửa dưới 34,700 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.4%, RSI14 67, vol_ratio_20d 1.55",
+      "confidence": 0.85,
+      "evidence": [
+        "Close 36,600 vs MA20 34,800 vs MA50 33,500",
+        "RS20D 0.71, volume ratio 1.55"
+      ]
+    },
+    {
+      "ticker": "VCB",
+      "status": "avoid",
+      "score": 0.25,
+      "entry_zone": "87,700-90,400",
+      "invalidation": "Đóng cửa dưới 85,900 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.7%, RSI14 46, vol_ratio_20d 0.82",
+      "confidence": 0.59,
+      "evidence": [
+        "Close 89,500 vs MA20 90,200 vs MA50 91,000",
+        "RS20D -0.12, volume ratio 0.82"
+      ]
+    }
+  ],
+  "summary": {
+    "actionable": [
+      "FPT",
+      "MWG",
+      "SSI"
+    ],
+    "watch": [],
+    "avoid": [
+      "VCB"
+    ]
+  },
+  "universe_size": 4,
+  "universe_filter": {},
+  "excluded_count": null,
+  "sources": [
+    "mock_vn_market_provider",
+    "mock_ohlcv_provider"
+  ],
+  "confidence": 0.72,
+  "disclaimer": "Tín hiệu là kịch bản có điều kiện, không phải lệnh mua/bán.",
+  "quality_warnings": [
+    "market_snapshot: stale as_of 2026-05-04T15:00:00+07:00 > 30m",
+    "ohlcv: stale as_of 2026-05-04T15:00:00+07:00 > 30m"
+  ]
+}

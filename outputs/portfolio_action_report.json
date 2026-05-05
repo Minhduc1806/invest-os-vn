@@ -1,0 +1,93 @@
+{
+  "as_of": "2026-05-05T03:51:21+07:00",
+  "source": "portfolio_action_report",
+  "market_regime": "neutral",
+  "no_new_buy": true,
+  "nav_vnd": 0,
+  "cash_vnd": 0,
+  "holdings": [],
+  "new_buy_watch": [],
+  "conditional_watch": [
+    {
+      "ticker": "VIC",
+      "bucket": "Tier B",
+      "action": "CONDITIONAL WATCH - không mua mới nếu chưa lên Tier A",
+      "entry_condition": "watch_only: chờ pullback về hỗ trợ 150.90 hoặc vượt kháng cự 227.80",
+      "suggested_weight_pct": 0
+    },
+    {
+      "ticker": "DIG",
+      "bucket": "Tier B",
+      "action": "CONDITIONAL WATCH - không mua mới nếu chưa lên Tier A",
+      "entry_condition": "watch_only: chờ pullback về hỗ trợ 13.85 hoặc vượt kháng cự 16.50",
+      "suggested_weight_pct": 0
+    },
+    {
+      "ticker": "L14",
+      "bucket": "Tier B",
+      "action": "CONDITIONAL WATCH - không mua mới nếu chưa lên Tier A",
+      "entry_condition": "watch_only: chờ pullback về hỗ trợ 22.50 hoặc vượt kháng cự 27.70",
+      "suggested_weight_pct": 0
+    },
+    {
+      "ticker": "ASM",
+      "bucket": "Tier B",
+      "action": "CONDITIONAL WATCH - không mua mới nếu chưa lên Tier A",
+      "entry_condition": "watch_only/avoid: setup chưa đủ điều kiện",
+      "suggested_weight_pct": 0
+    },
+    {
+      "ticker": "L40",
+      "bucket": "Tier B",
+      "action": "CONDITIONAL WATCH - không mua mới nếu chưa lên Tier A",
+      "entry_condition": "watch_only/avoid: setup chưa đủ điều kiện",
+      "suggested_weight_pct": 0
+    },
+    {
+      "ticker": "SGR",
+      "bucket": "Tier B",
+      "action": "CONDITIONAL WATCH - không mua mới nếu chưa lên Tier A",
+      "entry_condition": "watch_only/avoid: setup chưa đủ điều kiện",
+      "suggested_weight_pct": 0
+    },
+    {
+      "ticker": "PVP",
+      "bucket": "Tier B",
+      "action": "CONDITIONAL WATCH - không mua mới nếu chưa lên Tier A",
+      "entry_condition": "watch_only: chờ pullback về hỗ trợ 15.15 hoặc vượt kháng cự 20.00",
+      "suggested_weight_pct": 0
+    },
+    {
+      "ticker": "KSB",
+      "bucket": "Tier B",
+      "action": "CONDITIONAL WATCH - không mua mới nếu chưa lên Tier A",
+      "entry_condition": "watch_only/avoid: setup chưa đủ điều kiện",
+      "suggested_weight_pct": 0
+    },
+    {
+      "ticker": "NHH",
+      "bucket": "Tier B",
+      "action": "CONDITIONAL WATCH - không mua mới nếu chưa lên Tier A",
+      "entry_condition": "watch_only/avoid: setup chưa đủ điều kiện",
+      "suggested_weight_pct": 0
+    },
+    {
+      "ticker": "ABW",
+      "bucket": "Tier B",
+      "action": "CONDITIONAL WATCH - không mua mới nếu chưa lên Tier A",
+      "entry_condition": "watch_only/avoid: setup chưa đủ điều kiện",
+      "suggested_weight_pct": 0
+    },
+    {
+      "ticker": "APH",
+      "bucket": "Tier B",
+      "action": "CONDITIONAL WATCH - không mua mới nếu chưa lên Tier A",
+      "entry_condition": "watch_only/avoid: setup chưa đủ điều kiện",
+      "suggested_weight_pct": 0
+    }
+  ],
+  "sector_weights": {},
+  "concentration_risks": [
+    "Portfolio real chưa nhập NAV/cash/positions"
+  ]
+}

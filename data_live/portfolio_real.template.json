@@ -1,0 +1,12 @@
+{
+  "as_of": "YYYY-MM-DDTHH:MM:SS+07:00",
+  "source": "manual_real_portfolio",
+  "account_id": "duc_real",
+  "risk_profile": "balanced",
+  "cash_vnd": 0,
+  "margin_debt_vnd": 0,
+  "positions": [
+    {"ticker": "FPT", "quantity": 0, "avg_cost": 0, "last_price": 0, "sector": "Công nghệ Thông tin"}
+  ],
+  "constraints": {"max_position_pct": 0.25, "min_cash_pct": 0.10}
+}

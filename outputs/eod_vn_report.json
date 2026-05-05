@@ -1,0 +1,3578 @@
+{
+  "as_of": "2026-05-05T03:51:21+07:00",
+  "date": "2026-05-05",
+  "universe_rules": {
+    "market_breadth_leadership": "hose_all",
+    "trade_signal": "investable",
+    "portfolio_action": "investable + holdings",
+    "mixing": "forbidden"
+  },
+  "inputs": [
+    "fdata_hose_quality_report.json",
+    "fdata_hose_breadth.json",
+    "hose_leadership.json",
+    "stock_signal_scan_investable.json"
+  ],
+  "index_context": "VNINDEX trạng thái trung tính/nhiễu theo biến động phiên -0.00%. VN30 biến động -0.40%.\n\n| Chỉ số | Ngày | Close | % | Volume mn | Above MA20 |\n| --- | --- | --- | --- | --- | --- |\n| VNINDEX | 2026-05-04 | 1854.0601 | -0.00% | 614.07 | 100.0 |\n| VN30 | 2026-05-04 | 2014.62 | -0.40% | 253.21 | 100.0 |\n| HNXINDEX | 2026-05-04 | 250.04 | -0.25% | 51.95 | 0.0 |\n| UPINDEX | 2026-05-04 | 127.71 | 0.17% | 17.93 | 0.0 |",
+  "breadth_context": "| Metric | Value |\n| --- | --- |\n| Universe HOSE | 428 |\n| Advancers | 175 |\n| Decliners | 155 |\n| Unchanged | 98 |\n| A/D | 1.13 |\n| Above MA20 | 191 |\n| Below MA20 | 237 |\n| Above MA20 % | 44.63% |\n| Zero volume | 35 |\n| Low volume <50k | 202 |\n| Coverage | 99.3% |",
+  "sector_leadership_top10": [
+    {
+      "sector": "Dầu khí",
+      "count": 4,
+      "advancers": 3,
+      "decliners": 1,
+      "adv_dec_ratio": 3.0,
+      "avg_change_pct": 2.67,
+      "avg_rs20": -1.34,
+      "above_ma20_pct": 25.0,
+      "volume": 15582000,
+      "leadership_score": 33.71
+    },
+    {
+      "sector": "Hóa chất",
+      "count": 26,
+      "advancers": 12,
+      "decliners": 8,
+      "adv_dec_ratio": 1.5,
+      "avg_change_pct": 1.43,
+      "avg_rs20": -0.75,
+      "above_ma20_pct": 53.85,
+      "volume": 22655800,
+      "leadership_score": 30.77
+    },
+    {
+      "sector": "Đầu tư chứng khoán/phi chứng khoán",
+      "count": 13,
+      "advancers": 4,
+      "decliners": 6,
+      "adv_dec_ratio": 0.67,
+      "avg_change_pct": 0.16,
+      "avg_rs20": -0.35,
+      "above_ma20_pct": 84.62,
+      "volume": 727100,
+      "leadership_score": 24.13
+    },
+    {
+      "sector": "Y tế",
+      "count": 14,
+      "advancers": 8,
+      "decliners": 2,
+      "adv_dec_ratio": 4.0,
+      "avg_change_pct": 0.92,
+      "avg_rs20": -1.16,
+      "above_ma20_pct": 35.71,
+      "volume": 2475300,
+      "leadership_score": 21.85
+    },
+    {
+      "sector": "Điện, nước & xăng dầu khí đốt",
+      "count": 33,
+      "advancers": 19,
+      "decliners": 6,
+      "adv_dec_ratio": 3.17,
+      "avg_change_pct": 0.79,
+      "avg_rs20": -0.99,
+      "above_ma20_pct": 33.33,
+      "volume": 24428400,
+      "leadership_score": 21.15
+    },
+    {
+      "sector": "Bán lẻ",
+      "count": 12,
+      "advancers": 5,
+      "decliners": 3,
+      "adv_dec_ratio": 1.67,
+      "avg_change_pct": 0.21,
+      "avg_rs20": -0.68,
+      "above_ma20_pct": 58.33,
+      "volume": 7968200,
+      "leadership_score": 20.87
+    },
+    {
+      "sector": "Ngân hàng",
+      "count": 21,
+      "advancers": 12,
+      "decliners": 8,
+      "adv_dec_ratio": 1.5,
+      "avg_change_pct": 0.13,
+      "avg_rs20": -0.67,
+      "above_ma20_pct": 52.38,
+      "volume": 165300900,
+      "leadership_score": 18.4
+    },
+    {
+      "sector": "unknown",
+      "count": 11,
+      "advancers": 3,
+      "decliners": 1,
+      "adv_dec_ratio": 3.0,
+      "avg_change_pct": -0.11,
+      "avg_rs20": -0.88,
+      "above_ma20_pct": 54.55,
+      "volume": 3717300,
+      "leadership_score": 17.54
+    },
+    {
+      "sector": "Du lịch và Giải trí",
+      "count": 9,
+      "advancers": 5,
+      "decliners": 3,
+      "adv_dec_ratio": 1.67,
+      "avg_change_pct": 0.14,
+      "avg_rs20": -0.89,
+      "above_ma20_pct": 55.56,
+      "volume": 2400100,
+      "leadership_score": 16.91
+    },
+    {
+      "sector": "Thực phẩm và đồ uống",
+      "count": 32,
+      "advancers": 13,
+      "decliners": 10,
+      "adv_dec_ratio": 1.3,
+      "avg_change_pct": 0.23,
+      "avg_rs20": -0.74,
+      "above_ma20_pct": 46.88,
+      "volume": 18910200,
+      "leadership_score": 16.61
+    }
+  ],
+  "stock_leadership_top15": [
+    {
+      "ticker": "DXS",
+      "exchange": "HSX",
+      "industry": "Tư Vấn, Định giá, Môi giới Bất động sản",
+      "icb_level_2_name": "Bất động sản",
+      "date": "2026-05-04",
+      "close": 7.87,
+      "change_pct": 6.93,
+      "volume": 7427300,
+      "vol_ratio_20d": 2.55,
+      "ma20": 7.41,
+      "ma50": 6.95,
+      "rsi14": 54.1,
+      "rs_20d": -0.12,
+      "leadership_score": 86.67
+    },
+    {
+      "ticker": "VRE",
+      "exchange": "HSX",
+      "industry": "Tư Vấn, Định giá, Môi giới Bất động sản",
+      "icb_level_2_name": "Bất động sản",
+      "date": "2026-05-04",
+      "close": 33.7,
+      "change_pct": 4.33,
+      "volume": 10352200,
+      "vol_ratio_20d": 1.23,
+      "ma20": 28.71,
+      "ma50": 27.59,
+      "rsi14": 77.98,
+      "rs_20d": 1.35,
+      "leadership_score": 85.38
+    },
+    {
+      "ticker": "VHM",
+      "exchange": "HSX",
+      "industry": "Bất động sản",
+      "icb_level_2_name": "Bất động sản",
+      "date": "2026-05-04",
+      "close": 142.0,
+      "change_pct": -2.74,
+      "volume": 5533800,
+      "vol_ratio_20d": 0.85,
+      "ma20": 133.66,
+      "ma50": 114.18,
+      "rsi14": 63.74,
+      "rs_20d": 2.0,
+      "leadership_score": 78.06
+    },
+    {
+      "ticker": "VIC",
+      "exchange": "HSX",
+      "industry": "Bất động sản",
+      "icb_level_2_name": "Bất động sản",
+      "date": "2026-05-04",
+      "close": 212.0,
+      "change_pct": -0.93,
+      "volume": 3884000,
+      "vol_ratio_20d": 0.9,
+      "ma20": 178.5,
+      "ma50": 159.98,
+      "rsi14": 82.24,
+      "rs_20d": 4.15,
+      "leadership_score": 77.16
+    },
+    {
+      "ticker": "NVL",
+      "exchange": "HSX",
+      "industry": "Bất động sản",
+      "icb_level_2_name": "Bất động sản",
+      "date": "2026-05-04",
+      "close": 19.1,
+      "change_pct": -6.83,
+      "volume": 35233300,
+      "vol_ratio_20d": 1.12,
+      "ma20": 17.25,
+      "ma50": 14.49,
+      "rsi14": 68.75,
+      "rs_20d": 2.61,
+      "leadership_score": 76.38
+    },
+    {
+      "ticker": "DXG",
+      "exchange": "HSX",
+      "industry": "Bất động sản",
+      "icb_level_2_name": "Bất động sản",
+      "date": "2026-05-04",
+      "close": 15.5,
+      "change_pct": 0.98,
+      "volume": 24103000,
+      "vol_ratio_20d": 1.44,
+      "ma20": 14.88,
+      "ma50": 14.6,
+      "rsi14": 56.25,
+      "rs_20d": -0.16,
+      "leadership_score": 74.45
+    },
+    {
+      "ticker": "KBC",
+      "exchange": "HSX",
+      "industry": "Bất động sản",
+      "icb_level_2_name": "Bất động sản",
+      "date": "2026-05-04",
+      "close": 34.45,
+      "change_pct": 1.62,
+      "volume": 4527400,
+      "vol_ratio_20d": 1.38,
+      "ma20": 33.72,
+      "ma50": 32.7,
+      "rsi14": 55.91,
+      "rs_20d": -0.19,
+      "leadership_score": 72.93
+    },
+    {
+      "ticker": "ASP",
+      "exchange": "HSX",
+      "industry": "Phân phối xăng dầu & khí đốt",
+      "icb_level_2_name": "Điện, nước & xăng dầu khí đốt",
+      "date": "2026-05-04",
+      "close": 6.09,
+      "change_pct": 6.84,
+      "volume": 184700,
+      "vol_ratio_20d": 0.95,
+      "ma20": 5.71,
+      "ma50": 5.26,
+      "rsi14": 51.05,
+      "rs_20d": 1.52,
+      "leadership_score": 71.88
+    },
+    {
+      "ticker": "OPC",
+      "exchange": "HSX",
+      "industry": "Dược phẩm",
+      "icb_level_2_name": "Y tế",
+      "date": "2026-05-04",
+      "close": 24.25,
+      "change_pct": 6.83,
+      "volume": 18700,
+      "vol_ratio_20d": 3.87,
+      "ma20": 22.7,
+      "ma50": 22.44,
+      "rsi14": 60.71,
+      "rs_20d": -0.16,
+      "leadership_score": 71.37
+    },
+    {
+      "ticker": "HSG",
+      "exchange": "HSX",
+      "industry": "Thép và sản phẩm thép",
+      "icb_level_2_name": "Tài nguyên Cơ bản",
+      "date": "2026-05-04",
+      "close": 12.5,
+      "change_pct": 2.04,
+      "volume": 4498000,
+      "vol_ratio_20d": 1.03,
+      "ma20": 12.01,
+      "ma50": 11.7,
+      "rsi14": 63.21,
+      "rs_20d": 0.04,
+      "leadership_score": 71.23
+    },
+    {
+      "ticker": "VCG",
+      "exchange": "HSX",
+      "industry": "Xây dựng",
+      "icb_level_2_name": "Xây dựng và Vật liệu",
+      "date": "2026-05-04",
+      "close": 22.8,
+      "change_pct": 2.93,
+      "volume": 13003100,
+      "vol_ratio_20d": 1.25,
+      "ma20": 22.23,
+      "ma50": 21.38,
+      "rsi14": 48.48,
+      "rs_20d": -0.75,
+      "leadership_score": 70.95
+    },
+    {
+      "ticker": "GEX",
+      "exchange": "HSX",
+      "industry": "Hàng điện & điện tử",
+      "icb_level_2_name": "Hàng & Dịch vụ Công nghiệp",
+      "date": "2026-05-04",
+      "close": 39.3,
+      "change_pct": 0.51,
+      "volume": 9229900,
+      "vol_ratio_20d": 1.04,
+      "ma20": 39.24,
+      "ma50": 37.2,
+      "rsi14": 44.23,
+      "rs_20d": -0.28,
+      "leadership_score": 69.2
+    },
+    {
+      "ticker": "TDH",
+      "exchange": "HSX",
+      "industry": "Bất động sản",
+      "icb_level_2_name": "Bất động sản",
+      "date": "2026-05-04",
+      "close": 4.43,
+      "change_pct": -1.77,
+      "volume": 414900,
+      "vol_ratio_20d": 1.83,
+      "ma20": 3.9,
+      "ma50": 3.8,
+      "rsi14": 86.14,
+      "rs_20d": 0.83,
+      "leadership_score": 67.84
+    },
+    {
+      "ticker": "CDC",
+      "exchange": "HSX",
+      "industry": "Xây dựng",
+      "icb_level_2_name": "Xây dựng và Vật liệu",
+      "date": "2026-05-04",
+      "close": 19.2,
+      "change_pct": 2.13,
+      "volume": 496800,
+      "vol_ratio_20d": 0.65,
+      "ma20": 17.39,
+      "ma50": 16.24,
+      "rsi14": 70.33,
+      "rs_20d": 2.15,
+      "leadership_score": 67.77
+    },
+    {
+      "ticker": "PHR",
+      "exchange": "HSX",
+      "industry": "Nhựa, cao su & sợi",
+      "icb_level_2_name": "Hóa chất",
+      "date": "2026-05-04",
+      "close": 64.0,
+      "change_pct": 4.23,
+      "volume": 620800,
+      "vol_ratio_20d": 2.87,
+      "ma20": 61.97,
+      "ma50": 61.71,
+      "rsi14": 53.52,
+      "rs_20d": -0.6,
+      "leadership_score": 67.64
+    }
+  ],
+  "trade_signals": [
+    {
+      "ticker": "DXP",
+      "status": "watch",
+      "score": 0.8,
+      "entry_zone": "15.19-15.65",
+      "invalidation": "Đóng cửa dưới 14.62 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.78%, RSI14 62.5, vol_ratio_20d 2.9",
+      "confidence": 0.78,
+      "evidence": [
+        "Close 15.5 vs MA20 13.99 vs MA50 13.19",
+        "RS20D 0.95, volume ratio 2.9"
+      ]
+    },
+    {
+      "ticker": "LLM",
+      "status": "watch",
+      "score": 0.8,
+      "entry_zone": "22.15-22.83",
+      "invalidation": "Đóng cửa dưới 20.20 hoặc volume breakout thất bại.",
+      "risk": "ATR14 7.08%, RSI14 57.58, vol_ratio_20d 6.01",
+      "confidence": 0.78,
+      "evidence": [
+        "Close 22.6 vs MA20 20.97 vs MA50 20.62",
+        "RS20D 0.59, volume ratio 6.01"
+      ]
+    },
+    {
+      "ticker": "DXS",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "7.71-7.95",
+      "invalidation": "Đóng cửa dưới 7.40 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.99%, RSI14 54.1, vol_ratio_20d 2.55",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 7.87 vs MA20 7.41 vs MA50 6.95",
+        "RS20D -0.12, volume ratio 2.55"
+      ]
+    },
+    {
+      "ticker": "VHM",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "139.16-143.42",
+      "invalidation": "Đóng cửa dưới 128.73 hoặc volume breakout thất bại.",
+      "risk": "ATR14 6.23%, RSI14 63.74, vol_ratio_20d 0.85",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 142.0 vs MA20 133.66 vs MA50 114.18",
+        "RS20D 2.0, volume ratio 0.85"
+      ]
+    },
+    {
+      "ticker": "VRE",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "33.03-34.04",
+      "invalidation": "Đóng cửa dưới 31.58 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.19%, RSI14 77.98, vol_ratio_20d 1.23",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 33.7 vs MA20 28.71 vs MA50 27.59",
+        "RS20D 1.35, volume ratio 1.23"
+      ]
+    },
+    {
+      "ticker": "DXG",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "15.19-15.65",
+      "invalidation": "Đóng cửa dưới 14.76 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.18%, RSI14 56.25, vol_ratio_20d 1.44",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 15.5 vs MA20 14.88 vs MA50 14.6",
+        "RS20D -0.16, volume ratio 1.44"
+      ]
+    },
+    {
+      "ticker": "VCG",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "22.34-23.03",
+      "invalidation": "Đóng cửa dưới 21.71 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.18%, RSI14 48.48, vol_ratio_20d 1.25",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 22.8 vs MA20 22.23 vs MA50 21.38",
+        "RS20D -0.75, volume ratio 1.25"
+      ]
+    },
+    {
+      "ticker": "KBC",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "33.76-34.79",
+      "invalidation": "Đóng cửa dưới 33.02 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.76%, RSI14 55.91, vol_ratio_20d 1.38",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 34.45 vs MA20 33.72 vs MA50 32.7",
+        "RS20D -0.19, volume ratio 1.38"
+      ]
+    },
+    {
+      "ticker": "TCH",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "16.95-17.47",
+      "invalidation": "Đóng cửa dưới 16.17 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.34%, RSI14 51.69, vol_ratio_20d 1.22",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 17.3 vs MA20 17.09 vs MA50 16.02",
+        "RS20D -1.0, volume ratio 1.22"
+      ]
+    },
+    {
+      "ticker": "NVL",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "18.72-19.29",
+      "invalidation": "Đóng cửa dưới 17.63 hoặc volume breakout thất bại.",
+      "risk": "ATR14 5.14%, RSI14 68.75, vol_ratio_20d 1.12",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 19.1 vs MA20 17.25 vs MA50 14.49",
+        "RS20D 2.61, volume ratio 1.12"
+      ]
+    },
+    {
+      "ticker": "CEO",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "17.35-17.88",
+      "invalidation": "Đóng cửa dưới 16.44 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.76%, RSI14 57.69, vol_ratio_20d 1.16",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 17.7 vs MA20 17.11 vs MA50 16.71",
+        "RS20D -0.29, volume ratio 1.16"
+      ]
+    },
+    {
+      "ticker": "HNG",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "6.86-7.07",
+      "invalidation": "Đóng cửa dưới 6.57 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.08%, RSI14 75.0, vol_ratio_20d 1.32",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 7.0 vs MA20 6.52 vs MA50 6.3",
+        "RS20D 0.59, volume ratio 1.32"
+      ]
+    },
+    {
+      "ticker": "VHC",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "60.47-62.32",
+      "invalidation": "Đóng cửa dưới 59.23 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.08%, RSI14 60.0, vol_ratio_20d 1.75",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 61.7 vs MA20 60.73 vs MA50 60.18",
+        "RS20D -0.41, volume ratio 1.75"
+      ]
+    },
+    {
+      "ticker": "PHR",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "62.72-64.64",
+      "invalidation": "Đóng cửa dưới 61.44 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.19%, RSI14 53.52, vol_ratio_20d 2.87",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 64.0 vs MA20 61.97 vs MA50 61.71",
+        "RS20D -0.6, volume ratio 2.87"
+      ]
+    },
+    {
+      "ticker": "PSI",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "8.23-8.48",
+      "invalidation": "Đóng cửa dưới 8.02 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.98%, RSI14 58.82, vol_ratio_20d 3.79",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 8.4 vs MA20 8.03 vs MA50 7.95",
+        "RS20D -0.64, volume ratio 3.79"
+      ]
+    },
+    {
+      "ticker": "TLD",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "8.38-8.64",
+      "invalidation": "Đóng cửa dưới 8.21 hoặc volume breakout thất bại.",
+      "risk": "ATR14 0.89%, RSI14 68.42, vol_ratio_20d 2.78",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 8.55 vs MA20 8.34 vs MA50 8.3",
+        "RS20D -0.61, volume ratio 2.78"
+      ]
+    },
+    {
+      "ticker": "DSH",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "16.86-17.37",
+      "invalidation": "Đóng cửa dưới 15.71 hoặc volume breakout thất bại.",
+      "risk": "ATR14 5.77%, RSI14 73.53, vol_ratio_20d 2.22",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 17.2 vs MA20 15.31 vs MA50 14.35",
+        "RS20D 1.23, volume ratio 2.22"
+      ]
+    },
+    {
+      "ticker": "SAB",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "46.40-47.82",
+      "invalidation": "Đóng cửa dưới 45.46 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.55%, RSI14 60.77, vol_ratio_20d 1.15",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 47.35 vs MA20 45.77 vs MA50 45.63",
+        "RS20D -0.25, volume ratio 1.15"
+      ]
+    },
+    {
+      "ticker": "HTN",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "7.96-8.20",
+      "invalidation": "Đóng cửa dưới 7.68 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.58%, RSI14 65.37, vol_ratio_20d 1.87",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 8.12 vs MA20 7.55 vs MA50 7.12",
+        "RS20D -0.06, volume ratio 1.87"
+      ]
+    },
+    {
+      "ticker": "PDB",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "25.38-26.16",
+      "invalidation": "Đóng cửa dưới 24.72 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.03%, RSI14 67.65, vol_ratio_20d 3.84",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 25.9 vs MA20 24.7 vs MA50 23.04",
+        "RS20D -0.05, volume ratio 3.84"
+      ]
+    },
+    {
+      "ticker": "VNA",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "16.37-16.87",
+      "invalidation": "Đóng cửa dưới 14.86 hoặc volume breakout thất bại.",
+      "risk": "ATR14 7.36%, RSI14 50.51, vol_ratio_20d 7.82",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 16.7 vs MA20 16.02 vs MA50 15.93",
+        "RS20D -1.06, volume ratio 7.82"
+      ]
+    },
+    {
+      "ticker": "L14",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "23.91-24.64",
+      "invalidation": "Đóng cửa dưới 23.08 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.6%, RSI14 50.0, vol_ratio_20d 1.45",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 24.4 vs MA20 24.03 vs MA50 23.95",
+        "RS20D -0.46, volume ratio 1.45"
+      ]
+    },
+    {
+      "ticker": "ADS",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "8.84-9.11",
+      "invalidation": "Đóng cửa dưới 8.66 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.4%, RSI14 67.5, vol_ratio_20d 1.2",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 9.02 vs MA20 8.92 vs MA50 8.55",
+        "RS20D -0.43, volume ratio 1.2"
+      ]
+    },
+    {
+      "ticker": "STH",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "21.27-21.92",
+      "invalidation": "Đóng cửa dưới 20.83 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.3%, RSI14 64.86, vol_ratio_20d 1.38",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 21.7 vs MA20 21.13 vs MA50 20.94",
+        "RS20D -0.25, volume ratio 1.38"
+      ]
+    },
+    {
+      "ticker": "ASP",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "5.97-6.15",
+      "invalidation": "Đóng cửa dưới 5.82 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.97%, RSI14 51.05, vol_ratio_20d 0.95",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 6.09 vs MA20 5.71 vs MA50 5.26",
+        "RS20D 1.52, volume ratio 0.95"
+      ]
+    },
+    {
+      "ticker": "BMS",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "15.09-15.55",
+      "invalidation": "Đóng cửa dưới 14.73 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.92%, RSI14 62.5, vol_ratio_20d 1.19",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 15.4 vs MA20 14.86 vs MA50 14.16",
+        "RS20D -0.55, volume ratio 1.19"
+      ]
+    },
+    {
+      "ticker": "VBB",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "13.43-13.84",
+      "invalidation": "Đóng cửa dưới 12.36 hoặc volume breakout thất bại.",
+      "risk": "ATR14 6.52%, RSI14 70.0, vol_ratio_20d 1.12",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 13.7 vs MA20 12.96 vs MA50 11.29",
+        "RS20D 1.13, volume ratio 1.12"
+      ]
+    },
+    {
+      "ticker": "AMS",
+      "status": "idea",
+      "score": 0.55,
+      "entry_zone": "10.00-10.30",
+      "invalidation": "Đóng cửa dưới 9.33 hoặc volume breakout thất bại.",
+      "risk": "ATR14 5.67%, RSI14 69.57, vol_ratio_20d 1.23",
+      "confidence": 0.69,
+      "evidence": [
+        "Close 10.2 vs MA20 9.33 vs MA50 8.74",
+        "RS20D 0.2, volume ratio 1.23"
+      ]
+    },
+    {
+      "ticker": "GVR",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "35.33-36.41",
+      "invalidation": "Đóng cửa dưới 34.17 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.47%, RSI14 66.84, vol_ratio_20d 2.58",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 36.05 vs MA20 32.89 vs MA50 34.52",
+        "RS20D 0.21, volume ratio 2.58"
+      ]
+    },
+    {
+      "ticker": "POW",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "13.03-13.43",
+      "invalidation": "Đóng cửa dưới 12.77 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.31%, RSI14 57.5, vol_ratio_20d 1.89",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 13.3 vs MA20 12.93 vs MA50 13.4",
+        "RS20D -0.69, volume ratio 1.89"
+      ]
+    },
+    {
+      "ticker": "PVS",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "38.51-39.69",
+      "invalidation": "Đóng cửa dưới 36.13 hoặc volume breakout thất bại.",
+      "risk": "ATR14 5.38%, RSI14 57.89, vol_ratio_20d 1.36",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 39.3 vs MA20 38.42 vs MA50 42.18",
+        "RS20D -1.11, volume ratio 1.36"
+      ]
+    },
+    {
+      "ticker": "CTG",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "34.64-35.70",
+      "invalidation": "Đóng cửa dưới 33.94 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.79%, RSI14 54.93, vol_ratio_20d 1.16",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 35.35 vs MA20 34.78 vs MA50 35.22",
+        "RS20D -0.71, volume ratio 1.16"
+      ]
+    },
+    {
+      "ticker": "PLX",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "37.93-39.09",
+      "invalidation": "Đóng cửa dưới 36.41 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.95%, RSI14 46.26, vol_ratio_20d 1.31",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 38.7 vs MA20 39.43 vs MA50 46.53",
+        "RS20D -1.38, volume ratio 1.31"
+      ]
+    },
+    {
+      "ticker": "VIC",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "207.76-214.12",
+      "invalidation": "Đóng cửa dưới 193.56 hoặc volume breakout thất bại.",
+      "risk": "ATR14 5.8%, RSI14 82.24, vol_ratio_20d 0.9",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 212.0 vs MA20 178.5 vs MA50 159.98",
+        "RS20D 4.15, volume ratio 0.9"
+      ]
+    },
+    {
+      "ticker": "DIG",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "14.36-14.80",
+      "invalidation": "Đóng cửa dưới 13.95 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.17%, RSI14 52.5, vol_ratio_20d 1.04",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 14.65 vs MA20 14.33 vs MA50 14.18",
+        "RS20D -0.64, volume ratio 1.04"
+      ]
+    },
+    {
+      "ticker": "CII",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "18.67-19.24",
+      "invalidation": "Đóng cửa dưới 17.77 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.48%, RSI14 51.69, vol_ratio_20d 0.82",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 19.05 vs MA20 18.85 vs MA50 17.77",
+        "RS20D -0.51, volume ratio 0.82"
+      ]
+    },
+    {
+      "ticker": "HDB",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "25.97-26.77",
+      "invalidation": "Đóng cửa dưới 25.44 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.77%, RSI14 57.63, vol_ratio_20d 0.58",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 26.5 vs MA20 26.22 vs MA50 26.14",
+        "RS20D -0.53, volume ratio 0.58"
+      ]
+    },
+    {
+      "ticker": "HSG",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "12.25-12.62",
+      "invalidation": "Đóng cửa dưới 11.97 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.82%, RSI14 63.21, vol_ratio_20d 1.03",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 12.5 vs MA20 12.01 vs MA50 11.7",
+        "RS20D 0.04, volume ratio 1.03"
+      ]
+    },
+    {
+      "ticker": "STB",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "64.88-66.86",
+      "invalidation": "Đóng cửa dưới 62.80 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.42%, RSI14 49.69, vol_ratio_20d 0.65",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 66.2 vs MA20 65.0 vs MA50 64.33",
+        "RS20D -0.24, volume ratio 0.65"
+      ]
+    },
+    {
+      "ticker": "OIL",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "14.21-14.64",
+      "invalidation": "Đóng cửa dưới 13.55 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.38%, RSI14 54.05, vol_ratio_20d 1.31",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 14.5 vs MA20 14.66 vs MA50 16.77",
+        "RS20D -1.35, volume ratio 1.31"
+      ]
+    },
+    {
+      "ticker": "HCM",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "25.82-26.61",
+      "invalidation": "Đóng cửa dưới 24.86 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.77%, RSI14 60.55, vol_ratio_20d 0.26",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 26.35 vs MA20 25.99 vs MA50 23.91",
+        "RS20D 0.33, volume ratio 0.26"
+      ]
+    },
+    {
+      "ticker": "MSB",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "12.30-12.68",
+      "invalidation": "Đóng cửa dưới 12.05 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.31%, RSI14 62.16, vol_ratio_20d 0.4",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 12.55 vs MA20 12.34 vs MA50 11.86",
+        "RS20D -0.07, volume ratio 0.4"
+      ]
+    },
+    {
+      "ticker": "DPR",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "41.75-43.03",
+      "invalidation": "Đóng cửa dưới 40.90 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.42%, RSI14 63.73, vol_ratio_20d 2.88",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 42.6 vs MA20 40.82 vs MA50 41.07",
+        "RS20D -0.3, volume ratio 2.88"
+      ]
+    },
+    {
+      "ticker": "BFC",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "70.17-72.32",
+      "invalidation": "Đóng cửa dưới 66.12 hoặc volume breakout thất bại.",
+      "risk": "ATR14 5.1%, RSI14 77.66, vol_ratio_20d 2.79",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 71.6 vs MA20 61.0 vs MA50 62.66",
+        "RS20D 2.01, volume ratio 2.79"
+      ]
+    },
+    {
+      "ticker": "HAG",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "16.02-16.51",
+      "invalidation": "Đóng cửa dưới 15.70 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.42%, RSI14 53.85, vol_ratio_20d 0.7",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 16.35 vs MA20 16.29 vs MA50 15.95",
+        "RS20D -0.89, volume ratio 0.7"
+      ]
+    },
+    {
+      "ticker": "ASM",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "5.90-6.08",
+      "invalidation": "Đóng cửa dưới 5.78 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.29%, RSI14 56.84, vol_ratio_20d 4.47",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 6.02 vs MA20 5.74 vs MA50 5.8",
+        "RS20D -0.36, volume ratio 4.47"
+      ]
+    },
+    {
+      "ticker": "KSV",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "158.76-163.62",
+      "invalidation": "Đóng cửa dưới 151.58 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.29%, RSI14 57.11, vol_ratio_20d 2.51",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 162.0 vs MA20 157.08 vs MA50 160.89",
+        "RS20D -0.98, volume ratio 2.51"
+      ]
+    },
+    {
+      "ticker": "SHI",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "13.87-14.29",
+      "invalidation": "Đóng cửa dưới 13.58 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.36%, RSI14 46.15, vol_ratio_20d 3.05",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 14.15 vs MA20 14.24 vs MA50 14.15",
+        "RS20D -0.82, volume ratio 3.05"
+      ]
+    },
+    {
+      "ticker": "NAB",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "14.01-14.44",
+      "invalidation": "Đóng cửa dưới 13.73 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.8%, RSI14 81.48, vol_ratio_20d 1.21",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 14.3 vs MA20 13.57 vs MA50 13.39",
+        "RS20D 0.07, volume ratio 1.21"
+      ]
+    },
+    {
+      "ticker": "SGR",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "15.44-15.91",
+      "invalidation": "Đóng cửa dưới 15.12 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.06%, RSI14 47.22, vol_ratio_20d 5.19",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 15.75 vs MA20 15.56 vs MA50 15.78",
+        "RS20D -0.95, volume ratio 5.19"
+      ]
+    },
+    {
+      "ticker": "CTD",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "84.28-86.86",
+      "invalidation": "Đóng cửa dưới 82.14 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.99%, RSI14 67.31, vol_ratio_20d 1.06",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 86.0 vs MA20 80.61 vs MA50 79.69",
+        "RS20D -0.16, volume ratio 1.06"
+      ]
+    },
+    {
+      "ticker": "BWE",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "42.43-43.73",
+      "invalidation": "Đóng cửa dưới 41.57 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.39%, RSI14 52.5, vol_ratio_20d 1.74",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 43.3 vs MA20 43.28 vs MA50 43.38",
+        "RS20D -0.83, volume ratio 1.74"
+      ]
+    },
+    {
+      "ticker": "C32",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "14.26-14.70",
+      "invalidation": "Đóng cửa dưới 13.88 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.09%, RSI14 96.67, vol_ratio_20d 3.49",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 14.55 vs MA20 11.15 vs MA50 11.26",
+        "RS20D 2.97, volume ratio 3.49"
+      ]
+    },
+    {
+      "ticker": "BIG",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "6.96-7.17",
+      "invalidation": "Đóng cửa dưới 6.16 hoặc volume breakout thất bại.",
+      "risk": "ATR14 8.85%, RSI14 60.53, vol_ratio_20d 2.17",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 7.1 vs MA20 6.98 vs MA50 7.3",
+        "RS20D 0.21, volume ratio 2.17"
+      ]
+    },
+    {
+      "ticker": "KSB",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "15.97-16.46",
+      "invalidation": "Đóng cửa dưới 15.65 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.34%, RSI14 46.51, vol_ratio_20d 1.18",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 16.3 vs MA20 16.18 vs MA50 16.54",
+        "RS20D -0.89, volume ratio 1.18"
+      ]
+    },
+    {
+      "ticker": "NRC",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "6.76-6.97",
+      "invalidation": "Đóng cửa dưới 6.46 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.24%, RSI14 80.0, vol_ratio_20d 1.13",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 6.9 vs MA20 6.23 vs MA50 6.0",
+        "RS20D 0.81, volume ratio 1.13"
+      ]
+    },
+    {
+      "ticker": "NAF",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "48.46-49.94",
+      "invalidation": "Đóng cửa dưới 47.47 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.48%, RSI14 53.85, vol_ratio_20d 1.15",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 49.45 vs MA20 49.73 vs MA50 47.1",
+        "RS20D -0.88, volume ratio 1.15"
+      ]
+    },
+    {
+      "ticker": "VRC",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "12.49-12.88",
+      "invalidation": "Đóng cửa dưới 12.09 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.47%, RSI14 51.43, vol_ratio_20d 5.52",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 12.75 vs MA20 12.8 vs MA50 13.11",
+        "RS20D -1.51, volume ratio 5.52"
+      ]
+    },
+    {
+      "ticker": "BKC",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "21.17-21.82",
+      "invalidation": "Đóng cửa dưới 20.46 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.51%, RSI14 48.15, vol_ratio_20d 3.56",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 21.6 vs MA20 21.52 vs MA50 22.6",
+        "RS20D -1.29, volume ratio 3.56"
+      ]
+    },
+    {
+      "ticker": "VPL",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "83.50-86.05",
+      "invalidation": "Đóng cửa dưới 79.73 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.28%, RSI14 61.4, vol_ratio_20d 0.65",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 85.2 vs MA20 83.19 vs MA50 81.21",
+        "RS20D -0.73, volume ratio 0.65"
+      ]
+    },
+    {
+      "ticker": "QNS",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "45.18-46.56",
+      "invalidation": "Đóng cửa dưới 44.26 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.57%, RSI14 55.8, vol_ratio_20d 1.75",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 46.1 vs MA20 45.27 vs MA50 45.86",
+        "RS20D -0.8, volume ratio 1.75"
+      ]
+    },
+    {
+      "ticker": "F88",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "150.63-155.24",
+      "invalidation": "Đóng cửa dưới 142.45 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.88%, RSI14 70.34, vol_ratio_20d 1.19",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 153.7 vs MA20 144.3 vs MA50 147.92",
+        "RS20D 0.53, volume ratio 1.19"
+      ]
+    },
+    {
+      "ticker": "KLB",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "14.50-14.95",
+      "invalidation": "Đóng cửa dưới 14.21 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.2%, RSI14 73.53, vol_ratio_20d 1.4",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 14.8 vs MA20 14.21 vs MA50 13.93",
+        "RS20D 0.41, volume ratio 1.4"
+      ]
+    },
+    {
+      "ticker": "DPG",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "43.81-45.15",
+      "invalidation": "Đóng cửa dưới 42.68 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.01%, RSI14 58.75, vol_ratio_20d 0.94",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 44.7 vs MA20 42.93 vs MA50 42.89",
+        "RS20D -0.28, volume ratio 0.94"
+      ]
+    },
+    {
+      "ticker": "VIW",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "34.30-35.35",
+      "invalidation": "Đóng cửa dưới 28.00 hoặc volume breakout thất bại.",
+      "risk": "ATR14 13.33%, RSI14 47.46, vol_ratio_20d 1.76",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 35.0 vs MA20 36.2 vs MA50 32.42",
+        "RS20D -2.18, volume ratio 1.76"
+      ]
+    },
+    {
+      "ticker": "SBB",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "16.37-16.87",
+      "invalidation": "Đóng cửa dưới 16.03 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.1%, RSI14 59.52, vol_ratio_20d 10.93",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 16.7 vs MA20 15.84 vs MA50 15.96",
+        "RS20D -0.51, volume ratio 10.93"
+      ]
+    },
+    {
+      "ticker": "MCM",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "27.93-28.79",
+      "invalidation": "Đóng cửa dưới 27.36 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.27%, RSI14 88.16, vol_ratio_20d 1.46",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 28.5 vs MA20 26.5 vs MA50 26.3",
+        "RS20D 0.12, volume ratio 1.46"
+      ]
+    },
+    {
+      "ticker": "NTL",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "16.17-16.66",
+      "invalidation": "Đóng cửa dưới 15.84 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.9%, RSI14 56.67, vol_ratio_20d 1.21",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 16.5 vs MA20 16.05 vs MA50 16.2",
+        "RS20D -0.73, volume ratio 1.21"
+      ]
+    },
+    {
+      "ticker": "PVP",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "17.64-18.18",
+      "invalidation": "Đóng cửa dưới 16.88 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.13%, RSI14 85.29, vol_ratio_20d 0.96",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 18.0 vs MA20 15.77 vs MA50 15.76",
+        "RS20D 1.19, volume ratio 0.96"
+      ]
+    },
+    {
+      "ticker": "PTV",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "5.78-5.96",
+      "invalidation": "Đóng cửa dưới 5.32 hoặc volume breakout thất bại.",
+      "risk": "ATR14 6.54%, RSI14 52.63, vol_ratio_20d 2.19",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 5.9 vs MA20 5.78 vs MA50 6.12",
+        "RS20D -2.08, volume ratio 2.19"
+      ]
+    },
+    {
+      "ticker": "FIR",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "5.09-5.24",
+      "invalidation": "Đóng cửa dưới 4.93 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.34%, RSI14 56.16, vol_ratio_20d 1.38",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 5.19 vs MA20 5.18 vs MA50 5.42",
+        "RS20D -0.44, volume ratio 1.38"
+      ]
+    },
+    {
+      "ticker": "VEA",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "32.73-33.73",
+      "invalidation": "Đóng cửa dưới 32.06 hoặc volume breakout thất bại.",
+      "risk": "ATR14 0.94%, RSI14 54.55, vol_ratio_20d 1.32",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 33.4 vs MA20 33.34 vs MA50 33.78",
+        "RS20D -0.92, volume ratio 1.32"
+      ]
+    },
+    {
+      "ticker": "NHH",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "10.44-10.76",
+      "invalidation": "Đóng cửa dưới 10.22 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.45%, RSI14 61.54, vol_ratio_20d 1.35",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 10.65 vs MA20 10.22 vs MA50 10.34",
+        "RS20D -0.39, volume ratio 1.35"
+      ]
+    },
+    {
+      "ticker": "TSA",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "15.53-16.01",
+      "invalidation": "Đóng cửa dưới 15.22 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.76%, RSI14 68.75, vol_ratio_20d 1.18",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 15.85 vs MA20 15.39 vs MA50 15.47",
+        "RS20D -0.69, volume ratio 1.18"
+      ]
+    },
+    {
+      "ticker": "CIG",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "6.26-6.45",
+      "invalidation": "Đóng cửa dưới 6.03 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.74%, RSI14 54.66, vol_ratio_20d 1.32",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 6.39 vs MA20 6.26 vs MA50 6.59",
+        "RS20D -1.2, volume ratio 1.32"
+      ]
+    },
+    {
+      "ticker": "GDA",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "13.62-14.04",
+      "invalidation": "Đóng cửa dưới 13.34 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.67%, RSI14 52.94, vol_ratio_20d 1.59",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 13.9 vs MA20 13.99 vs MA50 14.29",
+        "RS20D -0.96, volume ratio 1.59"
+      ]
+    },
+    {
+      "ticker": "ABW",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "10.39-10.71",
+      "invalidation": "Đóng cửa dưới 10.18 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.82%, RSI14 46.15, vol_ratio_20d 1.55",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 10.6 vs MA20 10.46 vs MA50 10.7",
+        "RS20D -1.07, volume ratio 1.55"
+      ]
+    },
+    {
+      "ticker": "ILS",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "21.07-21.71",
+      "invalidation": "Đóng cửa dưới 19.55 hoặc volume breakout thất bại.",
+      "risk": "ATR14 6.05%, RSI14 70.89, vol_ratio_20d 1.4",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 21.5 vs MA20 19.32 vs MA50 23.55",
+        "RS20D 0.55, volume ratio 1.4"
+      ]
+    },
+    {
+      "ticker": "CDC",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "18.82-19.39",
+      "invalidation": "Đóng cửa dưới 17.58 hoặc volume breakout thất bại.",
+      "risk": "ATR14 5.61%, RSI14 70.33, vol_ratio_20d 0.65",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 19.2 vs MA20 17.39 vs MA50 16.24",
+        "RS20D 2.15, volume ratio 0.65"
+      ]
+    },
+    {
+      "ticker": "DQC",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "11.61-11.97",
+      "invalidation": "Đóng cửa dưới 11.04 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.55%, RSI14 74.62, vol_ratio_20d 1.03",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 11.85 vs MA20 10.01 vs MA50 9.89",
+        "RS20D 1.86, volume ratio 1.03"
+      ]
+    },
+    {
+      "ticker": "ITC",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "11.96-12.32",
+      "invalidation": "Đóng cửa dưới 11.58 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.37%, RSI14 45.0, vol_ratio_20d 0.9",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 12.2 vs MA20 11.96 vs MA50 11.61",
+        "RS20D -0.55, volume ratio 0.9"
+      ]
+    },
+    {
+      "ticker": "ABB",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "14.70-15.15",
+      "invalidation": "Đóng cửa dưới 14.40 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.86%, RSI14 64.29, vol_ratio_20d 0.82",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 15.0 vs MA20 14.73 vs MA50 14.21",
+        "RS20D -0.68, volume ratio 0.82"
+      ]
+    },
+    {
+      "ticker": "TLG",
+      "status": "avoid",
+      "score": 0.3,
+      "entry_zone": "49.10-50.60",
+      "invalidation": "Đóng cửa dưới 48.10 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.61%, RSI14 50.73, vol_ratio_20d 0.32",
+      "confidence": 0.6,
+      "evidence": [
+        "Close 50.1 vs MA20 49.98 vs MA50 49.96",
+        "RS20D -0.59, volume ratio 0.32"
+      ]
+    },
+    {
+      "ticker": "MWG",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "83.20-85.75",
+      "invalidation": "Đóng cửa dưới 81.50 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.52%, RSI14 60.4, vol_ratio_20d 0.99",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 84.9 vs MA20 82.72 vs MA50 83.86",
+        "RS20D -0.58, volume ratio 0.99"
+      ]
+    },
+    {
+      "ticker": "PC1",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "19.40-20.00",
+      "invalidation": "Đóng cửa dưới 18.37 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.83%, RSI14 9.71, vol_ratio_20d 1.56",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 19.8 vs MA20 25.45 vs MA50 26.62",
+        "RS20D -3.69, volume ratio 1.56"
+      ]
+    },
+    {
+      "ticker": "KDH",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "24.50-25.25",
+      "invalidation": "Đóng cửa dưới 24.00 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.1%, RSI14 18.42, vol_ratio_20d 1.46",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 25.0 vs MA20 25.79 vs MA50 26.14",
+        "RS20D -1.45, volume ratio 1.46"
+      ]
+    },
+    {
+      "ticker": "VCB",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "59.49-61.31",
+      "invalidation": "Đóng cửa dưới 58.27 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.21%, RSI14 55.96, vol_ratio_20d 0.94",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 60.7 vs MA20 59.57 vs MA50 60.38",
+        "RS20D -0.6, volume ratio 0.94"
+      ]
+    },
+    {
+      "ticker": "GEX",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "38.51-39.69",
+      "invalidation": "Đóng cửa dưới 36.90 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.07%, RSI14 44.23, vol_ratio_20d 1.04",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 39.3 vs MA20 39.24 vs MA50 37.2",
+        "RS20D -0.28, volume ratio 1.04"
+      ]
+    },
+    {
+      "ticker": "ACB",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "22.64-23.33",
+      "invalidation": "Đóng cửa dưới 22.18 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.38%, RSI14 31.71, vol_ratio_20d 1.2",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 23.1 vs MA20 23.63 vs MA50 23.59",
+        "RS20D -1.18, volume ratio 1.2"
+      ]
+    },
+    {
+      "ticker": "BID",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "40.03-41.26",
+      "invalidation": "Đóng cửa dưới 39.22 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.21%, RSI14 52.43, vol_ratio_20d 0.86",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 40.85 vs MA20 40.33 vs MA50 41.78",
+        "RS20D -0.74, volume ratio 0.86"
+      ]
+    },
+    {
+      "ticker": "TPB",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "15.97-16.46",
+      "invalidation": "Đóng cửa dưới 15.65 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.75%, RSI14 52.94, vol_ratio_20d 1.01",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 16.3 vs MA20 16.23 vs MA50 16.51",
+        "RS20D -0.92, volume ratio 1.01"
+      ]
+    },
+    {
+      "ticker": "PDR",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "16.17-16.66",
+      "invalidation": "Đóng cửa dưới 15.76 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.99%, RSI14 42.31, vol_ratio_20d 0.9",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 16.5 vs MA20 16.24 vs MA50 16.01",
+        "RS20D -0.73, volume ratio 0.9"
+      ]
+    },
+    {
+      "ticker": "BSR",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "24.75-25.50",
+      "invalidation": "Đóng cửa dưới 23.48 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.67%, RSI14 51.26, vol_ratio_20d 0.68",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 25.25 vs MA20 25.64 vs MA50 28.67",
+        "RS20D -1.29, volume ratio 0.68"
+      ]
+    },
+    {
+      "ticker": "HHV",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "12.45-12.83",
+      "invalidation": "Đóng cửa dưới 12.11 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.12%, RSI14 44.44, vol_ratio_20d 0.69",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 12.7 vs MA20 12.54 vs MA50 12.24",
+        "RS20D -0.56, volume ratio 0.69"
+      ]
+    },
+    {
+      "ticker": "AAA",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "7.33-7.55",
+      "invalidation": "Đóng cửa dưới 7.18 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.8%, RSI14 71.26, vol_ratio_20d 3.06",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 7.48 vs MA20 7.06 vs MA50 7.22",
+        "RS20D -0.32, volume ratio 3.06"
+      ]
+    },
+    {
+      "ticker": "VPB",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "26.41-27.22",
+      "invalidation": "Đóng cửa dưới 25.87 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.35%, RSI14 48.19, vol_ratio_20d 0.45",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 26.95 vs MA20 27.07 vs MA50 26.84",
+        "RS20D -0.83, volume ratio 0.45"
+      ]
+    },
+    {
+      "ticker": "VIB",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "15.83-16.31",
+      "invalidation": "Đóng cửa dưới 15.50 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.96%, RSI14 47.69, vol_ratio_20d 0.64",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 16.15 vs MA20 16.31 vs MA50 16.15",
+        "RS20D -0.98, volume ratio 0.64"
+      ]
+    },
+    {
+      "ticker": "PVD",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "31.11-32.07",
+      "invalidation": "Đóng cửa dưới 29.79 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.11%, RSI14 45.64, vol_ratio_20d 0.84",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 31.75 vs MA20 32.59 vs MA50 35.61",
+        "RS20D -1.76, volume ratio 0.84"
+      ]
+    },
+    {
+      "ticker": "PVT",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "21.80-22.47",
+      "invalidation": "Đóng cửa dưới 20.74 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.51%, RSI14 53.46, vol_ratio_20d 0.52",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 22.25 vs MA20 21.89 vs MA50 23.14",
+        "RS20D -0.66, volume ratio 0.52"
+      ]
+    },
+    {
+      "ticker": "GAS",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "74.97-77.27",
+      "invalidation": "Đóng cửa dưới 72.40 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.57%, RSI14 44.63, vol_ratio_20d 1.21",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 76.5 vs MA20 78.39 vs MA50 89.79",
+        "RS20D -1.32, volume ratio 1.21"
+      ]
+    },
+    {
+      "ticker": "DCL",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "36.95-38.08",
+      "invalidation": "Đóng cửa dưới 34.73 hoặc volume breakout thất bại.",
+      "risk": "ATR14 5.25%, RSI14 19.58, vol_ratio_20d 1.59",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 37.7 vs MA20 42.03 vs MA50 50.47",
+        "RS20D -4.59, volume ratio 1.59"
+      ]
+    },
+    {
+      "ticker": "HDC",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "18.67-19.24",
+      "invalidation": "Đóng cửa dưới 18.15 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.15%, RSI14 46.34, vol_ratio_20d 0.98",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 19.05 vs MA20 18.7 vs MA50 18.79",
+        "RS20D -0.7, volume ratio 0.98"
+      ]
+    },
+    {
+      "ticker": "VJC",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "176.30-181.70",
+      "invalidation": "Đóng cửa dưới 171.56 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.09%, RSI14 77.25, vol_ratio_20d 0.9",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 179.9 vs MA20 172.22 vs MA50 165.98",
+        "RS20D -0.11, volume ratio 0.9"
+      ]
+    },
+    {
+      "ticker": "SCR",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "5.83-6.01",
+      "invalidation": "Đóng cửa dưới 5.71 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.36%, RSI14 25.81, vol_ratio_20d 1.2",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 5.95 vs MA20 6.16 vs MA50 6.14",
+        "RS20D -1.49, volume ratio 1.2"
+      ]
+    },
+    {
+      "ticker": "IDI",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "6.37-6.57",
+      "invalidation": "Đóng cửa dưới 6.24 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.27%, RSI14 30.99, vol_ratio_20d 2.19",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 6.5 vs MA20 6.62 vs MA50 6.85",
+        "RS20D -1.34, volume ratio 2.19"
+      ]
+    },
+    {
+      "ticker": "L40",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "69.09-71.20",
+      "invalidation": "Đóng cửa dưới 67.68 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.64%, RSI14 81.68, vol_ratio_20d 2.55",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 70.5 vs MA20 65.33 vs MA50 66.38",
+        "RS20D 0.15, volume ratio 2.55"
+      ]
+    },
+    {
+      "ticker": "LCG",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "9.79-10.09",
+      "invalidation": "Đóng cửa dưới 9.59 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.6%, RSI14 34.75, vol_ratio_20d 1.12",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 9.99 vs MA20 9.98 vs MA50 9.94",
+        "RS20D -0.8, volume ratio 1.12"
+      ]
+    },
+    {
+      "ticker": "DBD",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "49.00-50.50",
+      "invalidation": "Đóng cửa dưới 48.00 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.37%, RSI14 39.29, vol_ratio_20d 4.64",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 50.0 vs MA20 50.43 vs MA50 51.49",
+        "RS20D -1.16, volume ratio 4.64"
+      ]
+    },
+    {
+      "ticker": "DRI",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "14.11-14.54",
+      "invalidation": "Đóng cửa dưới 13.80 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.78%, RSI14 77.78, vol_ratio_20d 1.93",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 14.4 vs MA20 13.08 vs MA50 13.16",
+        "RS20D 0.36, volume ratio 1.93"
+      ]
+    },
+    {
+      "ticker": "MSH",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "35.57-36.66",
+      "invalidation": "Đóng cửa dưới 34.85 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.4%, RSI14 40.0, vol_ratio_20d 1.85",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 36.3 vs MA20 37.28 vs MA50 37.14",
+        "RS20D -1.02, volume ratio 1.85"
+      ]
+    },
+    {
+      "ticker": "DRC",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "12.49-12.88",
+      "invalidation": "Đóng cửa dưới 12.24 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.79%, RSI14 21.74, vol_ratio_20d 2.01",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 12.75 vs MA20 13.25 vs MA50 13.99",
+        "RS20D -1.44, volume ratio 2.01"
+      ]
+    },
+    {
+      "ticker": "CHP",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "27.54-28.38",
+      "invalidation": "Đóng cửa dưới 26.98 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.13%, RSI14 43.4, vol_ratio_20d 2.93",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 28.1 vs MA20 28.25 vs MA50 28.09",
+        "RS20D -1.03, volume ratio 2.93"
+      ]
+    },
+    {
+      "ticker": "ACV",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "43.12-44.44",
+      "invalidation": "Đóng cửa dưới 42.24 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.66%, RSI14 14.29, vol_ratio_20d 1.53",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 44.0 vs MA20 45.66 vs MA50 47.74",
+        "RS20D -1.5, volume ratio 1.53"
+      ]
+    },
+    {
+      "ticker": "KOS",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "36.46-37.57",
+      "invalidation": "Đóng cửa dưới 35.71 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.95%, RSI14 33.33, vol_ratio_20d 1.47",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 37.2 vs MA20 38.43 vs MA50 38.04",
+        "RS20D -1.35, volume ratio 1.47"
+      ]
+    },
+    {
+      "ticker": "APH",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "5.83-6.01",
+      "invalidation": "Đóng cửa dưới 5.71 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.7%, RSI14 73.42, vol_ratio_20d 2.35",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 5.95 vs MA20 5.58 vs MA50 5.71",
+        "RS20D -0.24, volume ratio 2.35"
+      ]
+    },
+    {
+      "ticker": "NKG",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "14.11-14.54",
+      "invalidation": "Đóng cửa dưới 13.78 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.85%, RSI14 50.0, vol_ratio_20d 0.48",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 14.4 vs MA20 14.32 vs MA50 14.36",
+        "RS20D -0.53, volume ratio 0.48"
+      ]
+    },
+    {
+      "ticker": "TVS",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "13.28-13.69",
+      "invalidation": "Đóng cửa dưới 13.01 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.56%, RSI14 43.18, vol_ratio_20d 2.57",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 13.55 vs MA20 13.69 vs MA50 13.94",
+        "RS20D -0.85, volume ratio 2.57"
+      ]
+    },
+    {
+      "ticker": "BMP",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "147.00-151.50",
+      "invalidation": "Đóng cửa dưới 141.61 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.73%, RSI14 72.17, vol_ratio_20d 0.92",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 150.0 vs MA20 140.64 vs MA50 142.11",
+        "RS20D 0.52, volume ratio 0.92"
+      ]
+    },
+    {
+      "ticker": "TN1",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "13.92-14.34",
+      "invalidation": "Đóng cửa dưới 13.47 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.45%, RSI14 26.03, vol_ratio_20d 12.45",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 14.2 vs MA20 15.59 vs MA50 16.13",
+        "RS20D -2.28, volume ratio 12.45"
+      ]
+    },
+    {
+      "ticker": "FUEDCMID",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "13.67-14.09",
+      "invalidation": "Đóng cửa dưới 12.68 hoặc volume breakout thất bại.",
+      "risk": "ATR14 6.06%, RSI14 23.98, vol_ratio_20d 3.57",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 13.95 vs MA20 14.92 vs MA50 14.62",
+        "RS20D -1.8, volume ratio 3.57"
+      ]
+    },
+    {
+      "ticker": "MHC",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "9.04-9.31",
+      "invalidation": "Đóng cửa dưới 8.56 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.76%, RSI14 41.43, vol_ratio_20d 3.15",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 9.22 vs MA20 9.63 vs MA50 9.75",
+        "RS20D -1.03, volume ratio 3.15"
+      ]
+    },
+    {
+      "ticker": "CKG",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "8.46-8.72",
+      "invalidation": "Đóng cửa dưới 8.28 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.51%, RSI14 37.31, vol_ratio_20d 1.92",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 8.63 vs MA20 8.68 vs MA50 8.99",
+        "RS20D -1.41, volume ratio 1.92"
+      ]
+    },
+    {
+      "ticker": "BAF",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "35.18-36.26",
+      "invalidation": "Đóng cửa dưới 34.46 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.59%, RSI14 58.9, vol_ratio_20d 0.59",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 35.9 vs MA20 35.8 vs MA50 35.87",
+        "RS20D -0.64, volume ratio 0.59"
+      ]
+    },
+    {
+      "ticker": "DSE",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "21.95-22.62",
+      "invalidation": "Đóng cửa dưới 21.50 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.33%, RSI14 23.53, vol_ratio_20d 1.26",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 22.4 vs MA20 23.57 vs MA50 23.67",
+        "RS20D -1.45, volume ratio 1.26"
+      ]
+    },
+    {
+      "ticker": "GMD",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "73.60-75.85",
+      "invalidation": "Đóng cửa dưới 72.10 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.23%, RSI14 59.74, vol_ratio_20d 0.46",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 75.1 vs MA20 73.75 vs MA50 75.87",
+        "RS20D -1.18, volume ratio 0.46"
+      ]
+    },
+    {
+      "ticker": "MVC",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "13.82-14.24",
+      "invalidation": "Đóng cửa dưới 13.26 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.95%, RSI14 44.44, vol_ratio_20d 2.22",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 14.1 vs MA20 14.65 vs MA50 15.61",
+        "RS20D -2.34, volume ratio 2.22"
+      ]
+    },
+    {
+      "ticker": "VNP",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "18.52-19.09",
+      "invalidation": "Đóng cửa dưới 17.27 hoặc volume breakout thất bại.",
+      "risk": "ATR14 5.74%, RSI14 35.42, vol_ratio_20d 2.0",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 18.9 vs MA20 19.77 vs MA50 19.58",
+        "RS20D -1.62, volume ratio 2.0"
+      ]
+    },
+    {
+      "ticker": "MPC",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "15.58-16.06",
+      "invalidation": "Đóng cửa dưới 15.26 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.7%, RSI14 40.0, vol_ratio_20d 2.08",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 15.9 vs MA20 16.06 vs MA50 16.6",
+        "RS20D -0.95, volume ratio 2.08"
+      ]
+    },
+    {
+      "ticker": "FRT",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "145.04-149.48",
+      "invalidation": "Đóng cửa dưới 142.08 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.27%, RSI14 45.37, vol_ratio_20d 0.48",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 148.0 vs MA20 149.98 vs MA50 155.0",
+        "RS20D -1.46, volume ratio 0.48"
+      ]
+    },
+    {
+      "ticker": "SIP",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "59.39-61.21",
+      "invalidation": "Đóng cửa dưới 58.18 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.33%, RSI14 45.92, vol_ratio_20d 0.89",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 60.6 vs MA20 60.64 vs MA50 59.5",
+        "RS20D -1.02, volume ratio 0.89"
+      ]
+    },
+    {
+      "ticker": "CTR",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "83.40-85.95",
+      "invalidation": "Đóng cửa dưới 81.70 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.01%, RSI14 46.87, vol_ratio_20d 0.62",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 85.1 vs MA20 85.92 vs MA50 86.15",
+        "RS20D -1.07, volume ratio 0.62"
+      ]
+    },
+    {
+      "ticker": "HHP",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "12.74-13.13",
+      "invalidation": "Đóng cửa dưới 12.48 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.53%, RSI14 68.57, vol_ratio_20d 0.99",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 13.0 vs MA20 12.55 vs MA50 13.23",
+        "RS20D -0.49, volume ratio 0.99"
+      ]
+    },
+    {
+      "ticker": "CSM",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "11.96-12.32",
+      "invalidation": "Đóng cửa dưới 11.71 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.93%, RSI14 42.86, vol_ratio_20d 1.47",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 12.2 vs MA20 12.34 vs MA50 12.35",
+        "RS20D -0.97, volume ratio 1.47"
+      ]
+    },
+    {
+      "ticker": "VTZ",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "19.70-20.30",
+      "invalidation": "Đóng cửa dưới 19.30 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.17%, RSI14 50.0, vol_ratio_20d 0.95",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 20.1 vs MA20 20.03 vs MA50 20.1",
+        "RS20D -0.94, volume ratio 0.95"
+      ]
+    },
+    {
+      "ticker": "DGC",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "52.33-53.93",
+      "invalidation": "Đóng cửa dưới 50.41 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.73%, RSI14 51.18, vol_ratio_20d 0.32",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 53.4 vs MA20 54.12 vs MA50 61.38",
+        "RS20D -0.31, volume ratio 0.32"
+      ]
+    },
+    {
+      "ticker": "LPB",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "46.06-47.47",
+      "invalidation": "Đóng cửa dưới 44.55 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.47%, RSI14 44.57, vol_ratio_20d 0.5",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 47.0 vs MA20 46.67 vs MA50 43.95",
+        "RS20D 0.2, volume ratio 0.5"
+      ]
+    },
+    {
+      "ticker": "VVS",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "112.50-115.95",
+      "invalidation": "Đóng cửa dưới 101.32 hoặc volume breakout thất bại.",
+      "risk": "ATR14 7.83%, RSI14 58.35, vol_ratio_20d 0.38",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 114.8 vs MA20 118.41 vs MA50 123.74",
+        "RS20D -0.95, volume ratio 0.38"
+      ]
+    },
+    {
+      "ticker": "E1VFVN30",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "35.15-36.23",
+      "invalidation": "Đóng cửa dưới 34.44 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.43%, RSI14 85.83, vol_ratio_20d 0.75",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 35.87 vs MA20 34.62 vs MA50 34.13",
+        "RS20D 0.01, volume ratio 0.75"
+      ]
+    },
+    {
+      "ticker": "HVN",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "22.20-22.88",
+      "invalidation": "Đóng cửa dưới 21.74 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.66%, RSI14 55.36, vol_ratio_20d 0.73",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 22.65 vs MA20 22.43 vs MA50 23.19",
+        "RS20D -0.77, volume ratio 0.73"
+      ]
+    },
+    {
+      "ticker": "SJE",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "14.31-14.75",
+      "invalidation": "Đóng cửa dưới 13.88 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.28%, RSI14 16.67, vol_ratio_20d 1.32",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 14.6 vs MA20 15.74 vs MA50 16.48",
+        "RS20D -2.04, volume ratio 1.32"
+      ]
+    },
+    {
+      "ticker": "HAH",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "54.39-56.05",
+      "invalidation": "Đóng cửa dưới 53.28 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.52%, RSI14 50.0, vol_ratio_20d 0.44",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 55.5 vs MA20 55.06 vs MA50 57.27",
+        "RS20D -1.08, volume ratio 0.44"
+      ]
+    },
+    {
+      "ticker": "TDP",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "29.20-30.10",
+      "invalidation": "Đóng cửa dưới 28.61 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.4%, RSI14 64.29, vol_ratio_20d 0.81",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 29.8 vs MA20 29.51 vs MA50 29.81",
+        "RS20D -0.75, volume ratio 0.81"
+      ]
+    },
+    {
+      "ticker": "LHG",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "27.68-28.53",
+      "invalidation": "Đóng cửa dưới 27.12 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.37%, RSI14 47.5, vol_ratio_20d 0.95",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 28.25 vs MA20 28.28 vs MA50 28.43",
+        "RS20D -0.94, volume ratio 0.95"
+      ]
+    },
+    {
+      "ticker": "YEG",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "9.80-10.10",
+      "invalidation": "Đóng cửa dưới 9.60 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.55%, RSI14 50.0, vol_ratio_20d 0.67",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 10.0 vs MA20 10.13 vs MA50 10.76",
+        "RS20D -1.03, volume ratio 0.67"
+      ]
+    },
+    {
+      "ticker": "CTF",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "17.93-18.48",
+      "invalidation": "Đóng cửa dưới 17.57 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.63%, RSI14 45.31, vol_ratio_20d 0.84",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 18.3 vs MA20 18.46 vs MA50 18.6",
+        "RS20D -0.99, volume ratio 0.84"
+      ]
+    },
+    {
+      "ticker": "TNH",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "9.90-10.20",
+      "invalidation": "Đóng cửa dưới 9.70 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.35%, RSI14 50.0, vol_ratio_20d 0.98",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 10.1 vs MA20 10.18 vs MA50 10.65",
+        "RS20D -0.94, volume ratio 0.98"
+      ]
+    },
+    {
+      "ticker": "API",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "5.49-5.66",
+      "invalidation": "Đóng cửa dưới 5.35 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.93%, RSI14 33.33, vol_ratio_20d 1.23",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 5.6 vs MA20 5.7 vs MA50 5.83",
+        "RS20D -1.4, volume ratio 1.23"
+      ]
+    },
+    {
+      "ticker": "PAN",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "31.21-32.17",
+      "invalidation": "Đóng cửa dưới 30.57 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.67%, RSI14 44.16, vol_ratio_20d 0.53",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 31.85 vs MA20 31.8 vs MA50 31.71",
+        "RS20D -0.89, volume ratio 0.53"
+      ]
+    },
+    {
+      "ticker": "MST",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "8.04-8.28",
+      "invalidation": "Đóng cửa dưới 7.81 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.14%, RSI14 50.0, vol_ratio_20d 0.45",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 8.2 vs MA20 8.38 vs MA50 7.85",
+        "RS20D -1.46, volume ratio 0.45"
+      ]
+    },
+    {
+      "ticker": "NO1",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "5.45-5.62",
+      "invalidation": "Đóng cửa dưới 5.34 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.15%, RSI14 47.14, vol_ratio_20d 1.0",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 5.56 vs MA20 5.62 vs MA50 5.84",
+        "RS20D -1.28, volume ratio 1.0"
+      ]
+    },
+    {
+      "ticker": "VPI",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "60.07-61.91",
+      "invalidation": "Đóng cửa dưới 58.85 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.52%, RSI14 70.75, vol_ratio_20d 0.12",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 61.3 vs MA20 59.04 vs MA50 58.5",
+        "RS20D -0.39, volume ratio 0.12"
+      ]
+    },
+    {
+      "ticker": "BIC",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "23.37-24.09",
+      "invalidation": "Đóng cửa dưới 22.90 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.74%, RSI14 47.54, vol_ratio_20d 0.75",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 23.85 vs MA20 23.92 vs MA50 23.77",
+        "RS20D -0.99, volume ratio 0.75"
+      ]
+    },
+    {
+      "ticker": "FOX",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "79.38-81.81",
+      "invalidation": "Đóng cửa dưới 77.68 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.73%, RSI14 46.15, vol_ratio_20d 0.42",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 81.0 vs MA20 81.7 vs MA50 79.77",
+        "RS20D -1.59, volume ratio 0.42"
+      ]
+    },
+    {
+      "ticker": "EVG",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "6.58-6.78",
+      "invalidation": "Đóng cửa dưới 6.34 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.67%, RSI14 29.55, vol_ratio_20d 0.65",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 6.71 vs MA20 6.68 vs MA50 6.63",
+        "RS20D -0.4, volume ratio 0.65"
+      ]
+    },
+    {
+      "ticker": "C69",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "15.58-16.06",
+      "invalidation": "Đóng cửa dưới 15.23 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.79%, RSI14 47.62, vol_ratio_20d 0.71",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 15.9 vs MA20 16.02 vs MA50 16.22",
+        "RS20D -0.89, volume ratio 0.71"
+      ]
+    },
+    {
+      "ticker": "TCO",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "14.80-15.25",
+      "invalidation": "Đóng cửa dưới 14.26 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.69%, RSI14 95.31, vol_ratio_20d 0.63",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 15.1 vs MA20 13.62 vs MA50 12.04",
+        "RS20D -0.1, volume ratio 0.63"
+      ]
+    },
+    {
+      "ticker": "VTO",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "11.86-12.22",
+      "invalidation": "Đóng cửa dưới 11.62 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.62%, RSI14 68.18, vol_ratio_20d 0.69",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 12.1 vs MA20 11.83 vs MA50 11.96",
+        "RS20D -0.54, volume ratio 0.69"
+      ]
+    },
+    {
+      "ticker": "VGS",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "24.11-24.85",
+      "invalidation": "Đóng cửa dưới 23.40 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.25%, RSI14 53.19, vol_ratio_20d 0.62",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 24.6 vs MA20 24.37 vs MA50 24.74",
+        "RS20D -0.8, volume ratio 0.62"
+      ]
+    },
+    {
+      "ticker": "AVG",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "9.90-10.20",
+      "invalidation": "Đóng cửa dưới 9.70 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.2%, RSI14 50.0, vol_ratio_20d 1.1",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 10.1 vs MA20 9.97 vs MA50 10.14",
+        "RS20D -0.68, volume ratio 1.1"
+      ]
+    },
+    {
+      "ticker": "SMC",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "12.59-12.98",
+      "invalidation": "Đóng cửa dưới 12.16 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.59%, RSI14 54.22, vol_ratio_20d 0.55",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 12.85 vs MA20 13.03 vs MA50 12.13",
+        "RS20D -0.77, volume ratio 0.55"
+      ]
+    },
+    {
+      "ticker": "HII",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "6.03-6.21",
+      "invalidation": "Đóng cửa dưới 5.89 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.81%, RSI14 77.52, vol_ratio_20d 0.68",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 6.15 vs MA20 5.41 vs MA50 5.35",
+        "RS20D 0.36, volume ratio 0.68"
+      ]
+    },
+    {
+      "ticker": "PCH",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "21.56-22.22",
+      "invalidation": "Đóng cửa dưới 21.12 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.49%, RSI14 70.59, vol_ratio_20d 0.69",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 22.0 vs MA20 21.05 vs MA50 20.61",
+        "RS20D 0.0, volume ratio 0.69"
+      ]
+    },
+    {
+      "ticker": "TCM",
+      "status": "avoid",
+      "score": 0.05,
+      "entry_zone": "22.54-23.23",
+      "invalidation": "Đóng cửa dưới 22.07 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.7%, RSI14 53.93, vol_ratio_20d 0.32",
+      "confidence": 0.52,
+      "evidence": [
+        "Close 23.0 vs MA20 23.18 vs MA50 23.94",
+        "RS20D -0.91, volume ratio 0.32"
+      ]
+    },
+    {
+      "ticker": "FPT",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "72.23-74.44",
+      "invalidation": "Đóng cửa dưới 70.75 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.46%, RSI14 34.46, vol_ratio_20d 1.0",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 73.7 vs MA20 75.35 vs MA50 79.34",
+        "RS20D -1.1, volume ratio 1.0"
+      ]
+    },
+    {
+      "ticker": "HPG",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "27.05-27.88",
+      "invalidation": "Đóng cửa dưới 26.50 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.04%, RSI14 40.85, vol_ratio_20d 0.91",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 27.6 vs MA20 27.81 vs MA50 27.38",
+        "RS20D -0.72, volume ratio 0.91"
+      ]
+    },
+    {
+      "ticker": "TCB",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "32.88-33.89",
+      "invalidation": "Đóng cửa dưới 32.21 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.31%, RSI14 72.65, vol_ratio_20d 0.8",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 33.55 vs MA20 31.98 vs MA50 31.98",
+        "RS20D 0.01, volume ratio 0.8"
+      ]
+    },
+    {
+      "ticker": "KHG",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "5.37-5.53",
+      "invalidation": "Đóng cửa dưới 5.26 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.11%, RSI14 43.75, vol_ratio_20d 1.04",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 5.48 vs MA20 5.48 vs MA50 5.66",
+        "RS20D -0.99, volume ratio 1.04"
+      ]
+    },
+    {
+      "ticker": "VCI",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "25.63-26.41",
+      "invalidation": "Đóng cửa dưới 25.10 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.47%, RSI14 24.66, vol_ratio_20d 0.77",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 26.15 vs MA20 27.2 vs MA50 27.08",
+        "RS20D -1.33, volume ratio 0.77"
+      ]
+    },
+    {
+      "ticker": "SHB",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "14.06-14.49",
+      "invalidation": "Đóng cửa dưới 13.78 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.22%, RSI14 27.45, vol_ratio_20d 0.86",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 14.35 vs MA20 14.99 vs MA50 15.02",
+        "RS20D -1.32, volume ratio 0.86"
+      ]
+    },
+    {
+      "ticker": "MBB",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "25.58-26.36",
+      "invalidation": "Đóng cửa dưới 25.06 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.41%, RSI14 40.91, vol_ratio_20d 0.68",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 26.1 vs MA20 26.27 vs MA50 26.58",
+        "RS20D -1.04, volume ratio 0.68"
+      ]
+    },
+    {
+      "ticker": "SSI",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "27.15-27.98",
+      "invalidation": "Đóng cửa dưới 26.59 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.02%, RSI14 31.58, vol_ratio_20d 0.57",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 27.7 vs MA20 28.15 vs MA50 28.96",
+        "RS20D -0.96, volume ratio 0.57"
+      ]
+    },
+    {
+      "ticker": "VIX",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "16.51-17.02",
+      "invalidation": "Đóng cửa dưới 16.00 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.35%, RSI14 27.45, vol_ratio_20d 0.43",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 16.85 vs MA20 17.21 vs MA50 17.24",
+        "RS20D -0.97, volume ratio 0.43"
+      ]
+    },
+    {
+      "ticker": "SHS",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "16.56-17.07",
+      "invalidation": "Đóng cửa dưới 15.97 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.68%, RSI14 28.0, vol_ratio_20d 0.5",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 16.9 vs MA20 17.51 vs MA50 17.39",
+        "RS20D -1.23, volume ratio 0.5"
+      ]
+    },
+    {
+      "ticker": "MSN",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "75.26-77.57",
+      "invalidation": "Đóng cửa dưới 73.73 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.28%, RSI14 42.5, vol_ratio_20d 0.58",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 76.8 vs MA20 77.45 vs MA50 76.02",
+        "RS20D -0.9, volume ratio 0.58"
+      ]
+    },
+    {
+      "ticker": "HHS",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "12.84-13.23",
+      "invalidation": "Đóng cửa dưới 12.21 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.55%, RSI14 29.17, vol_ratio_20d 1.02",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 13.1 vs MA20 13.43 vs MA50 12.35",
+        "RS20D -1.04, volume ratio 1.02"
+      ]
+    },
+    {
+      "ticker": "VSC",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "21.17-21.82",
+      "invalidation": "Đóng cửa dưới 20.34 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.89%, RSI14 12.5, vol_ratio_20d 0.67",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 21.6 vs MA20 23.59 vs MA50 24.23",
+        "RS20D -1.98, volume ratio 0.67"
+      ]
+    },
+    {
+      "ticker": "DPM",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "25.53-26.31",
+      "invalidation": "Đóng cửa dưới 24.62 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.65%, RSI14 32.12, vol_ratio_20d 0.82",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 26.05 vs MA20 28.04 vs MA50 28.91",
+        "RS20D -1.87, volume ratio 0.82"
+      ]
+    },
+    {
+      "ticker": "MBS",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "19.01-19.59",
+      "invalidation": "Đóng cửa dưới 18.62 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.25%, RSI14 5.56, vol_ratio_20d 1.01",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 19.4 vs MA20 20.16 vs MA50 20.28",
+        "RS20D -1.04, volume ratio 1.01"
+      ]
+    },
+    {
+      "ticker": "EIB",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "21.41-22.07",
+      "invalidation": "Đóng cửa dưới 20.86 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.01%, RSI14 38.46, vol_ratio_20d 0.34",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 21.85 vs MA20 22.48 vs MA50 22.58",
+        "RS20D -1.55, volume ratio 0.34"
+      ]
+    },
+    {
+      "ticker": "DCM",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "41.21-42.47",
+      "invalidation": "Đóng cửa dưới 39.22 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.48%, RSI14 39.27, vol_ratio_20d 0.78",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 42.05 vs MA20 44.33 vs MA50 44.97",
+        "RS20D -1.6, volume ratio 0.78"
+      ]
+    },
+    {
+      "ticker": "VND",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "15.88-16.36",
+      "invalidation": "Đóng cửa dưới 15.55 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.38%, RSI14 30.3, vol_ratio_20d 0.37",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 16.2 vs MA20 16.41 vs MA50 16.76",
+        "RS20D -0.92, volume ratio 0.37"
+      ]
+    },
+    {
+      "ticker": "TCX",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "48.76-50.25",
+      "invalidation": "Đóng cửa dưới 47.76 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.46%, RSI14 35.56, vol_ratio_20d 1.13",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 49.75 vs MA20 50.77 vs MA50 53.28",
+        "RS20D -1.2, volume ratio 1.13"
+      ]
+    },
+    {
+      "ticker": "EVF",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "12.84-13.23",
+      "invalidation": "Đóng cửa dưới 12.45 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.3%, RSI14 31.71, vol_ratio_20d 0.43",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 13.1 vs MA20 13.55 vs MA50 13.59",
+        "RS20D -1.39, volume ratio 0.43"
+      ]
+    },
+    {
+      "ticker": "GEE",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "171.30-176.55",
+      "invalidation": "Đóng cửa dưới 161.66 hoặc volume breakout thất bại.",
+      "risk": "ATR14 5.01%, RSI14 30.58, vol_ratio_20d 0.99",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 174.8 vs MA20 188.81 vs MA50 175.25",
+        "RS20D -2.44, volume ratio 0.99"
+      ]
+    },
+    {
+      "ticker": "PNJ",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "66.93-68.98",
+      "invalidation": "Đóng cửa dưới 64.51 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.7%, RSI14 35.35, vol_ratio_20d 1.03",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 68.3 vs MA20 71.65 vs MA50 74.76",
+        "RS20D -1.51, volume ratio 1.03"
+      ]
+    },
+    {
+      "ticker": "HUT",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "15.97-16.46",
+      "invalidation": "Đóng cửa dưới 15.48 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.37%, RSI14 30.77, vol_ratio_20d 0.94",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 16.3 vs MA20 16.54 vs MA50 16.39",
+        "RS20D -1.24, volume ratio 0.94"
+      ]
+    },
+    {
+      "ticker": "SSB",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "16.41-16.92",
+      "invalidation": "Đóng cửa dưới 16.08 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.34%, RSI14 30.0, vol_ratio_20d 1.02",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 16.75 vs MA20 16.85 vs MA50 16.83",
+        "RS20D -1.03, volume ratio 1.02"
+      ]
+    },
+    {
+      "ticker": "VNM",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "59.68-61.51",
+      "invalidation": "Đóng cửa dưới 58.46 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.98%, RSI14 40.43, vol_ratio_20d 0.51",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 60.9 vs MA20 61.48 vs MA50 62.87",
+        "RS20D -0.95, volume ratio 0.51"
+      ]
+    },
+    {
+      "ticker": "MSR",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "39.89-41.11",
+      "invalidation": "Đóng cửa dưới 37.12 hoặc volume breakout thất bại.",
+      "risk": "ATR14 5.86%, RSI14 34.23, vol_ratio_20d 1.07",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 40.7 vs MA20 44.7 vs MA50 45.8",
+        "RS20D -2.71, volume ratio 1.07"
+      ]
+    },
+    {
+      "ticker": "VCK",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "33.47-34.49",
+      "invalidation": "Đóng cửa dưới 32.77 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.69%, RSI14 23.97, vol_ratio_20d 0.39",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 34.15 vs MA20 35.62 vs MA50 33.65",
+        "RS20D -1.13, volume ratio 0.39"
+      ]
+    },
+    {
+      "ticker": "PET",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "45.37-46.76",
+      "invalidation": "Đóng cửa dưới 43.52 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.01%, RSI14 26.62, vol_ratio_20d 1.11",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 46.3 vs MA20 47.71 vs MA50 43.5",
+        "RS20D -1.86, volume ratio 1.11"
+      ]
+    },
+    {
+      "ticker": "IDC",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "44.30-45.65",
+      "invalidation": "Đóng cửa dưới 42.99 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.26%, RSI14 24.64, vol_ratio_20d 0.75",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 45.2 vs MA20 47.19 vs MA50 46.42",
+        "RS20D -1.72, volume ratio 0.75"
+      ]
+    },
+    {
+      "ticker": "KDC",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "45.03-46.41",
+      "invalidation": "Đóng cửa dưới 42.90 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.43%, RSI14 38.37, vol_ratio_20d 1.14",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 45.95 vs MA20 47.41 vs MA50 49.28",
+        "RS20D -1.55, volume ratio 1.14"
+      ]
+    },
+    {
+      "ticker": "MCH",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "133.77-137.87",
+      "invalidation": "Đóng cửa dưới 131.04 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.59%, RSI14 20.0, vol_ratio_20d 0.73",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 136.5 vs MA20 139.93 vs MA50 144.41",
+        "RS20D -1.41, volume ratio 0.73"
+      ]
+    },
+    {
+      "ticker": "VC3",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "25.77-26.56",
+      "invalidation": "Đóng cửa dưới 25.25 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.68%, RSI14 38.1, vol_ratio_20d 0.86",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 26.3 vs MA20 26.44 vs MA50 26.36",
+        "RS20D -1.04, volume ratio 0.86"
+      ]
+    },
+    {
+      "ticker": "BVH",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "68.80-70.90",
+      "invalidation": "Đóng cửa dưới 66.53 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.49%, RSI14 9.32, vol_ratio_20d 0.7",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 70.2 vs MA20 75.38 vs MA50 77.32",
+        "RS20D -2.51, volume ratio 0.7"
+      ]
+    },
+    {
+      "ticker": "OCB",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "11.03-11.36",
+      "invalidation": "Đóng cửa dưới 10.80 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.25%, RSI14 44.44, vol_ratio_20d 0.81",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 11.25 vs MA20 11.39 vs MA50 11.24",
+        "RS20D -0.89, volume ratio 0.81"
+      ]
+    },
+    {
+      "ticker": "IJC",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "10.04-10.35",
+      "invalidation": "Đóng cửa dưới 9.84 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.33%, RSI14 33.33, vol_ratio_20d 0.61",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 10.25 vs MA20 10.3 vs MA50 10.28",
+        "RS20D -0.84, volume ratio 0.61"
+      ]
+    },
+    {
+      "ticker": "VGC",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "42.14-43.43",
+      "invalidation": "Đóng cửa dưới 40.96 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.16%, RSI14 27.94, vol_ratio_20d 0.79",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 43.0 vs MA20 45.05 vs MA50 46.23",
+        "RS20D -1.68, volume ratio 0.79"
+      ]
+    },
+    {
+      "ticker": "VPX",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "26.75-27.57",
+      "invalidation": "Đóng cửa dưới 26.21 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.47%, RSI14 26.32, vol_ratio_20d 0.74",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 27.3 vs MA20 28.26 vs MA50 29.72",
+        "RS20D -1.55, volume ratio 0.74"
+      ]
+    },
+    {
+      "ticker": "HDG",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "25.33-26.11",
+      "invalidation": "Đóng cửa dưới 24.77 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.78%, RSI14 26.67, vol_ratio_20d 0.51",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 25.85 vs MA20 27.73 vs MA50 27.84",
+        "RS20D -1.97, volume ratio 0.51"
+      ]
+    },
+    {
+      "ticker": "REE",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "59.98-61.81",
+      "invalidation": "Đóng cửa dưới 58.75 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.51%, RSI14 29.91, vol_ratio_20d 0.48",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 61.2 vs MA20 64.27 vs MA50 64.26",
+        "RS20D -1.81, volume ratio 0.48"
+      ]
+    },
+    {
+      "ticker": "TV2",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "34.15-35.20",
+      "invalidation": "Đóng cửa dưới 33.27 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.03%, RSI14 33.87, vol_ratio_20d 0.88",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 34.85 vs MA20 36.14 vs MA50 37.26",
+        "RS20D -1.62, volume ratio 0.88"
+      ]
+    },
+    {
+      "ticker": "NLG",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "27.24-28.08",
+      "invalidation": "Đóng cửa dưới 26.64 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.77%, RSI14 22.41, vol_ratio_20d 0.42",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 27.8 vs MA20 28.48 vs MA50 27.96",
+        "RS20D -1.57, volume ratio 0.42"
+      ]
+    },
+    {
+      "ticker": "CRC",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "8.80-9.07",
+      "invalidation": "Đóng cửa dưới 8.51 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.51%, RSI14 32.48, vol_ratio_20d 0.4",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 8.98 vs MA20 9.37 vs MA50 9.44",
+        "RS20D -2.08, volume ratio 0.4"
+      ]
+    },
+    {
+      "ticker": "DBC",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "22.10-22.78",
+      "invalidation": "Đóng cửa dưới 21.65 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.15%, RSI14 43.24, vol_ratio_20d 0.45",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 22.55 vs MA20 23.04 vs MA50 23.84",
+        "RS20D -1.21, volume ratio 0.45"
+      ]
+    },
+    {
+      "ticker": "SBT",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "19.99-20.60",
+      "invalidation": "Đóng cửa dưới 19.58 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.15%, RSI14 32.48, vol_ratio_20d 0.93",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 20.4 vs MA20 20.58 vs MA50 21.15",
+        "RS20D -1.19, volume ratio 0.93"
+      ]
+    },
+    {
+      "ticker": "FUEVN100",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "25.86-26.65",
+      "invalidation": "Đóng cửa dưới 25.33 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.24%, RSI14 74.22, vol_ratio_20d 1.08",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 26.39 vs MA20 25.59 vs MA50 25.81",
+        "RS20D -0.22, volume ratio 1.08"
+      ]
+    },
+    {
+      "ticker": "TNG",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "20.87-21.51",
+      "invalidation": "Đóng cửa dưới 20.24 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.32%, RSI14 22.58, vol_ratio_20d 0.65",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 21.3 vs MA20 22.45 vs MA50 23.62",
+        "RS20D -2.05, volume ratio 0.65"
+      ]
+    },
+    {
+      "ticker": "HBC",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "5.00-5.15",
+      "invalidation": "Đóng cửa dưới 4.88 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.94%, RSI14 42.86, vol_ratio_20d 0.98",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 5.1 vs MA20 5.06 vs MA50 5.39",
+        "RS20D -1.26, volume ratio 0.98"
+      ]
+    },
+    {
+      "ticker": "SCS",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "51.16-52.72",
+      "invalidation": "Đóng cửa dưới 50.11 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.41%, RSI14 18.92, vol_ratio_20d 0.74",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 52.2 vs MA20 53.63 vs MA50 53.94",
+        "RS20D -1.27, volume ratio 0.74"
+      ]
+    },
+    {
+      "ticker": "BCM",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "52.33-53.93",
+      "invalidation": "Đóng cửa dưới 51.26 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.53%, RSI14 39.29, vol_ratio_20d 0.56",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 53.4 vs MA20 54.56 vs MA50 56.31",
+        "RS20D -1.02, volume ratio 0.56"
+      ]
+    },
+    {
+      "ticker": "DGW",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "42.63-43.94",
+      "invalidation": "Đóng cửa dưới 41.36 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.28%, RSI14 29.55, vol_ratio_20d 0.41",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 43.5 vs MA20 44.86 vs MA50 45.55",
+        "RS20D -1.43, volume ratio 0.41"
+      ]
+    },
+    {
+      "ticker": "PVC",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "14.90-15.35",
+      "invalidation": "Đóng cửa dưới 14.15 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.61%, RSI14 35.56, vol_ratio_20d 0.7",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 15.2 vs MA20 16.37 vs MA50 17.03",
+        "RS20D -1.79, volume ratio 0.7"
+      ]
+    },
+    {
+      "ticker": "NT2",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "23.91-24.64",
+      "invalidation": "Đóng cửa dưới 23.42 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.68%, RSI14 36.46, vol_ratio_20d 0.64",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 24.4 vs MA20 25.61 vs MA50 26.48",
+        "RS20D -2.08, volume ratio 0.64"
+      ]
+    },
+    {
+      "ticker": "VTP",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "66.64-68.68",
+      "invalidation": "Đóng cửa dưới 65.17 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.77%, RSI14 25.66, vol_ratio_20d 0.38",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 68.0 vs MA20 70.59 vs MA50 70.86",
+        "RS20D -1.59, volume ratio 0.38"
+      ]
+    },
+    {
+      "ticker": "CMG",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "27.29-28.13",
+      "invalidation": "Đóng cửa dưới 26.74 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.23%, RSI14 36.99, vol_ratio_20d 0.8",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 27.85 vs MA20 28.53 vs MA50 30.03",
+        "RS20D -1.32, volume ratio 0.8"
+      ]
+    },
+    {
+      "ticker": "HVH",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "11.47-11.82",
+      "invalidation": "Đóng cửa dưới 11.23 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.05%, RSI14 33.33, vol_ratio_20d 1.05",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 11.7 vs MA20 11.79 vs MA50 11.92",
+        "RS20D -1.1, volume ratio 1.05"
+      ]
+    },
+    {
+      "ticker": "DHC",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "34.79-35.85",
+      "invalidation": "Đóng cửa dưới 34.08 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.25%, RSI14 38.16, vol_ratio_20d 0.69",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 35.5 vs MA20 35.87 vs MA50 36.1",
+        "RS20D -0.83, volume ratio 0.69"
+      ]
+    },
+    {
+      "ticker": "VGI",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "87.81-90.50",
+      "invalidation": "Đóng cửa dưới 84.13 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.07%, RSI14 43.35, vol_ratio_20d 0.39",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 89.6 vs MA20 92.33 vs MA50 93.66",
+        "RS20D -1.48, volume ratio 0.39"
+      ]
+    },
+    {
+      "ticker": "VDS",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "14.11-14.54",
+      "invalidation": "Đóng cửa dưới 13.82 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.68%, RSI14 28.21, vol_ratio_20d 0.7",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 14.4 vs MA20 14.76 vs MA50 15.55",
+        "RS20D -1.25, volume ratio 0.7"
+      ]
+    },
+    {
+      "ticker": "SZC",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "26.95-27.77",
+      "invalidation": "Đóng cửa dưới 26.40 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.31%, RSI14 30.16, vol_ratio_20d 0.58",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 27.5 vs MA20 28.33 vs MA50 29.84",
+        "RS20D -1.45, volume ratio 0.58"
+      ]
+    },
+    {
+      "ticker": "CTS",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "25.82-26.61",
+      "invalidation": "Đóng cửa dưới 25.30 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.59%, RSI14 28.74, vol_ratio_20d 0.57",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 26.35 vs MA20 27.26 vs MA50 28.07",
+        "RS20D -1.51, volume ratio 0.57"
+      ]
+    },
+    {
+      "ticker": "VOS",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "12.30-12.68",
+      "invalidation": "Đóng cửa dưới 12.05 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.5%, RSI14 44.12, vol_ratio_20d 0.57",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 12.55 vs MA20 12.72 vs MA50 13.71",
+        "RS20D -1.08, volume ratio 0.57"
+      ]
+    },
+    {
+      "ticker": "FCN",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "12.94-13.33",
+      "invalidation": "Đóng cửa dưới 12.58 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.14%, RSI14 23.08, vol_ratio_20d 0.59",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 13.2 vs MA20 13.42 vs MA50 12.99",
+        "RS20D -0.81, volume ratio 0.59"
+      ]
+    },
+    {
+      "ticker": "SKG",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "9.45-9.74",
+      "invalidation": "Đóng cửa dưới 9.25 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.68%, RSI14 74.68, vol_ratio_20d 0.98",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 9.64 vs MA20 9.36 vs MA50 9.5",
+        "RS20D -0.43, volume ratio 0.98"
+      ]
+    },
+    {
+      "ticker": "TTA",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "10.73-11.06",
+      "invalidation": "Đóng cửa dưới 10.51 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.64%, RSI14 21.74, vol_ratio_20d 0.71",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 10.95 vs MA20 11.32 vs MA50 11.38",
+        "RS20D -1.61, volume ratio 0.71"
+      ]
+    },
+    {
+      "ticker": "NHA",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "12.84-13.23",
+      "invalidation": "Đóng cửa dưới 12.50 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.05%, RSI14 22.22, vol_ratio_20d 0.83",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 13.1 vs MA20 13.25 vs MA50 13.26",
+        "RS20D -1.04, volume ratio 0.83"
+      ]
+    },
+    {
+      "ticker": "PVB",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "27.05-27.88",
+      "invalidation": "Đóng cửa dưới 26.13 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.55%, RSI14 42.11, vol_ratio_20d 0.87",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 27.6 vs MA20 28.26 vs MA50 31.05",
+        "RS20D -1.44, volume ratio 0.87"
+      ]
+    },
+    {
+      "ticker": "DC4",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "8.82-9.09",
+      "invalidation": "Đóng cửa dưới 8.64 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.31%, RSI14 36.92, vol_ratio_20d 0.83",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 9.0 vs MA20 9.02 vs MA50 9.27",
+        "RS20D -1.03, volume ratio 0.83"
+      ]
+    },
+    {
+      "ticker": "FTS",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "25.58-26.36",
+      "invalidation": "Đóng cửa dưới 24.89 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.09%, RSI14 11.67, vol_ratio_20d 0.45",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 26.1 vs MA20 27.38 vs MA50 28.21",
+        "RS20D -1.34, volume ratio 0.45"
+      ]
+    },
+    {
+      "ticker": "PPT",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "15.19-15.65",
+      "invalidation": "Đóng cửa dưới 14.88 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.61%, RSI14 40.0, vol_ratio_20d 0.85",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 15.5 vs MA20 15.58 vs MA50 15.45",
+        "RS20D -0.82, volume ratio 0.85"
+      ]
+    },
+    {
+      "ticker": "ORS",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "12.89-13.28",
+      "invalidation": "Đóng cửa dưới 12.61 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.74%, RSI14 29.17, vol_ratio_20d 0.34",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 13.15 vs MA20 13.44 vs MA50 13.43",
+        "RS20D -1.43, volume ratio 0.34"
+      ]
+    },
+    {
+      "ticker": "QCG",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "13.52-13.94",
+      "invalidation": "Đóng cửa dưới 13.07 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.55%, RSI14 38.0, vol_ratio_20d 0.54",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 13.8 vs MA20 13.83 vs MA50 13.65",
+        "RS20D -0.51, volume ratio 0.54"
+      ]
+    },
+    {
+      "ticker": "HT1",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "14.36-14.80",
+      "invalidation": "Đóng cửa dưới 13.99 hoặc volume breakout thất bại.",
+      "risk": "ATR14 3.0%, RSI14 32.0, vol_ratio_20d 0.59",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 14.65 vs MA20 15.08 vs MA50 15.68",
+        "RS20D -1.37, volume ratio 0.59"
+      ]
+    },
+    {
+      "ticker": "VAB",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "10.00-10.30",
+      "invalidation": "Đóng cửa dưới 9.79 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.61%, RSI14 41.67, vol_ratio_20d 0.6",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 10.2 vs MA20 10.27 vs MA50 10.25",
+        "RS20D -0.79, volume ratio 0.6"
+      ]
+    },
+    {
+      "ticker": "CTI",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "21.07-21.71",
+      "invalidation": "Đóng cửa dưới 20.64 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.19%, RSI14 10.87, vol_ratio_20d 0.46",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 21.5 vs MA20 22.4 vs MA50 23.08",
+        "RS20D -1.5, volume ratio 0.46"
+      ]
+    },
+    {
+      "ticker": "VIP",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "11.27-11.62",
+      "invalidation": "Đóng cửa dưới 11.04 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.74%, RSI14 42.86, vol_ratio_20d 0.65",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 11.5 vs MA20 11.68 vs MA50 12.03",
+        "RS20D -1.18, volume ratio 0.65"
+      ]
+    },
+    {
+      "ticker": "SBS",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "5.10-5.25",
+      "invalidation": "Đóng cửa dưới 4.98 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.88%, RSI14 40.0, vol_ratio_20d 0.89",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 5.2 vs MA20 5.25 vs MA50 5.42",
+        "RS20D -1.43, volume ratio 0.89"
+      ]
+    },
+    {
+      "ticker": "BSI",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "34.30-35.35",
+      "invalidation": "Đóng cửa dưới 33.60 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.32%, RSI14 27.08, vol_ratio_20d 0.35",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 35.0 vs MA20 36.27 vs MA50 36.26",
+        "RS20D -1.45, volume ratio 0.35"
+      ]
+    },
+    {
+      "ticker": "HAX",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "10.14-10.45",
+      "invalidation": "Đóng cửa dưới 9.94 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.9%, RSI14 37.5, vol_ratio_20d 0.61",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 10.35 vs MA20 10.42 vs MA50 10.62",
+        "RS20D -1.17, volume ratio 0.61"
+      ]
+    },
+    {
+      "ticker": "PAC",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "22.15-22.83",
+      "invalidation": "Đóng cửa dưới 21.67 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.75%, RSI14 4.26, vol_ratio_20d 0.41",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 22.6 vs MA20 23.81 vs MA50 24.38",
+        "RS20D -2.29, volume ratio 0.41"
+      ]
+    },
+    {
+      "ticker": "GCF",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "19.11-19.70",
+      "invalidation": "Đóng cửa dưới 18.24 hoặc volume breakout thất bại.",
+      "risk": "ATR14 4.32%, RSI14 75.81, vol_ratio_20d 0.98",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 19.5 vs MA20 18.02 vs MA50 22.31",
+        "RS20D -0.23, volume ratio 0.98"
+      ]
+    },
+    {
+      "ticker": "AGR",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "14.26-14.70",
+      "invalidation": "Đóng cửa dưới 13.97 hoặc volume breakout thất bại.",
+      "risk": "ATR14 1.79%, RSI14 28.57, vol_ratio_20d 0.54",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 14.55 vs MA20 14.74 vs MA50 15.08",
+        "RS20D -1.12, volume ratio 0.54"
+      ]
+    },
+    {
+      "ticker": "CRE",
+      "status": "avoid",
+      "score": -0.2,
+      "entry_zone": "7.49-7.72",
+      "invalidation": "Đóng cửa dưới 7.32 hoặc volume breakout thất bại.",
+      "risk": "ATR14 2.8%, RSI14 36.28, vol_ratio_20d 0.62",
+      "confidence": 0.43,
+      "evidence": [
+        "Close 7.64 vs MA20 7.7 vs MA50 7.49",
+        "RS20D -1.45, volume ratio 0.62"
+      ]
+    }
+  ],
+  "final_trade_candidates": "| Rank | Ticker | Setup | Score | Entry | Stop | T1 | T2 | R/R | Sizing |\n| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |\n| 1 | VIC | base_building | 66.09 | 207.76-214.12 | 148.64 | 307.05 | 370.41 | 1.5 | 0.25% NAV risk budget unit |\n| 2 | DIG | trend_follow | 57.79 | 14.36-14.80 | 13.64 | 16.5 | 17.51 | 1.84 | 0.5% NAV risk budget unit |\n| 3 | L14 | trend_follow | 48.9 | 23.91-24.64 | 22.16 | 27.76 | 29.99 | 1.5 | 0.5% NAV risk budget unit |\n| 4 | ASM | reversal_attempt | 47.8 | 5.90-6.08 | 5.74 | 6.43 | 6.71 | 1.5 | 0.5% NAV risk budget unit |\n| 5 | L40 | reversal_attempt | 42.08 | 69.09-71.20 | 64.71 | 78.0 | 84.96 | 1.3 | 0.5% NAV risk budget unit |\n| 6 | SGR | reversal_attempt | 41.76 | 15.44-15.91 | 14.87 | 17.06 | 17.94 | 1.5 | 0.5% NAV risk budget unit |\n| 7 | PVP | base_building | 41.52 | 17.64-18.18 | 14.92 | 22.62 | 25.69 | 1.5 | 0.5% NAV risk budget unit |\n| 8 | KSB | reversal_attempt | 39.4 | 15.97-16.46 | 15.54 | 17.44 | 18.21 | 1.5 | 0.5% NAV risk budget unit |\n| 9 | NHH | reversal_attempt | 37.28 | 10.44-10.76 | 10.13 | 11.43 | 11.95 | 1.5 | 0.25% NAV risk budget unit |\n| 10 | ABW | reversal_attempt | 34.74 | 10.39-10.71 | 10.21 | 11.1 | 11.56 | 1.3 | 0.25% NAV risk budget unit |",
+  "next_watchlist": "| Ticker | Setup | R/R | Lý do chưa qua |\n| --- | --- | --- | --- |\n| DXS | breakout | 1.5 |  |\n| PHR | breakout | 2.37 |  |\n| PDR | base_building | 2.23 |  |\n| VHC | trend_follow | 3.8 |  |\n| TCB | base_building | 0.96 |  |\n| PAN | base_building | 2.51 |  |\n| HDB | trend_follow | 2.53 |  |\n| EVG | base_building | 3.38 |  |\n| KBC | trend_follow | 2.46 |  |\n| PSI | breakout | 1.5 |  |\n| SAB | trend_follow | 3.08 |  |\n| PDB | breakout | 1.5 |  |\n| VPB | pullback | 2.7 |  |\n| DSH | breakout | 1.66 |  |\n| LPB | base_building | 0.74 |  |\n| DXG | trend_follow | 1.5 |  |\n| VJC | base_building | 0.8 |  |\n| PCH | base_building | 1.5 |  |\n| MSB | trend_follow | 1.5 |  |\n| DXP | breakout | 1.5 |  |",
+  "rejected_signals": "| Ticker | Setup | R/R | Lý do loại |\n| --- | --- | --- | --- |\n| PTV | reversal_attempt | 0.52 | spread/volatility quá xấu ; RS20 quá yếu |\n| BWE | failed_breakout | 1.5 | setup không giao dịch |\n| BIG | failed_breakout | 0.93 | spread/volatility quá xấu ; setup không giao dịch |\n| HTN | failed_breakout | 1.5 | setup không giao dịch |\n| MSH | distribution | 0.24 | setup không giao dịch ; close dưới MA20 |\n| KOS | distribution | 1.38 | setup không giao dịch ; close dưới MA20 |\n| VIW | distribution | 1.5 | spread/volatility quá xấu ; setup không giao dịch ; close dưới MA20 ; RS20 quá yếu |\n| VNP | distribution | 0.34 | setup không giao dịch ; close dưới MA20 ; RS20 quá yếu |\n| VHM | avoid | 0.34 | spread/volatility quá xấu ; setup không giao dịch |\n| MWG | avoid | 0.44 | setup không giao dịch |\n| FPT | avoid | 1.5 | setup không giao dịch ; close dưới MA20 |\n| PC1 | avoid | 0.51 | setup không giao dịch ; close dưới MA20 ; RS20 quá yếu |\n| KDH | avoid | 1.5 | setup không giao dịch ; close dưới MA20 |\n| VCB | avoid | 0.21 | setup không giao dịch |\n| VRE | avoid | 0.29 | setup không giao dịch |\n| VCG | avoid | 0.88 | setup không giao dịch |\n| GEX | avoid | 0.51 | setup không giao dịch |\n| ACB | avoid | 0.99 | setup không giao dịch ; close dưới MA20 |\n| TCH | avoid | 0.67 | setup không giao dịch |\n| BID | avoid | 0.77 | setup không giao dịch |\n| NVL | avoid | 0.04 | setup không giao dịch |\n| PLX | avoid | 0.69 | setup không giao dịch ; close dưới MA20 |\n| HPG | avoid | 0.46 | setup không giao dịch ; close dưới MA20 |\n| TPB | avoid | 0.79 | setup không giao dịch |\n| KHG | avoid | 1.5 | setup không giao dịch |\n| VCI | avoid | 1.5 | setup không giao dịch ; close dưới MA20 |\n| SHB | avoid | 1.47 | setup không giao dịch ; close dưới MA20 |\n| MBB | avoid | 0.78 | setup không giao dịch ; close dưới MA20 |\n| HNG | avoid | 0.11 | setup không giao dịch |\n| BSR | avoid | 0.17 | setup không giao dịch ; close dưới MA20 |",
+  "no_disbursement_risks": "- Watchlist nhiều hơn passed quá lớn: thị trường còn nhiễu, ưu tiên chờ xác nhận.\n- Không giải ngân vào mã bị loại vì volume thấp, sector yếu, close dưới MA20, R/R kém hoặc stop quá rộng.",
+  "portfolio_actions": "### Holdings\n| Ticker | Weight % | Top10 | Watch | Action |\n| --- | --- | --- | --- | --- |\n| FPT | 29.45 | False | False | GIẢM/không tăng nếu yếu hơn Top10 hoặc bị loại quality gate |\n| MWG | 22.81 | False | False | GIẢM/không tăng nếu yếu hơn Top10 hoặc bị loại quality gate |\n| VCB | 16.68 | False | False | GIẢM/không tăng nếu yếu hơn Top10 hoặc bị loại quality gate |\n\n### New buy watch\n| Ticker | Action | Suggested weight % | Entry |\n| --- | --- | --- | --- |\n| PHR | CHỜ MUA | 3.52 | 62.72-64.64 |\n| DXS | CHỜ MUA | 3.57 | 7.71-7.95 |\n| DXP | CHỜ MUA | 3.47 | 15.19-15.65 |\n| PDB | CHỜ MUA | 3.18 | 25.38-26.16 |\n| DSH | CHỜ MUA | 3.03 | 16.86-17.37 |\n| PSI | CHỜ MUA | 3.0 | 8.23-8.48 |\n| DIG | CHỜ MUA | 2.93 | 14.36-14.80 |\n| AAA | CHỜ MUA | 2.81 | 7.33-7.55 |\n| TCB | CHỜ MUA | 2.77 | 32.88-33.89 |\n| VIC | CHỜ MUA | 2.7 | 207.76-214.12 |",
+  "market_regime_block": "**NO NEW BUY**\n\n- Lý do: VNINDEX chưa đạt `close > MA20 > MA50` + MA20 slope 10 phiên dương hoặc breadth yếu.\n- Regime hiện tại: `neutral`.\n- Hành động: chỉ quản trị danh mục, giữ mã mạnh hơn thị trường, giảm mã gãy stop/yếu hơn VNINDEX.",
+  "holding_window_calibration": "- Tier A: horizon chính `T+10` max. Stop rule OOS: `trailing_low3_after_T3` — sau T+3 trailing stop theo low 3 phiên gần nhất; nếu bị đá ra sớm không vào lại nếu chưa có signal mới.\n- Không dùng fixed T+10 thuần vì OOS âm và MAE sâu hơn.\n- Tier B: `T+5 / confirm only`, conditional/short watch, không gọi là mua mạnh.\n\n- Tier A: T+10 tốt hơn T+5 về avg return (2.01% vs 0.92%) và win-rate (55.8% vs 51.4%), nhưng MAE xấu hơn (-5.02% vs -3.78%).\n- Tier B: T+10 avg return cao hơn (0.6% vs 0.27%), nhưng win-rate thấp hơn (45.1% vs 46.0%) và stop hit cao hơn (12.6% vs 5.8%).\n- Rule đề xuất: Tier A dùng T+10 làm holding window chính; Tier B dùng T+5 hoặc chỉ watch/confirm, không kéo tới T+10 nếu chưa lên Tier A.\n\nTrailing full replay selected: `fixed_stop_T10`.",
+  "risk_warnings_text": "- Có 35 mã HOSE zero-volume; không dùng nhóm này cho signal giao dịch.\n- Có 202 mã thanh khoản dưới 50k cổ phiếu; signal giao dịch ưu tiên investable universe.\n- Tỷ lệ trên MA20 dưới 45%: cấu trúc ngắn hạn chưa khỏe.",
+  "disclaimer": "Thông tin hỗ trợ quyết định, không phải khuyến nghị đầu tư cá nhân hóa bắt buộc mua/bán."
+}

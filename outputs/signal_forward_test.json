@@ -1,0 +1,228 @@
+{
+  "as_of": "2026-05-05T02:33:22+07:00",
+  "source": "signal_forward_test",
+  "note": "Uses current generated signals and future bars if available in local FData history; for latest date future may be empty until later sessions.",
+  "summary": {
+    "T+1": {
+      "n": 0
+    },
+    "T+3": {
+      "n": 0
+    },
+    "T+5": {
+      "n": 0
+    },
+    "T+20": {
+      "n": 0
+    }
+  },
+  "items": [
+    {
+      "ticker": "VHC",
+      "tier": "Tier A",
+      "entry_date": "2026-05-04",
+      "entry": 61.7,
+      "stop": 59.54,
+      "target_1": 69.9,
+      "horizons": {}
+    },
+    {
+      "ticker": "HDB",
+      "tier": "Tier A",
+      "entry_date": "2026-05-04",
+      "entry": 26.5,
+      "stop": 25.57,
+      "target_1": 28.85,
+      "horizons": {}
+    },
+    {
+      "ticker": "VPB",
+      "tier": "Tier A",
+      "entry_date": "2026-05-04",
+      "entry": 26.95,
+      "stop": 26.01,
+      "target_1": 29.5,
+      "horizons": {}
+    },
+    {
+      "ticker": "SAB",
+      "tier": "Tier B",
+      "entry_date": "2026-05-04",
+      "entry": 47.35,
+      "stop": 45.42,
+      "target_1": 53.3,
+      "horizons": {}
+    },
+    {
+      "ticker": "PDR",
+      "tier": "Tier B",
+      "entry_date": "2026-05-04",
+      "entry": 16.5,
+      "stop": 15.76,
+      "target_1": 18.15,
+      "horizons": {}
+    },
+    {
+      "ticker": "ITC",
+      "tier": "Tier B",
+      "entry_date": "2026-05-04",
+      "entry": 12.2,
+      "stop": 11.54,
+      "target_1": 13.84,
+      "horizons": {}
+    },
+    {
+      "ticker": "SMC",
+      "tier": "Tier B",
+      "entry_date": "2026-05-04",
+      "entry": 12.85,
+      "stop": 12.2,
+      "target_1": 15.2,
+      "horizons": {}
+    },
+    {
+      "ticker": "EVG",
+      "tier": "Tier B",
+      "entry_date": "2026-05-04",
+      "entry": 6.71,
+      "stop": 6.34,
+      "target_1": 7.96,
+      "horizons": {}
+    },
+    {
+      "ticker": "VIC",
+      "tier": "Tier B",
+      "entry_date": "2026-05-04",
+      "entry": 212.0,
+      "stop": 148.64,
+      "target_1": 307.05,
+      "horizons": {}
+    },
+    {
+      "ticker": "ASM",
+      "tier": "Tier B",
+      "entry_date": "2026-05-04",
+      "entry": 6.02,
+      "stop": 5.74,
+      "target_1": 6.43,
+      "horizons": {}
+    },
+    {
+      "ticker": "NAF",
+      "tier": "Tier B",
+      "entry_date": "2026-05-04",
+      "entry": 49.45,
+      "stop": 46.89,
+      "target_1": 53.3,
+      "horizons": {}
+    },
+    {
+      "ticker": "L40",
+      "tier": "Tier B",
+      "entry_date": "2026-05-04",
+      "entry": 70.5,
+      "stop": 64.71,
+      "target_1": 78.0,
+      "horizons": {}
+    },
+    {
+      "ticker": "MST",
+      "tier": "Tier B",
+      "entry_date": "2026-05-04",
+      "entry": 8.2,
+      "stop": 7.84,
+      "target_1": 9.1,
+      "horizons": {}
+    },
+    {
+      "ticker": "PAN",
+      "tier": "Tier B",
+      "entry_date": "2026-05-04",
+      "entry": 31.85,
+      "stop": 30.54,
+      "target_1": 35.15,
+      "horizons": {}
+    },
+    {
+      "ticker": "APH",
+      "tier": "Tier B",
+      "entry_date": "2026-05-04",
+      "entry": 5.95,
+      "stop": 5.74,
+      "target_1": 6.26,
+      "horizons": {}
+    },
+    {
+      "ticker": "SGR",
+      "tier": "Tier B",
+      "entry_date": "2026-05-04",
+      "entry": 15.75,
+      "stop": 14.87,
+      "target_1": 17.06,
+      "horizons": {}
+    },
+    {
+      "ticker": "PCH",
+      "tier": "Tier B",
+      "entry_date": "2026-05-04",
+      "entry": 22.0,
+      "stop": 19.7,
+      "target_1": 25.45,
+      "horizons": {}
+    },
+    {
+      "ticker": "NHH",
+      "tier": "Tier B",
+      "entry_date": "2026-05-04",
+      "entry": 10.65,
+      "stop": 10.13,
+      "target_1": 11.43,
+      "horizons": {}
+    },
+    {
+      "ticker": "PVP",
+      "tier": "Tier B",
+      "entry_date": "2026-05-04",
+      "entry": 18.0,
+      "stop": 14.92,
+      "target_1": 22.62,
+      "horizons": {}
+    },
+    {
+      "ticker": "TCO",
+      "tier": "Tier B",
+      "entry_date": "2026-05-04",
+      "entry": 15.1,
+      "stop": 10.93,
+      "target_1": 21.35,
+      "horizons": {}
+    },
+    {
+      "ticker": "KSB",
+      "tier": "Tier B",
+      "entry_date": "2026-05-04",
+      "entry": 16.3,
+      "stop": 15.54,
+      "target_1": 17.44,
+      "horizons": {}
+    },
+    {
+      "ticker": "VPI",
+      "tier": "Tier B",
+      "entry_date": "2026-05-04",
+      "entry": 61.3,
+      "stop": 57.23,
+      "target_1": 67.41,
+      "horizons": {}
+    },
+    {
+      "ticker": "ABW",
+      "tier": "Tier B",
+      "entry_date": "2026-05-04",
+      "entry": 10.6,
+      "stop": 10.21,
+      "target_1": 11.1,
+      "horizons": {}
+    }
+  ]
+}

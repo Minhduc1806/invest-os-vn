@@ -1,0 +1,187 @@
+{
+  "as_of": "2026-05-05T11:04:08+07:00",
+  "method": "verification script opened and hashed root AGENTS.md plus runtime_agents/<agent>/AGENTS.md for each configured agent",
+  "agents": [
+    {
+      "agent": "equity-technical-analyst",
+      "root_AGENTS_md": {
+        "path": "AGENTS.md",
+        "exists": true,
+        "read": true,
+        "bytes": 7835,
+        "sha256": "240d299fe05a0984b916ed386328e0b7e6307bcd7fb9d8ed710defc0057e97c0",
+        "first_line": "# AGENTS.md - Your Workspace"
+      },
+      "runtime_AGENTS_md": {
+        "path": "runtime_agents\\equity-technical-analyst\\AGENTS.md",
+        "exists": true,
+        "read": true,
+        "bytes": 1280,
+        "sha256": "f53bd1332ca81fd7bc0cf8eb2574395d92200ca5d4cff5b55e78b658690567f1",
+        "first_line": "# Equity Technical Analyst"
+      },
+      "verified_read_both": true
+    },
+    {
+      "agent": "financial-news-editor",
+      "root_AGENTS_md": {
+        "path": "AGENTS.md",
+        "exists": true,
+        "read": true,
+        "bytes": 7835,
+        "sha256": "240d299fe05a0984b916ed386328e0b7e6307bcd7fb9d8ed710defc0057e97c0",
+        "first_line": "# AGENTS.md - Your Workspace"
+      },
+      "runtime_AGENTS_md": {
+        "path": "runtime_agents\\financial-news-editor\\AGENTS.md",
+        "exists": true,
+        "read": true,
+        "bytes": 1285,
+        "sha256": "5383c88b3c9bab6f9f3b36288092908d23d00816cb3edd9bd5b3b9c5c9ddaf0d",
+        "first_line": "# Financial News Editor"
+      },
+      "verified_read_both": true
+    },
+    {
+      "agent": "fundamental-analyst",
+      "root_AGENTS_md": {
+        "path": "AGENTS.md",
+        "exists": true,
+        "read": true,
+        "bytes": 7835,
+        "sha256": "240d299fe05a0984b916ed386328e0b7e6307bcd7fb9d8ed710defc0057e97c0",
+        "first_line": "# AGENTS.md - Your Workspace"
+      },
+      "runtime_AGENTS_md": {
+        "path": "runtime_agents\\fundamental-analyst\\AGENTS.md",
+        "exists": true,
+        "read": true,
+        "bytes": 1286,
+        "sha256": "ceb2f5a4901d2c9b605bbd6af42660eb38923adc2bb9c2cb8f2f65c3233053d0",
+        "first_line": "# Fundamental Analyst"
+      },
+      "verified_read_both": true
+    },
+    {
+      "agent": "investment-data-designer",
+      "root_AGENTS_md": {
+        "path": "AGENTS.md",
+        "exists": true,
+        "read": true,
+        "bytes": 7835,
+        "sha256": "240d299fe05a0984b916ed386328e0b7e6307bcd7fb9d8ed710defc0057e97c0",
+        "first_line": "# AGENTS.md - Your Workspace"
+      },
+      "runtime_AGENTS_md": {
+        "path": "runtime_agents\\investment-data-designer\\AGENTS.md",
+        "exists": true,
+        "read": true,
+        "bytes": 1289,
+        "sha256": "e2e2f896123c93094fddf312ffdac4d8acc280c4c99ac5f27dee75e49b809044",
+        "first_line": "# Investment Data Designer"
+      },
+      "verified_read_both": true
+    },
+    {
+      "agent": "market-strategist",
+      "root_AGENTS_md": {
+        "path": "AGENTS.md",
+        "exists": true,
+        "read": true,
+        "bytes": 7835,
+        "sha256": "240d299fe05a0984b916ed386328e0b7e6307bcd7fb9d8ed710defc0057e97c0",
+        "first_line": "# AGENTS.md - Your Workspace"
+      },
+      "runtime_AGENTS_md": {
+        "path": "runtime_agents\\market-strategist\\AGENTS.md",
+        "exists": true,
+        "read": true,
+        "bytes": 1720,
+        "sha256": "1dcfdd169a5598ac074fab638d7a71038155952b5bdba5e72bffe3d4e725c2db",
+        "first_line": "# Market Strategist"
+      },
+      "verified_read_both": true
+    },
+    {
+      "agent": "portfolio-advisor",
+      "root_AGENTS_md": {
+        "path": "AGENTS.md",
+        "exists": true,
+        "read": true,
+        "bytes": 7835,
+        "sha256": "240d299fe05a0984b916ed386328e0b7e6307bcd7fb9d8ed710defc0057e97c0",
+        "first_line": "# AGENTS.md - Your Workspace"
+      },
+      "runtime_AGENTS_md": {
+        "path": "runtime_agents\\portfolio-advisor\\AGENTS.md",
+        "exists": true,
+        "read": true,
+        "bytes": 1268,
+        "sha256": "288c3cd7b3c908ff1d9e6d3c7599840ffd7bbfbfa0130b5514773cbbbf181860",
+        "first_line": "# Portfolio Advisor"
+      },
+      "verified_read_both": true
+    },
+    {
+      "agent": "quant-researcher",
+      "root_AGENTS_md": {
+        "path": "AGENTS.md",
+        "exists": true,
+        "read": true,
+        "bytes": 7835,
+        "sha256": "240d299fe05a0984b916ed386328e0b7e6307bcd7fb9d8ed710defc0057e97c0",
+        "first_line": "# AGENTS.md - Your Workspace"
+      },
+      "runtime_AGENTS_md": {
+        "path": "runtime_agents\\quant-researcher\\AGENTS.md",
+        "exists": true,
+        "read": true,
+        "bytes": 1256,
+        "sha256": "093cb46b241d588c0ffbef9d28a6e8fa03ed438082ad2a4ab5545d95f5997de5",
+        "first_line": "# Quant Researcher"
+      },
+      "verified_read_both": true
+    },
+    {
+      "agent": "rates-fixed-income-analyst",
+      "root_AGENTS_md": {
+        "path": "AGENTS.md",
+        "exists": true,
+        "read": true,
+        "bytes": 7835,
+        "sha256": "240d299fe05a0984b916ed386328e0b7e6307bcd7fb9d8ed710defc0057e97c0",
+        "first_line": "# AGENTS.md - Your Workspace"
+      },
+      "runtime_AGENTS_md": {
+        "path": "runtime_agents\\rates-fixed-income-analyst\\AGENTS.md",
+        "exists": true,
+        "read": true,
+        "bytes": 1271,
+        "sha256": "8ba301f53b9537593e3f6f2793f01919b9ff3473ddd7878c57521b1b6906bc08",
+        "first_line": "# Rates & Fixed Income Analyst"
+      },
+      "verified_read_both": true
+    },
+    {
+      "agent": "wealth-asset-manager",
+      "root_AGENTS_md": {
+        "path": "AGENTS.md",
+        "exists": true,
+        "read": true,
+        "bytes": 7835,
+        "sha256": "240d299fe05a0984b916ed386328e0b7e6307bcd7fb9d8ed710defc0057e97c0",
+        "first_line": "# AGENTS.md - Your Workspace"
+      },
+      "runtime_AGENTS_md": {
+        "path": "runtime_agents\\wealth-asset-manager\\AGENTS.md",
+        "exists": true,
+        "read": true,
+        "bytes": 1269,
+        "sha256": "6c06335a37b0f203016ccb27a2630cedc11f83f88fd84efbd51c3c3ceb7b72d3",
+        "first_line": "# Wealth Asset Manager"
+      },
+      "verified_read_both": true
+    }
+  ],
+  "all_verified": true
+}

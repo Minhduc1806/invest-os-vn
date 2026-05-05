@@ -1,0 +1,11 @@
+{
+  "as_of": "2026-05-04T15:00:00+07:00",
+  "source": "mock_ohlcv_provider",
+  "bars": [
+    {"ticker": "FPT", "exchange": "HOSE", "close": 118500, "change_pct": 1.72, "volume": 4200000, "vol_ratio_20d": 1.35, "ma20": 114200, "ma50": 110500, "ma200": 101000, "rsi14": 63, "atr14_pct": 2.1, "rs_20d": 0.88},
+    {"ticker": "MWG", "exchange": "HOSE", "close": 61200, "change_pct": 0.99, "volume": 5100000, "vol_ratio_20d": 1.18, "ma20": 59800, "ma50": 57500, "ma200": 50500, "rsi14": 58, "atr14_pct": 2.6, "rs_20d": 0.52},
+    {"ticker": "VCB", "exchange": "HOSE", "close": 89500, "change_pct": -0.34, "volume": 1800000, "vol_ratio_20d": 0.82, "ma20": 90200, "ma50": 91000, "ma200": 88000, "rsi14": 46, "atr14_pct": 1.7, "rs_20d": -0.12},
+    {"ticker": "SSI", "exchange": "HOSE", "close": 36600, "change_pct": 2.38, "volume": 15000000, "vol_ratio_20d": 1.55, "ma20": 34800, "ma50": 33500, "ma200": 31000, "rsi14": 67, "atr14_pct": 3.4, "rs_20d": 0.71}
+  ],
+  "quality_score": 0.93
+}

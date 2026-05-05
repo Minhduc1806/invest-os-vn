@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "required": [
+    "ticker",
+    "business",
+    "financial_quality",
+    "valuation",
+    "risks"
+  ],
+  "properties": {
+    "ticker": {
+      "type": "string"
+    },
+    "business": {
+      "type": "string"
+    },
+    "financial_quality": {
+      "type": "string"
+    },
+    "valuation": {
+      "type": "string"
+    },
+    "risks": {
+      "type": "array"
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "as_of": "2026-05-05T12:01:25+07:00",
+  "source": "vnstock_history_adapter_partial_market",
+  "market": "VN",
+  "indices": [
+    {
+      "symbol": "VNINDEX",
+      "close": 1869.02,
+      "change_pct": 0.81,
+      "volume_mn": 355.13,
+      "value_bil_vnd": 0,
+      "above_ma20_pct": 100.0
+    },
+    {
+      "symbol": "VN30",
+      "close": 2022.69,
+      "change_pct": 0.4,
+      "volume_mn": 145.88,
+      "value_bil_vnd": 0,
+      "above_ma20_pct": 100.0
+    },
+    {
+      "symbol": "HNXINDEX",
+      "close": 246.82,
+      "change_pct": -1.29,
+      "volume_mn": 31.1,
+      "value_bil_vnd": 0,
+      "above_ma20_pct": 0.0
+    }
+  ],
+  "breadth": {
+    "advancers": 2,
+    "decliners": 8,
+    "unchanged": 0,
+    "new_high_20d": null,
+    "new_low_20d": null
+  },
+  "sectors": [
+    {
+      "name": "Công nghệ",
+      "change_pct": -0.81,
+      "value_bil_vnd": 0,
+      "relative_strength_20d": -1.24
+    },
+    {
+      "name": "Bán lẻ",
+      "change_pct": -0.12,
+      "value_bil_vnd": 0,
+      "relative_strength_20d": -0.66
+    },
+    {
+      "name": "Ngân hàng",
+      "change_pct": -1.46,
+      "value_bil_vnd": 0,
+      "relative_strength_20d": -0.71
+    },
+    {
+      "name": "Chứng khoán",
+      "change_pct": -1.44,
+      "value_bil_vnd": 0,
+      "relative_strength_20d": -1.12
+    },
+    {
+      "name": "Khác",
+      "change_pct": -0.88,
+      "value_bil_vnd": 0,
+      "relative_strength_20d": -1.06
+    },
+    {
+      "name": "Bất động sản",
+      "change_pct": 5.48,
+      "value_bil_vnd": 0,
+      "relative_strength_20d": 3.31
+    }
+  ],
+  "foreign_flow": {
+    "net_value_bil_vnd": 0,
+    "top_buy": [],
+    "top_sell": [],
+    "note": "not_available_in_free_adapter"
+  },
+  "derivatives": {
+    "vn30f1m_basis": 0,
+    "open_interest": 0,
+    "note": "not_available_in_free_adapter"
+  },
+  "quality_score": 0.84,
+  "warnings": [
+    "partial_market_universe_breadth",
+    "foreign_flow_not_available",
+    "derivatives_placeholder"
+  ]
+}

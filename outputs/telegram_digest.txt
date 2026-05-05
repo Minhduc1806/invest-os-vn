@@ -1,0 +1,8 @@
+VN EOD
+Regime: neutral
+NO NEW BUY - chỉ quản trị danh mục
+Tier A: None
+Tier B: VIC, DIG, L14, ASM, L40, SGR, PVP, KSB
+Portfolio risks: Tập trung ngành Công nghệ Thông tin: 54.1% NAV
+Backtest T+20 TierA: {'n': 1380, 'avg_ret': 3.73, 'win_rate': 56.5, 'expectancy': 3.73, 'target_hit': 15.7, 'stop_hit': 11.5, 'avg_mae': -6.38}
+Không mua đuổi.

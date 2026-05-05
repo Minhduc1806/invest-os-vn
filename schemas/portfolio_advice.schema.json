@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": [
+    "as_of",
+    "positions",
+    "actions",
+    "risks"
+  ],
+  "properties": {
+    "as_of": {
+      "type": "string"
+    },
+    "positions": {
+      "type": "array"
+    },
+    "actions": {
+      "type": "array"
+    },
+    "risks": {
+      "type": "array"
+    }
+  }
+}

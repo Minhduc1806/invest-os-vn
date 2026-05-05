@@ -1,0 +1,6 @@
+{
+  "source": "validate_portfolio_real",
+  "valid": false,
+  "nav_vnd": 0,
+  "message": "portfolio_real.json vẫn template/zero NAV; cần nhập mã, số lượng, giá vốn, giá hiện tại, cash, margin_debt, risk_profile"
+}

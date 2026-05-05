@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "required": [
+    "as_of",
+    "regime",
+    "risk_appetite",
+    "evidence"
+  ],
+  "properties": {
+    "as_of": {
+      "type": "string"
+    },
+    "regime": {
+      "enum": [
+        "risk_on",
+        "neutral",
+        "risk_off",
+        "distribution",
+        "recovery"
+      ]
+    },
+    "risk_appetite": {
+      "type": "number"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Invest OS VN Orchestrator Config",
+  "type": "object",
+  "required": ["name", "version", "timezone", "runtime", "pipelines"],
+  "properties": {
+    "name": {"type": "string"},
+    "version": {"type": "string"},
+    "timezone": {"type": "string"},
+    "language": {"type": "string"},
+    "runtime": {"type": "object"},
+    "folders": {"type": "object"},
+    "inputs": {"type": "object"},
+    "quality_gate": {"type": "object"},
+    "pipelines": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["skill", "agents", "tools", "inputs", "outputs"],
+        "properties": {
+          "trigger": {"type": "object"},
+          "skill": {"type": "string"},
+          "agents": {"type": "array", "items": {"type": "string"}},
+          "tools": {"type": "array", "items": {"type": "string"}},
+          "inputs": {"type": "array", "items": {"type": "string"}},
+          "outputs": {"type": "object"}
+        }
+      }
+    },
+    "handoff_rules": {"type": "object"},
+    "final_delivery": {"type": "object"}
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "as_of": "2026-05-04T15:00:00+07:00",
+  "source": "mock_vn_market_provider",
+  "market": "VN",
+  "indices": [
+    {"symbol": "VNINDEX", "close": 1240.55, "change_pct": 0.72, "volume_mn": 782.4, "value_bil_vnd": 18450, "above_ma20_pct": 54.2},
+    {"symbol": "VN30", "close": 1298.10, "change_pct": 0.65, "volume_mn": 210.1, "value_bil_vnd": 8450, "above_ma20_pct": 60.0},
+    {"symbol": "HNXINDEX", "close": 236.80, "change_pct": 0.31, "volume_mn": 92.0, "value_bil_vnd": 1450}
+  ],
+  "breadth": {"advancers": 238, "decliners": 176, "unchanged": 83, "new_high_20d": 42, "new_low_20d": 18},
+  "sectors": [
+    {"name": "Công nghệ", "change_pct": 1.25, "value_bil_vnd": 1850, "relative_strength_20d": 0.82},
+    {"name": "Ngân hàng", "change_pct": 0.48, "value_bil_vnd": 5200, "relative_strength_20d": 0.15},
+    {"name": "Chứng khoán", "change_pct": 1.10, "value_bil_vnd": 2100, "relative_strength_20d": 0.55},
+    {"name": "Bất động sản", "change_pct": -0.20, "value_bil_vnd": 3300, "relative_strength_20d": -0.30}
+  ],
+  "foreign_flow": {"net_value_bil_vnd": -320, "top_buy": ["FPT", "MWG"], "top_sell": ["VIC", "VHM"]},
+  "derivatives": {"vn30f1m_basis": -2.3, "open_interest": 51230},
+  "quality_score": 0.95
+}

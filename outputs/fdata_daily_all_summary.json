@@ -1,0 +1,51 @@
+{
+  "as_of": "2026-05-04T22:51:50+07:00",
+  "steps": [
+    "metadata_hose_investable",
+    "quality_breadth_leadership",
+    "signals_two_modes",
+    "daily_index"
+  ],
+  "hose": {
+    "listed": 431,
+    "bars": 428,
+    "missing_dat": 3,
+    "latest_dates": [
+      [
+        "2026-05-04",
+        428
+      ]
+    ]
+  },
+  "quality": {
+    "coverage_pct": 99.3,
+    "zero_volume": 35,
+    "low_volume_lt_50000": 202,
+    "missing_industry": 11
+  },
+  "investable": {
+    "input": 1676,
+    "kept": 245,
+    "excluded": 1431,
+    "keep_rate": 0.1462
+  },
+  "signals": {
+    "hose_all": {
+      "universe": 428,
+      "signals": 428,
+      "actionable": []
+    },
+    "investable": {
+      "universe": 245,
+      "signals": 245,
+      "actionable": []
+    }
+  },
+  "files": [
+    "outputs/fdata_hose_quality_report.md",
+    "outputs/fdata_hose_breadth.md",
+    "outputs/hose_leadership.md",
+    "outputs/stock_signal_report_hose_all.md",
+    "outputs/stock_signal_report_investable.md"
+  ]
+}

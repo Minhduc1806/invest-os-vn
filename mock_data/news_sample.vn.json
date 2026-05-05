@@ -1,0 +1,10 @@
+{
+  "as_of": "2026-05-04T14:30:00+07:00",
+  "source": "mock_news_hub",
+  "items": [
+    {"id": "n001", "time": "2026-05-04T09:00:00+07:00", "url": "https://example.com/fpt-contract", "title": "FPT công bố hợp đồng chuyển đổi số mới", "tickers": ["FPT"], "topic": "doanh_nghiep", "summary": "Doanh nghiệp công nghệ ghi nhận hợp đồng mới trong mảng dịch vụ CNTT."},
+    {"id": "n002", "time": "2026-05-04T10:15:00+07:00", "url": "https://example.com/sbv-liquidity", "title": "Thanh khoản hệ thống ngân hàng duy trì ổn định", "tickers": [], "topic": "vi_mo", "summary": "Lãi suất liên ngân hàng ít biến động, tín hiệu áp lực thanh khoản chưa tăng mạnh."},
+    {"id": "n003", "time": "2026-05-04T13:20:00+07:00", "url": "https://example.com/retail-sales", "title": "Doanh số bán lẻ cải thiện so với cùng kỳ", "tickers": ["MWG"], "topic": "nganh", "summary": "Dữ liệu bán lẻ hỗ trợ kỳ vọng hồi phục tiêu dùng."}
+  ],
+  "quality_score": 0.90
+}

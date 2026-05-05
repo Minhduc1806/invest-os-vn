@@ -1,0 +1,200 @@
+{
+  "source": "rolling_stop_rule_backtest",
+  "status": "done",
+  "input": "rolling_walk_forward_backtest OOS Tier A test_items_all",
+  "summary": {
+    "fixed_stop_T10": {
+      "n": 52,
+      "avg_ret": -0.81,
+      "win_rate": 44.2,
+      "avg_mae": -5.6,
+      "avg_exit_day": 9.4,
+      "target_hit": 7.7,
+      "stop_hit": 7.7
+    },
+    "breakeven_after_1R": {
+      "n": 52,
+      "avg_ret": -0.93,
+      "win_rate": 38.5,
+      "avg_mae": -5.53,
+      "avg_exit_day": 9.1,
+      "target_hit": 7.7,
+      "stop_hit": 15.4
+    },
+    "time_stop_T5_if_negative": {
+      "n": 52,
+      "avg_ret": -0.01,
+      "win_rate": 38.5,
+      "avg_mae": -4.66,
+      "avg_exit_day": 7.0,
+      "target_hit": 7.7,
+      "stop_hit": 1.9
+    },
+    "trailing_low3_after_T3": {
+      "n": 52,
+      "avg_ret": 0.02,
+      "win_rate": 34.6,
+      "avg_mae": -4.18,
+      "avg_exit_day": 5.8,
+      "target_hit": 7.7,
+      "stop_hit": 88.5
+    }
+  },
+  "selected_rule": "trailing_low3_after_T3",
+  "splits": [
+    {
+      "split": {
+        "train_start": "2025-05-09",
+        "train_end": "2026-02-03",
+        "test_start": "2026-02-04",
+        "test_end": "2026-05-05"
+      },
+      "tier_a_signals": 0,
+      "summary": {}
+    },
+    {
+      "split": {
+        "train_start": "2025-02-08",
+        "train_end": "2025-11-05",
+        "test_start": "2025-11-06",
+        "test_end": "2026-02-04"
+      },
+      "tier_a_signals": 14,
+      "summary": {
+        "fixed_stop_T10": {
+          "n": 14,
+          "avg_ret": -1.63,
+          "win_rate": 28.6,
+          "avg_mae": -6.67,
+          "avg_exit_day": 8,
+          "target_hit": 21.4,
+          "stop_hit": 14.3
+        },
+        "breakeven_after_1R": {
+          "n": 14,
+          "avg_ret": -1.29,
+          "win_rate": 28.6,
+          "avg_mae": -6.39,
+          "avg_exit_day": 7.6,
+          "target_hit": 21.4,
+          "stop_hit": 21.4
+        },
+        "time_stop_T5_if_negative": {
+          "n": 14,
+          "avg_ret": -0.52,
+          "win_rate": 28.6,
+          "avg_mae": -5.77,
+          "avg_exit_day": 6.1,
+          "target_hit": 21.4,
+          "stop_hit": 7.1
+        },
+        "trailing_low3_after_T3": {
+          "n": 14,
+          "avg_ret": 0.37,
+          "win_rate": 28.6,
+          "avg_mae": -4.55,
+          "avg_exit_day": 4.7,
+          "target_hit": 21.4,
+          "stop_hit": 78.6
+        }
+      }
+    },
+    {
+      "split": {
+        "train_start": "2024-11-10",
+        "train_end": "2025-08-07",
+        "test_start": "2025-08-08",
+        "test_end": "2025-11-06"
+      },
+      "tier_a_signals": 38,
+      "summary": {
+        "fixed_stop_T10": {
+          "n": 38,
+          "avg_ret": -0.51,
+          "win_rate": 50.0,
+          "avg_mae": -5.21,
+          "avg_exit_day": 9.9,
+          "target_hit": 2.6,
+          "stop_hit": 5.3
+        },
+        "breakeven_after_1R": {
+          "n": 38,
+          "avg_ret": -0.8,
+          "win_rate": 42.1,
+          "avg_mae": -5.21,
+          "avg_exit_day": 9.7,
+          "target_hit": 2.6,
+          "stop_hit": 13.2
+        },
+        "time_stop_T5_if_negative": {
+          "n": 38,
+          "avg_ret": 0.17,
+          "win_rate": 42.1,
+          "avg_mae": -4.25,
+          "avg_exit_day": 7.3,
+          "target_hit": 2.6,
+          "stop_hit": 0.0
+        },
+        "trailing_low3_after_T3": {
+          "n": 38,
+          "avg_ret": -0.11,
+          "win_rate": 36.8,
+          "avg_mae": -4.04,
+          "avg_exit_day": 6.2,
+          "target_hit": 2.6,
+          "stop_hit": 92.1
+        }
+      }
+    },
+    {
+      "split": {
+        "train_start": "2024-08-12",
+        "train_end": "2025-05-09",
+        "test_start": "2025-05-10",
+        "test_end": "2025-08-08"
+      },
+      "tier_a_signals": 0,
+      "summary": {}
+    },
+    {
+      "split": {
+        "train_start": "2024-05-14",
+        "train_end": "2025-02-08",
+        "test_start": "2025-02-09",
+        "test_end": "2025-05-10"
+      },
+      "tier_a_signals": 0,
+      "summary": {}
+    },
+    {
+      "split": {
+        "train_start": "2024-02-14",
+        "train_end": "2024-11-10",
+        "test_start": "2024-11-11",
+        "test_end": "2025-02-09"
+      },
+      "tier_a_signals": 0,
+      "summary": {}
+    },
+    {
+      "split": {
+        "train_start": "2023-11-16",
+        "train_end": "2024-08-12",
+        "test_start": "2024-08-13",
+        "test_end": "2024-11-11"
+      },
+      "tier_a_signals": 0,
+      "summary": {}
+    },
+    {
+      "split": {
+        "train_start": "2023-08-18",
+        "train_end": "2024-05-14",
+        "test_start": "2024-05-15",
+        "test_end": "2024-08-13"
+      },
+      "tier_a_signals": 0,
+      "summary": {}
+    }
+  ]
+}

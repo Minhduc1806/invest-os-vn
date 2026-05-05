@@ -1,0 +1,206 @@
+name: invest_os_vn
+version: 0.1.0
+timezone: Asia/Ho_Chi_Minh
+language: vi
+
+principles:
+  - data_first_no_hallucination
+  - no_unverified_leadership_labels
+  - sources_required
+  - timestamp_required
+  - risk_before_return
+  - scenario_not_certainty
+
+runtime:
+  mode: openclaw_multi_agent
+  default_model: default
+  max_parallel_agents: 4
+  output_root: outputs
+  state_store: state/invest_os_vn_state.json
+  audit_log: logs/invest_os_vn_audit.jsonl
+
+folders:
+  agents: agents
+  tools: tools
+  skills: skills
+  schemas: schemas
+  templates: reports/templates
+  mock_data: mock_data
+
+inputs:
+  market_snapshot: mock_data/market_snapshot.vn.json
+  ohlcv: mock_data/ohlcv_sample.vn.json
+  portfolio: mock_data/portfolio_sample.json
+  news: mock_data/news_sample.vn.json
+  fundamentals: mock_data/fundamentals_sample.vn.json
+  macro_rates: mock_data/macro_rates_sample.vn.json
+  asset_ledger: mock_data/asset_ledger_sample.json
+
+quality_gate:
+  require_as_of: true
+  require_sources: true
+  require_confidence: true
+  require_invalidation_for_stock_signals: true
+  block_if_stale_minutes:
+    intraday_market: 30
+    eod_market: 1440
+    news: 1440
+    fundamentals: 120960
+  forbidden_phrases:
+    - chắc chắn tăng
+    - đảm bảo lợi nhuận
+    - mua ngay không cần điều kiện
+    - dẫn dắt thị trường
+  forbidden_unless_evidence:
+    - dẫn dắt
+    - mạnh nhất
+    - yếu nhất
+    - dòng tiền lớn nhất
+
+pipelines:
+  eod_market_brief:
+    lead_agent: market-strategist
+    agent_ids:
+      - market-strategist
+      - financial-news-editor
+      - rates-fixed-income-analyst
+      - investment-data-designer
+    quality_report: outputs/eod_market_brief.json
+    final_writer: financial-news-editor
+    trigger:
+      schedule: "10 16 * * 1-5"
+      timezone: Asia/Ho_Chi_Minh
+    skill: skills/eod_market_brief.yaml
+    agents:
+      - agents/market-strategist.md
+      - agents/financial-news-editor.md
+      - agents/rates-fixed-income-analyst.md
+      - agents/investment-data-designer.md
+    tools:
+      - tools/market_data.spec.md
+      - tools/news_ingest.spec.md
+      - tools/report_delivery.spec.md
+    inputs:
+      - market_snapshot
+      - news
+      - macro_rates
+    outputs:
+      json: outputs/eod_market_brief.json
+      markdown: outputs/eod_market_brief.md
+      template: reports/templates/eod_market_brief.md
+
+  stock_signal_scan:
+    lead_agent: equity-technical-analyst
+    agent_ids:
+      - market-strategist
+      - equity-technical-analyst
+      - quant-researcher
+    quality_report: outputs/stock_signal_scan_investable.json
+    final_writer: equity-technical-analyst
+    trigger:
+      schedule: "20 16 * * 1-5"
+      timezone: Asia/Ho_Chi_Minh
+    skill: skills/stock_signal_scan.yaml
+    agents:
+      - agents/market-strategist.md
+      - agents/equity-technical-analyst.md
+      - agents/quant-researcher.md
+    tools:
+      - tools/market_data.spec.md
+      - tools/technical_engine.spec.md
+      - tools/quant_backtest.spec.md
+    inputs:
+      - market_snapshot
+      - ohlcv
+    outputs:
+      json: outputs/stock_signal_scan.json
+      markdown: outputs/stock_signal_report.md
+      template: reports/templates/stock_signal_report.md
+
+  portfolio_daily_advice:
+    lead_agent: portfolio-advisor
+    agent_ids:
+      - portfolio-advisor
+      - financial-news-editor
+      - equity-technical-analyst
+    quality_report: outputs/portfolio_daily.json
+    final_writer: portfolio-advisor
+    trigger:
+      schedule: "30 16 * * 1-5"
+      timezone: Asia/Ho_Chi_Minh
+    skill: skills/portfolio_daily_advice.yaml
+    agents:
+      - agents/portfolio-advisor.md
+      - agents/financial-news-editor.md
+      - agents/equity-technical-analyst.md
+    tools:
+      - tools/portfolio_engine.spec.md
+      - tools/news_ingest.spec.md
+      - tools/technical_engine.spec.md
+    inputs:
+      - portfolio
+      - market_snapshot
+      - news
+      - ohlcv
+    outputs:
+      json: outputs/portfolio_daily.json
+      markdown: outputs/portfolio_daily.md
+      template: reports/templates/portfolio_daily.md
+
+  company_deep_dive:
+    lead_agent: fundamental-analyst
+    agent_ids:
+      - fundamental-analyst
+      - financial-news-editor
+      - equity-technical-analyst
+    quality_report: outputs/company_deep_dive.json
+    final_writer: fundamental-analyst
+    trigger:
+      type: manual
+      params:
+        ticker: required
+    skill: skills/company_deep_dive.yaml
+    agents:
+      - agents/fundamental-analyst.md
+      - agents/financial-news-editor.md
+      - agents/equity-technical-analyst.md
+    tools:
+      - tools/fundamental_engine.spec.md
+      - tools/news_ingest.spec.md
+      - tools/technical_engine.spec.md
+    inputs:
+      - fundamentals
+      - news
+      - ohlcv
+    outputs:
+      json: outputs/company_deep_dive.json
+      markdown: outputs/company_deep_dive.md
+      template: reports/templates/company_deep_dive.md
+
+handoff_rules:
+  market-strategist:
+    sends_to:
+      - equity-technical-analyst
+      - portfolio-advisor
+      - investment-data-designer
+  financial-news-editor:
+    sends_to:
+      - portfolio-advisor
+      - fundamental-analyst
+      - investment-data-designer
+  equity-technical-analyst:
+    sends_to:
+      - portfolio-advisor
+      - investment-data-designer
+  fundamental-analyst:
+    sends_to:
+      - portfolio-advisor
+      - investment-data-designer
+
+final_delivery:
+  default_channel: markdown_file
+  optional_channels:
+    - telegram
+    - email
+    - web_dashboard
+  disclaimer: "Thông tin hỗ trợ quyết định, không phải khuyến nghị đầu tư cá nhân hóa bắt buộc mua/bán."
