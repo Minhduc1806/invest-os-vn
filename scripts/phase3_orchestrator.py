@@ -248,6 +248,8 @@ Quality: {json.dumps(quality, ensure_ascii=False)}"""
             final["overwrote_markdown"] = str(md_path)
         else:
             final["overwrite_skipped"] = "final writer output not report-like"
+            final["fallback_base_markdown"] = str(md_path)
+            final["fallback_reason"] = "using base pipeline markdown because final agent failed markdown contract"
 
     base_errors = validate_markdown_report(md_path.read_text(encoding="utf-8") if md_path.exists() else "")
     if base_errors:

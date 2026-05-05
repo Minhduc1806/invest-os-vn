@@ -189,10 +189,29 @@ def _parse_as_of(value: Any) -> datetime | None:
     except Exception:
         return None
 
+def _source_values(value: Any) -> List[str]:
+    if value is None:
+        return []
+    if isinstance(value, str):
+        return [value]
+    if isinstance(value, list):
+        out: List[str] = []
+        for item in value:
+            out.extend(_source_values(item))
+        return out
+    if isinstance(value, dict):
+        out: List[str] = []
+        for key in ("source", "provider", "name"):
+            out.extend(_source_values(value.get(key)))
+        return out
+    return [str(value)]
+
 def quality_gate(config: Dict[str, Any], inputs: Dict[str, Any], pipeline_name: str = "") -> List[str]:
     warnings: List[str] = []
     qcfg = config.get("quality_gate", {})
     stale = qcfg.get("block_if_stale_minutes", {})
+    blocked_sources = set(qcfg.get("block_sources", ["mock_news_hub", "mock_macro_provider"]))
+    min_breadth_sample = int(qcfg.get("min_breadth_sample", 30))
     now = datetime.now().astimezone()
     for name, data in inputs.items():
         if not isinstance(data, dict):
@@ -202,6 +221,10 @@ def quality_gate(config: Dict[str, Any], inputs: Dict[str, Any], pipeline_name: 
             warnings.append(f"{name}: missing as_of")
         if qcfg.get("require_sources", True) and "source" not in data:
             warnings.append(f"{name}: missing source")
+        sources = set(_source_values(data.get("source")))
+        blocked = sorted(sources & blocked_sources)
+        if blocked:
+            warnings.append(f"{name}: blocked mock source {','.join(blocked)}")
         score = data.get("quality_score", 1)
         if score is not None and score < 0.8:
             warnings.append(f"{name}: low quality_score {score}")
@@ -219,6 +242,14 @@ def quality_gate(config: Dict[str, Any], inputs: Dict[str, Any], pipeline_name: 
             br = data.get("breadth", {})
             if br.get("advancers") is None or br.get("decliners") is None:
                 warnings.append("market_snapshot: breadth incomplete")
+            else:
+                sample = int(br.get("advancers") or 0) + int(br.get("decliners") or 0) + int(br.get("unchanged") or 0)
+                if sample < min_breadth_sample:
+                    warnings.append(f"market_snapshot: breadth sample too small {br.get('advancers')}/{sample}")
+            market_value = data.get("market", {}).get("value") if isinstance(data.get("market"), dict) else None
+            sector_values = [s.get("value") for s in data.get("sectors", []) if isinstance(s, dict)]
+            if market_value == 0 or (sector_values and all(v == 0 for v in sector_values)):
+                warnings.append("market_snapshot: zero liquidity value")
     return warnings
 
 def assert_quality_or_raise(config: Dict[str, Any], warnings: List[str], allow_warnings: bool) -> None:
