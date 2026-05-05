@@ -9,7 +9,7 @@ from __future__ import annotations
 import argparse, json, os, shutil, subprocess, sys
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any, Dict, List, Optional
 
 import yaml
 
@@ -143,7 +143,7 @@ def validate_markdown_report(text: str) -> List[str]:
 def report_like(text: str) -> bool:
     return not validate_markdown_report(text)
 
-def call_agent(agent_id: str, prompt: str, timeout: int = 180, fallback_shim: bool = False) -> Dict[str, Any]:
+def call_agent(agent_id: str, prompt: str, timeout: int = 180, fallback_shim: bool = False, session_suffix: str = "phase3") -> Dict[str, Any]:
     RESULTS.mkdir(parents=True, exist_ok=True)
     prompt_path = RESULTS / f"{agent_id}_prompt.txt"
     out_path = RESULTS / f"{agent_id}_agent_call.json"
@@ -155,11 +155,12 @@ def call_agent(agent_id: str, prompt: str, timeout: int = 180, fallback_shim: bo
             prompt = prompt[:max_prompt] + "\n[TRUNCATED: see tool_outputs/quality_report files in manifest]"
         prompt_path.write_text(prompt, encoding="utf-8")
         exe = str(Path(cli).with_suffix(".cmd")) if os.name == "nt" else cli
-        cmd = f'"{exe}" agent --agent {agent_id} --message "{prompt.replace(chr(34), chr(39))}" --json --timeout {timeout}'
+        session_id = f"phase3-{agent_id}-{session_suffix}".replace("_", "-")
+        cmd = f'"{exe}" agent --agent {agent_id} --session-id {session_id} --message "{prompt.replace(chr(34), chr(39))}" --json --timeout {timeout}'
         env = os.environ.copy()
         env["PYTHONIOENCODING"] = "utf-8"
         proc = subprocess.run(cmd, cwd=ROOT, text=True, capture_output=True, timeout=timeout + 60, env=env, encoding="utf-8", errors="replace")
-        result = {"runtime": "gateway/openclaw_agent", "called": True, "agent_id": agent_id, "returncode": proc.returncode, "stdout": proc.stdout, "stderr": proc.stderr, "prompt_file": str(prompt_path), "out_file": str(out_path)}
+        result = {"runtime": "gateway/openclaw_agent", "called": True, "agent_id": agent_id, "session_id": session_id, "returncode": proc.returncode, "stdout": proc.stdout, "stderr": proc.stderr, "prompt_file": str(prompt_path), "out_file": str(out_path)}
         out_path.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
         return result
     if not fallback_shim:
@@ -199,7 +200,17 @@ def main() -> int:
 
     tool_payload = load_json(json_path) if json_path.exists() else {"error": "missing tool json"}
     summary_payload = json.dumps(tool_payload, ensure_ascii=False)[:2500]
-    lead_prompt = f"Read AGENTS.md. Lead agent for {args.pipeline}. Review tool output and quality report. Return decisions + risks only. Tool output excerpt: {summary_payload} Quality: {json.dumps(quality, ensure_ascii=False)}"
+    lead_prompt = f"""Read AGENTS.md. Lead agent for {args.pipeline}.
+Return a Vietnamese Markdown review only.
+Contract:
+- First non-space character must be '#'.
+- Use sections: # Lead review, ## Decisions, ## Risks, ## Data checks.
+- Do not answer OK / Done / Accepted.
+- Do not emit JSON, logs, or status text.
+- If data is insufficient, explain insufficiency in Markdown.
+- No unsupported leadership labels; cite actual tool data.
+Tool output excerpt: {summary_payload}
+Quality: {json.dumps(quality, ensure_ascii=False)}"""
     final_prompt = f"""Read AGENTS.md. Final writer for {args.pipeline}.
 Contract:
 - Output final Vietnamese Markdown report only.
@@ -207,12 +218,18 @@ Contract:
 - Include useful headings, bullets, and data tables when available.
 - Do not answer only OK / Done / Accepted / placeholder.
 - Do not emit JSON, logs, or status text.
+- If lead review is OK/status-only, ignore it and write from tool output.
 - No unsupported leadership labels; cite actual data from tool output.
 Tool output excerpt: {summary_payload}
 Quality: {json.dumps(quality, ensure_ascii=False)}"""
 
-    lead = call_agent(agent_cfg["lead_agent"], lead_prompt, timeout=args.agent_timeout, fallback_shim=args.fallback_shim) if args.call_agents else {"called": False, "agent_id": agent_cfg["lead_agent"], "reason": "--call-agents not set", "prompt": lead_prompt}
-    final = call_agent(agent_cfg["final_writer"], final_prompt + "\nLead review:\n" + json.dumps(lead, ensure_ascii=False)[:2500], timeout=args.agent_timeout, fallback_shim=args.fallback_shim) if args.call_agents else {"called": False, "agent_id": agent_cfg["final_writer"], "reason": "--call-agents not set", "prompt": final_prompt}
+    session_suffix = f"phase3-{args.pipeline}-{datetime.now().strftime('%Y%m%d%H%M%S')}"
+    lead = call_agent(agent_cfg["lead_agent"], lead_prompt, timeout=args.agent_timeout, fallback_shim=args.fallback_shim, session_suffix=session_suffix + "-lead") if args.call_agents else {"called": False, "agent_id": agent_cfg["lead_agent"], "reason": "--call-agents not set", "prompt": lead_prompt}
+    if args.call_agents:
+        lead_text = extract_agent_text(lead.get("stdout", ""))
+        lead["extracted_text_preview"] = (lead_text or "")[:300]
+        lead["validator_errors"] = validate_markdown_report(lead_text or "")
+    final = call_agent(agent_cfg["final_writer"], final_prompt + "\nLead review:\n" + (lead.get("extracted_text_preview") or json.dumps(lead, ensure_ascii=False)[:2500]), timeout=args.agent_timeout, fallback_shim=args.fallback_shim, session_suffix=session_suffix + "-final") if args.call_agents else {"called": False, "agent_id": agent_cfg["final_writer"], "reason": "--call-agents not set", "prompt": final_prompt}
     if args.call_agents and final.get("stdout"):
         final_text = extract_agent_text(final["stdout"])
         final["extracted_text_preview"] = (final_text or "")[:300]

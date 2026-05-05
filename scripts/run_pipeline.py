@@ -143,7 +143,28 @@ def refresh_live_ohlcv_if_needed(config: Dict[str, Any], pipeline_name: str, uni
         cmd += ["--timeframe", "EOD"]
     subprocess.run(cmd, cwd=ROOT, check=True)
 
+def refresh_live_market_snapshot_if_needed(config: Dict[str, Any], pipeline_name: str) -> None:
+    """Regenerate live market snapshot before quality gate when cache age exceeds policy."""
+    path = ROOT / "data_live" / "market_snapshot.vn.json"
+    if not path.exists():
+        return
+    data = load_json(path)
+    as_of = _parse_as_of(data.get("as_of"))
+    if not as_of:
+        return
+    stale = config.get("quality_gate", {}).get("block_if_stale_minutes", {})
+    key = "intraday_market" if not pipeline_name.startswith("eod") else "eod_market"
+    max_min = stale.get(key)
+    if not max_min:
+        return
+    age_min = (datetime.now().astimezone() - as_of).total_seconds() / 60
+    if age_min <= max_min:
+        return
+    subprocess.run([sys.executable, str(ROOT / "scripts" / "data_adapters.py"), "--market"], cwd=ROOT, check=True)
+
 def load_inputs(config: Dict[str, Any], pipeline: Dict[str, Any], live: bool = True, universe: str = "hose_all", pipeline_name: str = "") -> Dict[str, Any]:
+    if live and "market_snapshot" in pipeline.get("inputs", []):
+        refresh_live_market_snapshot_if_needed(config, pipeline_name)
     if live and "ohlcv" in pipeline.get("inputs", []):
         refresh_live_ohlcv_if_needed(config, pipeline_name, universe)
     inputs = {}

@@ -96,7 +96,7 @@ pipelines:
       - equity-technical-analyst
       - quant-researcher
     quality_report: outputs/stock_signal_scan_investable.json
-    final_writer: equity-technical-analyst
+    final_writer: financial-news-editor
     trigger:
       schedule: "20 16 * * 1-5"
       timezone: Asia/Ho_Chi_Minh
