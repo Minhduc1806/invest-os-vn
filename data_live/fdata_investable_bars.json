@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-05-05T11:09:31+07:00",
+  "as_of": "2026-05-05T12:26:40+07:00",
   "source": "fdata_universe_filter",
   "timeframe": "EOD",
   "bars": [
@@ -5821,6 +5821,5 @@
     "min_vol_ratio": 0.05,
     "min_liquidity_score": 25.0,
     "require_ma20": true
-  },
-  "quality_score": 1
+  }
 }

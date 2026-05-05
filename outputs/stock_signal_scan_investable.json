@@ -1,14 +1,14 @@
 {
-  "run_id": "stock_signal_scan_2026-05-05T11:37:32+07:00",
-  "as_of": "2026-05-05T11:09:31+07:00",
+  "run_id": "stock_signal_scan_2026-05-05T12:27:48+07:00",
+  "as_of": "2026-05-05T12:26:40+07:00",
   "pipeline": "stock_signal_scan",
   "universe_mode": "investable",
   "market_regime": {
-    "as_of": "2026-05-05T11:11:03+07:00",
+    "as_of": "2026-05-05T12:01:25+07:00",
     "regime": "risk_off",
     "risk_appetite": 52.5,
     "evidence": [
-      "VNINDEX 1.01%, value 0 tỷ VND",
+      "VNINDEX 0.81%, value 0 tỷ VND",
       "Breadth adv/dec 0.25 (2/8)",
       "Sector positive ratio 17%",
       "Foreign net flow 0 tỷ VND"
@@ -16,21 +16,21 @@
     "top_sectors_by_data": [
       {
         "name": "Bất động sản",
-        "change_pct": 6.04,
+        "change_pct": 5.48,
         "value_bil_vnd": 0,
-        "relative_strength_20d": 3.36
+        "relative_strength_20d": 3.31
       },
       {
         "name": "Bán lẻ",
-        "change_pct": -0.35,
+        "change_pct": -0.12,
         "value_bil_vnd": 0,
-        "relative_strength_20d": -0.71
+        "relative_strength_20d": -0.66
       },
       {
         "name": "Ngân hàng",
-        "change_pct": -1.41,
+        "change_pct": -1.46,
         "value_bil_vnd": 0,
-        "relative_strength_20d": -0.73
+        "relative_strength_20d": -0.71
       }
     ],
     "source": "vnstock_history_adapter_partial_market",

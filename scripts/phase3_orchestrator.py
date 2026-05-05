@@ -185,7 +185,16 @@ def main() -> int:
     tool_payload = load_json(json_path) if json_path.exists() else {"error": "missing tool json"}
     summary_payload = json.dumps(tool_payload, ensure_ascii=False)[:2500]
     lead_prompt = f"Read AGENTS.md. Lead agent for {args.pipeline}. Review tool output and quality report. Return decisions + risks only. Tool output excerpt: {summary_payload} Quality: {json.dumps(quality, ensure_ascii=False)}"
-    final_prompt = f"Read AGENTS.md. Final writer for {args.pipeline}. Produce final Vietnamese markdown using lead review, tool output excerpt, and quality report. No unsupported leadership labels. Tool output excerpt: {summary_payload} Quality: {json.dumps(quality, ensure_ascii=False)}"
+    final_prompt = f"""Read AGENTS.md. Final writer for {args.pipeline}.
+Contract:
+- Output final Vietnamese Markdown report only.
+- First non-space character must be '#'.
+- Include useful headings, bullets, and data tables when available.
+- Do not answer only OK / Done / Accepted / placeholder.
+- Do not emit JSON, logs, or status text.
+- No unsupported leadership labels; cite actual data from tool output.
+Tool output excerpt: {summary_payload}
+Quality: {json.dumps(quality, ensure_ascii=False)}"""
 
     lead = call_agent(agent_cfg["lead_agent"], lead_prompt, timeout=args.agent_timeout, fallback_shim=args.fallback_shim) if args.call_agents else {"called": False, "agent_id": agent_cfg["lead_agent"], "reason": "--call-agents not set", "prompt": lead_prompt}
     final = call_agent(agent_cfg["final_writer"], final_prompt + "\nLead review:\n" + json.dumps(lead, ensure_ascii=False)[:2500], timeout=args.agent_timeout, fallback_shim=args.fallback_shim) if args.call_agents else {"called": False, "agent_id": agent_cfg["final_writer"], "reason": "--call-agents not set", "prompt": final_prompt}

@@ -1,8 +1,8 @@
 {
-  "as_of": "2026-05-05T12:05:38+07:00",
+  "as_of": "2026-05-05T12:27:45+07:00",
   "tool_json": "C:\\Users\\DUC\\.openclaw\\workspace\\invest-os-vn\\outputs\\portfolio_daily.json",
-  "returncode": 1,
+  "returncode": 0,
   "quality_warnings": [],
-  "quality_score": 0,
-  "stderr": "Traceback (most recent call last):\n  File \"C:\\Users\\DUC\\.openclaw\\workspace\\invest-os-vn\\scripts\\run_pipeline.py\", line 502, in <module>\n    raise SystemExit(main())\n                     ~~~~^^\n  File \"C:\\Users\\DUC\\.openclaw\\workspace\\invest-os-vn\\scripts\\run_pipeline.py\", line 461, in main\n    assert_quality_or_raise(config, warnings, args.allow_quality_warnings or args.mock)\n    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\DUC\\.openclaw\\workspace\\invest-os-vn\\scripts\\run_pipeline.py\", line 178, in assert_quality_or_raise\n    raise RuntimeError(\"QUALITY_GATE_BLOCKED: \" + \" | \".join(warnings))\nRuntimeError: QUALITY_GATE_BLOCKED: ohlcv: stale as_of 2026-05-05T11:09:31+07:00 > 30m\n"
+  "quality_score": 1,
+  "stderr": ""
 }

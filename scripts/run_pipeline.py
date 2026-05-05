@@ -14,6 +14,8 @@ import argparse
 import json
 import math
 import statistics
+import subprocess
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List
@@ -118,7 +120,32 @@ def live_input_path(name: str, universe: str) -> str:
     }
     return live_overrides[name]
 
-def load_inputs(config: Dict[str, Any], pipeline: Dict[str, Any], live: bool = True, universe: str = "hose_all") -> Dict[str, Any]:
+def refresh_live_ohlcv_if_needed(config: Dict[str, Any], pipeline_name: str, universe: str) -> None:
+    """Regenerate derived live OHLCV before quality gate when cache age exceeds policy."""
+    path = ROOT / live_ohlcv_path(universe)
+    if not path.exists():
+        return
+    data = load_json(path)
+    as_of = _parse_as_of(data.get("as_of"))
+    if not as_of:
+        return
+    stale = config.get("quality_gate", {}).get("block_if_stale_minutes", {})
+    key = "intraday_market" if not pipeline_name.startswith("eod") else "eod_market"
+    max_min = stale.get(key)
+    if not max_min:
+        return
+    age_min = (datetime.now().astimezone() - as_of).total_seconds() / 60
+    if age_min <= max_min:
+        return
+    script = "fdata_hose_universe.py" if universe == "hose_all" else "fdata_universe_filter.py"
+    cmd = [sys.executable, str(ROOT / "scripts" / script)]
+    if universe == "hose_all":
+        cmd += ["--timeframe", "EOD"]
+    subprocess.run(cmd, cwd=ROOT, check=True)
+
+def load_inputs(config: Dict[str, Any], pipeline: Dict[str, Any], live: bool = True, universe: str = "hose_all", pipeline_name: str = "") -> Dict[str, Any]:
+    if live and "ohlcv" in pipeline.get("inputs", []):
+        refresh_live_ohlcv_if_needed(config, pipeline_name, universe)
     inputs = {}
     mapping = config.get("inputs", {})
     for name in pipeline.get("inputs", []):
@@ -456,7 +483,7 @@ def main() -> int:
     log_path = ROOT / config["runtime"].get("audit_log", "logs/audit.jsonl")
 
     audit(log_path, {"event": "pipeline_start", "pipeline": args.pipeline, "mock": args.mock, "live": live_mode, "universe": args.universe})
-    inputs = load_inputs(config, pipeline, live=live_mode, universe=args.universe)
+    inputs = load_inputs(config, pipeline, live=live_mode, universe=args.universe, pipeline_name=args.pipeline)
     warnings = quality_gate(config, inputs, args.pipeline)
     assert_quality_or_raise(config, warnings, args.allow_quality_warnings or args.mock)
     for w in warnings:
