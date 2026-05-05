@@ -1,0 +1,153 @@
+{
+  "as_of": "2026-05-05T22:32:20+07:00",
+  "source": "vnstock.Company overview + vnstock.Finance when available",
+  "companies": [
+    {
+      "ticker": "FPT",
+      "exchange": "HOSE",
+      "business": "- Công nghệ:+ Nhóm dịch vụ: Tư vấn Chuyển đổi số, Chuyển đổi xanh và Chuyển đổi trí tuệ nhân tạo; Thiết kế, triển khai, tích hợp, vận hành, bảo trì, kiểm thử... các hệ thống CNTT; Dịch vụ an toàn, an ninh mạng; Cung cấp các giải pháp dựa trên các nền tảng công nghệ: NVIDIA, Landing AI, SAP, Oracle, Microsoft, ESRI…+ Nhóm sản phẩm, giải pháp: Cung cấp các nền tảng công nghệ tiên tiến như: nền tảng trí tuệ nhân tạo FPT.AI, nền tảng điện toán đám mây FPT Cloud, nền tảng quản trị doanh nghiệp Base.vn; Phát triển chip nguồn và chip IoT; Sản phẩm, giải pháp chuyển đổi số tích hợp công nghệ AI, AI tạo sinh (Generative AI), tự động hóa (RPA), kết nối vạn vật (IoT)… chuyên sâu cho các lĩnh vực như: Chính phủ, Viễn thông, Ngân hàng - Tài chính, Y tế, Giao thông vận tải, Tài chính công, Năng lượng, Doanh nghiệp, Ô tô…; Sản phẩm, giải pháp tiên tiến giải quyết các bài toán nghiệp vụ chuyên sâu của doanh nghiệp như: quản lý chuỗi cung ứng, quản lý tài chính, quản lý nguồn nhân lực, quản lý quan hệ khách hàng & trải nghiệm người dùng, quản lý phát triển bền vững, chuyển đổi quy trình kinh doanh… - Viễn thông: Dịch vụ Viễn thông; Dịch vụ truyền hình FPT Play; Dịch vụ họp trực tuyến; Hệ sinh thái truyền thông số; Hệ thống các sản phẩm FPT Smart Home. - Giáo dục: Bao gồm các khối đào tạo Giáo dục Phổ thông; Giáo dục Nghề nghiệp và Giáo dục Đại học.",
+      "profile": {
+        "founded_date": "28/02/2002",
+        "listing_date": "13/12/2006",
+        "ceo_name": "Mr. Trương Gia Bình",
+        "company_type": "Công ty cổ phần",
+        "address": "Số 10 - Phố Phạm Văn Bạch - P.  Cầu Giấy - Tp. Hà Nội",
+        "website": "https://fpt.com",
+        "employees": 54110.0,
+        "charter_capital_bil_vnd": 1.7035e-05,
+        "outstanding_shares": 1703507121.0,
+        "free_float_pct": 17035071210000.0,
+        "as_of_date": "2025-12-31T00:00:00"
+      },
+      "financials": {},
+      "valuation": {},
+      "risks": [
+        "financial_statement_empty_free_provider; deep dive limited to real company profile"
+      ],
+      "source_quality": "primary_profile_real",
+      "confidence": 0.62
+    },
+    {
+      "ticker": "MWG",
+      "exchange": "HOSE",
+      "business": "- Lĩnh vực hoạt động chủ yếu là: mua bán, bảo hành, sửa chữa: thiết bị tin học, điện thoại, linh kiện và phụ kiện điện thoại với thương hiệu Thế Giới Di Động, các mặt hàng điện máy với thương hiệu Điện Máy Xanh, các mặt hàng lương thực, thực phẩm, đồ uống và các hàng hóa khác với thương hiệu Bách Hóa Xanh, trong lĩnh vực dược phẩm, thực phẩm chức năng, dụng cụ y tế và các sản phẩm khác, Nhóm Công ty cung cấp dịch vụ thông qua thương hiệu nhà thuốc An Khang. - MWG hiện đang vận hành các chuỗi bán lẻ chính bao gồm: thegioididong.com, Điện Máy Xanh (dienmayxanh.com), Bách Hóa Xanh (bachhoaxanh.com), nhà thuốc An Khang và một số chuỗi thử nghiệm khác.",
+      "profile": {
+        "founded_date": "01/03/2004",
+        "listing_date": "14/07/2014",
+        "ceo_name": "Mr. Vũ Đăng Linh",
+        "company_type": "Công ty cổ phần",
+        "address": "222 Yersin - P. Thủ Dầu Một - Tp. Hồ Chí Minh",
+        "website": "https://mwg.vn",
+        "employees": 64727.0,
+        "charter_capital_bil_vnd": 1.4697e-05,
+        "outstanding_shares": 1468423529.0,
+        "free_float_pct": 14696931770000.0,
+        "as_of_date": "2025-12-31T00:00:00"
+      },
+      "financials": {},
+      "valuation": {},
+      "risks": [
+        "financial_statement_empty_free_provider; deep dive limited to real company profile"
+      ],
+      "source_quality": "primary_profile_real",
+      "confidence": 0.62
+    },
+    {
+      "ticker": "VCB",
+      "exchange": "HOSE",
+      "business": "- Dịch vụ tài khoản; huy động vốn (tiền gửi tiết kiệm, trái phiếu, kỳ phiếu); cho vay (ngăn, trung, dài hạn); bảo lãnh; chiết khấu chứng từ; thanh toán quốc tế; chuyển tiền; thẻ; nhờ thu; mua bán ngoại tệ; ngân hàng đại lý; bao thanh toán; Các dịch vụ khác theo Giấy chứng nhân đăng ký kinh doanh.",
+      "profile": {
+        "founded_date": "23/05/2008",
+        "listing_date": "30/06/2009",
+        "ceo_name": "Mr. Nguyễn Thanh Tùng",
+        "company_type": "Ngân hàng",
+        "address": "Số 198 Trần Quang Khải - P. Hoàn Kiếm - Tp. Hà Nội",
+        "website": "https://vietcombank.com.vn",
+        "employees": 23457.0,
+        "charter_capital_bil_vnd": 8.3557e-05,
+        "outstanding_shares": 8355675094.0,
+        "free_float_pct": 83556750940000.0,
+        "as_of_date": "2025-12-31T00:00:00"
+      },
+      "financials": {},
+      "valuation": {},
+      "risks": [
+        "financial_statement_empty_free_provider; deep dive limited to real company profile"
+      ],
+      "source_quality": "primary_profile_real",
+      "confidence": 0.62
+    },
+    {
+      "ticker": "SSI",
+      "exchange": "HOSE",
+      "business": "- Dịch vụ chứng khoán. - Dịch vụ ngân hàng đầu tư. - Quản lý quỹ, nguồn vốn và kinh doanh tài chính",
+      "profile": {
+        "founded_date": "27/12/1999",
+        "listing_date": "29/10/2007",
+        "ceo_name": "Mr. Nguyễn Duy Hưng",
+        "company_type": "Công ty chứng khoán",
+        "address": "Số 72 Nguyễn Huệ - P. Sài Gòn - Tp. Hồ Chí Minh",
+        "website": "https://www.ssi.com.vn",
+        "employees": 1433.0,
+        "charter_capital_bil_vnd": 2.4931e-05,
+        "outstanding_shares": 2491097752.0,
+        "free_float_pct": 24930892200000.0,
+        "as_of_date": "2025-12-31T00:00:00"
+      },
+      "financials": {},
+      "valuation": {},
+      "risks": [
+        "financial_statement_empty_free_provider; deep dive limited to real company profile"
+      ],
+      "source_quality": "primary_profile_real",
+      "confidence": 0.62
+    }
+  ],
+  "deep_dive": [
+    {
+      "ticker": "FPT",
+      "fundamental_score": 75,
+      "thesis": "- Công nghệ:+ Nhóm dịch vụ: Tư vấn Chuyển đổi số, Chuyển đổi xanh và Chuyển đổi trí tuệ nhân tạo; Thiết kế, triển khai, tích hợp, vận hành, bảo trì, kiểm thử... các hệ thống CNTT; Dịch vụ an toàn, an ninh mạng; Cung cấp các giải pháp dựa trên các nền tảng công",
+      "key_risks": [
+        "financial_statement_empty_free_provider; deep dive limited to real company profile"
+      ]
+    },
+    {
+      "ticker": "MWG",
+      "fundamental_score": 75,
+      "thesis": "- Lĩnh vực hoạt động chủ yếu là: mua bán, bảo hành, sửa chữa: thiết bị tin học, điện thoại, linh kiện và phụ kiện điện thoại với thương hiệu Thế Giới Di Động, các mặt hàng điện máy với thương hiệu Điện Máy Xanh, các mặt hàng lương thực, thực phẩm, đồ uống và c",
+      "key_risks": [
+        "financial_statement_empty_free_provider; deep dive limited to real company profile"
+      ]
+    },
+    {
+      "ticker": "VCB",
+      "fundamental_score": 75,
+      "thesis": "- Dịch vụ tài khoản; huy động vốn (tiền gửi tiết kiệm, trái phiếu, kỳ phiếu); cho vay (ngăn, trung, dài hạn); bảo lãnh; chiết khấu chứng từ; thanh toán quốc tế; chuyển tiền; thẻ; nhờ thu; mua bán ngoại tệ; ngân hàng đại lý; bao thanh toán; Các dịch vụ khác the",
+      "key_risks": [
+        "financial_statement_empty_free_provider; deep dive limited to real company profile"
+      ]
+    },
+    {
+      "ticker": "SSI",
+      "fundamental_score": 75,
+      "thesis": "- Dịch vụ chứng khoán. - Dịch vụ ngân hàng đầu tư. - Quản lý quỹ, nguồn vốn và kinh doanh tài chính",
+      "key_risks": [
+        "financial_statement_empty_free_provider; deep dive limited to real company profile"
+      ]
+    }
+  ],
+  "parse_quality": {
+    "required_passed": true,
+    "missing_tickers": [],
+    "warnings": [
+      "FPT:financial_statement_empty_free_provider",
+      "MWG:financial_statement_empty_free_provider",
+      "VCB:financial_statement_empty_free_provider",
+      "SSI:financial_statement_empty_free_provider"
+    ],
+    "no_sample_fallback": true
+  },
+  "quality_score": 0.68,
+  "status": "real_profile_fundamental_layer"
+}
