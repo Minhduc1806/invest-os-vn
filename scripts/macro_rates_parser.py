@@ -125,9 +125,42 @@ def merge_deposit_rates(primary: dict[str, Any], secondary: dict[str, Any]) -> d
         merged.setdefault(bank, {}).update(rates)
     return merged
 
+def parse_cafef_interest_json(payload: Any) -> dict[str, Any]:
+    data = payload.get("Data") if isinstance(payload, dict) else payload
+    if not isinstance(data, list):
+        return {}
+    tenors = ["nonterm", "1m", "3m", "6m", "9m", "12m", "18m", "24m"]
+    by_bank: dict[str, dict[str, float]] = {}
+    for item in data:
+        if not isinstance(item, dict):
+            continue
+        bank = normalize_bank_name(str(item.get("name") or item.get("bankName") or ""))
+        rates_in = item.get("interestRates")
+        if not bank or not isinstance(rates_in, list):
+            continue
+        rates: dict[str, float] = {}
+        for tenor, rate_item in zip(tenors, rates_in):
+            if tenor == "nonterm":
+                continue
+            value = rate_item.get("value") if isinstance(rate_item, dict) else rate_item
+            v = vn_num(str(value)) if value is not None else None
+            if pct_range(v):
+                rates[tenor] = v
+        if rates:
+            by_bank[bank] = rates
+    return by_bank
+
+def fetch_cafef_interest_json() -> dict[str, Any]:
+    html, _sha = fetch("https://cafefnew.mediacdn.vn/Images/Uploaded/DuLieuDownload/Liveboard/all_banks_interest_rates.json")
+    return parse_cafef_interest_json(json.loads(html))
+
 def parse_cafef_deposit_rates(html: str) -> tuple[dict[str, Any], list[str]]:
     warnings: list[str] = []
-    by_bank: dict[str, dict[str, float]] = {}
+    by_bank = fetch_cafef_interest_json()
+    if by_bank:
+        return by_bank, warnings
+    warnings.append("CafeF deposit primary parser: JSON feed empty; tried HTML fallback")
+    by_bank = {}
     rows = re.findall(r"<tr[^>]*>(.*?)</tr>", html, re.S | re.I)
     for row in rows:
         cells = re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", row, re.S | re.I)
