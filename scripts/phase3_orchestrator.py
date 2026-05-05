@@ -105,6 +105,10 @@ def strip_plugin_banner(stdout: str) -> str:
 
 def extract_agent_text(stdout: str) -> Optional[str]:
     cleaned = strip_plugin_banner(stdout or "")
+    lines = cleaned.splitlines()
+    for i, line in enumerate(lines):
+        if line.startswith("#"):
+            return "\n".join(lines[i:]).strip()
     payload = extract_json_object(cleaned)
     if payload:
         texts = payload.get("result", {}).get("payloads", [])
@@ -118,15 +122,26 @@ def extract_agent_text(stdout: str) -> Optional[str]:
             return block
     return cleaned or None
 
-def report_like(text: str) -> bool:
+def validate_markdown_report(text: str) -> List[str]:
     t = (text or "").strip()
-    if not t or t.upper() == "OK":
-        return False
-    if t.startswith("#") or t.startswith("##"):
-        return True
-    vietnamese_marks = sum(t.lower().count(ch) for ch in "ăâđêôơưáàảãạấầẩẫậắằẳẵặéèẻẽẹếềểễệíìỉĩịóòỏõọốồổỗộớờởỡợúùủũụứừửữựýỳỷỹỵ")
-    markdown_signals = sum(t.count(sig) for sig in ["\n## ", "\n- ", "**", "|", "\n### "])
-    return len(t) >= 500 and vietnamese_marks >= 20 and markdown_signals >= 3
+    errors: List[str] = []
+    if not t.startswith("#"):
+        errors.append("markdown must start with #")
+    if t.upper() in {"OK", "DONE", "ACCEPTED"}:
+        errors.append("markdown is status-only")
+    if len(t) < 200:
+        errors.append("markdown too short")
+    bad_prefixes = ("{", "[", "Traceback", "RuntimeError:", "OK ", "JSON:", "MD:", "WARNINGS:")
+    first = t.splitlines()[0] if t else ""
+    if first.startswith(bad_prefixes):
+        errors.append("markdown starts with json/log/status text")
+    bad_tokens = ["```json", "\"runtime\":", "\"stdout\":", "\"stderr\":", "Command exited with code", "Traceback (most recent call last)"]
+    if any(tok in t for tok in bad_tokens):
+        errors.append("markdown contains json/log/status text")
+    return errors
+
+def report_like(text: str) -> bool:
+    return not validate_markdown_report(text)
 
 def call_agent(agent_id: str, prompt: str, timeout: int = 180, fallback_shim: bool = False) -> Dict[str, Any]:
     RESULTS.mkdir(parents=True, exist_ok=True)
@@ -201,11 +216,17 @@ Quality: {json.dumps(quality, ensure_ascii=False)}"""
     if args.call_agents and final.get("stdout"):
         final_text = extract_agent_text(final["stdout"])
         final["extracted_text_preview"] = (final_text or "")[:300]
-        if report_like(final_text or ""):
+        errors = validate_markdown_report(final_text or "")
+        final["validator_errors"] = errors
+        if not errors:
             md_path.write_text(final_text.strip() + "\n", encoding="utf-8")
             final["overwrote_markdown"] = str(md_path)
         else:
             final["overwrite_skipped"] = "final writer output not report-like"
+
+    base_errors = validate_markdown_report(md_path.read_text(encoding="utf-8") if md_path.exists() else "")
+    if base_errors:
+        raise RuntimeError("FINAL_REPORT_VALIDATION_FAILED: " + " | ".join(base_errors))
 
     manifest = {
         "as_of": datetime.now().astimezone().isoformat(timespec="seconds"),

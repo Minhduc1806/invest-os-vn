@@ -1,24 +1,18 @@
 {
-  "run_id": "eod_market_brief_2026-05-05T12:27:46+07:00",
-  "as_of": "2026-05-05T12:01:25+07:00",
+  "run_id": "eod_market_brief_2026-05-05T12:41:19+07:00",
+  "as_of": "2026-05-05T12:37:02+07:00",
   "pipeline": "eod_market_brief",
   "market_regime": {
-    "as_of": "2026-05-05T12:01:25+07:00",
+    "as_of": "2026-05-05T12:37:02+07:00",
     "regime": "risk_off",
     "risk_appetite": 55.0,
     "evidence": [
       "VNINDEX 0.81%, value 0 tỷ VND",
-      "Breadth adv/dec 0.25 (2/8)",
-      "Sector positive ratio 17%",
+      "Breadth adv/dec 0.00 (0/4)",
+      "Sector positive ratio 0%",
       "Foreign net flow 0 tỷ VND"
     ],
     "top_sectors_by_data": [
-      {
-        "name": "Bất động sản",
-        "change_pct": 5.48,
-        "value_bil_vnd": 0,
-        "relative_strength_20d": 3.31
-      },
       {
         "name": "Bán lẻ",
         "change_pct": -0.12,
@@ -27,22 +21,22 @@
       },
       {
         "name": "Ngân hàng",
-        "change_pct": -1.46,
+        "change_pct": -1.48,
         "value_bil_vnd": 0,
-        "relative_strength_20d": -0.71
+        "relative_strength_20d": -0.75
+      },
+      {
+        "name": "Chứng khoán",
+        "change_pct": -1.44,
+        "value_bil_vnd": 0,
+        "relative_strength_20d": -1.12
       }
     ],
     "source": "vnstock_history_adapter_partial_market",
     "confidence": 0.74
   },
-  "market_thesis": "Thị trường nghiêng risk_off với risk appetite 55.0/100. Bằng chứng chính: VNINDEX 0.81%, value 0 tỷ VND; Breadth adv/dec 0.25 (2/8).",
+  "market_thesis": "Thị trường nghiêng risk_off với risk appetite 55.0/100. Bằng chứng chính: VNINDEX 0.81%, value 0 tỷ VND; Breadth adv/dec 0.00 (0/4).",
   "sector_table": [
-    [
-      "Bất động sản",
-      "5.48%",
-      0,
-      3.31
-    ],
     [
       "Bán lẻ",
       "-0.12%",
@@ -51,9 +45,15 @@
     ],
     [
       "Ngân hàng",
-      "-1.46%",
+      "-1.48%",
       0,
-      -0.71
+      -0.75
+    ],
+    [
+      "Chứng khoán",
+      "-1.44%",
+      0,
+      -1.12
     ]
   ],
   "news_brief": [
