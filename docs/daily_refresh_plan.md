@@ -28,6 +28,10 @@ python scripts\fdata_universe_filter.py
 
 ## 4. News
 
+```powershell
+python scripts\refresh_news_live.py --allow-partial
+```
+
 Refresh `data_live/news_live.vn.json` from real sources only. No mock/sample/placeholder.
 
 ## 5. Gate + reports + validation

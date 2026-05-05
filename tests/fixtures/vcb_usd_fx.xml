@@ -1,0 +1,5 @@
+<!--For reference only. Only one request every 5 minutes!-->
+<ExrateList>
+  <DateTime>5/5/2026 4:26:25 PM</DateTime>
+  <Exrate CurrencyCode="USD" CurrencyName="US DOLLAR" Buy="26,096.00" Transfer="26,126.00" Sell="26,366.00" />
+</ExrateList>

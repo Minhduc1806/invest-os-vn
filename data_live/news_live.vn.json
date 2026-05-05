@@ -1,60 +1,122 @@
 {
-  "as_of": "2026-05-05T15:55:00+07:00",
+  "as_of": "2026-05-05T18:24:13+07:00",
   "source": [
+    "Trading Economics",
+    "PNJ investor relations",
+    "CafeF lãi suất - tỷ giá"
+  ],
+  "source_meta": [
     {
       "name": "Trading Economics",
-      "url": "https://tradingeconomics.com/vietnam/stock-market",
-      "fetched_at": "2026-05-05T15:55:00+07:00"
+      "url": "https://tradingeconomics.com/vietnam/news",
+      "fetched_at": "2026-05-05T18:24:12+07:00",
+      "error": "HTTP Error 403: Forbidden"
     },
     {
       "name": "PNJ investor relations",
-      "url": "https://www.pnj.com.vn/quan-he-co-dong/bao-cao-thang-en/",
-      "fetched_at": "2026-05-05T15:55:00+07:00"
+      "url": "https://www.pnj.com.vn/quan-he-co-dong/",
+      "fetched_at": "2026-05-05T18:24:13+07:00",
+      "sha256": "96b58f6ce04ba42eaf3ae4ca320a2e8d15c4512f26ea1ba12fe8849e4446a990"
     },
     {
       "name": "CafeF lãi suất - tỷ giá",
       "url": "https://cafef.vn/du-lieu/lai-suat-ngan-hang.chn",
-      "fetched_at": "2026-05-05T15:55:00+07:00"
+      "fetched_at": "2026-05-05T18:24:13+07:00",
+      "sha256": "7e8475271396d26137841bd129bffd3a1971298771c595588e5ad43995ed6f4e"
     }
   ],
-  "language": "vi",
   "items": [
     {
-      "dedupe_key": "tradingeconomics-vnindex-2026-05-05",
-      "timestamp": "2026-05-05T15:55:00+07:00",
-      "title": "VN-Index tăng trong phiên 05/05/2026 theo Trading Economics",
-      "summary": "Trading Economics ghi nhận chỉ số chứng khoán Việt Nam ở 1.873 điểm ngày 05/05/2026, tăng 1,04% so với phiên trước; tháng gần nhất tăng 11,84%.",
-      "url": "https://tradingeconomics.com/vietnam/stock-market",
-      "tickers": [],
-      "tags": ["market", "vnindex"],
-      "source": "Trading Economics"
+      "title": "Câu chuyện PNJ",
+      "url": "https://www.pnj.com.vn/cau-chuyen-pnj.html",
+      "timestamp": "2026-05-05T18:24:13+07:00",
+      "published_at": "2026-05-05T18:24:13+07:00",
+      "source": "PNJ investor relations",
+      "dedupe_key": "3b69ae9372294ef27d1a9487846bf7f43cc15508",
+      "tickers": [
+        "PNJ"
+      ],
+      "summary": "Câu chuyện PNJ"
     },
     {
-      "dedupe_key": "pnj-ir-monthly-reports-2026-05-05",
-      "timestamp": "2026-05-05T15:55:00+07:00",
-      "title": "PNJ công bố trang báo cáo tháng cho nhà đầu tư",
-      "summary": "Trang quan hệ cổ đông PNJ liệt kê các báo cáo kết quả kinh doanh theo tháng/quý; nguồn dùng để kiểm tra tin doanh nghiệp PNJ, chưa suy diễn tăng trưởng nếu không có báo cáo mới trong ngày.",
-      "url": "https://www.pnj.com.vn/quan-he-co-dong/bao-cao-thang-en/",
-      "tickers": ["PNJ"],
-      "tags": ["company", "pnj", "investor_relations"],
-      "source": "PNJ investor relations"
+      "title": "Quan hệ cổ đông (IR)",
+      "url": "https://www.pnj.com.vn/quan-he-co-dong/dai-hoi-dong-co-dong/",
+      "timestamp": "2026-05-05T18:24:13+07:00",
+      "published_at": "2026-05-05T18:24:13+07:00",
+      "source": "PNJ investor relations",
+      "dedupe_key": "c8127c0e52f8e8f626762383b9a509ad506e19ce",
+      "tickers": [
+        "PNJ"
+      ],
+      "summary": "Quan hệ cổ đông (IR)"
     },
     {
-      "dedupe_key": "cafef-rates-fx-2026-05-05",
-      "timestamp": "2026-05-05T15:55:00+07:00",
-      "title": "CafeF cập nhật trang lãi suất - tỷ giá ngày 05/05/2026",
-      "summary": "CafeF ghi ngày cập nhật Thứ Ba 05/05/2026 cho dữ liệu lãi suất ngân hàng và tỷ giá ngoại tệ; lãi suất hiển thị là lãi suất gửi tiết kiệm tại quầy, trả lãi cuối kỳ.",
-      "url": "https://cafef.vn/du-lieu/lai-suat-ngan-hang.chn",
+      "title": "Tài khoản của tôi",
+      "url": "https://www.pnj.com.vn/customer/home",
+      "timestamp": "2026-05-05T18:24:13+07:00",
+      "published_at": "2026-05-05T18:24:13+07:00",
+      "source": "PNJ investor relations",
+      "dedupe_key": "7aaf033a5d9dc7b1570885912acb2f96d5ef8eae",
+      "tickers": [
+        "PNJ"
+      ],
+      "summary": "Tài khoản của tôi"
+    },
+    {
+      "title": "Hàng đặt trước",
+      "url": "https://www.pnj.com.vn/hang-dat-truoc/?sort_by=timestamp&sort_order=desc?features_hash=43-19673",
+      "timestamp": "2026-05-05T18:24:13+07:00",
+      "published_at": "2026-05-05T18:24:13+07:00",
+      "source": "PNJ investor relations",
+      "dedupe_key": "5300648068cd0aeb85e39c9b284b5aec026d170a",
+      "tickers": [
+        "PNJ"
+      ],
+      "summary": "Hàng đặt trước"
+    },
+    {
+      "title": "Bảng giá điện tử",
+      "url": "https://liveboard.cafef.vn",
+      "timestamp": "2026-05-05T18:24:13+07:00",
+      "published_at": "2026-05-05T18:24:13+07:00",
+      "source": "CafeF lãi suất - tỷ giá",
+      "dedupe_key": "c8071649c6e74c39cc80563176d677dbc21a4c4b",
       "tickers": [],
-      "tags": ["macro", "rates", "fx"],
-      "source": "CafeF"
+      "summary": "Bảng giá điện tử"
+    },
+    {
+      "title": "Danh mục đầu tư",
+      "url": "https://cafef.vn/du-lieu/danh-muc-dau-tu.chn",
+      "timestamp": "2026-05-05T18:24:13+07:00",
+      "published_at": "2026-05-05T18:24:13+07:00",
+      "source": "CafeF lãi suất - tỷ giá",
+      "dedupe_key": "8f9ca38c37c636d6ef0e9eb4a8de0d667170deb5",
+      "tickers": [],
+      "summary": "Danh mục đầu tư"
+    },
+    {
+      "title": "Đổi mật khẩu",
+      "url": "https://cafef.vn/thay-doi-mat-khau.chn",
+      "timestamp": "2026-05-05T18:24:13+07:00",
+      "published_at": "2026-05-05T18:24:13+07:00",
+      "source": "CafeF lãi suất - tỷ giá",
+      "dedupe_key": "5ab232bff6e72a967f4e833d57ec0c9d3effbfbc",
+      "tickers": [],
+      "summary": "Đổi mật khẩu"
+    },
+    {
+      "title": "Đọc nhanh >>",
+      "url": "https://cafef.vn/doc-nhanh.chn",
+      "timestamp": "2026-05-05T18:24:13+07:00",
+      "published_at": "2026-05-05T18:24:13+07:00",
+      "source": "CafeF lãi suất - tỷ giá",
+      "dedupe_key": "b354f2011f4eaa2eb72da48af373d9ca1cb4eec0",
+      "tickers": [],
+      "summary": "Đọc nhanh >>"
     }
   ],
-  "dedupe": {
-    "method": "dedupe_key_or_url",
-    "item_count": 3,
-    "duplicate_count": 0
-  },
-  "quality_score": 0.9,
-  "status": "real_web_sourced"
+  "warnings": [
+    "Trading Economics:provider_down:HTTP Error 403: Forbidden"
+  ],
+  "status": "real_parsed"
 }
