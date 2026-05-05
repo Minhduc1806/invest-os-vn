@@ -10,7 +10,7 @@ import hashlib
 import json
 import re
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 from html import unescape
 from pathlib import Path
 from typing import Any
@@ -92,8 +92,27 @@ def strip_html(html: str) -> str:
     text = re.sub(r"<[^>]+>", " ", text)
     return re.sub(r"\s+", " ", text)
 
+VALID_BANKS = {
+    "ABBank", "ACB", "Agribank", "BacABank", "BaoVietBank", "BIDV", "CBBank", "DongABank", "Eximbank",
+    "GPBank", "HDBank", "Hong Leong", "Indovina", "KienlongBank", "LPBank", "MB", "MSB", "NamABank",
+    "NCB", "OCB", "OceanBank", "PGBank", "PublicBank", "PVcomBank", "Sacombank", "Saigonbank", "SCB",
+    "SeABank", "SHB", "Techcombank", "TPBank", "VIB", "VietABank", "VietBank", "Vietcombank",
+    "VietinBank", "VPBank", "VRB",
+}
+BANK_ALIASES = {b.lower(): b for b in VALID_BANKS}
+BANK_ALIASES.update({"viet nam thuong tin": "VietBank", "vietbank": "VietBank", "viet a bank": "VietABank"})
+VALID_TENORS = ["1m", "3m", "6m", "9m", "12m", "13m", "18m", "24m", "36m"]
+
+def normalize_bank_name(cell: str) -> str | None:
+    text = re.sub(r"\s+", " ", cell).strip()
+    for bank in sorted(VALID_BANKS, key=len, reverse=True):
+        if re.search(rf"(?<![A-Za-z]){re.escape(bank)}(?![A-Za-z])", text, re.I):
+            return bank
+    key = re.sub(r"[^a-z0-9 ]", "", text.lower()).strip()
+    return BANK_ALIASES.get(key)
+
 def parse_webgia_deposit_rates(html: str) -> dict[str, Any]:
-    tenors = ["0m", "1m", "3m", "6m", "9m", "12m", "13m", "18m", "24m", "36m"]
+    tenors = VALID_TENORS
     by_bank: dict[str, dict[str, float]] = {}
     table = re.search(r'<section id="lai_suat_tiet_kiem_tai_quay".*?<tbody>(.*?)</tbody>', html, re.S | re.I)
     if not table:
@@ -104,11 +123,11 @@ def parse_webgia_deposit_rates(html: str) -> dict[str, Any]:
         cells = re.findall(r"(<td[^>]*>.*?</td>)", row, re.S | re.I)
         if len(cells) < 11:
             continue
-        bank = html_text(cells[0]).split()[-1] if html_text(cells[0]) else ""
+        bank = normalize_bank_name(html_text(cells[0]))
         if not bank:
             continue
         rates: dict[str, float] = {}
-        for tenor, cell in zip(tenors, cells[1:11]):
+        for tenor, cell in zip(tenors, cells[1:1 + len(tenors)]):
             m = re.search(r'nb="([^"]+)"', cell)
             v = decode_webgia_nb(m.group(1)) if m else vn_num(html_text(cell))
             if pct_range(v):
@@ -207,17 +226,35 @@ def parse_tradingeconomics(text: str) -> list[dict[str, Any]]:
                 series.append({"name": name, "value": value, "unit": unit, "reference_period": m.group(3), "source": "Trading Economics", "timestamp": now_iso()})
     return series
 
+def _read_te_text_cache(path: Path, mode: str) -> tuple[dict[str, Any], str]:
+    if not path.exists():
+        raise FileNotFoundError(str(path))
+    age_min = (datetime.now().astimezone() - datetime.fromtimestamp(path.stat().st_mtime).astimezone()).total_seconds() / 60
+    if age_min > 1440:
+        raise RuntimeError(f"stale_te_interest_cache>{int(age_min)}m")
+    html = path.read_text(encoding="utf-8")
+    sha = hashlib.sha256(html.encode("utf-8")).hexdigest()
+    meta = {"name": "Trading Economics interest rate text", "url": str(path), "fetched_at": now_iso(), "sha256": sha, "source_mode": mode}
+    (RAW / "macro_te_interest_rate_text_file.html").write_text(html, encoding="utf-8")
+    (RAW / "macro_te_interest_rate.html").write_text(html, encoding="utf-8")
+    return meta, html
+
 def parse_source(src: dict[str, str]) -> tuple[dict[str, Any], list[str]]:
     warnings: list[str] = []
     if src.get("kind") == "te_interest_rate_text_file":
-        html = Path(src["url"]).read_text(encoding="utf-8")
-        sha = hashlib.sha256(html.encode("utf-8")).hexdigest()
-        meta = {"name": src["name"], "url": src["url"], "fetched_at": now_iso(), "sha256": sha, "source_mode": "text_file"}
-        (RAW / f"macro_{src['kind']}.html").write_text(html, encoding="utf-8")
+        meta, html = _read_te_text_cache(Path(src["url"]), "text_file")
         return {"meta": meta, "text": html}, warnings
     try:
         html, sha = fetch(src["url"])
     except Exception as exc:
+        if src.get("kind") == "te_interest_rate":
+            try:
+                meta, html = _read_te_text_cache(RAW / "te_interest_rate_fetch_text.txt", "extracted_text_cache")
+                meta["name"] = src["name"]
+                meta["fallback_from"] = src["url"]
+                return {"meta": meta, "text": html}, [f"{src['name']}:provider_down:{exc};used_extracted_text_cache"]
+            except Exception as cache_exc:
+                return {"name": src["name"], "url": src["url"], "fetched_at": now_iso(), "sha256": None, "error_code": "provider_down", "error": f"{exc}; cache:{cache_exc}"}, [f"{src['name']}:provider_down:{exc};cache:{cache_exc}"]
         return {"name": src["name"], "url": src["url"], "fetched_at": now_iso(), "sha256": None, "error_code": "provider_down", "error": str(exc)}, [f"{src['name']}:provider_down:{exc}"]
     RAW.mkdir(parents=True, exist_ok=True)
     (RAW / f"macro_{src['kind']}.html").write_text(html, encoding="utf-8")

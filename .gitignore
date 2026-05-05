@@ -26,3 +26,6 @@ outputs/*.bak
 # Local-only data/secrets
 state/
 data_live/portfolio_real.json
+
+# Live raw fetch cache; keep minimal fixtures under tests/fixtures if needed
+data_live/raw/
