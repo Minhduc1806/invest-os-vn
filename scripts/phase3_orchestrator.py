@@ -218,18 +218,26 @@ Contract:
 - Include useful headings, bullets, and data tables when available.
 - Do not answer only OK / Done / Accepted / placeholder.
 - Do not emit JSON, logs, or status text.
-- If lead review is OK/status-only, ignore it and write from tool output.
+- Use lead review only if it passed orchestrator validation.
+- If lead review is missing or omitted, write from tool output and quality report.
 - No unsupported leadership labels; cite actual data from tool output.
 Tool output excerpt: {summary_payload}
 Quality: {json.dumps(quality, ensure_ascii=False)}"""
 
     session_suffix = f"phase3-{args.pipeline}-{datetime.now().strftime('%Y%m%d%H%M%S')}"
     lead = call_agent(agent_cfg["lead_agent"], lead_prompt, timeout=args.agent_timeout, fallback_shim=args.fallback_shim, session_suffix=session_suffix + "-lead") if args.call_agents else {"called": False, "agent_id": agent_cfg["lead_agent"], "reason": "--call-agents not set", "prompt": lead_prompt}
+    lead_review_for_final = "[lead omitted: --call-agents not set]"
     if args.call_agents:
         lead_text = extract_agent_text(lead.get("stdout", ""))
+        lead_errors = validate_markdown_report(lead_text or "")
         lead["extracted_text_preview"] = (lead_text or "")[:300]
-        lead["validator_errors"] = validate_markdown_report(lead_text or "")
-    final = call_agent(agent_cfg["final_writer"], final_prompt + "\nLead review:\n" + (lead.get("extracted_text_preview") or json.dumps(lead, ensure_ascii=False)[:2500]), timeout=args.agent_timeout, fallback_shim=args.fallback_shim, session_suffix=session_suffix + "-final") if args.call_agents else {"called": False, "agent_id": agent_cfg["final_writer"], "reason": "--call-agents not set", "prompt": final_prompt}
+        lead["validator_errors"] = lead_errors
+        if lead_errors:
+            lead["omitted_from_final_prompt"] = "lead output failed markdown contract; final must use tool output"
+            lead_review_for_final = "[lead omitted: invalid markdown contract; use tool output and quality report only]"
+        else:
+            lead_review_for_final = (lead_text or "")[:2500]
+    final = call_agent(agent_cfg["final_writer"], final_prompt + "\nValidated lead review:\n" + lead_review_for_final, timeout=args.agent_timeout, fallback_shim=args.fallback_shim, session_suffix=session_suffix + "-final") if args.call_agents else {"called": False, "agent_id": agent_cfg["final_writer"], "reason": "--call-agents not set", "prompt": final_prompt}
     if args.call_agents and final.get("stdout"):
         final_text = extract_agent_text(final["stdout"])
         final["extracted_text_preview"] = (final_text or "")[:300]
