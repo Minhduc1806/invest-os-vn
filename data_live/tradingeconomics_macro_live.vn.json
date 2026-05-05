@@ -1,0 +1,86 @@
+{
+  "as_of": "2026-05-05T16:31:51+07:00",
+  "source": [
+    {
+      "name": "Trading Economics",
+      "url": "https://tradingeconomics.com/vietnam/government-bond-yield",
+      "fetched_at": "2026-05-05T16:31:51+07:00",
+      "sha256": "0dbfca788caea0041f975b3ec09f41be62a08d9840e951db412ac0c24e179b4c",
+      "source_mode": "text_file",
+      "error": null
+    },
+    {
+      "name": "Trading Economics",
+      "url": "https://tradingeconomics.com/currencies",
+      "fetched_at": "2026-05-05T16:31:51+07:00",
+      "sha256": "bacfb893879c478d32b954205c5757390f75e9ddf35db9587e2546598534a7d6",
+      "source_mode": "text_file",
+      "error": null
+    }
+  ],
+  "bond_yields": {
+    "VN10Y": {
+      "value": 4.37,
+      "unit": "percent",
+      "change_pp": 0.02,
+      "date_text": "May 5, 2026",
+      "source": "Trading Economics"
+    }
+  },
+  "currencies": {
+    "USDVND": {
+      "value": 26084.0,
+      "source": "Trading Economics",
+      "timestamp": "2026-05-05T16:31:51+07:00"
+    },
+    "EURUSD": {
+      "value": 1.16846,
+      "source": "Trading Economics",
+      "timestamp": "2026-05-05T16:31:51+07:00"
+    },
+    "USDJPY": {
+      "value": 157.59,
+      "source": "Trading Economics",
+      "timestamp": "2026-05-05T16:31:51+07:00"
+    },
+    "USDCNY": {
+      "value": 6.83351,
+      "source": "Trading Economics",
+      "timestamp": "2026-05-05T16:31:51+07:00"
+    }
+  },
+  "series": [
+    {
+      "name": "Vietnam Inflation Rate",
+      "value": 5.46,
+      "previous": 4.65,
+      "unit": "percent",
+      "reference_period": "Apr 2026",
+      "source": "Trading Economics",
+      "timestamp": "2026-05-05T16:31:51+07:00"
+    },
+    {
+      "name": "Vietnam Interest Rate",
+      "value": 4.5,
+      "previous": 4.5,
+      "unit": "percent",
+      "reference_period": "Apr 2026",
+      "source": "Trading Economics",
+      "timestamp": "2026-05-05T16:31:51+07:00"
+    },
+    {
+      "name": "Vietnam Unemployment Rate",
+      "value": 2.21,
+      "previous": 2.22,
+      "unit": "percent",
+      "reference_period": "Mar 2026",
+      "source": "Trading Economics",
+      "timestamp": "2026-05-05T16:31:51+07:00"
+    }
+  ],
+  "parse_quality": {
+    "required_passed": true,
+    "missing_fields": [],
+    "warnings": []
+  }
+}

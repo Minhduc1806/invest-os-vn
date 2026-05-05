@@ -1,0 +1,72 @@
+name: macro_rates_parse
+version: 1.0.0
+description: Parse đầy đủ macro/rates Việt Nam từ nguồn web thật, số ổn định, no fake fallback.
+agents:
+  - rates-fixed-income-analyst
+  - investment-data-designer
+
+tools:
+  - tools/macro_rates_parser.spec.md
+  - tools/live_data_adapter.spec.md
+
+inputs:
+  sources:
+    - name: Trading Economics
+      url: https://tradingeconomics.com/vietnam/stock-market
+      kind: macro_indicators
+      required_fields:
+        - policy_rate
+        - inflation
+        - unemployment
+    - name: CafeF
+      url: https://cafef.vn/du-lieu/lai-suat-ngan-hang.chn
+      kind: rates_fx
+      required_fields:
+        - deposit_rate_context
+        - usd_vnd
+    - name: WebGia
+      url: https://webgia.com/lai-suat/
+      kind: deposit_rates
+      required_fields:
+        - deposit_rates_by_bank_tenor
+  output: data_live/macro_rates_live.vn.json
+
+steps:
+  - fetch_raw_html_and_store_checksum
+  - detect_source_timestamp
+  - parse_embedded_json_first
+  - parse_html_tables_second
+  - parse_text_regex_last
+  - normalize_vietnamese_numbers
+  - validate_numeric_ranges
+  - dedupe_bank_tenor_rows
+  - write_macro_rates_live_json
+  - run_phase4_real_data_gap_audit
+
+required_contract:
+  as_of: ISO-8601 source timestamp or fetch timestamp
+  source: list with name url fetched_at sha256
+  rates:
+    policy_rate_pct: numeric_or_null_with_warning
+    deposit_rates: by_bank_by_tenor numeric_or_null_with_warning
+    usd_vnd: numeric_or_null_with_warning
+  series:
+    - macro indicator rows with name value unit reference_period source timestamp
+  parse_quality:
+    required_passed: boolean
+    missing_fields: list
+    warnings: list
+
+quality_gate:
+  require_sources: true
+  require_as_of: true
+  forbid_mock_sources: true
+  forbid_placeholder_status: true
+  fail_if_required_missing: true
+  fail_if_numeric_out_of_range: true
+  fail_if_stale_minutes: 1440
+  no_fake_fallback: true
+
+notes:
+  - Nếu CafeF/WebGia chống scrape hoặc table bị watermark, parser phải fail rõ `table_schema_changed` hoặc `numeric_parse_failed`; không ghi số giả.
+  - Nếu field optional chưa parse được, ghi `value:null` + warning; production gate chỉ pass khi required_fields pass.

@@ -1,0 +1,60 @@
+{
+  "as_of": "2026-05-05T15:55:00+07:00",
+  "source": [
+    {
+      "name": "Trading Economics",
+      "url": "https://tradingeconomics.com/vietnam/stock-market",
+      "fetched_at": "2026-05-05T15:55:00+07:00"
+    },
+    {
+      "name": "PNJ investor relations",
+      "url": "https://www.pnj.com.vn/quan-he-co-dong/bao-cao-thang-en/",
+      "fetched_at": "2026-05-05T15:55:00+07:00"
+    },
+    {
+      "name": "CafeF lãi suất - tỷ giá",
+      "url": "https://cafef.vn/du-lieu/lai-suat-ngan-hang.chn",
+      "fetched_at": "2026-05-05T15:55:00+07:00"
+    }
+  ],
+  "language": "vi",
+  "items": [
+    {
+      "dedupe_key": "tradingeconomics-vnindex-2026-05-05",
+      "timestamp": "2026-05-05T15:55:00+07:00",
+      "title": "VN-Index tăng trong phiên 05/05/2026 theo Trading Economics",
+      "summary": "Trading Economics ghi nhận chỉ số chứng khoán Việt Nam ở 1.873 điểm ngày 05/05/2026, tăng 1,04% so với phiên trước; tháng gần nhất tăng 11,84%.",
+      "url": "https://tradingeconomics.com/vietnam/stock-market",
+      "tickers": [],
+      "tags": ["market", "vnindex"],
+      "source": "Trading Economics"
+    },
+    {
+      "dedupe_key": "pnj-ir-monthly-reports-2026-05-05",
+      "timestamp": "2026-05-05T15:55:00+07:00",
+      "title": "PNJ công bố trang báo cáo tháng cho nhà đầu tư",
+      "summary": "Trang quan hệ cổ đông PNJ liệt kê các báo cáo kết quả kinh doanh theo tháng/quý; nguồn dùng để kiểm tra tin doanh nghiệp PNJ, chưa suy diễn tăng trưởng nếu không có báo cáo mới trong ngày.",
+      "url": "https://www.pnj.com.vn/quan-he-co-dong/bao-cao-thang-en/",
+      "tickers": ["PNJ"],
+      "tags": ["company", "pnj", "investor_relations"],
+      "source": "PNJ investor relations"
+    },
+    {
+      "dedupe_key": "cafef-rates-fx-2026-05-05",
+      "timestamp": "2026-05-05T15:55:00+07:00",
+      "title": "CafeF cập nhật trang lãi suất - tỷ giá ngày 05/05/2026",
+      "summary": "CafeF ghi ngày cập nhật Thứ Ba 05/05/2026 cho dữ liệu lãi suất ngân hàng và tỷ giá ngoại tệ; lãi suất hiển thị là lãi suất gửi tiết kiệm tại quầy, trả lãi cuối kỳ.",
+      "url": "https://cafef.vn/du-lieu/lai-suat-ngan-hang.chn",
+      "tickers": [],
+      "tags": ["macro", "rates", "fx"],
+      "source": "CafeF"
+    }
+  ],
+  "dedupe": {
+    "method": "dedupe_key_or_url",
+    "item_count": 3,
+    "duplicate_count": 0
+  },
+  "quality_score": 0.9,
+  "status": "real_web_sourced"
+}

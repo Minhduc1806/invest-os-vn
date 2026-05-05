@@ -1,0 +1,58 @@
+name: tradingeconomics_macro_extract
+version: 1.0.0
+description: Extract Vietnam 10Y bond yield and currency table from Trading Economics pages with stable parsing and no fake fallback.
+agents:
+  - rates-fixed-income-analyst
+  - investment-data-designer
+
+tools:
+  - tools/tradingeconomics_extract.spec.md
+
+inputs:
+  pages:
+    - url: https://tradingeconomics.com/vietnam/government-bond-yield
+      kind: vietnam_government_bond_yield
+      required_fields:
+        - VN10Y.value
+        - VN10Y.change_pp
+        - Vietnam Interest Rate
+        - Vietnam Inflation Rate
+    - url: https://tradingeconomics.com/currencies
+      kind: currencies
+      required_fields:
+        - USDVND.value
+  output: data_live/tradingeconomics_macro_live.vn.json
+
+steps:
+  - fetch_raw_html_with_browser_fallback
+  - store_raw_snapshot_and_sha256
+  - parse_bond_yield_sentence
+  - parse_related_macro_table
+  - parse_currency_rows_with_pair_labels
+  - validate_numeric_ranges
+  - write_tradingeconomics_macro_live_json
+  - optionally_merge_into_data_live_macro_rates_live
+  - run_phase4_real_data_gap_audit
+
+quality_gate:
+  require_sources: true
+  require_as_of: true
+  require_raw_checksum: true
+  fail_if_required_missing: true
+  fail_if_currency_pair_labels_missing: true
+  fail_if_numeric_out_of_range: true
+  no_fake_fallback: true
+
+merge_policy:
+  target: data_live/macro_rates_live.vn.json
+  fields:
+    VN10Y: rates.government_bond_yield_10y_pct
+    USDVND: fx.usd_vnd
+    Vietnam Interest Rate: rates.policy_rate_pct
+    Vietnam Inflation Rate: series
+  overwrite_only_if_source_newer: true
+  preserve_existing_source_history: true
+
+notes:
+  - `currencies` readability output can lose pair labels. Parser must use raw HTML/scripts/table rows first.
+  - If Trading Economics blocks direct HTTP 403, secondary fetch via gateway/browser/readability allowed only as source text; still record warning.
