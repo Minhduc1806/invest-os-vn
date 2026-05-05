@@ -51,3 +51,20 @@ Expected:
 - `OK eod_market_brief`
 - `OK stock_signal_scan`
 - `PHASE5_REPORTS_CLEAN`
+
+## Phase 6 automation
+
+Manual run:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\daily_refresh_phase6.ps1
+```
+
+Register Windows Task Scheduler daily 18:10 local time:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts\register_phase6_daily_task.ps1
+```
+
+Task name: `InvestOSVN Phase6 Daily Refresh`.
+Logs: `logs\phase6_daily_refresh_*.log`.

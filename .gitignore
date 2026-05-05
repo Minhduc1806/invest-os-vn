@@ -29,3 +29,6 @@ data_live/portfolio_real.json
 
 # Live raw fetch cache; keep minimal fixtures under tests/fixtures if needed
 data_live/raw/
+
+# Local git backup bundles
+*.bundle

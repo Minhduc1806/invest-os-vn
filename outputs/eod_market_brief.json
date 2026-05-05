@@ -1,14 +1,14 @@
 {
-  "run_id": "eod_market_brief_2026-05-05T18:22:50+07:00",
-  "as_of": "2026-05-05T18:06:21+07:00",
+  "run_id": "eod_market_brief_2026-05-05T18:56:17+07:00",
+  "as_of": "2026-05-05T18:56:05+07:00",
   "pipeline": "eod_market_brief",
   "market_regime": {
-    "as_of": "2026-05-05T18:06:21+07:00",
+    "as_of": "2026-05-05T18:56:05+07:00",
     "regime": "risk_off",
     "risk_appetite": 52.5,
     "evidence": [
       "VNINDEX 1.12%, value 0 tỷ VND",
-      "Breadth adv/dec 0.84 (31/37)",
+      "Breadth adv/dec 0.89 (33/37)",
       "Sector positive ratio 50%",
       "Foreign net flow 0 tỷ VND"
     ],
@@ -35,7 +35,7 @@
     "source": "vnstock_history_adapter_partial_market",
     "confidence": 0.74
   },
-  "market_thesis": "Thị trường nghiêng risk_off với risk appetite 52.5/100. Bằng chứng chính: VNINDEX 1.12%, value 0 tỷ VND; Breadth adv/dec 0.84 (31/37).",
+  "market_thesis": "Thị trường nghiêng risk_off với risk appetite 52.5/100. Bằng chứng chính: VNINDEX 1.12%, value 0 tỷ VND; Breadth adv/dec 0.89 (33/37).",
   "sector_table": [
     [
       "Bất động sản",
@@ -58,24 +58,42 @@
   ],
   "news_brief": [
     {
-      "title": "VN-Index tăng trong phiên 05/05/2026 theo Trading Economics",
-      "tickers": [],
-      "url": "https://tradingeconomics.com/vietnam/stock-market",
-      "summary": "Trading Economics ghi nhận chỉ số chứng khoán Việt Nam ở 1.873 điểm ngày 05/05/2026, tăng 1,04% so với phiên trước; tháng gần nhất tăng 11,84%."
-    },
-    {
-      "title": "PNJ công bố trang báo cáo tháng cho nhà đầu tư",
+      "title": "Câu chuyện PNJ",
       "tickers": [
         "PNJ"
       ],
-      "url": "https://www.pnj.com.vn/quan-he-co-dong/bao-cao-thang-en/",
-      "summary": "Trang quan hệ cổ đông PNJ liệt kê các báo cáo kết quả kinh doanh theo tháng/quý; nguồn dùng để kiểm tra tin doanh nghiệp PNJ, chưa suy diễn tăng trưởng nếu không có báo cáo mới trong ngày."
+      "url": "https://www.pnj.com.vn/cau-chuyen-pnj.html",
+      "summary": "Câu chuyện PNJ"
     },
     {
-      "title": "CafeF cập nhật trang lãi suất - tỷ giá ngày 05/05/2026",
+      "title": "Quan hệ cổ đông (IR)",
+      "tickers": [
+        "PNJ"
+      ],
+      "url": "https://www.pnj.com.vn/quan-he-co-dong/dai-hoi-dong-co-dong/",
+      "summary": "Quan hệ cổ đông (IR)"
+    },
+    {
+      "title": "Tài khoản của tôi",
+      "tickers": [
+        "PNJ"
+      ],
+      "url": "https://www.pnj.com.vn/customer/home",
+      "summary": "Tài khoản của tôi"
+    },
+    {
+      "title": "Hàng đặt trước",
+      "tickers": [
+        "PNJ"
+      ],
+      "url": "https://www.pnj.com.vn/hang-dat-truoc/?sort_by=timestamp&sort_order=desc?features_hash=43-19673",
+      "summary": "Hàng đặt trước"
+    },
+    {
+      "title": "Bảng giá điện tử",
       "tickers": [],
-      "url": "https://cafef.vn/du-lieu/lai-suat-ngan-hang.chn",
-      "summary": "CafeF ghi ngày cập nhật Thứ Ba 05/05/2026 cho dữ liệu lãi suất ngân hàng và tỷ giá ngoại tệ; lãi suất hiển thị là lãi suất gửi tiết kiệm tại quầy, trả lãi cuối kỳ."
+      "url": "https://liveboard.cafef.vn",
+      "summary": "Bảng giá điện tử"
     }
   ],
   "next_session_conditions": [

@@ -1,7 +1,7 @@
 # Bản tin sau phiên 2026-05-05
 
 ## Kết luận chính
-Thị trường nghiêng risk_off với risk appetite 52.5/100. Bằng chứng chính: VNINDEX 1.12%, value 0 tỷ VND; Breadth adv/dec 0.84 (31/37).
+Thị trường nghiêng risk_off với risk appetite 52.5/100. Bằng chứng chính: VNINDEX 1.12%, value 0 tỷ VND; Breadth adv/dec 0.89 (33/37).
 
 ## Regime & rủi ro
 risk_off | 52.5
@@ -14,9 +14,11 @@ risk_off | 52.5
 | Bán lẻ | -0.12% | 0 | -0.69 |
 
 ## Cổ phiếu cần theo dõi
-- VN-Index tăng trong phiên 05/05/2026 theo Trading Economics (vĩ mô): Trading Economics ghi nhận chỉ số chứng khoán Việt Nam ở 1.873 điểm ngày 05/05/2026, tăng 1,04% so với phiên trước; tháng gần nhất tăng 11,84%.
-- PNJ công bố trang báo cáo tháng cho nhà đầu tư (PNJ): Trang quan hệ cổ đông PNJ liệt kê các báo cáo kết quả kinh doanh theo tháng/quý; nguồn dùng để kiểm tra tin doanh nghiệp PNJ, chưa suy diễn tăng trưởng nếu không có báo cáo mới trong ngày.
-- CafeF cập nhật trang lãi suất - tỷ giá ngày 05/05/2026 (vĩ mô): CafeF ghi ngày cập nhật Thứ Ba 05/05/2026 cho dữ liệu lãi suất ngân hàng và tỷ giá ngoại tệ; lãi suất hiển thị là lãi suất gửi tiết kiệm tại quầy, trả lãi cuối kỳ.
+- Câu chuyện PNJ (PNJ): Câu chuyện PNJ
+- Quan hệ cổ đông (IR) (PNJ): Quan hệ cổ đông (IR)
+- Tài khoản của tôi (PNJ): Tài khoản của tôi
+- Hàng đặt trước (PNJ): Hàng đặt trước
+- Bảng giá điện tử (vĩ mô): Bảng giá điện tử
 
 ## Điều kiện ngày mai
 - Ưu tiên giải ngân nếu VNINDEX giữ trên tham chiếu và breadth tiếp tục > 1.2.

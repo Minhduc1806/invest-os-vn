@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-05-05T18:06:21+07:00",
+  "as_of": "2026-05-05T18:56:05+07:00",
   "source": "vnstock_history_adapter_partial_market",
   "market": "VN",
   "indices": [
@@ -29,7 +29,7 @@
     }
   ],
   "breadth": {
-    "advancers": 31,
+    "advancers": 33,
     "decliners": 37,
     "unchanged": 1,
     "new_high_20d": null,
@@ -38,9 +38,9 @@
   "sectors": [
     {
       "name": "Khác",
-      "change_pct": 0.42,
+      "change_pct": 0.41,
       "value_bil_vnd": 0,
-      "relative_strength_20d": -0.87
+      "relative_strength_20d": -0.91
     },
     {
       "name": "Bất động sản",
@@ -68,9 +68,9 @@
     },
     {
       "name": "Chứng khoán",
-      "change_pct": -1.33,
+      "change_pct": -1.44,
       "value_bil_vnd": 0,
-      "relative_strength_20d": -1.07
+      "relative_strength_20d": -1.15
     }
   ],
   "foreign_flow": {
