@@ -36,3 +36,5 @@ data_live/raw/
 .venv_paddle/
 outputs/paddle_page_*.png
 outputs/tesseract_page_*.png
+
+node_modules/
