@@ -1,0 +1,13 @@
+{
+  "as_of": "2026-05-05T23:57:05+07:00",
+  "source": "PaddleOCR/PP-Structure",
+  "pdf": "data_live/raw/cafef_pdfs/FPT_69f07307d02b4661764f99bf.pdf",
+  "results": [
+    {
+      "page": 6,
+      "image": "outputs\\paddle_page_6.png",
+      "ppstructure_error": "A dependency error occurred during pipeline creation. Please refer to the installation documentation to ensure all required dependencies are installed.",
+      "ocr_error": "(Unimplemented) ConvertPirAttribute2RuntimeAttribute not support [pir::ArrayAttribute<pir::DoubleAttribute>]  (at ..\\paddle\\fluid\\framework\\new_executor\\instruction\\onednn\\onednn_instruction.cc:118)\n"
+    }
+  ]
+}

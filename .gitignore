@@ -32,3 +32,7 @@ data_live/raw/
 
 # Local git backup bundles
 *.bundle
+
+.venv_paddle/
+outputs/paddle_page_*.png
+outputs/tesseract_page_*.png

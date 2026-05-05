@@ -1,0 +1,7 @@
+{
+  "as_of": "2026-05-05T23:57:29+07:00",
+  "source": "Tesseract + OpenCV grid reconstruction",
+  "available": false,
+  "tesseract_path": null,
+  "error": "tesseract executable missing; winget installer blocked by Windows installer lock, direct Mannheim download returned 403"
+}
