@@ -1,10 +1,10 @@
 {
-  "as_of": "2026-05-05T19:14:02+07:00",
+  "as_of": "2026-05-05T20:09:58+07:00",
   "source": [
     {
       "name": "Trading Economics",
       "url": "https://tradingeconomics.com/vietnam/stock-market",
-      "fetched_at": "2026-05-05T19:13:54+07:00",
+      "fetched_at": "2026-05-05T20:09:51+07:00",
       "sha256": null,
       "error_code": "provider_down",
       "error": "HTTP Error 403: Forbidden"
@@ -12,7 +12,7 @@
     {
       "name": "Trading Economics interest rate",
       "url": "C:\\Users\\DUC\\.openclaw\\workspace\\invest-os-vn\\data_live\\raw\\te_interest_rate_fetch_text.txt",
-      "fetched_at": "2026-05-05T19:13:54+07:00",
+      "fetched_at": "2026-05-05T20:09:51+07:00",
       "sha256": "03fdb469ce3e0b764e24cfac927b58f30c94404fc396b33cb2d6cd1ad0523dfe",
       "source_mode": "extracted_text_cache",
       "fallback_from": "https://tradingeconomics.com/vietnam/interest-rate"
@@ -20,50 +20,50 @@
     {
       "name": "World Bank CPI",
       "url": "https://api.worldbank.org/v2/country/VN/indicator/FP.CPI.TOTL.ZG?format=json&per_page=5",
-      "fetched_at": "2026-05-05T19:13:54+07:00",
+      "fetched_at": "2026-05-05T20:09:51+07:00",
       "sha256": "1b807381782fa59a82b238bf626f4cd8e19802744dbf605f066ecfa0cd341569"
     },
     {
       "name": "World Bank unemployment",
       "url": "https://api.worldbank.org/v2/country/VN/indicator/SL.UEM.TOTL.ZS?format=json&per_page=5",
-      "fetched_at": "2026-05-05T19:13:55+07:00",
+      "fetched_at": "2026-05-05T20:09:51+07:00",
       "sha256": "1fd8a24251c2a807e5150959c110fef6e47988d6423dca3b4300898cc987129b"
     },
     {
       "name": "SBV interest rates",
       "url": "https://www.sbv.gov.vn/webcenter/portal/vi/menu/trangchu/lstk",
-      "fetched_at": "2026-05-05T19:13:58+07:00",
-      "sha256": "88758e4f02f01871597ee5c956a88137ec49bc2b08b63f65d3e7ce3ea45993ca"
+      "fetched_at": "2026-05-05T20:09:54+07:00",
+      "sha256": "c5ff452dac9ee37c3f464bbda890be0900a8c1ff60a4f7754da64f8a1bed7e3c"
     },
     {
       "name": "SBV exchange rates",
       "url": "https://www.sbv.gov.vn/webcenter/portal/vi/menu/rm/tygia",
-      "fetched_at": "2026-05-05T19:14:01+07:00",
-      "sha256": "a640bf858e28752f210e3fb3e461bd53f648bde29987f26ef9443df3b3ed06b5"
+      "fetched_at": "2026-05-05T20:09:56+07:00",
+      "sha256": "2f6a2fce8dbea77e14c4ccd04314077481f05f4c7f531234bb6115e1970efc90"
     },
     {
       "name": "CafeF",
       "url": "https://cafef.vn/du-lieu/lai-suat-ngan-hang.chn",
-      "fetched_at": "2026-05-05T19:14:01+07:00",
-      "sha256": "22d9190d6bc10ad363dfa5c388008a080af682bd48ffc2273fbc6cbf757d8326"
+      "fetched_at": "2026-05-05T20:09:57+07:00",
+      "sha256": "a289cff941b1906deff1ebc341948f8cf154e1cf4dbcc67dae0d2ffbe1a01622"
     },
     {
       "name": "WebGia deposit rates",
       "url": "https://webgia.com/lai-suat/",
-      "fetched_at": "2026-05-05T19:14:02+07:00",
-      "sha256": "aa323c698a9b1c946f32795a5dc4bac033b48582e1394626d11e54bd89c0c873"
+      "fetched_at": "2026-05-05T20:09:57+07:00",
+      "sha256": "61746cb37f2ee3981dc6010c3654db3bca342812095d0504b8ff5a61e5ce2225"
     },
     {
       "name": "WebGia USD FX",
       "url": "https://webgia.com/ty-gia/usd/",
-      "fetched_at": "2026-05-05T19:14:02+07:00",
+      "fetched_at": "2026-05-05T20:09:57+07:00",
       "sha256": "6b3c238ebcf1f3c07cf0e556faa82c6b8fe96840ff4b6b7e9962a2d855843a0b"
     },
     {
       "name": "Vietcombank exchange rates",
       "url": "https://portal.vietcombank.com.vn/UserControls/TVPortal.TyGia/pXML.aspx",
-      "fetched_at": "2026-05-05T19:14:02+07:00",
-      "sha256": "cb57a3b1314c12e27992c0d05f6dd55374d8edc45e847df1e8341fc3d40bbad2"
+      "fetched_at": "2026-05-05T20:09:58+07:00",
+      "sha256": "5f503945544767e31b9f8fd7744579b4495cc3d0952d1aa4e087c25048dcc418"
     }
   ],
   "rates": {
@@ -71,114 +71,102 @@
       "value": 4.5,
       "unit": "percent",
       "source": "Trading Economics / State Bank of Vietnam",
-      "timestamp": "2026-05-05T19:14:02+07:00"
+      "timestamp": "2026-05-05T20:09:58+07:00"
     },
     "deposit_rates": {
       "unit": "%/year",
       "by_bank": {
         "Agribank": {
-          "18m": {
+          "24m": {
             "value": 5.3,
             "source": "WebGia",
             "source_quality": "secondary",
             "confidence": 0.55
           }
         },
-        "GPBank": {
-          "9m": {
-            "value": 4.3,
-            "source": "WebGia",
-            "source_quality": "secondary",
-            "confidence": 0.55
-          },
-          "24m": {
-            "value": 5.3,
-            "source": "WebGia",
-            "source_quality": "secondary",
-            "confidence": 0.55
-          },
-          "36m": {
-            "value": 5.3,
+        "BIDV": {
+          "3m": {
+            "value": 2.3,
             "source": "WebGia",
             "source_quality": "secondary",
             "confidence": 0.55
           }
         },
         "Hong Leong": {
-          "13m": {
-            "value": 7.33,
-            "source": "WebGia",
-            "source_quality": "secondary",
-            "confidence": 0.55
-          },
-          "18m": {
-            "value": 6.3,
-            "source": "WebGia",
-            "source_quality": "secondary",
-            "confidence": 0.55
-          }
-        },
-        "MSB": {
-          "9m": {
-            "value": 6.31,
+          "3m": {
+            "value": 4.3,
             "source": "WebGia",
             "source_quality": "secondary",
             "confidence": 0.55
           }
         },
         "OCB": {
-          "1m": {
-            "value": 0.3,
-            "source": "WebGia",
-            "source_quality": "secondary",
-            "confidence": 0.55
-          },
-          "6m": {
-            "value": 4.37,
+          "13m": {
+            "value": 6.3,
             "source": "WebGia",
             "source_quality": "secondary",
             "confidence": 0.55
           }
         },
-        "PGBank": {
-          "12m": {
-            "value": 6.36,
-            "source": "WebGia",
-            "source_quality": "secondary",
-            "confidence": 0.55
-          }
-        },
-        "VietinBank": {
-          "6m": {
-            "value": 2.34,
-            "source": "WebGia",
-            "source_quality": "secondary",
-            "confidence": 0.55
-          },
-          "12m": {
+        "PVcomBank": {
+          "3m": {
             "value": 3.3,
             "source": "WebGia",
             "source_quality": "secondary",
             "confidence": 0.55
-          },
+          }
+        },
+        "VIB": {
+          "9m": {
+            "value": 5.3,
+            "source": "WebGia",
+            "source_quality": "secondary",
+            "confidence": 0.55
+          }
+        },
+        "Vietcombank": {
           "36m": {
             "value": 6.3,
             "source": "WebGia",
             "source_quality": "secondary",
             "confidence": 0.55
           }
+        },
+        "VietinBank": {
+          "1m": {
+            "value": 0.3,
+            "source": "WebGia",
+            "source_quality": "secondary",
+            "confidence": 0.55
+          }
+        },
+        "VPBank": {
+          "13m": {
+            "value": 6.36,
+            "source": "WebGia",
+            "source_quality": "secondary",
+            "confidence": 0.55
+          }
+        },
+        "VRB": {
+          "24m": {
+            "value": 5.3,
+            "source": "WebGia",
+            "source_quality": "secondary",
+            "confidence": 0.55
+          }
         }
       },
-      "source": "WebGia",
-      "source_quality": "secondary",
+      "source": "CafeF primary; WebGia secondary",
+      "source_quality": "mixed",
       "confidence": 0.55,
-      "timestamp": "2026-05-05T19:14:02+07:00"
+      "timestamp": "2026-05-05T20:09:58+07:00"
     },
     "usd_vnd": {
       "value": 26126.0,
       "unit": "VND/USD",
       "source": "CafeF/SBV",
-      "timestamp": "2026-05-05T19:14:02+07:00"
+      "timestamp": "2026-05-05T20:09:58+07:00"
     }
   },
   "series": [
@@ -188,7 +176,7 @@
       "unit": "percent",
       "reference_period": "latest",
       "source": "Trading Economics / State Bank of Vietnam",
-      "timestamp": "2026-05-05T19:13:54+07:00"
+      "timestamp": "2026-05-05T20:09:51+07:00"
     },
     {
       "name": "Vietnam Inflation Rate",
@@ -196,7 +184,7 @@
       "unit": "percent",
       "reference_period": "2024",
       "source": "World Bank",
-      "timestamp": "2026-05-05T19:13:54+07:00"
+      "timestamp": "2026-05-05T20:09:51+07:00"
     },
     {
       "name": "Vietnam Unemployment Rate",
@@ -204,7 +192,7 @@
       "unit": "percent",
       "reference_period": "2025",
       "source": "World Bank",
-      "timestamp": "2026-05-05T19:13:55+07:00"
+      "timestamp": "2026-05-05T20:09:51+07:00"
     }
   ],
   "parse_quality": {
@@ -212,7 +200,8 @@
     "missing_fields": [],
     "warnings": [
       "Trading Economics:provider_down:HTTP Error 403: Forbidden",
-      "Trading Economics interest rate:provider_down:HTTP Error 403: Forbidden;used_extracted_text_cache"
+      "Trading Economics interest rate:provider_down:HTTP Error 403: Forbidden;used_extracted_text_cache",
+      "CafeF deposit primary parser: no stable bank-tenor table parsed"
     ]
   },
   "quality_score": 0.95,

@@ -119,6 +119,43 @@ def add_deposit_source_quality(by_bank: dict[str, Any], source: str = "WebGia") 
         for bank, rates in by_bank.items()
     }
 
+def merge_deposit_rates(primary: dict[str, Any], secondary: dict[str, Any]) -> dict[str, Any]:
+    merged = add_deposit_source_quality(secondary, "WebGia")
+    for bank, rates in add_deposit_source_quality(primary, "CafeF").items():
+        merged.setdefault(bank, {}).update(rates)
+    return merged
+
+def parse_cafef_deposit_rates(html: str) -> tuple[dict[str, Any], list[str]]:
+    warnings: list[str] = []
+    by_bank: dict[str, dict[str, float]] = {}
+    rows = re.findall(r"<tr[^>]*>(.*?)</tr>", html, re.S | re.I)
+    for row in rows:
+        cells = re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", row, re.S | re.I)
+        if len(cells) < 2:
+            continue
+        bank = normalize_bank_name(html_text(cells[0]))
+        if not bank:
+            continue
+        rates: dict[str, float] = {}
+        row_text = strip_html(row)
+        for tenor in VALID_TENORS:
+            month = tenor[:-1]
+            m = re.search(rf"(?:^|\s){re.escape(month)}\s*(?:tháng|T)\D{{0,40}}([0-9]+(?:[,.][0-9]+)?)", row_text, re.I)
+            v = vn_num(m.group(1)) if m else None
+            if pct_range(v):
+                rates[tenor] = v
+        if not rates:
+            numeric = [vn_num(html_text(c)) for c in cells[1:1 + len(VALID_TENORS)]]
+            for tenor, v in zip(VALID_TENORS, numeric):
+                if pct_range(v):
+                    rates[tenor] = v
+        if rates:
+            by_bank[bank] = rates
+    if not by_bank:
+        warnings.append("CafeF deposit primary parser: no stable bank-tenor table parsed")
+    return by_bank, warnings
+
+
 def parse_webgia_deposit_rates(html: str) -> dict[str, Any]:
     tenors = VALID_TENORS
     by_bank: dict[str, dict[str, float]] = {}
@@ -280,7 +317,8 @@ def main() -> int:
         SOURCES.insert(1, {"name": "Trading Economics interest rate text", "url": str(Path(args.te_interest_text_file)), "kind": "te_interest_rate_text_file"})
     warnings: list[str] = []
     series: list[dict[str, Any]] = []
-    deposit_rates: dict[str, Any] = {}
+    cafef_deposit_rates: dict[str, Any] = {}
+    webgia_deposit_rates: dict[str, Any] = {}
     usd_vnd: float | None = None
     policy_alt: dict[str, Any] | None = None
     for src in SOURCES:
@@ -308,8 +346,11 @@ def main() -> int:
                 policy_alt = parse_sbv_policy_rate(text)
             elif src["kind"] == "sbv_fx_rates":
                 usd_vnd = usd_vnd or parse_sbv_fx_rate(text)
+            elif src["kind"] == "rates_fx":
+                cafef_deposit_rates, cafef_warnings = parse_cafef_deposit_rates(raw)
+                warnings.extend(cafef_warnings)
             elif src["kind"] == "deposit_rates":
-                deposit_rates = parse_webgia_deposit_rates(raw)
+                webgia_deposit_rates = parse_webgia_deposit_rates(raw)
             elif src["kind"] == "webgia_usd_fx":
                 usd_vnd = usd_vnd or parse_webgia_usd_fx(raw)
             elif src["kind"] == "vcb_fx_rates":
@@ -325,6 +366,7 @@ def main() -> int:
         missing.append("policy_rate")
     if not inflation:
         missing.append("inflation")
+    deposit_rates = merge_deposit_rates(cafef_deposit_rates, webgia_deposit_rates)
     if not deposit_rates:
         missing.append("deposit_rates_by_bank_tenor")
     if usd_vnd is None:
@@ -334,7 +376,7 @@ def main() -> int:
         "source": sources_meta,
         "rates": {
             "policy_rate_pct": {"value": policy.get("value") if policy else None, "unit": "percent", "source": policy.get("source") if policy else "Trading Economics/SBV", "timestamp": now_iso()},
-            "deposit_rates": {"unit": "%/year", "by_bank": add_deposit_source_quality(deposit_rates, "WebGia"), "source": "WebGia", "source_quality": "secondary", "confidence": 0.55, "timestamp": now_iso()},
+            "deposit_rates": {"unit": "%/year", "by_bank": deposit_rates, "source": "CafeF primary; WebGia secondary", "source_quality": "mixed", "confidence": 0.85 if cafef_deposit_rates else 0.55, "timestamp": now_iso()},
             "usd_vnd": {"value": usd_vnd, "unit": "VND/USD", "source": "CafeF/SBV", "timestamp": now_iso()},
         },
         "series": series,

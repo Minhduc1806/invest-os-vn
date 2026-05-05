@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-05-05T19:24:26+07:00",
+  "as_of": "2026-05-05T20:10:22+07:00",
   "source": [
     "Trading Economics",
     "PNJ investor relations",
@@ -10,29 +10,29 @@
       "name": "Trading Economics",
       "url": "C:\\Users\\DUC\\.openclaw\\workspace\\invest-os-vn\\data_live\\raw\\te_news_fetch_text.txt",
       "fallback_from": "https://tradingeconomics.com/vietnam/news",
-      "fetched_at": "2026-05-05T19:24:25+07:00",
+      "fetched_at": "2026-05-05T20:10:22+07:00",
       "sha256": "cc77c42e8c79731345e15e7624c34c13b73d509e1f6f10a5adbc8f5b00c117f2",
       "source_mode": "extracted_text_cache"
     },
     {
       "name": "PNJ investor relations",
       "url": "https://www.pnj.com.vn/quan-he-co-dong/",
-      "fetched_at": "2026-05-05T19:24:25+07:00",
-      "sha256": "d7b2978be3c816aec99b3fad8b7ef00185d483cd0fdc00777e07f4fc2d88ac5f"
+      "fetched_at": "2026-05-05T20:10:22+07:00",
+      "sha256": "98acfd431eb1247f1f2e5b4cba05309f1bb426f69bb13963130803b72b83b49e"
     },
     {
       "name": "CafeF lãi suất - tỷ giá",
       "url": "https://cafef.vn/du-lieu/lai-suat-ngan-hang.chn",
-      "fetched_at": "2026-05-05T19:24:26+07:00",
-      "sha256": "a946d82664511be3435673d497803056c39157424c6e831cb79dd0f73e0eaa07"
+      "fetched_at": "2026-05-05T20:10:22+07:00",
+      "sha256": "edbf95e224cd89c7696255f7eea9f40861797f1e975c6161e502d1fa5aed6c6f"
     }
   ],
   "items": [
     {
       "title": "Vietnam Stock Market was reported by Trading Economics with current market context.",
       "url": "https://tradingeconomics.com/vietnam/news",
-      "timestamp": "2026-05-05T19:24:25+07:00",
-      "published_at": "2026-05-05T19:24:25+07:00",
+      "timestamp": "2026-05-05T20:10:22+07:00",
+      "published_at": "2026-05-05T20:10:22+07:00",
       "source": "Trading Economics",
       "source_mode": "extracted_text_cache",
       "dedupe_key": "72f1df3e5034c1e4acd67c6dc47389b5c6dedeea",
@@ -42,8 +42,8 @@
     {
       "title": "Vietnam interest rate and inflation updates remain key macro inputs for local equities.",
       "url": "https://tradingeconomics.com/vietnam/news",
-      "timestamp": "2026-05-05T19:24:25+07:00",
-      "published_at": "2026-05-05T19:24:25+07:00",
+      "timestamp": "2026-05-05T20:10:22+07:00",
+      "published_at": "2026-05-05T20:10:22+07:00",
       "source": "Trading Economics",
       "source_mode": "extracted_text_cache",
       "dedupe_key": "7e067aec2421f869bf4eada05dd4c4c119405e62",
@@ -53,8 +53,8 @@
     {
       "title": "Vietnam currency and VND market news monitored for daily investable report risk context.",
       "url": "https://tradingeconomics.com/vietnam/news",
-      "timestamp": "2026-05-05T19:24:25+07:00",
-      "published_at": "2026-05-05T19:24:25+07:00",
+      "timestamp": "2026-05-05T20:10:22+07:00",
+      "published_at": "2026-05-05T20:10:22+07:00",
       "source": "Trading Economics",
       "source_mode": "extracted_text_cache",
       "dedupe_key": "05a2fc2f1367f99a1ea6f6a113efdd481becea1b",
@@ -62,68 +62,50 @@
       "summary": "Vietnam currency and VND market news monitored for daily investable report risk context."
     },
     {
-      "title": "Quan hệ cổ đông (IR)",
+      "title": "Đại hội đồng cổ đông",
       "url": "https://www.pnj.com.vn/quan-he-co-dong/dai-hoi-dong-co-dong/",
-      "timestamp": "2026-05-05T19:24:25+07:00",
-      "published_at": "2026-05-05T19:24:25+07:00",
+      "timestamp": "2026-05-05T20:10:22+07:00",
+      "published_at": "2026-05-05T20:10:22+07:00",
       "source": "PNJ investor relations",
       "dedupe_key": "c8127c0e52f8e8f626762383b9a509ad506e19ce",
       "tickers": [
         "PNJ"
       ],
-      "summary": "Quan hệ cổ đông (IR)"
+      "summary": "Đại hội đồng cổ đông"
     },
     {
-      "title": "Đồng Hồ Thụy Sỹ",
-      "url": "https://www.pnj.com.vn/quan-he-co-dong/#",
-      "timestamp": "2026-05-05T19:24:25+07:00",
-      "published_at": "2026-05-05T19:24:25+07:00",
+      "title": "Báo cáo tài chính",
+      "url": "https://www.pnj.com.vn/quan-he-co-dong/bao-cao-tai-chinh/",
+      "timestamp": "2026-05-05T20:10:22+07:00",
+      "published_at": "2026-05-05T20:10:22+07:00",
       "source": "PNJ investor relations",
-      "dedupe_key": "55b6217e4f0099a358d130738f55b94a467f7da3",
+      "dedupe_key": "84c094c9a6842c0b0990a8aeba6b7c8322837abc",
       "tickers": [
         "PNJ"
       ],
-      "summary": "Đồng Hồ Thụy Sỹ"
+      "summary": "Báo cáo tài chính"
     },
     {
-      "title": "Đọc nhanh >>",
-      "url": "https://cafef.vn/doc-nhanh.chn",
-      "timestamp": "2026-05-05T19:24:26+07:00",
-      "published_at": "2026-05-05T19:24:26+07:00",
-      "source": "CafeF lãi suất - tỷ giá",
-      "dedupe_key": "b354f2011f4eaa2eb72da48af373d9ca1cb4eec0",
-      "tickers": [],
-      "summary": "Đọc nhanh >>"
+      "title": "Báo cáo thường niên",
+      "url": "https://www.pnj.com.vn/quan-he-co-dong/bao-cao-thuong-nien/",
+      "timestamp": "2026-05-05T20:10:22+07:00",
+      "published_at": "2026-05-05T20:10:22+07:00",
+      "source": "PNJ investor relations",
+      "dedupe_key": "df92f35e47e3d5f0fa43b9df15a888b72e191e9f",
+      "tickers": [
+        "PNJ"
+      ],
+      "summary": "Báo cáo thường niên"
     },
     {
-      "title": "&nbsp;' + userName + '&nbsp;",
-      "url": "http://cafef.vn/danh-muc-dau-tu.chn",
-      "timestamp": "2026-05-05T19:24:26+07:00",
-      "published_at": "2026-05-05T19:24:26+07:00",
+      "title": "Lãi suất ngân hàng",
+      "url": "https://cafef.vn/du-lieu/lai-suat-ngan-hang.chn",
+      "timestamp": "2026-05-05T20:10:22+07:00",
+      "published_at": "2026-05-05T20:10:22+07:00",
       "source": "CafeF lãi suất - tỷ giá",
-      "dedupe_key": "091ca7b8dad31c3ac76a483ffe4700b7cb5fabe1",
+      "dedupe_key": "e9d482f9ce8d91585858f9e5b0cd19de7c37af68",
       "tickers": [],
-      "summary": "&nbsp;' + userName + '&nbsp;"
-    },
-    {
-      "title": "BẤT ĐỘNG SẢN",
-      "url": "https://cafef.vn/bat-dong-san.chn",
-      "timestamp": "2026-05-05T19:24:26+07:00",
-      "published_at": "2026-05-05T19:24:26+07:00",
-      "source": "CafeF lãi suất - tỷ giá",
-      "dedupe_key": "7fb0dba166b016cf84ec323b1623e1d7e2e50684",
-      "tickers": [],
-      "summary": "BẤT ĐỘNG SẢN"
-    },
-    {
-      "title": "DOANH NGHIỆP",
-      "url": "https://cafef.vn/doanh-nghiep.chn",
-      "timestamp": "2026-05-05T19:24:26+07:00",
-      "published_at": "2026-05-05T19:24:26+07:00",
-      "source": "CafeF lãi suất - tỷ giá",
-      "dedupe_key": "d6713c6b087e0d69af7442e4a9794d2b49de2224",
-      "tickers": [],
-      "summary": "DOANH NGHIỆP"
+      "summary": "Lãi suất ngân hàng"
     }
   ],
   "warnings": [

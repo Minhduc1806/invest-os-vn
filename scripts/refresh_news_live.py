@@ -77,13 +77,19 @@ def extract_te_text_items(source: dict[str, str], text: str, limit: int = 5) -> 
     return items
 
 
-STATIC_PATH_RE = re.compile(r"/(customer|account|cart|checkout|dang-nhap|thay-doi-mat-khau|doc-nhanh|liveboard|du-lieu/danh-muc|hang-dat-truoc|cau-chuyen-pnj)(/|$|[?])", re.I)
-PNJ_ARTICLE_RE = re.compile(r"/(quan-he-co-dong|tin-tuc|cong-bo-thong-tin|bao-cao|dai-hoi-dong-co-dong)/", re.I)
-CAFEF_ARTICLE_RE = re.compile(r"/(thi-truong-chung-khoan|tai-chinh-ngan-hang|vi-mo-dau-tu|du-lieu/lai-suat-ngan-hang|du-lieu/ty-gia|cafef)\.", re.I)
-MENU_TITLE_RE = re.compile(r"^(Tài khoản|Đổi mật khẩu|Đọc nhanh|Bảng giá|Danh mục đầu tư|Hàng đặt trước|Câu chuyện PNJ)$", re.I)
+STATIC_PATH_RE = re.compile(r"/(customer|account|cart|checkout|dang-nhap|thay-doi-mat-khau|doc-nhanh|liveboard|du-lieu/danh-muc|danh-muc-dau-tu|hang-dat-truoc|cau-chuyen-pnj)(/|$|[?.])", re.I)
+PNJ_ARTICLE_RE = re.compile(r"/(quan-he-co-dong/(cong-bo-thong-tin|bao-cao|dai-hoi-dong-co-dong|bao-cao-thuong-nien|bao-cao-tai-chinh)|tin-tuc)/", re.I)
+CAFEF_ARTICLE_RE = re.compile(r"/\d{8,}/|-[0-9]{8,}\.chn$|/du-lieu/(lai-suat-ngan-hang|ty-gia)\.chn$", re.I)
+MENU_TITLE_RE = re.compile(r"^(Tài khoản|Đổi mật khẩu|Đọc nhanh|Đọc nhanh >>|Bảng giá|Danh mục đầu tư|Hàng đặt trước|Câu chuyện PNJ|BẤT ĐỘNG SẢN|DOANH NGHIỆP|THỊ TRƯỜNG CHỨNG KHOÁN|TÀI CHÍNH - NGÂN HÀNG)$", re.I)
+
+def clean_title(title: str) -> str:
+    title = re.sub(r"\s+", " ", title).strip(" -|\t\n\r")
+    title = re.sub(r"^(Tin tức|Quan hệ cổ đông|CafeF)\s*[-:|]\s*", "", title, flags=re.I)
+    return title.strip()
+
 
 def is_real_news_link(source_name: str, url: str, title: str) -> bool:
-    if STATIC_PATH_RE.search(url) or MENU_TITLE_RE.search(title):
+    if url.endswith("#") or STATIC_PATH_RE.search(url) or MENU_TITLE_RE.search(title) or "userName" in title:
         return False
     if source_name.startswith("PNJ"):
         return bool(PNJ_ARTICLE_RE.search(url))
@@ -99,7 +105,7 @@ def extract_links(source: dict[str, str], html: str, limit: int = 5) -> list[dic
     base = source["url"]
     for m in re.finditer(r'<a\s+[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', html, re.S | re.I):
         url = urljoin(base, m.group(1))
-        title = strip(m.group(2))
+        title = clean_title(strip(m.group(2)))
         if len(title) < 12 or DIRTY.search(title) or url.startswith("javascript:"):
             continue
         if source["name"] == "Trading Economics" and "tradingeconomics.com" not in url:
@@ -124,18 +130,17 @@ def extract_links(source: dict[str, str], html: str, limit: int = 5) -> list[dic
         if len(items) >= limit:
             break
     if not items:
-        text = strip(html)
-        title = text[:160]
-        if len(title) >= 12 and not DIRTY.search(title):
+        text = clean_title(strip(html)[:160])
+        if source["name"] == "Trading Economics" and len(text) >= 12 and not DIRTY.search(text):
             items.append({
-                "title": title,
+                "title": text,
                 "url": base,
                 "timestamp": now_iso(),
                 "published_at": now_iso(),
                 "source": source["name"],
                 "dedupe_key": hashlib.sha1(base.encode("utf-8")).hexdigest(),
-                "tickers": ["PNJ"] if "pnj" in base.lower() else [],
-                "summary": title,
+                "tickers": [],
+                "summary": text,
             })
     return items
 
