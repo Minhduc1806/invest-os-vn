@@ -1,0 +1,16 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Invest OS VN real portfolio contract",
+  "type": "object",
+  "required": ["as_of", "source", "valuation", "cash_vnd", "positions"],
+  "properties": {
+    "as_of": {"type": "string", "format": "date-time"},
+    "source": {"type": ["string", "array", "object"]},
+    "account_id": {"type": "string"},
+    "risk_profile": {"type": "string"},
+    "valuation": {"type": "object", "required": ["nav_vnd", "equity_value_vnd", "cash_vnd"], "properties": {"nav_vnd": {"type": "number"}, "equity_value_vnd": {"type": "number"}, "cash_vnd": {"type": "number"}}},
+    "cash_vnd": {"type": "number", "minimum": 0},
+    "margin_debt_vnd": {"type": "number", "minimum": 0},
+    "positions": {"type": "array", "items": {"type": "object", "required": ["ticker", "quantity", "avg_cost", "last_price", "market_value_vnd", "source"], "properties": {"ticker": {"type": "string"}, "quantity": {"type": "number"}, "avg_cost": {"type": "number"}, "last_price": {"type": "number"}, "market_value_vnd": {"type": "number"}, "sector": {"type": "string"}, "source": {"type": ["string", "array", "object"]}}}}
+  }
+}

@@ -115,8 +115,8 @@ def live_input_path(name: str, universe: str) -> str:
         "ohlcv": live_ohlcv_path(universe),
         "fundamentals": "data_live/fundamentals_sample.vn.json",
         "portfolio": "data_live/portfolio_real.json",
-        "news": "mock_data/news_sample.vn.json",
-        "macro_rates": "mock_data/macro_rates_sample.vn.json",
+        "news": "data_live/news_live.vn.json",
+        "macro_rates": "data_live/macro_rates_live.vn.json",
     }
     return live_overrides[name]
 
@@ -143,7 +143,20 @@ def refresh_live_ohlcv_if_needed(config: Dict[str, Any], pipeline_name: str, uni
         cmd += ["--timeframe", "EOD"]
     subprocess.run(cmd, cwd=ROOT, check=True)
 
-def refresh_live_market_snapshot_if_needed(config: Dict[str, Any], pipeline_name: str) -> None:
+def _market_refresh_tickers(universe: str = "investable") -> str:
+    bars_path = ROOT / live_ohlcv_path(universe)
+    if bars_path.exists():
+        try:
+            bars = load_json(bars_path).get("bars", [])
+            tickers = [str(b.get("ticker", "")).upper() for b in bars if b.get("ticker")]
+            tickers = list(dict.fromkeys(tickers))[:80]
+            if tickers:
+                return ",".join(tickers)
+        except Exception:
+            pass
+    return "PNJ,FPT,MWG,VCB,SSI,HPG,TCB,MBB,VIC,VHM,GVR,STB,VPB,CTG,ACB"
+
+def refresh_live_market_snapshot_if_needed(config: Dict[str, Any], pipeline_name: str, universe: str = "investable") -> None:
     """Regenerate live market snapshot before quality gate when cache age exceeds policy."""
     path = ROOT / "data_live" / "market_snapshot.vn.json"
     if not path.exists():
@@ -160,11 +173,16 @@ def refresh_live_market_snapshot_if_needed(config: Dict[str, Any], pipeline_name
     age_min = (datetime.now().astimezone() - as_of).total_seconds() / 60
     if age_min <= max_min:
         return
-    subprocess.run([sys.executable, str(ROOT / "scripts" / "data_adapters.py"), "--market"], cwd=ROOT, check=True)
+    subprocess.run([sys.executable, str(ROOT / "scripts" / "data_adapters.py"), "--market", "--tickers", _market_refresh_tickers(universe)], cwd=ROOT, check=True)
+
+def run_phase4_real_only_gate() -> None:
+    proc = subprocess.run([sys.executable, str(ROOT / "scripts" / "phase4_real_data_gap_audit.py")], cwd=ROOT, text=True, encoding="utf-8", errors="replace")
+    if proc.returncode != 0:
+        raise RuntimeError("PHASE4_REAL_ONLY_GATE_BLOCKED: scripts/phase4_real_data_gap_audit.py failed")
 
 def load_inputs(config: Dict[str, Any], pipeline: Dict[str, Any], live: bool = True, universe: str = "hose_all", pipeline_name: str = "") -> Dict[str, Any]:
     if live and "market_snapshot" in pipeline.get("inputs", []):
-        refresh_live_market_snapshot_if_needed(config, pipeline_name)
+        refresh_live_market_snapshot_if_needed(config, pipeline_name, universe)
     if live and "ohlcv" in pipeline.get("inputs", []):
         refresh_live_ohlcv_if_needed(config, pipeline_name, universe)
     inputs = {}
@@ -211,12 +229,15 @@ def quality_gate(config: Dict[str, Any], inputs: Dict[str, Any], pipeline_name: 
     qcfg = config.get("quality_gate", {})
     stale = qcfg.get("block_if_stale_minutes", {})
     blocked_sources = set(qcfg.get("block_sources", ["mock_news_hub", "mock_macro_provider"]))
-    min_breadth_sample = int(qcfg.get("min_breadth_sample", 30))
+    min_breadth_sample = int(qcfg.get("min_breadth_sample", 20))
     now = datetime.now().astimezone()
     for name, data in inputs.items():
         if not isinstance(data, dict):
             warnings.append(f"{name}: invalid payload type {type(data).__name__}")
             continue
+        status = data.get("status")
+        if status in {"placeholder_not_real", "template", "sample"}:
+            warnings.append(f"{name}: placeholder status {status}")
         if qcfg.get("require_as_of", True) and "as_of" not in data:
             warnings.append(f"{name}: missing as_of")
         if qcfg.get("require_sources", True) and "source" not in data:
@@ -234,6 +255,16 @@ def quality_gate(config: Dict[str, Any], inputs: Dict[str, Any], pipeline_name: 
             max_min = stale.get(key)
             if max_min and (now - as_of).total_seconds() / 60 > max_min:
                 warnings.append(f"{name}: stale as_of {data.get('as_of')} > {max_min}m")
+        if name == "portfolio":
+            positions = data.get("positions") or []
+            valuation = data.get("valuation") or {}
+            nav = float(data.get("cash_vnd") or 0) + sum(float(p.get("quantity") or 0) * float(p.get("last_price") or 0) for p in positions if isinstance(p, dict)) - float(data.get("margin_debt_vnd") or 0)
+            if nav <= 0 or not isinstance(valuation, dict) or valuation.get("nav_vnd") is None:
+                warnings.append("portfolio: missing real valuation or zero NAV")
+        if name == "news" and not (data.get("items") or data.get("news")):
+            warnings.append("news: empty items")
+        if name == "macro_rates" and not any(k in data for k in ("rates", "macro", "items", "series")):
+            warnings.append("macro_rates: empty series")
         if name == "ohlcv" and not data.get("bars"):
             warnings.append("ohlcv: empty bars")
         if name == "market_snapshot":
@@ -288,6 +319,21 @@ def derive_market_regime(market: Dict[str, Any], macro: Dict[str, Any] | None = 
     }
 
 
+def source_list(values: Any) -> list[str]:
+    out: list[str] = []
+    def add(v: Any) -> None:
+        if v is None:
+            return
+        if isinstance(v, list):
+            for x in v:
+                add(x)
+        elif isinstance(v, dict):
+            add(v.get("name") or v.get("source") or v.get("url"))
+        else:
+            out.append(str(v))
+    add(values)
+    return list(dict.fromkeys(out))
+
 def run_eod_market_brief(inputs: Dict[str, Any]) -> Dict[str, Any]:
     market, news, macro = inputs["market_snapshot"], inputs["news"], inputs["macro_rates"]
     regime = derive_market_regime(market, macro)
@@ -310,7 +356,7 @@ def run_eod_market_brief(inputs: Dict[str, Any]) -> Dict[str, Any]:
             "Giảm tốc nếu thanh khoản tăng nhưng breadth xấu đi hoặc basis phái sinh âm rộng.",
             "Không gọi nhóm dẫn dắt nếu sector ranking không duy trì qua ít nhất 2 phiên.",
         ],
-        "sources": [market["source"], news["source"], macro["source"]],
+        "sources": source_list([market["source"], news["source"], macro["source"]]),
         "confidence": 0.74,
         "disclaimer": "Thông tin hỗ trợ quyết định, không phải khuyến nghị đầu tư cá nhân hóa bắt buộc mua/bán.",
     }
@@ -365,7 +411,7 @@ def run_stock_signal_scan(inputs: Dict[str, Any]) -> Dict[str, Any]:
         "universe_size": len(source_bars),
         "universe_filter": ohlcv.get("params", {}),
         "excluded_count": ohlcv.get("excluded_count"),
-        "sources": [market["source"], ohlcv["source"]],
+        "sources": source_list([market["source"], ohlcv["source"]]),
         "confidence": 0.72,
         "disclaimer": "Tín hiệu là kịch bản có điều kiện, không phải lệnh mua/bán.",
     }
@@ -436,7 +482,7 @@ def run_portfolio_daily_advice(inputs: Dict[str, Any]) -> Dict[str, Any]:
         "ticker_news": ticker_news,
         "risks": risks or ["Chưa phát hiện rủi ro vượt ngưỡng cấu hình."],
         "actions": actions,
-        "sources": [portfolio["source"], market["source"], news["source"], ohlcv["source"]],
+        "sources": source_list([portfolio["source"], market["source"], news["source"], ohlcv["source"]]),
         "confidence": 0.76,
         "disclaimer": "Kế hoạch danh mục cần đối chiếu khẩu vị rủi ro thật và lệnh thực tế.",
     }
@@ -470,7 +516,7 @@ def run_company_deep_dive(inputs: Dict[str, Any], ticker: str) -> Dict[str, Any]
             "Giá không thủng vùng hỗ trợ kỹ thuật chính.",
             "Định giá không mở rộng quá nhanh so với tăng trưởng lợi nhuận.",
         ],
-        "sources": [fundamentals["source"], news["source"], ohlcv["source"]],
+        "sources": source_list([fundamentals["source"], news["source"], ohlcv["source"]]),
         "confidence": 0.73,
         "disclaimer": "Company deep dive là hồ sơ tham chiếu, không phải lệnh mua/bán.",
     }
@@ -535,6 +581,8 @@ def main() -> int:
     log_path = ROOT / config["runtime"].get("audit_log", "logs/audit.jsonl")
 
     audit(log_path, {"event": "pipeline_start", "pipeline": args.pipeline, "mock": args.mock, "live": live_mode, "universe": args.universe})
+    if live_mode:
+        run_phase4_real_only_gate()
     inputs = load_inputs(config, pipeline, live=live_mode, universe=args.universe, pipeline_name=args.pipeline)
     warnings = quality_gate(config, inputs, args.pipeline)
     assert_quality_or_raise(config, warnings, args.allow_quality_warnings or args.mock)
