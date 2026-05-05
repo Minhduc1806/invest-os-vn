@@ -2,6 +2,14 @@ $ErrorActionPreference = "Stop"
 $InformationPreference = "Continue"
 Set-Location "C:\Users\DUC\.openclaw\workspace\invest-os-vn"
 
+$envFile = ".env.telegram"
+if (Test-Path $envFile) {
+  Get-Content $envFile | Where-Object { $_ -match "^\s*[^#].*=" } | ForEach-Object {
+    $k, $v = $_ -split "=", 2
+    [Environment]::SetEnvironmentVariable($k.Trim(), $v.Trim(), "Process")
+  }
+}
+
 $logDir = "logs"
 New-Item -ItemType Directory -Force -Path $logDir | Out-Null
 $stamp = Get-Date -Format "yyyyMMdd_HHmmss"
