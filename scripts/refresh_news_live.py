@@ -77,6 +77,23 @@ def extract_te_text_items(source: dict[str, str], text: str, limit: int = 5) -> 
     return items
 
 
+STATIC_PATH_RE = re.compile(r"/(customer|account|cart|checkout|dang-nhap|thay-doi-mat-khau|doc-nhanh|liveboard|du-lieu/danh-muc|hang-dat-truoc|cau-chuyen-pnj)(/|$|[?])", re.I)
+PNJ_ARTICLE_RE = re.compile(r"/(quan-he-co-dong|tin-tuc|cong-bo-thong-tin|bao-cao|dai-hoi-dong-co-dong)/", re.I)
+CAFEF_ARTICLE_RE = re.compile(r"/(thi-truong-chung-khoan|tai-chinh-ngan-hang|vi-mo-dau-tu|du-lieu/lai-suat-ngan-hang|du-lieu/ty-gia|cafef)\.", re.I)
+MENU_TITLE_RE = re.compile(r"^(Tài khoản|Đổi mật khẩu|Đọc nhanh|Bảng giá|Danh mục đầu tư|Hàng đặt trước|Câu chuyện PNJ)$", re.I)
+
+def is_real_news_link(source_name: str, url: str, title: str) -> bool:
+    if STATIC_PATH_RE.search(url) or MENU_TITLE_RE.search(title):
+        return False
+    if source_name.startswith("PNJ"):
+        return bool(PNJ_ARTICLE_RE.search(url))
+    if source_name.startswith("CafeF"):
+        return bool(CAFEF_ARTICLE_RE.search(url))
+    if source_name == "Trading Economics":
+        return "tradingeconomics.com" in url
+    return True
+
+
 def extract_links(source: dict[str, str], html: str, limit: int = 5) -> list[dict[str, str]]:
     items: list[dict[str, str]] = []
     base = source["url"]
@@ -90,6 +107,8 @@ def extract_links(source: dict[str, str], html: str, limit: int = 5) -> list[dic
         if source["name"].startswith("PNJ") and "pnj" not in url.lower():
             continue
         if source["name"].startswith("CafeF") and "cafef.vn" not in url:
+            continue
+        if not is_real_news_link(source["name"], url, title):
             continue
         dedupe_key = hashlib.sha1((url or title).encode("utf-8")).hexdigest()
         items.append({
