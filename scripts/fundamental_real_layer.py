@@ -34,6 +34,16 @@ def clean(s:Any, limit:int=900)->str:
     t=re.sub(r'\s+',' ',str(s or '')).strip()
     return t[:limit]
 
+def load_cafef_financials()->dict[str,Any]:
+    p=LIVE/'cafef_financial_statements_html.vn.json'
+    if not p.exists(): return {}
+    data=json.loads(p.read_text(encoding='utf-8'))
+    out={}
+    for item in data.get('items',[]):
+        periods=item.get('periods') or []
+        if periods: out[item.get('ticker')]=periods[0]
+    return out
+
 def vnstock_obj():
     try:
         import vnstock # type: ignore
@@ -109,16 +119,24 @@ def main()->int:
     try: vnstock=vnstock_obj()
     except Exception as e:
         print(f'FUNDAMENTAL_REAL_FAILED {e}',file=sys.stderr); return 2
+    cafef=load_cafef_financials()
     for t in tickers:
         c,w=fetch_company(vnstock,t); warnings+=w
-        if c: companies.append(c)
+        if c:
+            if t in cafef and cafef[t].get('status')=='ok':
+                c['financials']['cafef_html']=cafef[t]
+                c['financial_metrics']=cafef[t].get('key_metrics',{})
+                c['source_quality']='primary_profile_plus_cafef_financials_real'
+                c['confidence']=0.82
+                c['risks']=[r for r in c.get('risks',[]) if 'financial_statement_empty_free_provider' not in r]
+            companies.append(c)
     missing=[t for t in tickers if t not in {c['ticker'] for c in companies}]
     if missing: warnings.append('missing_company_profiles:'+','.join(missing))
     if not companies or (missing and not args.allow_profile_only):
         print('FUNDAMENTAL_REAL_FAILED missing real profiles: '+','.join(missing),file=sys.stderr); return 2
     if any(not c.get('financials') for c in companies) and not args.allow_profile_only:
-        print('FUNDAMENTAL_REAL_FAILED financial statements empty; rerun with --allow-profile-only to accept real profile layer',file=sys.stderr); return 2
-    out={'as_of':now_iso(),'source':'vnstock.Company overview + vnstock.Finance when available','companies':companies,'deep_dive':[score_company(c) for c in companies],'parse_quality':{'required_passed':not missing,'missing_tickers':missing,'warnings':warnings,'no_sample_fallback':True},'quality_score':0.82 if all(c.get('financials') for c in companies) else 0.68,'status':'real_profile_fundamental_layer' if any(not c.get('financials') for c in companies) else 'real_full_fundamental_layer'}
+        print('FUNDAMENTAL_REAL_FAILED financial statements empty; run cafef_financial_statements_html_parser.py or rerun with --allow-profile-only',file=sys.stderr); return 2
+    out={'as_of':now_iso(),'source':'vnstock.Company overview + vnstock.Finance when available + CafeF HTML financial statement tables','companies':companies,'deep_dive':[score_company(c) for c in companies],'parse_quality':{'required_passed':not missing,'missing_tickers':missing,'warnings':warnings,'no_sample_fallback':True},'quality_score':0.82 if all(c.get('financials') for c in companies) else 0.68,'status':'real_profile_fundamental_layer' if any(not c.get('financials') for c in companies) else 'real_full_fundamental_layer'}
     save(LIVE/'fundamentals_live.vn.json',out)
     save(OUT/'company_deep_dive_real.json',out)
     md=['# VN Fundamental Real Layer','',f"as_of: {out['as_of']}",f"status: {out['status']}",'']

@@ -1,6 +1,6 @@
 {
-  "as_of": "2026-05-05T23:12:36+07:00",
-  "completion_pct": 83.3,
+  "as_of": "2026-05-06T00:32:23+07:00",
+  "completion_pct": 89.0,
   "items": [
     {
       "name": "vnstock_rate_limit_hardening",
@@ -8,9 +8,14 @@
       "note": "run_pipeline --no-refresh + cache-first market refresh + data_adapters throttle/stop"
     },
     {
+      "name": "cafef_html_financial_parser",
+      "done": true,
+      "note": "CafeF HTML table parser extracts income/balance/cashflow line-items; no PDF OCR dependency"
+    },
+    {
       "name": "fundamentals_full_financials",
-      "done": false,
-      "note": "Company.overview real; Finance tables empty in free vnstock, full valuation blocked until paid/API source"
+      "done": true,
+      "note": "Fundamental layer uses vnstock profile plus CafeF HTML financial line-items and ratios when available"
     },
     {
       "name": "true_multi_agent_workflow",
@@ -34,5 +39,5 @@
     }
   ],
   "macro_deposit_confidence": 0.85,
-  "fundamental_status": "real_profile_fundamental_layer"
+  "fundamental_status": "real_full_fundamental_layer"
 }
