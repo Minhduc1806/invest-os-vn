@@ -1,12 +1,35 @@
 {
-  "as_of": "YYYY-MM-DDTHH:MM:SS+07:00",
-  "source": "manual_real_portfolio_required",
+  "as_of": "2026-05-05T15:51:00+07:00",
+  "source": "user_provided_real_portfolio_telegram_2026-05-05",
   "account_id": "duc_real",
-  "risk_profile": "balanced",
+  "risk_profile": "unknown",
   "cash_vnd": 0,
-  "margin_debt_vnd": 0,
-  "positions": [],
-  "constraints": {"max_position_pct": 0.25, "min_cash_pct": 0.10},
-  "status": "placeholder_not_real",
-  "required_fields_note": "Nhập cash, margin_debt, risk_profile, positions: ticker, quantity, avg_cost, last_price, sector. Không dùng ví dụ FPT làm danh mục thật."
+  "margin_debt_vnd": 1162793985,
+  "positions": [
+    {
+      "ticker": "PNJ",
+      "quantity": 32400,
+      "avg_cost": 71600,
+      "last_price": 67400,
+      "market_value_vnd": 2183760000,
+      "sector": "unknown",
+      "source": "user_provided_real_portfolio_telegram_2026-05-05"
+    }
+  ],
+  "valuation": {
+    "equity_value_vnd": 2183760000,
+    "cash_vnd": 0,
+    "margin_debt_vnd": 1162793985,
+    "nav_vnd": 1020966015,
+    "gross_exposure_vnd": 2183760000,
+    "net_exposure_vnd": 1020966015,
+    "cash_pct": 0,
+    "margin_debt_pct_nav": 113.89154004693452,
+    "single_position_weight_pct_nav": 213.8915400469345
+  },
+  "constraints": {
+    "max_position_pct": 0.25,
+    "min_cash_pct": 0.10
+  },
+  "status": "real_user_provided"
 }
