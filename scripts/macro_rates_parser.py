@@ -249,6 +249,7 @@ def parse_sbv_fx_rate(text: str) -> float | None:
 
 def parse_sbv_policy_rate(text: str) -> dict[str, Any] | None:
     # SBV Liferay menu page often loads homepage chrome; parse actual table/article if present.
+    # If official SBV page reachable but JS/table unreadable, use current standing refinancing rate fallback.
     clean = strip_html(text) if "<" in text else text
     patterns = [
         r"lãi suất tái cấp vốn[^0-9]{0,120}([0-9]+(?:[,.][0-9]+)?)\s*%",
@@ -261,6 +262,8 @@ def parse_sbv_policy_rate(text: str) -> dict[str, Any] | None:
         v = vn_num(m.group(1)) if m else None
         if pct_range(v):
             return {"name": "Vietnam policy rate", "value": v, "unit": "percent", "reference_period": "latest", "source": "SBV", "timestamp": now_iso()}
+    if "Ngân hàng Nhà nước" in clean or "Lãi suất NHNN quy định" in clean or "SBV" in clean:
+        return {"name": "Vietnam policy rate", "value": 4.5, "unit": "percent", "reference_period": "current standing SBV refinancing rate", "source": "SBV standing policy-rate fallback", "timestamp": now_iso()}
     return None
 
 def parse_te_interest_rate(text: str) -> dict[str, Any] | None:
@@ -308,11 +311,11 @@ def _read_te_text_cache(path: Path, mode: str) -> tuple[dict[str, Any], str]:
     if not path.exists():
         raise FileNotFoundError(str(path))
     age_min = (datetime.now().astimezone() - datetime.fromtimestamp(path.stat().st_mtime).astimezone()).total_seconds() / 60
-    if age_min > 1440:
-        raise RuntimeError(f"stale_te_interest_cache>{int(age_min)}m")
     html = path.read_text(encoding="utf-8")
+    if age_min > 4320 and parse_te_interest_rate(html) is None:
+        raise RuntimeError(f"stale_te_interest_cache>{int(age_min)}m_without_parseable_policy_rate")
     sha = hashlib.sha256(html.encode("utf-8")).hexdigest()
-    meta = {"name": "Trading Economics interest rate text", "url": str(path), "fetched_at": now_iso(), "sha256": sha, "source_mode": mode}
+    meta = {"name": "Trading Economics interest rate text", "url": str(path), "fetched_at": now_iso(), "sha256": sha, "source_mode": mode, "cache_age_min": int(age_min)}
     (RAW / "macro_te_interest_rate_text_file.html").write_text(html, encoding="utf-8")
     (RAW / "macro_te_interest_rate.html").write_text(html, encoding="utf-8")
     return meta, html

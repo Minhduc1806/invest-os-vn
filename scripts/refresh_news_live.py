@@ -23,6 +23,7 @@ SOURCES = [
     {"name": "Trading Economics", "url": "https://tradingeconomics.com/vietnam/news"},
     {"name": "PNJ investor relations", "url": "https://www.pnj.com.vn/quan-he-co-dong/"},
     {"name": "CafeF lãi suất - tỷ giá", "url": "https://cafef.vn/du-lieu/lai-suat-ngan-hang.chn"},
+    {"name": "Vietstock mới cập nhật", "url": "https://vietstock.vn/chu-de/1-2/moi-cap-nhat.htm"},
 ]
 DIRTY = re.compile(r"\b(mock|sample|placeholder|TBD)\b", re.I)
 
@@ -81,6 +82,8 @@ STATIC_PATH_RE = re.compile(r"/(customer|account|cart|checkout|dang-nhap|thay-do
 PNJ_ARTICLE_RE = re.compile(r"/(quan-he-co-dong/(cong-bo-thong-tin|bao-cao|dai-hoi-dong-co-dong|bao-cao-thuong-nien|bao-cao-tai-chinh)|tin-tuc)/", re.I)
 CAFEF_ARTICLE_RE = re.compile(r"/\d{8,}/|-[0-9]{8,}\.chn$|/du-lieu/(lai-suat-ngan-hang|ty-gia)\.chn$", re.I)
 MENU_TITLE_RE = re.compile(r"^(Tài khoản|Đổi mật khẩu|Đọc nhanh|Đọc nhanh >>|Bảng giá|Danh mục đầu tư|Hàng đặt trước|Câu chuyện PNJ|BẤT ĐỘNG SẢN|DOANH NGHIỆP|THỊ TRƯỜNG CHỨNG KHOÁN|TÀI CHÍNH - NGÂN HÀNG)$", re.I)
+VIETSTOCK_GOOD_TITLE_RE = re.compile(r"(kết quả kinh doanh|đhđcđ|cổ tức|thoái vốn|phát hành|niêm yết|upcom|hose|hnx|trái phiếu|ngân hàng|chứng khoán|bất động sản|đầu tư công|vĩ mô|lãi suất|tỷ giá|xuất khẩu|thép|dầu khí|điện|khu công nghiệp|nợ xấu|tăng vốn|mua cổ phiếu quỹ|cảnh báo|kiểm toán|hủy niêm yết)", re.I)
+VIETSTOCK_BAD_TITLE_RE = re.compile(r"(quyền riêng tư|doanh nhân|khởi nghiệp|ir awards|tập san|phong cách sống|du lịch|ẩm thực|tiêu dùng cá nhân)", re.I)
 
 def clean_title(title: str) -> str:
     title = re.sub(r"\s+", " ", title).strip(" -|\t\n\r")
@@ -100,7 +103,53 @@ def is_real_news_link(source_name: str, url: str, title: str) -> bool:
     return True
 
 
+def build_item(source_name: str, url: str, title: str, summary: str | None = None, tickers: list[str] | None = None) -> dict[str, str]:
+    return {
+        "title": title[:220],
+        "url": url,
+        "timestamp": now_iso(),
+        "published_at": now_iso(),
+        "source": source_name,
+        "dedupe_key": hashlib.sha1((source_name + '|' + url + '|' + title).encode("utf-8")).hexdigest(),
+        "tickers": tickers or [],
+        "summary": (summary or title)[:240],
+    }
+
+
+def extract_vietstock_topics(source: dict[str, str], html: str, limit: int = 6) -> list[dict[str, str]]:
+    m = re.search(r"var\s+_config\s*=\s*(\{.*?\})\s*,\s*_topics\s*=\s*(\[.*?\])\s*;", html, re.S)
+    if not m:
+        return []
+    try:
+        config = json.loads(m.group(1))
+        topics = json.loads(m.group(2))
+    except Exception:
+        return []
+    topic_type = config.get("type", 2)
+    items: list[dict[str, str]] = []
+    for topic in topics:
+        title = clean_title(str(topic.get("TopicName") or topic.get("MetaTitle") or ""))
+        if len(title) < 12 or DIRTY.search(title):
+            continue
+        if VIETSTOCK_BAD_TITLE_RE.search(title):
+            continue
+        if not VIETSTOCK_GOOD_TITLE_RE.search(title):
+            continue
+        topic_id = topic.get("TopicID")
+        if not topic_id:
+            continue
+        url = f"https://vietstock.vn/chu-de/{topic_id}-{topic_type}/{source['url'].rsplit('/',1)[-1]}"
+        items.append(build_item(source["name"], url, title, summary=f"Vietstock topic watchlist from template metadata: {title}"))
+        if len(items) >= limit:
+            break
+    return items
+
+
 def extract_links(source: dict[str, str], html: str, limit: int = 5) -> list[dict[str, str]]:
+    if source["name"] == "Vietstock mới cập nhật":
+        items = extract_vietstock_topics(source, html, limit=limit)
+        if items:
+            return items
     items: list[dict[str, str]] = []
     base = source["url"]
     for m in re.finditer(r'<a\s+[^>]*href=["\']([^"\']+)["\'][^>]*>(.*?)</a>', html, re.S | re.I):
@@ -114,34 +163,17 @@ def extract_links(source: dict[str, str], html: str, limit: int = 5) -> list[dic
             continue
         if source["name"].startswith("CafeF") and "cafef.vn" not in url:
             continue
+        if source["name"].startswith("Vietstock") and "vietstock.vn" not in url:
+            continue
         if not is_real_news_link(source["name"], url, title):
             continue
-        dedupe_key = hashlib.sha1((url or title).encode("utf-8")).hexdigest()
-        items.append({
-            "title": title[:220],
-            "url": url,
-            "timestamp": now_iso(),
-            "published_at": now_iso(),
-            "source": source["name"],
-            "dedupe_key": dedupe_key,
-            "tickers": ["PNJ"] if "pnj" in (title + url).lower() else [],
-            "summary": title[:240],
-        })
+        items.append(build_item(source["name"], url, title, tickers=["PNJ"] if "pnj" in (title + url).lower() else []))
         if len(items) >= limit:
             break
     if not items:
         text = clean_title(strip(html)[:160])
         if source["name"] == "Trading Economics" and len(text) >= 12 and not DIRTY.search(text):
-            items.append({
-                "title": text,
-                "url": base,
-                "timestamp": now_iso(),
-                "published_at": now_iso(),
-                "source": source["name"],
-                "dedupe_key": hashlib.sha1(base.encode("utf-8")).hexdigest(),
-                "tickers": [],
-                "summary": text,
-            })
+            items.append(build_item(source["name"], base, text))
     return items
 
 

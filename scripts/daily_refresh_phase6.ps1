@@ -38,7 +38,8 @@ function Run-Optional-Step($name, $cmd) {
   if ($exitCode -ne 0) { Write-Output "$name skipped/failed optional with exit code $exitCode" | Tee-Object -FilePath $log -Append }
 }
 
-# TE direct HTTP often 403. If browser-extracted cache already fresh, macro parser validates it.
+# TE direct HTTP often 403. Refresh extracted-text cache first; macro parser can still use SBV standing fallback if TE blocks.
+Run-Optional-Step "TE interest cache refresh optional" "python scripts\refresh_te_interest_text_cache.py"
 Run-Step "macro parser" "python scripts\macro_rates_parser.py --merge-live"
 # Default daily run is cache-first to avoid vnstock 20 req/min guest cap. Explicit provider refresh can run separately after close.
 Run-Optional-Step "market snapshot refresh optional" "python scripts\data_adapters.py --market --tickers PNJ,FPT,MWG,VCB,SSI,HPG,TCB,MBB,VIC,VHM,GVR,STB,VPB,CTG,ACB,MSN,VNM"
@@ -50,7 +51,7 @@ Run-Step "fundamental real layer" "python scripts\fundamental_real_layer.py --ti
 Run-Step "audit" "python scripts\phase4_real_data_gap_audit.py --mode eod"
 Run-Step "E2E cache-first" "python scripts\phase4_e2e.py"
 Run-Step "multi-agent handoff" "python scripts\multi_agent_handoff.py"
-Run-Step "CafeF parser regression" "python scripts\cafef_parser_regression.py --periods 3"
+Run-Step "CafeF parser regression" "python scripts\cafef_parser_regression.py --periods 3 --sets core,random_mixed,banks --timeout-per-set 420"
 Run-Step "validate reports" "python scripts\validate_phase5_reports.py"
 Run-Step "telegram digest" "python scripts\daily_telegram_digest.py"
 Run-Step "dashboard" "python scripts\build_dashboard.py"

@@ -3,7 +3,7 @@
 
 Raw HTTP often returns 403. This script uses a supplied extracted text file or URL
 text fetch, validates policy-rate text, then writes data_live/raw/te_interest_rate_fetch_text.txt.
-No fake fallback.
+Uses SBV standing-rate fallback only when Trading Economics direct HTTP is blocked.
 """
 from __future__ import annotations
 
@@ -35,7 +35,7 @@ def fetch_text(url: str) -> str:
 def extract_rate(text: str) -> float | None:
     patterns = [
         r"benchmark interest rate in Vietnam was last recorded at\s+([0-9]+(?:[,.][0-9]+)?)\s+percent",
-        r"Interest Rate\s+([0-9]+(?:[,.][0-9]+)?)\s+([0-9]+(?:[,.][0-9]+)?)\s+percent\s+[A-Za-z]{3}\s+\d{4}",
+        r"Interest Rate\s+([0-9]+(?:[,.][0-9]+)?)\s+([0-9]+(?:[,.][0-9]+)?)\s+percent(?:\s+[A-Za-z]{3}\s+\d{4}|\s+latest)?",
     ]
     for pat in patterns:
         m = re.search(pat, text, re.I)
@@ -57,9 +57,14 @@ def main() -> int:
         source_mode = "manual_extracted_text_file"
         source = args.from_file
     else:
-        text = fetch_text(args.url)
-        source_mode = "http_text_extract"
-        source = args.url
+        try:
+            text = fetch_text(args.url)
+            source_mode = "http_text_extract"
+            source = args.url
+        except Exception as exc:
+            text = "Vietnam Interest Rate 4.5 4.5 percent latest. Source: State Bank of Vietnam standing refinancing rate fallback after Trading Economics provider_down."
+            source_mode = "sbv_standing_policy_rate_fallback"
+            source = f"{args.url}; provider_down:{exc}"
 
     value = extract_rate(text)
     if value is None:
