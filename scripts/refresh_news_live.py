@@ -82,6 +82,10 @@ STATIC_PATH_RE = re.compile(r"/(customer|account|cart|checkout|dang-nhap|thay-do
 PNJ_ARTICLE_RE = re.compile(r"/(quan-he-co-dong/(cong-bo-thong-tin|bao-cao|dai-hoi-dong-co-dong|bao-cao-thuong-nien|bao-cao-tai-chinh)|tin-tuc)/", re.I)
 CAFEF_ARTICLE_RE = re.compile(r"/\d{8,}/|-[0-9]{8,}\.chn$|/du-lieu/(lai-suat-ngan-hang|ty-gia)\.chn$", re.I)
 MENU_TITLE_RE = re.compile(r"^(Tài khoản|Đổi mật khẩu|Đọc nhanh|Đọc nhanh >>|Bảng giá|Danh mục đầu tư|Hàng đặt trước|Câu chuyện PNJ|BẤT ĐỘNG SẢN|DOANH NGHIỆP|THỊ TRƯỜNG CHỨNG KHOÁN|TÀI CHÍNH - NGÂN HÀNG)$", re.I)
+PNJ_GOOD_TITLE_RE = re.compile(r"(công bố thông tin|báo cáo tài chính|báo cáo thường niên|đại hội đồng cổ đông|nghị quyết|tờ trình|thông báo|cổ tức|esop|phát hành|mua lại|quản trị|biên bản|tài liệu họp)", re.I)
+PNJ_BAD_TITLE_RE = re.compile(r"^(quan hệ cổ đông( \(ir\))?|trang chủ|xem thêm|chi tiết)$", re.I)
+CAFEF_GOOD_TITLE_RE = re.compile(r"(lãi suất|tỷ giá|usd|vnd|ngân hàng|liên ngân hàng|huy động|tiết kiệm|cpi|lạm phát|trái phiếu|chứng khoán|thị trường|doanh nghiệp)", re.I)
+CAFEF_BAD_TITLE_RE = re.compile(r"^(cafef|cafef\.vn|lãi suất - tỷ giá|lãi suất ngân hàng|xem thêm|chi tiết)$", re.I)
 VIETSTOCK_GOOD_TITLE_RE = re.compile(r"(kết quả kinh doanh|đhđcđ|cổ tức|thoái vốn|phát hành|niêm yết|upcom|hose|hnx|trái phiếu|ngân hàng|chứng khoán|bất động sản|đầu tư công|vĩ mô|lãi suất|tỷ giá|xuất khẩu|thép|dầu khí|điện|khu công nghiệp|nợ xấu|tăng vốn|mua cổ phiếu quỹ|cảnh báo|kiểm toán|hủy niêm yết)", re.I)
 VIETSTOCK_BAD_TITLE_RE = re.compile(r"(quyền riêng tư|doanh nhân|khởi nghiệp|ir awards|tập san|phong cách sống|du lịch|ẩm thực|tiêu dùng cá nhân)", re.I)
 
@@ -95,9 +99,9 @@ def is_real_news_link(source_name: str, url: str, title: str) -> bool:
     if url.endswith("#") or STATIC_PATH_RE.search(url) or MENU_TITLE_RE.search(title) or "userName" in title:
         return False
     if source_name.startswith("PNJ"):
-        return bool(PNJ_ARTICLE_RE.search(url))
+        return bool(PNJ_ARTICLE_RE.search(url)) and bool(PNJ_GOOD_TITLE_RE.search(title)) and not PNJ_BAD_TITLE_RE.search(title)
     if source_name.startswith("CafeF"):
-        return bool(CAFEF_ARTICLE_RE.search(url))
+        return bool(CAFEF_ARTICLE_RE.search(url)) and bool(CAFEF_GOOD_TITLE_RE.search(title)) and not CAFEF_BAD_TITLE_RE.search(title)
     if source_name == "Trading Economics":
         return "tradingeconomics.com" in url
     return True
@@ -172,7 +176,10 @@ def extract_links(source: dict[str, str], html: str, limit: int = 5) -> list[dic
             break
     if not items:
         text = clean_title(strip(html)[:160])
-        if source["name"] == "Trading Economics" and len(text) >= 12 and not DIRTY.search(text):
+        if source["name"].startswith("CafeF"):
+            fallback_title = "Lãi suất ngân hàng / tỷ giá CafeF"
+            items.append(build_item(source["name"], base, fallback_title, summary=fallback_title))
+        elif source["name"] == "Trading Economics" and len(text) >= 12 and not DIRTY.search(text):
             items.append(build_item(source["name"], base, text))
     return items
 
