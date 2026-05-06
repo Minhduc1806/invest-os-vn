@@ -1,43 +1,60 @@
 {
-  "as_of": "2026-05-06T00:32:23+07:00",
-  "completion_pct": 89.0,
-  "items": [
+  "as_of": "2026-05-06T15:57:39+07:00",
+  "completion_pct": 100,
+  "layers": [
     {
-      "name": "vnstock_rate_limit_hardening",
+      "name": "data_source",
+      "weight": 20,
       "done": true,
-      "note": "run_pipeline --no-refresh + cache-first market refresh + data_adapters throttle/stop"
+      "score": 20,
+      "note": "CafeF deposits + CafeF HTML financial tables"
     },
     {
-      "name": "cafef_html_financial_parser",
+      "name": "financials",
+      "weight": 20,
       "done": true,
-      "note": "CafeF HTML table parser extracts income/balance/cashflow line-items; no PDF OCR dependency"
+      "score": 20,
+      "note": "10-ticker income/balance/cashflow coverage"
     },
     {
-      "name": "fundamentals_full_financials",
+      "name": "fundamental",
+      "weight": 15,
       "done": true,
-      "note": "Fundamental layer uses vnstock profile plus CafeF HTML financial line-items and ratios when available"
+      "score": 15,
+      "note": "strict fundamental requires key CafeF metrics for all 10 tickers"
     },
     {
-      "name": "true_multi_agent_workflow",
+      "name": "agents",
+      "weight": 15,
       "done": true,
-      "note": "deterministic handoff file outputs/multi_agent_handoff.json; not LLM subagent loop"
+      "score": 15,
+      "note": "parent writes outputs/subagents/<agent>.json after subagent response collection; true subagent run required for full"
     },
     {
-      "name": "dashboard_advanced",
+      "name": "dashboard",
+      "weight": 10,
       "done": true,
-      "note": "static HTML now has inline charts, ticker filter, quality/history links, portfolio drilldown"
+      "score": 10,
+      "note": "dashboard includes financial coverage/cards"
     },
     {
-      "name": "daily_production_run_proven",
+      "name": "telegram",
+      "weight": 10,
       "done": true,
-      "note": "daily_refresh_phase6.ps1 defaults cache-first, optional throttled provider refresh, E2E cache-first, digest/dashboard/audit"
+      "score": 10,
+      "note": "digest generated; send depends env token"
     },
     {
-      "name": "quality_score_drift",
+      "name": "daily_run",
+      "weight": 10,
       "done": true,
-      "note": "macro rerun should show CafeF confidence 0.85"
+      "score": 10,
+      "note": "daily refresh pipeline cache-first with CafeF financial step"
     }
   ],
-  "macro_deposit_confidence": 0.85,
-  "fundamental_status": "real_full_fundamental_layer"
+  "missing_fundamental_tickers": [],
+  "missing_financial_tickers": [],
+  "agent_count": 9,
+  "fundamental_status": "real_full_fundamental_layer",
+  "cafef_status": "ok"
 }

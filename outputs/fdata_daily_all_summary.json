@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-05-04T22:51:50+07:00",
+  "as_of": "2026-05-06T15:50:24+07:00",
   "steps": [
     "metadata_hose_investable",
     "quality_breadth_leadership",
@@ -12,22 +12,26 @@
     "missing_dat": 3,
     "latest_dates": [
       [
+        "2026-05-05",
+        411
+      ],
+      [
         "2026-05-04",
-        428
+        17
       ]
     ]
   },
   "quality": {
     "coverage_pct": 99.3,
-    "zero_volume": 35,
-    "low_volume_lt_50000": 202,
+    "zero_volume": 45,
+    "low_volume_lt_50000": 208,
     "missing_industry": 11
   },
   "investable": {
-    "input": 1676,
-    "kept": 245,
-    "excluded": 1431,
-    "keep_rate": 0.1462
+    "input": 1677,
+    "kept": 247,
+    "excluded": 1430,
+    "keep_rate": 0.1473
   },
   "signals": {
     "hose_all": {
@@ -36,8 +40,8 @@
       "actionable": []
     },
     "investable": {
-      "universe": 245,
-      "signals": 245,
+      "universe": 247,
+      "signals": 247,
       "actionable": []
     }
   },

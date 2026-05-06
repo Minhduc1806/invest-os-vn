@@ -1,0 +1,116 @@
+{
+  "status": "ok",
+  "ticker_count": 10,
+  "ok_ticker_count": 10,
+  "rows": [
+    {
+      "ticker": "PNJ",
+      "report_type": "consolidated",
+      "ok_periods": 3,
+      "periods": [
+        "2026Q1",
+        "2025Q5",
+        "2025Q4"
+      ],
+      "status": "ok"
+    },
+    {
+      "ticker": "FPT",
+      "report_type": "consolidated",
+      "ok_periods": 3,
+      "periods": [
+        "2026Q1",
+        "2025Q5",
+        "2025Q4"
+      ],
+      "status": "ok"
+    },
+    {
+      "ticker": "MWG",
+      "report_type": "consolidated",
+      "ok_periods": 3,
+      "periods": [
+        "2026Q1",
+        "2025Q5",
+        "2025Q4"
+      ],
+      "status": "ok"
+    },
+    {
+      "ticker": "VCB",
+      "report_type": "consolidated",
+      "ok_periods": 2,
+      "periods": [
+        "2026Q1",
+        "2025Q4"
+      ],
+      "status": "ok"
+    },
+    {
+      "ticker": "SSI",
+      "report_type": "consolidated",
+      "ok_periods": 3,
+      "periods": [
+        "2025Q4",
+        "2025Q3",
+        "2025Q2"
+      ],
+      "status": "ok"
+    },
+    {
+      "ticker": "HPG",
+      "report_type": "consolidated",
+      "ok_periods": 3,
+      "periods": [
+        "2026Q1",
+        "2025Q5",
+        "2025Q4"
+      ],
+      "status": "ok"
+    },
+    {
+      "ticker": "TCB",
+      "report_type": "consolidated",
+      "ok_periods": 3,
+      "periods": [
+        "2026Q1",
+        "2025Q5",
+        "2025Q4"
+      ],
+      "status": "ok"
+    },
+    {
+      "ticker": "MBB",
+      "report_type": "consolidated",
+      "ok_periods": 3,
+      "periods": [
+        "2026Q1",
+        "2025Q4",
+        "2025Q3"
+      ],
+      "status": "ok"
+    },
+    {
+      "ticker": "VIC",
+      "report_type": "consolidated",
+      "ok_periods": 3,
+      "periods": [
+        "2026Q1",
+        "2025Q5",
+        "2025Q4"
+      ],
+      "status": "ok"
+    },
+    {
+      "ticker": "VHM",
+      "report_type": "consolidated",
+      "ok_periods": 1,
+      "periods": [
+        "2025Q5"
+      ],
+      "status": "ok"
+    }
+  ],
+  "warning_count": 0,
+  "warnings": []
+}

@@ -1,6 +1,6 @@
 # FData Daily All Summary
 
-As of: 2026-05-04T22:51:50+07:00
+As of: 2026-05-06T15:50:24+07:00
 
 ## 1. HOSE full universe
 - Listed metadata: 431
@@ -9,13 +9,13 @@ As of: 2026-05-04T22:51:50+07:00
 
 ## 2. Quality / breadth / leadership
 - Coverage: 99.3%
-- Zero volume: 35
-- Low volume <50k: 202
+- Zero volume: 45
+- Low volume <50k: 208
 - Missing industry: 11
 
 ## 3. Signal modes
 - hose_all: 428 symbols, 428 signals
-- investable: 245 symbols, 245 signals
+- investable: 247 symbols, 247 signals
 
 ## 4. Files
 - outputs/fdata_hose_quality_report.md
