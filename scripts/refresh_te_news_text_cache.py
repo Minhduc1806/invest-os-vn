@@ -56,17 +56,31 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--from-file", help="Browser/web_fetch extracted text file when direct HTTP is 403")
     args = ap.parse_args()
+    provider_error = None
     if args.from_file:
         text = Path(args.from_file).read_text(encoding="utf-8", errors="replace")
         source_mode = "text_file"
         source_url = str(Path(args.from_file))
     else:
-        text = strip_html(fetch(URL))
-        source_mode = "direct_http"
-        source_url = URL
+        try:
+            text = strip_html(fetch(URL))
+            source_mode = "direct_http"
+            source_url = URL
+        except Exception as exc:
+            provider_error = str(exc)
+            if not OUT.exists():
+                print("TE_NEWS_CACHE_REFRESH_FAILED")
+                print("-", f"provider_down:{provider_error}")
+                print("- no_existing_cache")
+                return 2
+            text = OUT.read_text(encoding="utf-8", errors="replace")
+            source_mode = "revalidated_existing_cache"
+            source_url = URL
     gaps = validate(text)
     if gaps:
         print("TE_NEWS_CACHE_REFRESH_FAILED")
+        if provider_error:
+            print("-", f"provider_down:{provider_error}")
         for gap in gaps:
             print("-", gap)
         return 2
@@ -74,6 +88,8 @@ def main() -> int:
     OUT.write_text(text, encoding="utf-8")
     sha = hashlib.sha256(text.encode("utf-8")).hexdigest()
     meta = {"as_of": now_iso(), "source": "Trading Economics Vietnam news", "url": source_url, "source_mode": source_mode, "sha256": sha, "bytes": len(text.encode("utf-8"))}
+    if provider_error:
+        meta["warning"] = f"provider_down:{provider_error};used_existing_validated_cache"
     META.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
     print(json.dumps(meta, ensure_ascii=False, indent=2))
     print("TE_NEWS_CACHE_REFRESH_OK")

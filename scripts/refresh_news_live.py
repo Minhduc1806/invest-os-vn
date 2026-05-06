@@ -221,8 +221,8 @@ def main() -> int:
                     text = read_text_cache(TE_CACHE)
                     sha = hashlib.sha256(text.encode("utf-8")).hexdigest()
                     all_items.extend(extract_te_text_items(src, text, limit=4))
-                    warnings.append(f"{src['name']}:provider_down:{exc};used_extracted_text_cache")
-                    meta.append({"name": src["name"], "url": str(TE_CACHE), "fallback_from": src["url"], "fetched_at": now_iso(), "sha256": sha, "source_mode": "extracted_text_cache"})
+                    warnings.append(f"{src['name']}:provider_down:{exc};used_revalidated_existing_cache")
+                    meta.append({"name": src["name"], "url": str(TE_CACHE), "fallback_from": src["url"], "fetched_at": now_iso(), "sha256": sha, "source_mode": "revalidated_existing_cache"})
                     continue
                 except Exception as cache_exc:
                     warnings.append(f"{src['name']}:provider_down:{exc};cache:{cache_exc}")
