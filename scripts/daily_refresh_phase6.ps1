@@ -38,8 +38,9 @@ function Run-Optional-Step($name, $cmd) {
   if ($exitCode -ne 0) { Write-Output "$name skipped/failed optional with exit code $exitCode" | Tee-Object -FilePath $log -Append }
 }
 
-# TE direct HTTP often 403. Refresh extracted-text cache first; macro parser can still use SBV standing fallback if TE blocks.
+# TE direct HTTP often 403. Refresh extracted-text caches first; macro parser can still use SBV standing fallback if TE blocks.
 Run-Optional-Step "TE interest cache refresh optional" "python scripts\refresh_te_interest_text_cache.py"
+Run-Optional-Step "TE news cache refresh optional" "python scripts\refresh_te_news_text_cache.py"
 Run-Step "macro parser" "python scripts\macro_rates_parser.py --merge-live"
 # Default daily run is cache-first to avoid vnstock 20 req/min guest cap. Explicit provider refresh can run separately after close.
 Run-Optional-Step "market snapshot refresh optional" "python scripts\data_adapters.py --market --tickers PNJ,FPT,MWG,VCB,SSI,HPG,TCB,MBB,VIC,VHM,GVR,STB,VPB,CTG,ACB,MSN,VNM"

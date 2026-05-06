@@ -6,7 +6,7 @@ outputs/subagents/<agent>.json. Use --bootstrap-prompts to create prompt files;
 spawn them with OpenClaw sessions_spawn from host/runtime, then rerun this script.
 """
 from __future__ import annotations
-import argparse,json
+import argparse,json,sys
 from datetime import datetime
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/'outputs'; LIVE=ROOT/'data_live'; SUB=OUT/'subagents'
@@ -37,11 +37,15 @@ def validate_result(agent,d):
 def fallback_scripted(ctx):
  # explicit fallback, never counted as real_subagent
  return [{'agent':a,'status':'ok','output':{'source':'scripted_fallback','context_keys':list(ctx.keys())},'validation':{'used_shared_context':True,'no_sample_fallback':True}} for a in AGENTS]
+def jprint(obj):
+ sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+ print(json.dumps(obj, ensure_ascii=False, indent=2))
+
 def main():
  ap=argparse.ArgumentParser(); ap.add_argument('--pipeline',default='daily_production'); ap.add_argument('--bootstrap-prompts',action='store_true'); ap.add_argument('--allow-scripted-fallback',action='store_true'); args=ap.parse_args()
  ctx=shared_context(); ctxp,pdir=write_prompts(ctx)
  if args.bootstrap_prompts:
-  out={'as_of':now_iso(),'status':'prompts_ready','shared_context':str(ctxp),'prompt_dir':str(pdir),'required_agents':AGENTS,'next':'spawn 9 OpenClaw subagents, save each JSON to outputs/subagents/<agent>.json, rerun without --bootstrap-prompts'}; save(OUT/'multi_agent_handoff.json',out); print(json.dumps(out,ensure_ascii=False,indent=2)); return 0
+  out={'as_of':now_iso(),'status':'prompts_ready','shared_context':str(ctxp),'prompt_dir':str(pdir),'required_agents':AGENTS,'next':'spawn 9 OpenClaw subagents, save each JSON to outputs/subagents/<agent>.json, rerun without --bootstrap-prompts'}; save(OUT/'multi_agent_handoff.json',out); jprint(out); return 0
  handoffs=[]; missing=[]; errors={}
  for a in AGENTS:
   p=SUB/f'{a}.json'
@@ -56,5 +60,5 @@ def main():
  else:
   autonomy='real_subagent_orchestration' if not missing and not errors and len(handoffs)==9 else 'blocked_missing_or_invalid_subagents'
  out={'as_of':now_iso(),'pipeline':args.pipeline,'shared_context':str(ctxp),'handoffs':handoffs,'required_agents':AGENTS,'missing_agents':missing,'validation_errors':errors,'status':'ok' if autonomy=='real_subagent_orchestration' else 'failed','autonomy_level':autonomy}
- save(OUT/'multi_agent_handoff.json',out); print(json.dumps(out,ensure_ascii=False,indent=2)); return 0 if out['status']=='ok' else 2
+ save(OUT/'multi_agent_handoff.json',out); jprint(out); return 0 if out['status']=='ok' else 2
 if __name__=='__main__': raise SystemExit(main())
