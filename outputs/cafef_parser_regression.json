@@ -1,64 +1,140 @@
 {
   "status": "ok",
-  "periods": 3,
+  "periods": 2,
   "results": [
     {
-      "set": "core",
+      "set": "retail_consumer_industrial",
       "tickers": [
         "PNJ",
         "FPT",
         "MWG",
-        "VCB",
-        "SSI",
         "HPG",
-        "TCB",
-        "MBB",
-        "VIC",
-        "VHM"
+        "REE",
+        "GAS",
+        "VNM",
+        "SAB",
+        "MSN",
+        "KDC",
+        "DGC",
+        "DPM",
+        "DCM",
+        "GMD",
+        "VSC",
+        "CTR",
+        "PC1",
+        "GVR",
+        "BMP",
+        "AAA"
       ],
       "returncode": 0,
-      "stdout": "cker_count\": 10,\n  \"rows\": [\n    {\n      \"ticker\": \"PNJ\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 3,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q5\",\n        \"2025Q4\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"FPT\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 3,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q5\",\n        \"2025Q4\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"MWG\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 3,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q5\",\n        \"2025Q4\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"VCB\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 2,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q4\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"SSI\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 3,\n      \"periods\": [\n        \"2025Q4\",\n        \"2025Q3\",\n        \"2025Q2\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"HPG\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 3,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q5\",\n        \"2025Q4\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"TCB\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 3,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q5\",\n        \"2025Q4\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"MBB\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 3,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q4\",\n        \"2025Q3\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"VIC\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 3,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q5\",\n        \"2025Q4\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"VHM\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 1,\n      \"periods\": [\n        \"2025Q5\"\n      ],\n      \"status\": \"ok\"\n    }\n  ],\n  \"warning_count\": 0,\n  \"warnings\": []\n}\n",
+      "stdout": "ok\"\n    },\n    {\n      \"ticker\": \"KDC\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 1,\n      \"periods\": [\n        \"2025Q5\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"DGC\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 2,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q4\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"DPM\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 2,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q5\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"DCM\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 2,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q5\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"GMD\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 2,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q5\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"VSC\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 2,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q5\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"CTR\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 2,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q5\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"PC1\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 2,\n      \"periods\": [\n        \"2025Q5\",\n        \"2025Q4\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"GVR\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 2,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q5\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"BMP\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 1,\n      \"periods\": [\n        \"2025Q5\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"AAA\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 2,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q5\"\n      ],\n      \"status\": \"ok\"\n    }\n  ],\n  \"warning_count\": 0,\n  \"warnings\": []\n}\n",
       "stderr": "",
       "health": {
         "status": "ok",
-        "ticker_count": 10,
-        "ok_ticker_count": 10,
+        "ticker_count": 20,
+        "ok_ticker_count": 20,
         "rows": [
           {
             "ticker": "PNJ",
             "report_type": "consolidated",
-            "ok_periods": 3,
+            "ok_periods": 2,
             "periods": [
               "2026Q1",
-              "2025Q5",
-              "2025Q4"
+              "2025Q5"
             ],
             "status": "ok"
           },
           {
             "ticker": "FPT",
             "report_type": "consolidated",
-            "ok_periods": 3,
+            "ok_periods": 2,
             "periods": [
               "2026Q1",
-              "2025Q5",
-              "2025Q4"
+              "2025Q5"
             ],
             "status": "ok"
           },
           {
             "ticker": "MWG",
             "report_type": "consolidated",
-            "ok_periods": 3,
+            "ok_periods": 2,
             "periods": [
               "2026Q1",
-              "2025Q5",
-              "2025Q4"
+              "2025Q5"
             ],
             "status": "ok"
           },
           {
-            "ticker": "VCB",
+            "ticker": "HPG",
+            "report_type": "consolidated",
+            "ok_periods": 2,
+            "periods": [
+              "2026Q1",
+              "2025Q5"
+            ],
+            "status": "ok"
+          },
+          {
+            "ticker": "REE",
+            "report_type": "consolidated",
+            "ok_periods": 2,
+            "periods": [
+              "2026Q1",
+              "2025Q5"
+            ],
+            "status": "ok"
+          },
+          {
+            "ticker": "GAS",
+            "report_type": "consolidated",
+            "ok_periods": 2,
+            "periods": [
+              "2026Q1",
+              "2025Q5"
+            ],
+            "status": "ok"
+          },
+          {
+            "ticker": "VNM",
+            "report_type": "consolidated",
+            "ok_periods": 2,
+            "periods": [
+              "2026Q1",
+              "2025Q5"
+            ],
+            "status": "ok"
+          },
+          {
+            "ticker": "SAB",
+            "report_type": "consolidated",
+            "ok_periods": 2,
+            "periods": [
+              "2026Q1",
+              "2025Q5"
+            ],
+            "status": "ok"
+          },
+          {
+            "ticker": "MSN",
+            "report_type": "consolidated",
+            "ok_periods": 2,
+            "periods": [
+              "2026Q1",
+              "2025Q5"
+            ],
+            "status": "ok"
+          },
+          {
+            "ticker": "KDC",
+            "report_type": "consolidated",
+            "ok_periods": 1,
+            "periods": [
+              "2025Q5"
+            ],
+            "status": "ok"
+          },
+          {
+            "ticker": "DGC",
             "report_type": "consolidated",
             "ok_periods": 2,
             "periods": [
@@ -68,110 +144,77 @@
             "status": "ok"
           },
           {
-            "ticker": "SSI",
+            "ticker": "DPM",
             "report_type": "consolidated",
-            "ok_periods": 3,
-            "periods": [
-              "2025Q4",
-              "2025Q3",
-              "2025Q2"
-            ],
-            "status": "ok"
-          },
-          {
-            "ticker": "HPG",
-            "report_type": "consolidated",
-            "ok_periods": 3,
+            "ok_periods": 2,
             "periods": [
               "2026Q1",
-              "2025Q5",
-              "2025Q4"
-            ],
-            "status": "ok"
-          },
-          {
-            "ticker": "TCB",
-            "report_type": "consolidated",
-            "ok_periods": 3,
-            "periods": [
-              "2026Q1",
-              "2025Q5",
-              "2025Q4"
-            ],
-            "status": "ok"
-          },
-          {
-            "ticker": "MBB",
-            "report_type": "consolidated",
-            "ok_periods": 3,
-            "periods": [
-              "2026Q1",
-              "2025Q4",
-              "2025Q3"
-            ],
-            "status": "ok"
-          },
-          {
-            "ticker": "VIC",
-            "report_type": "consolidated",
-            "ok_periods": 3,
-            "periods": [
-              "2026Q1",
-              "2025Q5",
-              "2025Q4"
-            ],
-            "status": "ok"
-          },
-          {
-            "ticker": "VHM",
-            "report_type": "consolidated",
-            "ok_periods": 1,
-            "periods": [
               "2025Q5"
             ],
             "status": "ok"
-          }
-        ],
-        "warning_count": 0,
-        "warnings": []
-      },
-      "passed": true
-    },
-    {
-      "set": "random_mixed",
-      "tickers": [
-        "REE",
-        "GAS",
-        "VNM",
-        "SAB",
-        "MSN",
-        "BID",
-        "CTG",
-        "STB",
-        "VND",
-        "KDH"
-      ],
-      "returncode": 0,
-      "stdout": " \"rows\": [\n    {\n      \"ticker\": \"REE\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 3,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q5\",\n        \"2025Q4\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"GAS\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 1,\n      \"periods\": [\n        \"2025Q5\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"VNM\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 3,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q5\",\n        \"2025Q4\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"SAB\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 3,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q5\",\n        \"2025Q4\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"MSN\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 3,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q5\",\n        \"2025Q4\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"BID\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 3,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q5\",\n        \"2025Q4\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"CTG\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 3,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q4\",\n        \"2025Q3\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"STB\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 3,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q5\",\n        \"2025Q4\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"VND\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 3,\n      \"periods\": [\n        \"2023Q3\",\n        \"2023Q2\",\n        \"2023Q1\"\n      ],\n      \"status\": \"ok\"\n    },\n    {\n      \"ticker\": \"KDH\",\n      \"report_type\": \"consolidated\",\n      \"ok_periods\": 3,\n      \"periods\": [\n        \"2026Q1\",\n        \"2025Q5\",\n        \"2025Q4\"\n      ],\n      \"status\": \"ok\"\n    }\n  ],\n  \"warning_count\": 0,\n  \"warnings\": []\n}\n",
-      "stderr": "",
-      "health": {
-        "status": "ok",
-        "ticker_count": 10,
-        "ok_ticker_count": 10,
-        "rows": [
+          },
           {
-            "ticker": "REE",
+            "ticker": "DCM",
             "report_type": "consolidated",
-            "ok_periods": 3,
+            "ok_periods": 2,
             "periods": [
               "2026Q1",
+              "2025Q5"
+            ],
+            "status": "ok"
+          },
+          {
+            "ticker": "GMD",
+            "report_type": "consolidated",
+            "ok_periods": 2,
+            "periods": [
+              "2026Q1",
+              "2025Q5"
+            ],
+            "status": "ok"
+          },
+          {
+            "ticker": "VSC",
+            "report_type": "consolidated",
+            "ok_periods": 2,
+            "periods": [
+              "2026Q1",
+              "2025Q5"
+            ],
+            "status": "ok"
+          },
+          {
+            "ticker": "CTR",
+            "report_type": "consolidated",
+            "ok_periods": 2,
+            "periods": [
+              "2026Q1",
+              "2025Q5"
+            ],
+            "status": "ok"
+          },
+          {
+            "ticker": "PC1",
+            "report_type": "consolidated",
+            "ok_periods": 2,
+            "periods": [
               "2025Q5",
               "2025Q4"
             ],
             "status": "ok"
           },
           {
-            "ticker": "GAS",
+            "ticker": "GVR",
+            "report_type": "consolidated",
+            "ok_periods": 2,
+            "periods": [
+              "2026Q1",
+              "2025Q5"
+            ],
+            "status": "ok"
+          },
+          {
+            "ticker": "BMP",
             "report_type": "consolidated",
             "ok_periods": 1,
             "periods": [
@@ -180,90 +223,12 @@
             "status": "ok"
           },
           {
-            "ticker": "VNM",
+            "ticker": "AAA",
             "report_type": "consolidated",
-            "ok_periods": 3,
+            "ok_periods": 2,
             "periods": [
               "2026Q1",
-              "2025Q5",
-              "2025Q4"
-            ],
-            "status": "ok"
-          },
-          {
-            "ticker": "SAB",
-            "report_type": "consolidated",
-            "ok_periods": 3,
-            "periods": [
-              "2026Q1",
-              "2025Q5",
-              "2025Q4"
-            ],
-            "status": "ok"
-          },
-          {
-            "ticker": "MSN",
-            "report_type": "consolidated",
-            "ok_periods": 3,
-            "periods": [
-              "2026Q1",
-              "2025Q5",
-              "2025Q4"
-            ],
-            "status": "ok"
-          },
-          {
-            "ticker": "BID",
-            "report_type": "consolidated",
-            "ok_periods": 3,
-            "periods": [
-              "2026Q1",
-              "2025Q5",
-              "2025Q4"
-            ],
-            "status": "ok"
-          },
-          {
-            "ticker": "CTG",
-            "report_type": "consolidated",
-            "ok_periods": 3,
-            "periods": [
-              "2026Q1",
-              "2025Q4",
-              "2025Q3"
-            ],
-            "status": "ok"
-          },
-          {
-            "ticker": "STB",
-            "report_type": "consolidated",
-            "ok_periods": 3,
-            "periods": [
-              "2026Q1",
-              "2025Q5",
-              "2025Q4"
-            ],
-            "status": "ok"
-          },
-          {
-            "ticker": "VND",
-            "report_type": "consolidated",
-            "ok_periods": 3,
-            "periods": [
-              "2023Q3",
-              "2023Q2",
-              "2023Q1"
-            ],
-            "status": "ok"
-          },
-          {
-            "ticker": "KDH",
-            "report_type": "consolidated",
-            "ok_periods": 3,
-            "periods": [
-              "2026Q1",
-              "2025Q5",
-              "2025Q4"
+              "2025Q5"
             ],
             "status": "ok"
           }

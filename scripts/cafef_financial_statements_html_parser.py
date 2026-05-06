@@ -175,7 +175,7 @@ def key_metrics(statements,sector='non_bank'):
  if eq and pat is not None: ratios['roe_period']=round(pat/eq,4)
  out['ratios']=ratios; return out
 def sector_for(t):
- return 'bank' if t in {'VCB','TCB','MBB','BID','CTG','STB','ACB','VPB','TPB','HDB','SHB','LPB','EIB','VIB','OCB'} else ('securities' if t in {'SSI','VND','HCM','VCI','SHS','MBS','FTS','CTS','BSI'} else 'non_bank')
+ return 'bank' if t in {'VCB','TCB','MBB','BID','CTG','STB','ACB','VPB','TPB','HDB','SHB','LPB','EIB','VIB','OCB','MSB'} else ('securities' if t in {'SSI','VND','HCM','VCI','SHS','MBS','FTS','CTS','BSI','ORS','AGR','APG','TVS'} else 'non_bank')
 def build(t,y,q,report_type):
  statements={}; urls={}; rows={}
  rt=0 if report_type=='consolidated' else 1

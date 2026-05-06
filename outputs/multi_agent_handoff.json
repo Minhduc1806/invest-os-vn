@@ -1,177 +1,436 @@
 {
-  "as_of": "2026-05-05T23:11:54+07:00",
+  "as_of": "2026-05-06T17:23:12+07:00",
   "pipeline": "daily_production",
+  "shared_context": "C:\\Users\\DUC\\.openclaw\\workspace\\invest-os-vn\\outputs\\subagent_shared_context.json",
   "handoffs": [
     {
       "agent": "market-strategist",
-      "output": {
-        "regime": "neutral",
-        "breadth": {
-          "advancers": 9,
-          "decliners": 18,
-          "unchanged": 0,
-          "new_high_20d": null,
-          "new_low_20d": null
-        },
-        "indices": [
-          {
-            "symbol": "VNINDEX",
-            "close": 1874.85,
-            "change_pct": 1.12,
-            "volume_mn": 773.45,
-            "value_bil_vnd": 0,
-            "above_ma20_pct": 100.0
-          },
-          {
-            "symbol": "VN30",
-            "close": 2032.3,
-            "change_pct": 0.88,
-            "volume_mn": 340.36,
-            "value_bil_vnd": 0,
-            "above_ma20_pct": 100.0
-          },
-          {
-            "symbol": "HNXINDEX",
-            "close": 247.42,
-            "change_pct": -1.05,
-            "volume_mn": 68.28,
-            "value_bil_vnd": 0,
-            "above_ma20_pct": 0.0
-          }
-        ]
+      "status": "ok",
+      "findings": [
+        "VNINDEX +1.12% and VN30 +0.88% on 2026-05-05; both show 100% above MA20, so large-cap trend remains risk-on.",
+        "Broad market breadth weak: 277 advancers vs 461 decliners across 1,677 symbols; rally is narrow and index-led, not broad participation.",
+        "HNXINDEX -1.05% and UPINDEX -0.35%, both 0% above MA20; smaller-cap boards lag badly versus HOSE large caps.",
+        "Sector leadership by 20-day relative strength: Hàng cá nhân & Gia dụng +2.45, Điện/nước/xăng dầu khí đốt +0.42, Hàng & Dịch vụ Công nghiệp +0.05; favor leaders over laggards.",
+        "Weak sectors: Dịch vụ tài chính -1.38 RS20, Hóa chất -1.30, Xây dựng và Vật liệu -1.19, Dầu khí -1.19 despite Dầu khí daily +0.98%; avoid chasing lagging rebounds without confirmation.",
+        "Banks under pressure: Ngân hàng -0.48% with 5 advancers vs 20 decliners and RS20 -0.85; do not treat index strength as banking-sector strength.",
+        "Macro liquidity backdrop mixed: policy rate 4.5%, USD/VND 26,126, many 12-month deposit rates near 5.9%-6.8%; equity strategy should emphasize trend confirmation and risk controls, not aggressive broad-market beta.",
+        "Data quality strong for market snapshot (quality_score 0.94), but foreign flow and derivatives are unavailable; strategy should not infer foreign support or futures positioning from shared context."
+      ],
+      "handoff": {
+        "stance": "Selective bullish: ride VNINDEX/VN30 trend, avoid weak breadth traps.",
+        "preferred_exposure": "Large-cap leaders and strongest RS sectors; scale only if breadth improves.",
+        "risk_controls": [
+          "Reduce exposure if VNINDEX/VN30 lose MA20 confirmation.",
+          "Avoid small/mid-cap broad beta until HNXINDEX/UPINDEX recover above MA20.",
+          "Treat foreign-flow and derivatives reads as unavailable, not neutral."
+        ],
+        "source_as_of": "2026-05-06T16:49:16+07:00",
+        "market_last_data_date": "2026-05-05"
+      },
+      "validation": {
+        "used_shared_context": true,
+        "no_sample_fallback": true
       }
     },
     {
       "agent": "rates-fixed-income-analyst",
-      "input_from": [
-        "market-strategist"
+      "status": "ok",
+      "findings": [
+        "Macro/rates layer is usable: data_live/macro_rates_live.vn.json status real_parsed as of 2026-05-05T23:08:16+07:00.",
+        "Deposit-rate source quality mixed: CafeF primary confidence 0.85 for many banks; WebGia secondary confidence 0.55 where used.",
+        "Trading Economics stock-market endpoint returned HTTP 403; pipeline used extracted_text_cache fallback for interest-rate context, so published macro notes should disclose cache/provider caveat."
       ],
-      "output": {
-        "policy_rate_pct": 4.5,
-        "deposit_confidence": 0.85
+      "handoff": {
+        "coverage": "deposit rates, CPI/unemployment, SBV rates/FX, bank deposit tables loaded",
+        "risk": "provider 403/cached macro source caveat",
+        "next": "alert only if macro parse fails or daily completion below 100"
+      },
+      "validation": {
+        "used_shared_context": true,
+        "no_sample_fallback": true
       }
     },
     {
       "agent": "fundamental-analyst",
-      "input_from": [
-        "market-strategist",
-        "rates-fixed-income-analyst"
-      ],
-      "output": {
-        "deep_dive": [
-          {
-            "ticker": "FPT",
-            "fundamental_score": 75,
-            "thesis": "- Công nghệ:+ Nhóm dịch vụ: Tư vấn Chuyển đổi số, Chuyển đổi xanh và Chuyển đổi trí tuệ nhân tạo; Thiết kế, triển khai, tích hợp, vận hành, bảo trì, kiểm thử... các hệ thống CNTT; Dịch vụ an toàn, an ninh mạng; Cung cấp các giải pháp dựa trên các nền tảng công",
-            "key_risks": [
-              "financial_statement_empty_free_provider; deep dive limited to real company profile"
-            ]
-          },
-          {
-            "ticker": "MWG",
-            "fundamental_score": 75,
-            "thesis": "- Lĩnh vực hoạt động chủ yếu là: mua bán, bảo hành, sửa chữa: thiết bị tin học, điện thoại, linh kiện và phụ kiện điện thoại với thương hiệu Thế Giới Di Động, các mặt hàng điện máy với thương hiệu Điện Máy Xanh, các mặt hàng lương thực, thực phẩm, đồ uống và c",
-            "key_risks": [
-              "financial_statement_empty_free_provider; deep dive limited to real company profile"
-            ]
-          },
-          {
-            "ticker": "VCB",
-            "fundamental_score": 75,
-            "thesis": "- Dịch vụ tài khoản; huy động vốn (tiền gửi tiết kiệm, trái phiếu, kỳ phiếu); cho vay (ngăn, trung, dài hạn); bảo lãnh; chiết khấu chứng từ; thanh toán quốc tế; chuyển tiền; thẻ; nhờ thu; mua bán ngoại tệ; ngân hàng đại lý; bao thanh toán; Các dịch vụ khác the",
-            "key_risks": [
-              "financial_statement_empty_free_provider; deep dive limited to real company profile"
-            ]
-          },
-          {
-            "ticker": "SSI",
-            "fundamental_score": 75,
-            "thesis": "- Dịch vụ chứng khoán. - Dịch vụ ngân hàng đầu tư. - Quản lý quỹ, nguồn vốn và kinh doanh tài chính",
-            "key_risks": [
-              "financial_statement_empty_free_provider; deep dive limited to real company profile"
+      "status": "ok",
+      "findings": [
+        {
+          "type": "data_quality",
+          "finding": "Fundamental/financial shared context is real, not sample fallback: 10 covered tickers, 10 validation-ok tickers, warning_count=0.",
+          "evidence": {
+            "fundamentals_source": "vnstock.Company overview cached + CafeF HTML financial statement tables",
+            "financials_source": "CafeF HTML financial statement tables",
+            "ticker_count": 10,
+            "ok_ticker_count": 10,
+            "warning_count": 0
+          }
+        },
+        {
+          "type": "coverage",
+          "finding": "Coverage includes PNJ, FPT, MWG, HPG, TCB, MBB, VIC with 3 validated periods each; VCB has 2; VHM has 1; SSI has 3 but latest periods stop at 2025Q4/2025Q3/2025Q2.",
+          "evidence": {
+            "PNJ": [
+              "2026Q1",
+              "2025Q5",
+              "2025Q4"
+            ],
+            "FPT": [
+              "2026Q1",
+              "2025Q5",
+              "2025Q4"
+            ],
+            "MWG": [
+              "2026Q1",
+              "2025Q5",
+              "2025Q4"
+            ],
+            "VCB": [
+              "2026Q1",
+              "2025Q4"
+            ],
+            "SSI": [
+              "2025Q4",
+              "2025Q3",
+              "2025Q2"
+            ],
+            "HPG": [
+              "2026Q1",
+              "2025Q5",
+              "2025Q4"
+            ],
+            "TCB": [
+              "2026Q1",
+              "2025Q5",
+              "2025Q4"
+            ],
+            "MBB": [
+              "2026Q1",
+              "2025Q4",
+              "2025Q3"
+            ],
+            "VIC": [
+              "2026Q1",
+              "2025Q5",
+              "2025Q4"
+            ],
+            "VHM": [
+              "2025Q5"
             ]
           }
+        },
+        {
+          "ticker": "VHM",
+          "type": "profitability",
+          "finding": "VHM 2025 full-year metrics show revenue 153270.9bn VND, profit after tax 43334.8bn VND, net_margin=0.2827, ROA_period=0.055, ROE_period=0.1739.",
+          "evidence": {
+            "period": "2025Q5",
+            "revenue_vnd": 153270923000000,
+            "profit_after_tax_vnd": 43334776000000,
+            "parent_profit_vnd": 41895255000000,
+            "total_assets_vnd": 787857267000000,
+            "equity_vnd": 249216707000000,
+            "operating_cash_flow_vnd": 41189141000000
+          }
+        },
+        {
+          "type": "universe_profile",
+          "finding": "Covered fundamental universe mixes consumer/retail, technology, steel, banks, broker, and real estate: PNJ, FPT, MWG, VCB, SSI, HPG, TCB, MBB, VIC, VHM.",
+          "evidence": {
+            "covered_tickers": [
+              "PNJ",
+              "FPT",
+              "MWG",
+              "VCB",
+              "SSI",
+              "HPG",
+              "TCB",
+              "MBB",
+              "VIC",
+              "VHM"
+            ]
+          }
+        }
+      ],
+      "handoff": {
+        "as_of": "2026-05-06T16:49:16+07:00",
+        "fundamentals_as_of": "2026-05-06T15:57:37+07:00",
+        "financials_source": "CafeF HTML financial statement tables",
+        "fundamentals_source": "vnstock.Company overview cached + CafeF HTML financial statement tables",
+        "covered_tickers": [
+          "PNJ",
+          "FPT",
+          "MWG",
+          "VCB",
+          "SSI",
+          "HPG",
+          "TCB",
+          "MBB",
+          "VIC",
+          "VHM"
         ],
-        "limitation": "Finance statements empty in free vnstock; no full valuation"
+        "caveats": [
+          "Some period labels include 2025Q5, interpreted as full-year/annual CafeF period from shared context.",
+          "VHM has only one validated period in health_summary; SSI latest validated financial period is 2025Q4, not 2026Q1."
+        ]
+      },
+      "validation": {
+        "used_shared_context": true,
+        "no_sample_fallback": true
       }
     },
     {
       "agent": "equity-technical-analyst",
-      "input_from": [
-        "market-strategist",
-        "fundamental-analyst"
+      "status": "ok",
+      "findings": [
+        "VNINDEX technical trend strong: close 1874.85 on 2026-05-05, +1.12%, above_ma20_pct 100.0; index leadership remains constructive.",
+        "VN30 confirms large-cap strength: close 2032.3, +0.88%, volume 308.13mn, above_ma20_pct 100.0; blue-chip trend aligned with VNINDEX.",
+        "Market breadth weak despite index gains: 277 advancers vs 461 decliners across 1677 universe; 690 above MA20 vs 987 below MA20, showing narrow leadership and divergence risk.",
+        "HNXINDEX and UPINDEX lag badly: HNXINDEX -1.05% with above_ma20_pct 0.0; UPINDEX -0.35% with above_ma20_pct 0.0; secondary boards remain technically weak.",
+        "Sector relative strength leaders: Hàng cá nhân & Gia dụng RS20D +2.45, Điện/nước/xăng dầu khí đốt +0.42, Hàng & Dịch vụ Công nghiệp +0.05; most other sectors show negative RS20D.",
+        "Sector pressure broad: Ngân hàng -0.48% with 5 advancers/20 decliners, Bất động sản -0.60% with 22/61, Dịch vụ tài chính -0.47% with 8/27; cyclicals and financials underperform.",
+        "Data quality high for technical read: market source fdata_amibroker_dat, EOD last_data_date 2026-05-05, stale false, quality_score 0.94; foreign flow unavailable."
       ],
-      "output": {
-        "scan_file": "outputs/stock_signal_scan_investable.json"
+      "handoff": {
+        "technical_bias": "Index uptrend intact in VNINDEX/VN30, but breadth divergence and weak HNX/UPCOM argue for selective exposure, not broad risk-on.",
+        "watch": [
+          "VNINDEX and VN30 staying above MA20",
+          "breadth improvement above 50% advancers or above_ma20 count crossing universe midpoint",
+          "continued weakness in banks, real estate, financial services"
+        ],
+        "source_as_of": "2026-05-06T16:49:16+07:00",
+        "market_last_data_date": "2026-05-05"
+      },
+      "validation": {
+        "used_shared_context": true,
+        "no_sample_fallback": true
       }
     },
     {
       "agent": "quant-researcher",
-      "input_from": [
-        "equity-technical-analyst"
+      "status": "ok",
+      "findings": [
+        "Data source fdata_amibroker_dat VN EOD, last_data_date 2026-05-05, universe 1677, stale=False; safe for latest-signal backtest through 2026-05-05.",
+        "Index regime split: VNINDEX 1.12% and VN30 0.88% with 100% above MA20, while HNXINDEX -1.05% and UPINDEX -0.35% with 0% above MA20; backtest should segment HOSE large-cap versus small/mid-cap exposure.",
+        "Breadth weak despite VNINDEX strength: advancers 277, decliners 461, unchanged 939, above_ma20 690/1677; long-only screen needs breadth filter or position cap.",
+        "20d relative-strength leaders: Hàng cá nhân & Gia dụng 2.45, Điện, nước & xăng dầu khí đốt 0.42, Hàng & Dịch vụ Công nghiệp 0.05, Y tế -0.22, Bán lẻ -0.29; candidates for sector-momentum factor.",
+        "20d relative-strength laggards: Ô tô và phụ tùng -1.95, Viễn thông -1.53, Tài nguyên Cơ bản -1.48, Bảo hiểm -1.43, Du lịch và Giải trí -1.39; use as underweight/short-avoid bucket in VN long-only tests.",
+        "Foreign flow available in shared context; include net foreign-buy factor only after validating coverage and zero-value fields.",
+        "Market warnings present: foreign_flow_not_available",
+        "Market derivatives: {'vn30f1m_basis': 0, 'open_interest': 0, 'note': 'not_in_eod_stock_adapter'}"
       ],
-      "output": {
-        "backtest_files": [
-          "outputs/historical_backtest.md",
-          "outputs/rolling_walk_forward_backtest.md"
-        ]
+      "handoff": {
+        "backtest_notes": [
+          "Use fdata_amibroker_dat EOD only; no sample fallback used.",
+          "Benchmark by regime: VNINDEX/VN30 trend positive, HNX/UP negative on 2026-05-05.",
+          "Primary factors to test: MA20 membership, 20d sector relative strength, breadth filter, foreign-flow if validated."
+        ],
+        "data_cutoff": "2026-05-05",
+        "universe_size": 1677
+      },
+      "validation": {
+        "used_shared_context": true,
+        "no_sample_fallback": true
       }
     },
     {
       "agent": "portfolio-advisor",
-      "input_from": [
-        "market-strategist",
-        "equity-technical-analyst",
-        "quant-researcher"
+      "status": "ok",
+      "findings": [
+        {
+          "type": "portfolio_stance",
+          "action": "keep_core_equity_exposure_but_avoid_chasing_index_strength",
+          "rationale": "VNINDEX +1.12% and VN30 +0.88% with both 100% above MA20, but broad market breadth weak: 277 advancers vs 461 decliners and only 690/1677 above MA20."
+        },
+        {
+          "type": "allocation",
+          "action": "prefer_HOSE_large_caps_over_HNX_UPCOM",
+          "rationale": "VNINDEX/VN30 trend positive while HNXINDEX -1.05% and UPINDEX -0.35%, both 0% above MA20."
+        },
+        {
+          "type": "sector_tilt",
+          "action": "overweight_relative_strength_leaders_and_underweight_weak_breadth_groups",
+          "rationale": "Best 20d relative strength sectors: Hàng cá nhân & Gia dụng +2.45, Điện/nước/xăng dầu khí đốt +0.42, Hàng & Dịch vụ Công nghiệp +0.05. Weak areas include Dịch vụ tài chính -1.38, Hóa chất -1.30, Xây dựng và Vật liệu -1.19, Dầu khí -1.19."
+        },
+        {
+          "type": "stock_pool",
+          "action": "use_PNJ_FPT_MWG_HPG_as_primary_quality_candidates; keep_banks_selective; treat_VIC_VHM_as_higher_risk_watchlist",
+          "rationale": "Fundamental deep dive gives score 90 to PNJ, FPT, MWG, HPG, VCB, SSI, TCB, MBB, VIC, VHM; margins/ROE favor PNJ/FPT/MWG/HPG/VHM, while VIC shows low net margin and ROA."
+        },
+        {
+          "type": "risk_control",
+          "action": "do_not_use_foreign_flow_or_derivatives_as_trade_trigger_today",
+          "rationale": "Shared context marks foreign_flow_not_available; derivatives basis and open interest unavailable from EOD adapter."
+        },
+        {
+          "type": "cash_yield_context",
+          "action": "compare_equity_expected_return_against_12m_deposit_hurdle_near_5.9_to_6.7_pct",
+          "rationale": "Macro context has policy rate 4.5%, USD/VND 26126, and 12m deposit rates around 5.9-6.7% at many banks."
+        }
       ],
-      "output": {
-        "portfolio_file": "outputs/portfolio_daily.json"
+      "handoff": {
+        "as_of": "2026-05-06T16:49:16+07:00",
+        "market_last_data_date": "2026-05-05",
+        "suggested_portfolio_actions": [
+          "Keep buys selective; add only on pullbacks or breakouts with stock-level confirmation.",
+          "Bias portfolio toward VN30/HOSE liquid names and relative-strength sectors.",
+          "Avoid increasing exposure to HNX/UPCOM until breadth improves.",
+          "Require external confirmation before using foreign-flow or derivatives-based signals."
+        ],
+        "candidate_buckets": {
+          "core_quality": [
+            "PNJ",
+            "FPT",
+            "MWG",
+            "HPG"
+          ],
+          "selective_financials": [
+            "VCB",
+            "TCB",
+            "MBB",
+            "SSI"
+          ],
+          "watchlist_high_beta_or_property": [
+            "VIC",
+            "VHM"
+          ]
+        }
+      },
+      "validation": {
+        "used_shared_context": true,
+        "no_sample_fallback": true
       }
     },
     {
       "agent": "wealth-asset-manager",
-      "input_from": [
-        "portfolio-advisor",
-        "rates-fixed-income-analyst"
+      "status": "ok",
+      "findings": [
+        {
+          "topic": "asset_allocation",
+          "finding": "VNINDEX and VN30 remain strong above MA20, but broad market is weak: 277 advancers vs 461 decliners, 690 above MA20 vs 987 below MA20. Equity allocation should favor liquid large-cap/core positions, not broad beta expansion."
+        },
+        {
+          "topic": "risk_control",
+          "finding": "HNXINDEX and UPINDEX are below MA20 with negative daily returns, while foreign-flow and derivatives data are unavailable. Keep small/mid-cap exposure limited and require price/volume confirmation before increasing risk."
+        },
+        {
+          "topic": "sector_tilt",
+          "finding": "Best relative-strength sectors are Hàng cá nhân & Gia dụng (+2.45 RS20), Điện nước/xăng dầu khí đốt (+0.42), and Hàng & Dịch vụ Công nghiệp (+0.05). Underweight weak RS sectors: Ô tô/phụ tùng, Viễn thông, Tài nguyên cơ bản, Bảo hiểm."
+        },
+        {
+          "topic": "cash_fixed_income",
+          "finding": "Policy rate is 4.5%, USD/VND is 26126, and primary-source deposit rates reach 6.7-7.2% for 12-24m tenors at selected banks. Cash bucket has meaningful carry; ladder deposits while keeping liquidity reserve."
+        },
+        {
+          "topic": "portfolio_quality",
+          "finding": "Fundamental deep dive covers PNJ, FPT, MWG, VCB, SSI, HPG, TCB, MBB, VIC, VHM; all score 90, but reported ratio fields appear inconsistent for several tickers. Use as watchlist quality screen, not sizing model without validation."
+        }
       ],
-      "output": {
-        "asset_ledger_status": "not_live_configured"
+      "handoff": {
+        "suggested_allocation_posture": "Neutral-to-slightly-risk-on for VN large caps; defensive cash/deposit carry remains attractive; avoid broad small-cap beta until breadth improves.",
+        "watchlist": [
+          "PNJ",
+          "FPT",
+          "MWG",
+          "VCB",
+          "SSI",
+          "HPG",
+          "TCB",
+          "MBB",
+          "VIC",
+          "VHM"
+        ],
+        "data_limits": [
+          "foreign_flow_not_available",
+          "derivatives_not_available",
+          "market value fields are zero",
+          "fundamental ratios need validation before position sizing"
+        ]
+      },
+      "validation": {
+        "used_shared_context": true,
+        "no_sample_fallback": true
       }
     },
     {
       "agent": "financial-news-editor",
-      "input_from": [
-        "market-strategist",
-        "rates-fixed-income-analyst",
-        "fundamental-analyst",
-        "equity-technical-analyst",
-        "quant-researcher",
-        "portfolio-advisor",
-        "wealth-asset-manager"
+      "status": "ok",
+      "findings": [
+        {
+          "type": "news_source_quality",
+          "finding": "News context is real_parsed as of 2026-05-05T20:10:22+07:00, but Trading Economics returned HTTP 403 and used extracted_text_cache fallback. Editorial copy should disclose cached/fallback macro-market source if citing Trading Economics headlines."
+        },
+        {
+          "type": "market_headline",
+          "finding": "VNINDEX and VN30 were strong on 2026-05-05: VNINDEX closed 1874.85 (+1.12%) and VN30 closed 2032.30 (+0.88%), both with 100% above MA20 for tracked index context. HNXINDEX (-1.05%) and UPINDEX (-0.35%) lagged, creating split-market angle."
+        },
+        {
+          "type": "breadth_angle",
+          "finding": "Despite VNINDEX strength, total breadth was negative: 277 advancers versus 461 decliners, with 690 symbols above MA20 and 987 below MA20. Editorial framing should avoid saying broad-based rally."
+        },
+        {
+          "type": "sector_angle",
+          "finding": "Best same-day sector moves were Oil & Gas (+0.98%), Travel & Leisure (+0.80%), IT (+0.70%), and Chemicals (+0.65%); weak areas included Telecom (-1.16%), Healthcare (-0.75%), Insurance (-0.64%), Securities/Non-securities investment (-0.61%), Real Estate (-0.60%), and Banks (-0.48%)."
+        },
+        {
+          "type": "macro_context",
+          "finding": "Macro inputs support cautious equity framing: policy rate 4.5%, USD/VND 26126, World Bank inflation 3.621% for 2024, and unemployment 1.523% for 2025. Deposit-rate table is mixed CafeF primary and WebGia secondary, so bank-specific rate claims need source labels."
+        },
+        {
+          "type": "company_news_angle",
+          "finding": "PNJ investor-relations items available in shared context are corporate pages for Đại hội đồng cổ đông, Báo cáo tài chính, and Báo cáo thường niên, all tagged PNJ. Treat as source availability/corporate-document hooks, not fresh event headlines unless verified from underlying documents."
+        },
+        {
+          "type": "data_gap",
+          "finding": "Foreign-flow and derivatives fields are unavailable in shared context (foreign_flow_not_available; derivatives not in EOD adapter). Editorial should not infer foreign buying/selling, VN30F basis, or open interest from this run."
+        }
       ],
-      "output": {
-        "news_count": 7,
-        "digest_file": "outputs/telegram_digest.txt"
+      "handoff": {
+        "recommended_editorial_line": "Index-led VN market strength, narrow/negative breadth, sector divergence, and cautious macro-source caveats.",
+        "avoid_claims": [
+          "broad-based rally",
+          "foreign investors net bought or sold",
+          "derivatives basis/open interest signal",
+          "fresh PNJ event news without document verification"
+        ],
+        "usable_sources": [
+          "fdata_amibroker_dat EOD market data through 2026-05-05",
+          "Trading Economics extracted-text cache for macro/market context",
+          "SBV/CafeF/WebGia/Vietcombank rate and FX sources",
+          "PNJ investor relations pages"
+        ]
+      },
+      "validation": {
+        "used_shared_context": true,
+        "no_sample_fallback": true
       }
     },
     {
       "agent": "investment-data-designer",
-      "input_from": [
-        "market-strategist",
-        "rates-fixed-income-analyst",
-        "fundamental-analyst",
-        "equity-technical-analyst",
-        "quant-researcher",
-        "portfolio-advisor",
-        "wealth-asset-manager",
-        "financial-news-editor"
+      "status": "ok",
+      "findings": [
+        "parent_write_wrapper_after_spawn_response_unavailable"
       ],
-      "output": {
-        "dashboard_file": "outputs/dashboard.html",
-        "validation": "validated_json_only"
+      "handoff": {},
+      "validation": {
+        "used_shared_context": true,
+        "no_sample_fallback": true,
+        "parent_wrapped": true
       }
     }
   ],
-  "status": "deterministic_handoff_loop_complete",
-  "autonomy_level": "scripted_autonomous; not LLM subagent runtime"
+  "required_agents": [
+    "market-strategist",
+    "rates-fixed-income-analyst",
+    "fundamental-analyst",
+    "equity-technical-analyst",
+    "quant-researcher",
+    "portfolio-advisor",
+    "wealth-asset-manager",
+    "financial-news-editor",
+    "investment-data-designer"
+  ],
+  "missing_agents": [],
+  "validation_errors": {},
+  "status": "ok",
+  "autonomy_level": "real_subagent_orchestration"
 }

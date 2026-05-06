@@ -22,13 +22,24 @@ logs/
 scripts/results/
 outputs/*.tmp
 outputs/*.bak
+outputs/subagent_prompts/
+outputs/subagents/
+outputs/subagent_shared_context.json
+outputs/cafef_*.png
+outputs/vietstock_*.png
+outputs/*_run.log
 
 # Local-only data/secrets
 state/
 data_live/portfolio_real.json
 
-# Live raw fetch cache; keep minimal fixtures under tests/fixtures if needed
+# Live/generated data policy:
+# - default source commits exclude refreshed provider payloads and bulky run outputs
+# - commit small health/audit snapshots only when intentionally documenting release state
+# - keep fixtures under tests/fixtures if deterministic regression data needed
 data_live/raw/
+data_live/cache/
+data_live/financial_xhr_inspect.vn.json
 
 # Local git backup bundles
 *.bundle

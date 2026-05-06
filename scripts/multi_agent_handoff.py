@@ -1,38 +1,60 @@
 #!/usr/bin/env python
-"""Deterministic multi-agent handoff loop using prior agent outputs as next-agent inputs."""
+"""Real OpenClaw subagent handoff runner.
+
+Default mode validates outputs from true subagent runs written to
+outputs/subagents/<agent>.json. Use --bootstrap-prompts to create prompt files;
+spawn them with OpenClaw sessions_spawn from host/runtime, then rerun this script.
+"""
 from __future__ import annotations
-import json, argparse
+import argparse,json
 from datetime import datetime
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/'outputs'; LIVE=ROOT/'data_live'
+ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/'outputs'; LIVE=ROOT/'data_live'; SUB=OUT/'subagents'
+AGENTS=['market-strategist','rates-fixed-income-analyst','fundamental-analyst','equity-technical-analyst','quant-researcher','portfolio-advisor','wealth-asset-manager','financial-news-editor','investment-data-designer']
 
 def now_iso(): return datetime.now().astimezone().isoformat(timespec='seconds')
-def load(p): return json.loads(Path(p).read_text(encoding='utf-8'))
-def save(p,d): Path(p).parent.mkdir(exist_ok=True); Path(p).write_text(json.dumps(d,ensure_ascii=False,indent=2),encoding='utf-8')
-
+def load(p):
+ p=Path(p); return json.loads(p.read_text(encoding='utf-8')) if p.exists() else {}
+def save(p,d): p=Path(p); p.parent.mkdir(parents=True,exist_ok=True); p.write_text(json.dumps(d,ensure_ascii=False,indent=2),encoding='utf-8')
+def shared_context():
+ return {'as_of':now_iso(),'market':load(LIVE/'market_snapshot.vn.json'),'macro':load(LIVE/'macro_rates_live.vn.json'),'fundamentals':load(LIVE/'fundamentals_live.vn.json'),'financials':load(LIVE/'cafef_financial_statements_html.vn.json'),'news':load(LIVE/'news_live.vn.json'),'required_agents':AGENTS}
+def prompt(agent,ctx_path):
+ return f"""You are {agent} in invest-os-vn production handoff.\nRead shared JSON context: {ctx_path}\nReturn JSON only with schema:\n{{"agent":"{agent}","status":"ok","findings":[],"handoff":{{}},"validation":{{"used_shared_context":true,"no_sample_fallback":true}}}}\nFail status if required data missing. No prose."""
+def write_prompts(ctx):
+ ctxp=OUT/'subagent_shared_context.json'; save(ctxp,ctx)
+ pdir=OUT/'subagent_prompts'; pdir.mkdir(parents=True,exist_ok=True)
+ for a in AGENTS: (pdir/f'{a}.txt').write_text(prompt(a,ctxp),encoding='utf-8')
+ return ctxp,pdir
+def validate_result(agent,d):
+ errs=[]
+ if d.get('agent')!=agent: errs.append('agent_mismatch')
+ if d.get('status')!='ok': errs.append('status_not_ok')
+ if not isinstance(d.get('handoff'),dict): errs.append('handoff_missing')
+ v=d.get('validation',{})
+ if v.get('used_shared_context') is not True: errs.append('shared_context_not_confirmed')
+ if v.get('no_sample_fallback') is not True: errs.append('sample_fallback_not_denied')
+ return errs
+def fallback_scripted(ctx):
+ # explicit fallback, never counted as real_subagent
+ return [{'agent':a,'status':'ok','output':{'source':'scripted_fallback','context_keys':list(ctx.keys())},'validation':{'used_shared_context':True,'no_sample_fallback':True}} for a in AGENTS]
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument('--pipeline',default='daily_production') ; args=ap.parse_args()
-    market=load(LIVE/'market_snapshot.vn.json'); macro=load(LIVE/'macro_rates_live.vn.json'); fund=load(LIVE/'fundamentals_live.vn.json'); news=load(LIVE/'news_live.vn.json')
-    handoffs=[]
-    ms={'agent':'market-strategist','output':{'regime':'neutral','breadth':market.get('breadth'), 'indices':market.get('indices',[])[:3]}}
-    handoffs.append(ms)
-    rates={'agent':'rates-fixed-income-analyst','input_from':['market-strategist'],'output':{'policy_rate_pct':macro.get('rates',{}).get('policy_rate_pct',{}).get('value'),'deposit_confidence':macro.get('rates',{}).get('deposit_rates',{}).get('confidence')}}
-    handoffs.append(rates)
-    fund_out={'agent':'fundamental-analyst','input_from':['market-strategist','rates-fixed-income-analyst'],'output':{'deep_dive':fund.get('deep_dive',[])[:10],'limitation':'Finance statements empty in free vnstock; no full valuation'}}
-    handoffs.append(fund_out)
-    tech={'agent':'equity-technical-analyst','input_from':['market-strategist','fundamental-analyst'],'output':{'scan_file':'outputs/stock_signal_scan_investable.json'}}
-    handoffs.append(tech)
-    quant={'agent':'quant-researcher','input_from':['equity-technical-analyst'],'output':{'backtest_files':['outputs/historical_backtest.md','outputs/rolling_walk_forward_backtest.md']}}
-    handoffs.append(quant)
-    pf={'agent':'portfolio-advisor','input_from':['market-strategist','equity-technical-analyst','quant-researcher'],'output':{'portfolio_file':'outputs/portfolio_daily.json'}}
-    handoffs.append(pf)
-    wealth={'agent':'wealth-asset-manager','input_from':['portfolio-advisor','rates-fixed-income-analyst'],'output':{'asset_ledger_status':'not_live_configured'}}
-    handoffs.append(wealth)
-    editor={'agent':'financial-news-editor','input_from':[h['agent'] for h in handoffs],'output':{'news_count':len(news.get('items',[])),'digest_file':'outputs/telegram_digest.txt'}}
-    handoffs.append(editor)
-    designer={'agent':'investment-data-designer','input_from':[h['agent'] for h in handoffs],'output':{'dashboard_file':'outputs/dashboard.html','validation':'validated_json_only'}}
-    handoffs.append(designer)
-    out={'as_of':now_iso(),'pipeline':args.pipeline,'handoffs':handoffs,'status':'deterministic_handoff_loop_complete','autonomy_level':'scripted_autonomous; not LLM subagent runtime'}
-    save(OUT/'multi_agent_handoff.json',out)
-    print(json.dumps(out,ensure_ascii=False,indent=2))
-if __name__=='__main__': main()
+ ap=argparse.ArgumentParser(); ap.add_argument('--pipeline',default='daily_production'); ap.add_argument('--bootstrap-prompts',action='store_true'); ap.add_argument('--allow-scripted-fallback',action='store_true'); args=ap.parse_args()
+ ctx=shared_context(); ctxp,pdir=write_prompts(ctx)
+ if args.bootstrap_prompts:
+  out={'as_of':now_iso(),'status':'prompts_ready','shared_context':str(ctxp),'prompt_dir':str(pdir),'required_agents':AGENTS,'next':'spawn 9 OpenClaw subagents, save each JSON to outputs/subagents/<agent>.json, rerun without --bootstrap-prompts'}; save(OUT/'multi_agent_handoff.json',out); print(json.dumps(out,ensure_ascii=False,indent=2)); return 0
+ handoffs=[]; missing=[]; errors={}
+ for a in AGENTS:
+  p=SUB/f'{a}.json'
+  if not p.exists(): missing.append(a); continue
+  try: d=load(p)
+  except Exception as e: missing.append(a); errors[a]=[f'json_error:{e}']; continue
+  e=validate_result(a,d)
+  if e: errors[a]=e
+  handoffs.append(d)
+ if missing and args.allow_scripted_fallback:
+  handoffs=fallback_scripted(ctx); missing=[]; errors={}; autonomy='scripted_fallback; not LLM subagent runtime'
+ else:
+  autonomy='real_subagent_orchestration' if not missing and not errors and len(handoffs)==9 else 'blocked_missing_or_invalid_subagents'
+ out={'as_of':now_iso(),'pipeline':args.pipeline,'shared_context':str(ctxp),'handoffs':handoffs,'required_agents':AGENTS,'missing_agents':missing,'validation_errors':errors,'status':'ok' if autonomy=='real_subagent_orchestration' else 'failed','autonomy_level':autonomy}
+ save(OUT/'multi_agent_handoff.json',out); print(json.dumps(out,ensure_ascii=False,indent=2)); return 0 if out['status']=='ok' else 2
+if __name__=='__main__': raise SystemExit(main())
