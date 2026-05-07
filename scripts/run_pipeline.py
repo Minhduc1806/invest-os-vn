@@ -117,26 +117,35 @@ def live_input_path(name: str, universe: str) -> str:
         "portfolio": "data_live/portfolio_real.json",
         "news": "data_live/news_live.vn.json",
         "macro_rates": "data_live/macro_rates_live.vn.json",
+        "cophieu68_market_data": "data_live/cophieu68_market_data.vn.json",
     }
     return live_overrides[name]
 
 def refresh_live_ohlcv_if_needed(config: Dict[str, Any], pipeline_name: str, universe: str) -> None:
-    """Regenerate derived live OHLCV before quality gate when cache age exceeds policy."""
+    """Regenerate derived live OHLCV before quality gate.
+
+    Source policy: cophieu68 AmiBroker ZIP is primary. Local FData/vnstock paths are fallback only.
+    """
     path = ROOT / live_ohlcv_path(universe)
-    if not path.exists():
-        return
-    data = load_json(path)
-    as_of = _parse_as_of(data.get("as_of"))
-    if not as_of:
-        return
     stale = config.get("quality_gate", {}).get("block_if_stale_minutes", {})
     key = "intraday_market" if not pipeline_name.startswith("eod") else "eod_market"
     max_min = stale.get(key)
-    if not max_min:
+    needs_refresh = True
+    if path.exists():
+        data = load_json(path)
+        as_of = _parse_as_of(data.get("as_of"))
+        if as_of and max_min:
+            age_min = (datetime.now().astimezone() - as_of).total_seconds() / 60
+            needs_refresh = age_min > max_min or data.get("source") != "cophieu68_amibroker_ohlcv"
+        elif as_of:
+            needs_refresh = data.get("source") != "cophieu68_amibroker_ohlcv"
+    if not needs_refresh:
         return
-    age_min = (datetime.now().astimezone() - as_of).total_seconds() / 60
-    if age_min <= max_min:
+    try:
+        subprocess.run([sys.executable, str(ROOT / "scripts" / "cophieu68_to_fdata.py"), "--refresh"], cwd=ROOT, check=True)
         return
+    except Exception as exc:
+        print(f"WARN cophieu68 primary refresh failed, fallback to legacy source: {exc}", file=sys.stderr)
     script = "fdata_hose_universe.py" if universe == "hose_all" else "fdata_universe_filter.py"
     cmd = [sys.executable, str(ROOT / "scripts" / script)]
     if universe == "hose_all":
@@ -157,41 +166,38 @@ def _market_refresh_tickers(universe: str = "investable") -> str:
     return "PNJ,FPT,MWG,VCB,SSI,HPG,TCB,MBB,VIC,VHM,GVR,STB,VPB,CTG,ACB"
 
 def refresh_live_market_snapshot_if_needed(config: Dict[str, Any], pipeline_name: str, universe: str = "investable") -> None:
-    """Regenerate live market snapshot only when both market cache and OHLCV cache are stale.
-
-    Cache-first rule: if data_live/fdata_investable_bars.json is fresh enough, do not call vnstock.
-    """
-    bars_path = ROOT / live_ohlcv_path(universe)
-    if bars_path.exists():
-        try:
-            bars_as_of = _parse_as_of(load_json(bars_path).get("as_of"))
-            stale = config.get("quality_gate", {}).get("block_if_stale_minutes", {})
-            key = "intraday_market" if not pipeline_name.startswith("eod") else "eod_market"
-            max_min = stale.get(key)
-            if bars_as_of and max_min:
-                bars_age_min = (datetime.now().astimezone() - bars_as_of).total_seconds() / 60
-                if bars_age_min <= max_min:
-                    return
-        except Exception:
-            pass
+    """Regenerate live market snapshot from cophieu68 first; legacy adapters fallback only."""
     path = ROOT / "data_live" / "market_snapshot.vn.json"
-    if not path.exists():
-        return
-    data = load_json(path)
-    as_of = _parse_as_of(data.get("as_of"))
-    if not as_of:
-        return
     stale = config.get("quality_gate", {}).get("block_if_stale_minutes", {})
     key = "intraday_market" if not pipeline_name.startswith("eod") else "eod_market"
     max_min = stale.get(key)
-    if not max_min:
+    needs_refresh = True
+    if path.exists():
+        data = load_json(path)
+        as_of = _parse_as_of(data.get("as_of"))
+        if as_of and max_min:
+            age_min = (datetime.now().astimezone() - as_of).total_seconds() / 60
+            needs_refresh = age_min > max_min or data.get("source") != "cophieu68_amibroker_ohlcv"
+        elif as_of:
+            needs_refresh = data.get("source") != "cophieu68_amibroker_ohlcv"
+    if not needs_refresh:
         return
-    age_min = (datetime.now().astimezone() - as_of).total_seconds() / 60
-    if age_min <= max_min:
+    try:
+        subprocess.run([sys.executable, str(ROOT / "scripts" / "cophieu68_to_fdata.py"), "--refresh"], cwd=ROOT, check=True)
+        return
+    except Exception as exc:
+        print(f"WARN cophieu68 primary market refresh failed, fallback to legacy adapter: {exc}", file=sys.stderr)
+    if not path.exists():
         return
     subprocess.run([sys.executable, str(ROOT / "scripts" / "data_adapters.py"), "--market", "--tickers", _market_refresh_tickers(universe)], cwd=ROOT, check=True)
 
 def run_phase4_real_only_gate() -> None:
+    preflight = [
+        [sys.executable, str(ROOT / "scripts" / "refresh_news_live.py"), "--allow-partial"],
+        [sys.executable, str(ROOT / "scripts" / "macro_rates_parser.py")],
+    ]
+    for cmd in preflight:
+        subprocess.run(cmd, cwd=ROOT, check=True)
     proc = subprocess.run([sys.executable, str(ROOT / "scripts" / "phase4_real_data_gap_audit.py")], cwd=ROOT, text=True, encoding="utf-8", errors="replace")
     if proc.returncode != 0:
         raise RuntimeError("PHASE4_REAL_ONLY_GATE_BLOCKED: scripts/phase4_real_data_gap_audit.py failed")
@@ -411,7 +417,7 @@ def run_stock_signal_scan(inputs: Dict[str, Any]) -> Dict[str, Any]:
     source_bars = ohlcv.get("bars", [])
     signals = [classify_signal(b, regime) for b in source_bars]
     signals.sort(key=lambda x: (x["status"] != "actionable", -x["score"]))
-    universe_name = "investable" if ohlcv.get("source") == "fdata_universe_filter" else "hose_all" if ohlcv.get("source") == "fdata_hose_all_listed" else "unknown"
+    universe_name = "cophieu68_full_market" if ohlcv.get("source") == "cophieu68_amibroker_ohlcv" else "investable" if ohlcv.get("source") == "fdata_universe_filter" else "hose_all" if ohlcv.get("source") == "fdata_hose_all_listed" else "unknown"
     return {
         "run_id": f"stock_signal_scan_{now_iso()}",
         "as_of": ohlcv["as_of"],
@@ -511,22 +517,30 @@ def run_company_deep_dive(inputs: Dict[str, Any], ticker: str) -> Dict[str, Any]
         raise ValueError(f"Ticker not found in fundamentals mock: {ticker}")
     bar = next((b for b in ohlcv["bars"] if b["ticker"] == ticker), None)
     related_news = [n for n in news["items"] if ticker in n["tickers"]]
-    val = co["valuation"]
-    fin = co["financials"]
-    valuation_view = "cao hơn cần biên an toàn" if val["pe_ttm"] > 22 else "trung tính" if val["pe_ttm"] > 14 else "không đắt theo P/E mock"
+    val = co.get("valuation") or {}
+    fin = co.get("financials") or {}
+    metrics = co.get("financial_metrics") or {}
+    ratios = metrics.get("ratios") if isinstance(metrics.get("ratios"), dict) else {}
+    pe = val.get("pe_ttm")
+    valuation_view = "không đủ dữ liệu định giá từ cophieu68" if pe is None else "cao hơn cần biên an toàn" if pe > 22 else "trung tính" if pe > 14 else "không đắt theo P/E"
+    roe = ratios.get("roe_pct")
+    net_margin = ratios.get("net_margin_pct")
+    de = ratios.get("debt_to_equity")
+    financial_quality = f"Nguồn cophieu68 {metrics.get('period')}: ROE {roe if roe is not None else 'N/A'}%, net margin {net_margin if net_margin is not None else 'N/A'}%, D/E {de if de is not None else 'N/A'}."
+    valuation_text = f"P/E {pe if pe is not None else 'N/A'}, P/B {val.get('pb','N/A')}, EV/EBITDA {val.get('ev_ebitda','N/A')}. Nhận định: {valuation_view}."
     return {
         "run_id": f"company_deep_dive_{ticker}_{now_iso()}",
         "as_of": fundamentals["as_of"],
         "pipeline": "company_deep_dive",
         "ticker": ticker,
-        "business": co["business"],
-        "sector": co["sector"],
-        "financial_quality": f"ROE {fin['roe']:.1%}, tăng trưởng LNST {fin['net_profit_growth_yoy']:.1%}, D/E {fin['debt_to_equity']:.2f}.",
-        "valuation": f"P/E {val['pe_ttm']}, P/B {val['pb']}, EV/EBITDA {val['ev_ebitda']}. Nhận định: {valuation_view}.",
-        "peer_percentile": co["peer_percentile"],
+        "business": co.get("business"),
+        "sector": co.get("sector") or co.get("profile", {}).get("company_name") or "VN",
+        "financial_quality": financial_quality,
+        "valuation": valuation_text,
+        "peer_percentile": co.get("peer_percentile"),
         "technical_snapshot": bar,
         "news": related_news,
-        "risks": co["risks"],
+        "risks": co.get("risks", []),
         "watch_conditions": [
             "Kết quả kinh doanh quý tới xác nhận tăng trưởng.",
             "Giá không thủng vùng hỗ trợ kỹ thuật chính.",
@@ -580,7 +594,7 @@ def main() -> int:
     ap.add_argument("--pipeline", required=True)
     ap.add_argument("--ticker", default="FPT")
     ap.add_argument("--mock", action="store_true", help="Use mock_data configured in orchestrator.yaml. Requires --allow-quality-warnings.")
-    ap.add_argument("--live", action="store_true", help="Use data_live generated by FData/data adapters. Default mode.")
+    ap.add_argument("--live", action="store_true", help="Use data_live generated by cophieu68 primary adapters; legacy FData/data adapters fallback. Default mode.")
     ap.add_argument("--universe", choices=["hose_all", "investable"], default="hose_all", help="Signal universe for live OHLCV: hose_all = full HOSE; investable = liquidity-filtered")
     ap.add_argument("--allow-quality-warnings", action="store_true", help="Do not block run when quality gate warns")
     ap.add_argument("--no-refresh", action="store_true", help="Use existing validated data_live cache; never call provider refresh")
@@ -631,6 +645,11 @@ def main() -> int:
         out_md = out_md.with_name(f"{out_md.stem}_{suffix}{out_md.suffix}")
     save_json(out_json, result)
     save_text(out_md, md)
+    if args.pipeline == "portfolio_daily_advice":
+        alias_json = out_json.with_name("portfolio_review.json")
+        alias_md = out_md.with_name("portfolio_review.md")
+        save_json(alias_json, result)
+        save_text(alias_md, md)
     audit(log_path, {"event": "pipeline_done", "pipeline": args.pipeline, "json": str(out_json), "markdown": str(out_md), "warnings": warnings})
     print(f"OK {args.pipeline}")
     print(f"JSON: {out_json}")
