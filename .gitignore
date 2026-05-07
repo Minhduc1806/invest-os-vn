@@ -49,3 +49,9 @@ outputs/paddle_page_*.png
 outputs/tesseract_page_*.png
 
 node_modules/
+
+# Generated live data / reports (new files only; tracked baselines remain tracked)
+data_live/*.json
+outputs/*.json
+outputs/*.md
+scripts/__pycache__/
