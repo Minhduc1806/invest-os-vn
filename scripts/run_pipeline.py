@@ -193,6 +193,7 @@ def refresh_live_market_snapshot_if_needed(config: Dict[str, Any], pipeline_name
 
 def run_phase4_real_only_gate() -> None:
     preflight = [
+        [sys.executable, str(ROOT / "scripts" / "cophieu68_to_fdata.py"), "--refresh"],
         [sys.executable, str(ROOT / "scripts" / "refresh_news_live.py"), "--allow-partial"],
         [sys.executable, str(ROOT / "scripts" / "macro_rates_parser.py")],
     ]
