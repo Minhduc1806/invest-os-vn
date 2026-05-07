@@ -60,7 +60,8 @@ def main():
  else:
   runtime_modes=sorted({str(d.get('validation',{}).get('runtime') or d.get('handoff',{}).get('runtime') or 'unknown') for d in handoffs})
   complete=not missing and not errors and len(handoffs)==len(AGENTS)
-  autonomy='repo_level_shim_orchestration' if complete else 'blocked_missing_or_invalid_subagents'
- out={'as_of':now_iso(),'pipeline':args.pipeline,'shared_context':str(ctxp),'handoffs':handoffs,'required_agents':AGENTS,'missing_agents':missing,'validation_errors':errors,'status':'ok' if complete else 'failed','autonomy_level':autonomy,'runtime_modes':runtime_modes,'native_openclaw_subagents':False}
+  native_complete=complete and any(str(m).startswith('native-openclaw') for m in runtime_modes)
+  autonomy='native_openclaw_subagent_orchestration' if native_complete else ('repo_level_shim_orchestration' if complete else 'blocked_missing_or_invalid_subagents')
+ out={'as_of':now_iso(),'pipeline':args.pipeline,'shared_context':str(ctxp),'handoffs':handoffs,'required_agents':AGENTS,'missing_agents':missing,'validation_errors':errors,'status':'ok' if complete else 'failed','autonomy_level':autonomy,'runtime_modes':runtime_modes,'native_openclaw_subagents':native_complete}
  save(OUT/'multi_agent_handoff.json',out); jprint(out); return 0 if out['status']=='ok' else 2
 if __name__=='__main__': raise SystemExit(main())
