@@ -34,6 +34,7 @@ inputs:
   news: mock_data/news_sample.vn.json
   fundamentals: mock_data/fundamentals_sample.vn.json
   macro_rates: mock_data/macro_rates_sample.vn.json
+  cophieu68_market_data: data_live/cophieu68_market_data.vn.json
   asset_ledger: mock_data/asset_ledger_sample.json
 
 quality_gate:
@@ -112,6 +113,7 @@ pipelines:
     inputs:
       - market_snapshot
       - ohlcv
+      - cophieu68_market_data
     outputs:
       json: outputs/stock_signal_scan.json
       markdown: outputs/stock_signal_report.md
@@ -170,6 +172,7 @@ pipelines:
       - tools/technical_engine.spec.md
     inputs:
       - fundamentals
+      - cophieu68_market_data
       - news
       - ohlcv
     outputs:
