@@ -107,13 +107,14 @@ def is_real_news_link(source_name: str, url: str, title: str) -> bool:
     return True
 
 
-def build_item(source_name: str, url: str, title: str, summary: str | None = None, tickers: list[str] | None = None) -> dict[str, str]:
+def build_item(source_name: str, url: str, title: str, summary: str | None = None, tickers: list[str] | None = None, source_mode: str | None = None) -> dict[str, str]:
     return {
         "title": title[:220],
         "url": url,
         "timestamp": now_iso(),
         "published_at": now_iso(),
         "source": source_name,
+        "source_mode": source_mode or "html_link_extract",
         "dedupe_key": hashlib.sha1((source_name + '|' + url + '|' + title).encode("utf-8")).hexdigest(),
         "tickers": tickers or [],
         "summary": (summary or title)[:240],
@@ -143,7 +144,7 @@ def extract_vietstock_topics(source: dict[str, str], html: str, limit: int = 6) 
         if not topic_id:
             continue
         url = f"https://vietstock.vn/chu-de/{topic_id}-{topic_type}/{source['url'].rsplit('/',1)[-1]}"
-        items.append(build_item(source["name"], url, title, summary=f"Vietstock topic watchlist from template metadata: {title}"))
+        items.append(build_item(source["name"], url, title, summary=f"Vietstock topic watchlist from template metadata: {title}", source_mode="template_topic_metadata"))
         if len(items) >= limit:
             break
     return items
@@ -171,16 +172,16 @@ def extract_links(source: dict[str, str], html: str, limit: int = 5) -> list[dic
             continue
         if not is_real_news_link(source["name"], url, title):
             continue
-        items.append(build_item(source["name"], url, title, tickers=["PNJ"] if "pnj" in (title + url).lower() else []))
+        items.append(build_item(source["name"], url, title, tickers=["PNJ"] if "pnj" in (title + url).lower() else [], source_mode="html_link_extract"))
         if len(items) >= limit:
             break
     if not items:
         text = clean_title(strip(html)[:160])
         if source["name"].startswith("CafeF"):
             fallback_title = "Lãi suất ngân hàng / tỷ giá CafeF"
-            items.append(build_item(source["name"], base, fallback_title, summary=fallback_title))
+            items.append(build_item(source["name"], base, fallback_title, summary=fallback_title, source_mode="source_fallback"))
         elif source["name"] == "Trading Economics" and len(text) >= 12 and not DIRTY.search(text):
-            items.append(build_item(source["name"], base, text))
+            items.append(build_item(source["name"], base, text, source_mode="provider_page_fallback"))
     return items
 
 
@@ -210,6 +211,7 @@ def main() -> int:
     all_items: list[dict[str, str]] = []
     meta: list[dict[str, str]] = []
     warnings: list[str] = []
+    warning_details: list[dict[str, str]] = []
     for src in SOURCES:
         try:
             html = fetch(src["url"])
@@ -222,26 +224,32 @@ def main() -> int:
                     sha = hashlib.sha256(text.encode("utf-8")).hexdigest()
                     all_items.extend(extract_te_text_items(src, text, limit=4))
                     warnings.append(f"{src['name']}:provider_down:{exc};used_revalidated_existing_cache")
+                    warning_details.append({"source": src["name"], "kind": "provider_down", "detail": str(exc), "fallback": "revalidated_existing_cache"})
                     meta.append({"name": src["name"], "url": str(TE_CACHE), "fallback_from": src["url"], "fetched_at": now_iso(), "sha256": sha, "source_mode": "revalidated_existing_cache"})
                     continue
                 except Exception as cache_exc:
                     warnings.append(f"{src['name']}:provider_down:{exc};cache:{cache_exc}")
+                    warning_details.append({"source": src["name"], "kind": "provider_down", "detail": str(exc), "cache_error": str(cache_exc)})
                     meta.append({"name": src["name"], "url": src["url"], "fetched_at": now_iso(), "error": f"{exc}; cache:{cache_exc}"})
                     continue
             warnings.append(f"{src['name']}:provider_down:{exc}")
+            warning_details.append({"source": src["name"], "kind": "provider_down", "detail": str(exc)})
             meta.append({"name": src["name"], "url": src["url"], "fetched_at": now_iso(), "error": str(exc)})
     deduped = list({item["dedupe_key"]: item for item in all_items}.values())
     gaps = validate(deduped)
-    if gaps or (warnings and not args.allow_partial):
-        print("NEWS_REFRESH_FAILED")
-        for x in warnings + gaps:
-            print("-", x)
-        return 1
-    payload = {"as_of": now_iso(), "source": [m["name"] for m in meta], "source_meta": meta, "items": deduped, "warnings": warnings, "status": "real_parsed"}
-    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(json.dumps(payload, ensure_ascii=False, indent=2))
-    print("NEWS_REFRESH_OK")
-    return 0
+    required_passed = not gaps and bool(deduped)
+    payload = {"as_of": now_iso(), "source": [m["name"] for m in meta], "source_meta": meta, "items": deduped, "warnings": warnings, "warning_details": warning_details, "status": "real_parsed", "parse_quality": {"required_passed": required_passed, "gaps": gaps}}
+    if required_passed:
+        OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(json.dumps(payload, ensure_ascii=False, indent=2))
+        print("NEWS_REFRESH_OK_WITH_WARNINGS" if warnings else "NEWS_REFRESH_OK")
+        return 0
+    print("NEWS_REFRESH_FAILED")
+    for x in warnings + gaps:
+        print("-", x)
+    if args.allow_partial and deduped:
+        OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    return 1
 
 
 if __name__ == "__main__":
