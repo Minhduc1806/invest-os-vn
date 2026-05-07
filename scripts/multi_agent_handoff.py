@@ -58,7 +58,9 @@ def main():
  if missing and args.allow_scripted_fallback:
   handoffs=fallback_scripted(ctx); missing=[]; errors={}; autonomy='scripted_fallback; not LLM subagent runtime'
  else:
-  autonomy='real_subagent_orchestration' if not missing and not errors and len(handoffs)==len(AGENTS) else 'blocked_missing_or_invalid_subagents'
- out={'as_of':now_iso(),'pipeline':args.pipeline,'shared_context':str(ctxp),'handoffs':handoffs,'required_agents':AGENTS,'missing_agents':missing,'validation_errors':errors,'status':'ok' if autonomy=='real_subagent_orchestration' else 'failed','autonomy_level':autonomy}
+  runtime_modes=sorted({str(d.get('validation',{}).get('runtime') or d.get('handoff',{}).get('runtime') or 'unknown') for d in handoffs})
+  complete=not missing and not errors and len(handoffs)==len(AGENTS)
+  autonomy='repo_level_shim_orchestration' if complete else 'blocked_missing_or_invalid_subagents'
+ out={'as_of':now_iso(),'pipeline':args.pipeline,'shared_context':str(ctxp),'handoffs':handoffs,'required_agents':AGENTS,'missing_agents':missing,'validation_errors':errors,'status':'ok' if complete else 'failed','autonomy_level':autonomy,'runtime_modes':runtime_modes,'native_openclaw_subagents':False}
  save(OUT/'multi_agent_handoff.json',out); jprint(out); return 0 if out['status']=='ok' else 2
 if __name__=='__main__': raise SystemExit(main())

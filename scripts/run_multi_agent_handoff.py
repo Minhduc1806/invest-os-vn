@@ -3,8 +3,13 @@
 
 Creates shared context, runs every required agent prompt through a local deterministic
 agent shim, writes outputs/subagents/<agent>.json, then validates with
-multi_agent_handoff.py. This is production orchestration at repo level; if a real
-OpenClaw subagent bridge is later exposed to Python, replace run_agent() only.
+multi_agent_handoff.py.
+
+Current runtime: repo-level production orchestration via phase3_local_agent_shim.
+Not native OpenClaw LLM subagent spawn yet.
+
+TODO: when OpenClaw exposes a stable CLI/API bridge for native subagent spawning,
+replace run_agent() only; keep prompt creation, output path contract, and validation.
 """
 from __future__ import annotations
 
@@ -93,7 +98,7 @@ def main() -> int:
         "agents": agents,
         "handoff_path": str(OUT / "multi_agent_handoff.json"),
         "runtime": "phase3_local_agent_shim",
-        "note": "Repo-level production orchestration writes validated outputs/subagents JSON for all 14 agents.",
+        "note": "Repo-level production orchestration writes validated outputs/subagents JSON for all 14 agents via phase3_local_agent_shim; replace run_agent() with native OpenClaw subagent bridge when stable CLI/API is available.",
     }
     save_json(OUT / "multi_agent_handoff_run.json", summary)
     print(json.dumps(summary, ensure_ascii=False, indent=2))
