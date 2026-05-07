@@ -10,7 +10,7 @@ import argparse,json,sys
 from datetime import datetime
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/'outputs'; LIVE=ROOT/'data_live'; SUB=OUT/'subagents'
-AGENTS=['market-strategist','rates-fixed-income-analyst','fundamental-analyst','equity-technical-analyst','quant-researcher','portfolio-advisor','wealth-asset-manager','financial-news-editor','investment-data-designer']
+AGENTS=['market-strategist','macro-strategist','rates-fixed-income-analyst','fundamental-analyst','banking-sector-analyst','real-estate-sector-analyst','steel-sector-analyst','equity-technical-analyst','quant-researcher','risk-manager','portfolio-advisor','wealth-asset-manager','financial-news-editor','investment-data-designer']
 
 def now_iso(): return datetime.now().astimezone().isoformat(timespec='seconds')
 def load(p):
@@ -45,7 +45,7 @@ def main():
  ap=argparse.ArgumentParser(); ap.add_argument('--pipeline',default='daily_production'); ap.add_argument('--bootstrap-prompts',action='store_true'); ap.add_argument('--allow-scripted-fallback',action='store_true'); args=ap.parse_args()
  ctx=shared_context(); ctxp,pdir=write_prompts(ctx)
  if args.bootstrap_prompts:
-  out={'as_of':now_iso(),'status':'prompts_ready','shared_context':str(ctxp),'prompt_dir':str(pdir),'required_agents':AGENTS,'next':'spawn 9 OpenClaw subagents, save each JSON to outputs/subagents/<agent>.json, rerun without --bootstrap-prompts'}; save(OUT/'multi_agent_handoff.json',out); jprint(out); return 0
+  out={'as_of':now_iso(),'status':'prompts_ready','shared_context':str(ctxp),'prompt_dir':str(pdir),'required_agents':AGENTS,'next':f'spawn {len(AGENTS)} OpenClaw subagents, save each JSON to outputs/subagents/<agent>.json, rerun without --bootstrap-prompts'}; save(OUT/'multi_agent_handoff.json',out); jprint(out); return 0
  handoffs=[]; missing=[]; errors={}
  for a in AGENTS:
   p=SUB/f'{a}.json'
@@ -58,7 +58,7 @@ def main():
  if missing and args.allow_scripted_fallback:
   handoffs=fallback_scripted(ctx); missing=[]; errors={}; autonomy='scripted_fallback; not LLM subagent runtime'
  else:
-  autonomy='real_subagent_orchestration' if not missing and not errors and len(handoffs)==9 else 'blocked_missing_or_invalid_subagents'
+  autonomy='real_subagent_orchestration' if not missing and not errors and len(handoffs)==len(AGENTS) else 'blocked_missing_or_invalid_subagents'
  out={'as_of':now_iso(),'pipeline':args.pipeline,'shared_context':str(ctxp),'handoffs':handoffs,'required_agents':AGENTS,'missing_agents':missing,'validation_errors':errors,'status':'ok' if autonomy=='real_subagent_orchestration' else 'failed','autonomy_level':autonomy}
  save(OUT/'multi_agent_handoff.json',out); jprint(out); return 0 if out['status']=='ok' else 2
 if __name__=='__main__': raise SystemExit(main())

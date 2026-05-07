@@ -63,9 +63,11 @@ pipelines:
     lead_agent: market-strategist
     agent_ids:
       - market-strategist
+      - macro-strategist
       - financial-news-editor
       - rates-fixed-income-analyst
       - investment-data-designer
+      - risk-manager
     quality_report: outputs/eod_market_brief.json
     final_writer: financial-news-editor
     trigger:
@@ -74,9 +76,11 @@ pipelines:
     skill: skills/eod_market_brief.yaml
     agents:
       - agents/market-strategist.md
+      - agents/macro-strategist.md
       - agents/financial-news-editor.md
       - agents/rates-fixed-income-analyst.md
       - agents/investment-data-designer.md
+      - agents/risk-manager.md
     tools:
       - tools/market_data.spec.md
       - tools/news_ingest.spec.md
@@ -94,8 +98,12 @@ pipelines:
     lead_agent: equity-technical-analyst
     agent_ids:
       - market-strategist
+      - banking-sector-analyst
+      - real-estate-sector-analyst
+      - steel-sector-analyst
       - equity-technical-analyst
       - quant-researcher
+      - risk-manager
     quality_report: outputs/stock_signal_scan_investable.json
     final_writer: financial-news-editor
     trigger:
@@ -104,8 +112,12 @@ pipelines:
     skill: skills/stock_signal_scan.yaml
     agents:
       - agents/market-strategist.md
+      - agents/banking-sector-analyst.md
+      - agents/real-estate-sector-analyst.md
+      - agents/steel-sector-analyst.md
       - agents/equity-technical-analyst.md
       - agents/quant-researcher.md
+      - agents/risk-manager.md
     tools:
       - tools/market_data.spec.md
       - tools/technical_engine.spec.md
@@ -125,6 +137,11 @@ pipelines:
       - portfolio-advisor
       - financial-news-editor
       - equity-technical-analyst
+      - banking-sector-analyst
+      - real-estate-sector-analyst
+      - steel-sector-analyst
+      - macro-strategist
+      - risk-manager
     quality_report: outputs/portfolio_daily.json
     final_writer: portfolio-advisor
     trigger:
@@ -135,6 +152,11 @@ pipelines:
       - agents/portfolio-advisor.md
       - agents/financial-news-editor.md
       - agents/equity-technical-analyst.md
+      - agents/banking-sector-analyst.md
+      - agents/real-estate-sector-analyst.md
+      - agents/steel-sector-analyst.md
+      - agents/macro-strategist.md
+      - agents/risk-manager.md
     tools:
       - tools/portfolio_engine.spec.md
       - tools/news_ingest.spec.md
@@ -155,6 +177,11 @@ pipelines:
       - fundamental-analyst
       - financial-news-editor
       - equity-technical-analyst
+      - banking-sector-analyst
+      - real-estate-sector-analyst
+      - steel-sector-analyst
+      - macro-strategist
+      - risk-manager
     quality_report: outputs/company_deep_dive.json
     final_writer: fundamental-analyst
     trigger:
@@ -166,6 +193,11 @@ pipelines:
       - agents/fundamental-analyst.md
       - agents/financial-news-editor.md
       - agents/equity-technical-analyst.md
+      - agents/banking-sector-analyst.md
+      - agents/real-estate-sector-analyst.md
+      - agents/steel-sector-analyst.md
+      - agents/macro-strategist.md
+      - agents/risk-manager.md
     tools:
       - tools/fundamental_engine.spec.md
       - tools/news_ingest.spec.md
@@ -183,9 +215,41 @@ pipelines:
 handoff_rules:
   market-strategist:
     sends_to:
+      - macro-strategist
+      - banking-sector-analyst
+      - real-estate-sector-analyst
+      - steel-sector-analyst
       - equity-technical-analyst
+      - risk-manager
       - portfolio-advisor
       - investment-data-designer
+  macro-strategist:
+    sends_to:
+      - banking-sector-analyst
+      - real-estate-sector-analyst
+      - steel-sector-analyst
+      - risk-manager
+      - portfolio-advisor
+  banking-sector-analyst:
+    sends_to:
+      - equity-technical-analyst
+      - risk-manager
+      - portfolio-advisor
+  real-estate-sector-analyst:
+    sends_to:
+      - equity-technical-analyst
+      - risk-manager
+      - portfolio-advisor
+  steel-sector-analyst:
+    sends_to:
+      - equity-technical-analyst
+      - risk-manager
+      - portfolio-advisor
+  risk-manager:
+    sends_to:
+      - portfolio-advisor
+      - wealth-asset-manager
+      - financial-news-editor
   financial-news-editor:
     sends_to:
       - portfolio-advisor
@@ -194,9 +258,13 @@ handoff_rules:
   equity-technical-analyst:
     sends_to:
       - portfolio-advisor
+      - risk-manager
       - investment-data-designer
   fundamental-analyst:
     sends_to:
+      - banking-sector-analyst
+      - real-estate-sector-analyst
+      - steel-sector-analyst
       - portfolio-advisor
       - investment-data-designer
 
