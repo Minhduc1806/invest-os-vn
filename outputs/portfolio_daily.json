@@ -1,5 +1,5 @@
 {
-  "run_id": "portfolio_daily_advice_2026-05-08T15:24:16+07:00",
+  "run_id": "portfolio_daily_advice_2026-05-08T21:47:57+07:00",
   "as_of": "2026-05-05T15:51:00+07:00",
   "pipeline": "portfolio_daily_advice",
   "nav_vnd": 1020966015,
@@ -58,11 +58,13 @@
       "real-estate-sector-analyst",
       "steel-sector-analyst",
       "macro-strategist",
+      "global-macro-strategist",
       "risk-manager"
     ],
     "tool_outputs": [
       "tools/portfolio_engine.spec.md",
       "tools/news_ingest.spec.md",
+      "tools/global_macro_ingest.spec.md",
       "tools/technical_engine.spec.md"
     ],
     "quality_report": [],

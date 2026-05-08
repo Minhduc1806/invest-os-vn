@@ -1,10 +1,10 @@
 {
-  "run_id": "stock_signal_scan_2026-05-08T15:23:33+07:00",
-  "as_of": "2026-05-08T15:23:22+07:00",
+  "run_id": "stock_signal_scan_2026-05-08T21:45:48+07:00",
+  "as_of": "2026-05-08T21:45:17+07:00",
   "pipeline": "stock_signal_scan",
   "universe_mode": "cophieu68_full_market",
   "market_regime": {
-    "as_of": "2026-05-08T15:23:22+07:00",
+    "as_of": "2026-05-08T21:45:17+07:00",
     "regime": "risk_off",
     "risk_appetite": 25.0,
     "evidence": [

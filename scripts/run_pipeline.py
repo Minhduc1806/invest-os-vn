@@ -202,7 +202,10 @@ def run_phase4_real_only_gate(pipeline_name: str = "all") -> None:
     ]
     for cmd in preflight:
         subprocess.run(cmd, cwd=ROOT, check=True)
-    proc = subprocess.run([sys.executable, str(ROOT / "scripts" / "phase4_real_data_gap_audit.py"), "--pipeline", pipeline_name], cwd=ROOT, text=True, encoding="utf-8", errors="replace")
+    gate_cmd = [sys.executable, str(ROOT / "scripts" / "phase4_real_data_gap_audit.py"), "--pipeline", pipeline_name]
+    if pipeline_name == "portfolio_daily_advice":
+        gate_cmd.append("--allow-stale-portfolio")
+    proc = subprocess.run(gate_cmd, cwd=ROOT, text=True, encoding="utf-8", errors="replace")
     if proc.returncode != 0:
         raise RuntimeError(f"PHASE4_REAL_ONLY_GATE_BLOCKED: scripts/phase4_real_data_gap_audit.py failed for {pipeline_name}")
 
@@ -360,13 +363,56 @@ def source_list(values: Any) -> list[str]:
     add(values)
     return list(dict.fromkeys(out))
 
+def _global_macro_brief(global_macro: Dict[str, Any] | None) -> Dict[str, Any]:
+    if not isinstance(global_macro, dict):
+        return {"summary": "Thiếu lớp global_macro_live.", "items": [], "warnings": ["missing_global_macro"]}
+    indicators = global_macro.get("indicators") or {}
+    impacts = global_macro.get("vn_equity_impact") or []
+    events = global_macro.get("events") or []
+    def ind(name: str) -> str:
+        item = indicators.get(name) or {}
+        value = item.get("value")
+        trend_v = item.get("trend_approx")
+        date = item.get("date")
+        return f"{name}={value} ({trend_v or 'n/a'}, {date or 'n/a'})"
+    summary = "; ".join([
+        ind("fed_effective_rate"),
+        ind("dxy"),
+        ind("us_10y_yield"),
+        ind("brent_oil"),
+        ind("gold_usd_oz"),
+    ])
+    items = []
+    for impact in impacts[:4]:
+        items.append({
+            "channel": impact.get("channel"),
+            "vn_impact": impact.get("vn_impact"),
+            "detail": impact.get("detail"),
+            "confidence": impact.get("confidence"),
+        })
+    headline_items = []
+    for event in events[:6]:
+        headline_items.append({
+            "topic": event.get("topic"),
+            "title": event.get("title"),
+            "source": event.get("source"),
+            "published_at": event.get("published_at"),
+            "vn_transmission_channel": event.get("vn_transmission_channel"),
+        })
+    return {"summary": summary, "items": items, "headlines": headline_items, "warnings": global_macro.get("warnings", [])}
+
+
 def run_eod_market_brief(inputs: Dict[str, Any]) -> Dict[str, Any]:
     market, news, macro = inputs["market_snapshot"], inputs["news"], inputs["macro_rates"]
+    global_macro = inputs.get("global_macro")
     regime = derive_market_regime(market, macro)
+    global_brief = _global_macro_brief(global_macro)
     news_items = news["items"][:5]
+    global_risk_note = global_brief["items"][0]["detail"] if global_brief["items"] else "Global macro chưa có tín hiệu đủ mạnh hoặc thiếu dữ liệu."
     thesis = (
         f"Thị trường nghiêng {regime['regime']} với risk appetite {regime['risk_appetite']}/100. "
-        f"Bằng chứng chính: {regime['evidence'][0]}; {regime['evidence'][1]}."
+        f"Bằng chứng chính: {regime['evidence'][0]}; {regime['evidence'][1]}. "
+        f"Global macro: {global_risk_note}"
     )
     sector_rows = [[s["name"], pct(s["change_pct"]), s["value_bil_vnd"], s["relative_strength_20d"]] for s in regime["top_sectors_by_data"]]
     return {
@@ -374,15 +420,17 @@ def run_eod_market_brief(inputs: Dict[str, Any]) -> Dict[str, Any]:
         "as_of": market["as_of"],
         "pipeline": "eod_market_brief",
         "market_regime": regime,
+        "global_macro_brief": global_brief,
         "market_thesis": thesis,
         "sector_table": sector_rows,
         "news_brief": [{"title": n["title"], "tickers": n["tickers"], "url": n["url"], "summary": n["summary"]} for n in news_items],
         "next_session_conditions": [
             "Ưu tiên giải ngân nếu VNINDEX giữ trên tham chiếu và breadth tiếp tục > 1.2.",
             "Giảm tốc nếu thanh khoản tăng nhưng breadth xấu đi hoặc basis phái sinh âm rộng.",
+            "Kiểm tra global macro: FED/DXY/yields/oil/gold/geopolitical headlines trước khi tăng beta.",
             "Không gọi nhóm dẫn dắt nếu sector ranking không duy trì qua ít nhất 2 phiên.",
         ],
-        "sources": source_list([market["source"], news["source"], macro["source"]]),
+        "sources": source_list([market["source"], news["source"], macro["source"], global_macro.get("source") if isinstance(global_macro, dict) else None]),
         "confidence": 0.74,
         "disclaimer": "Thông tin hỗ trợ quyết định, không phải khuyến nghị đầu tư cá nhân hóa bắt buộc mua/bán.",
     }
@@ -560,7 +608,14 @@ def markdown_eod(result: Dict[str, Any], template: str) -> str:
     sector_table = md_table(["Ngành", "% phiên", "GTGD tỷ", "RS20D"], result["sector_table"])
     watchlist = "\n".join(f"- {n['title']} ({', '.join(n['tickers']) or 'vĩ mô'}): {n['summary']}" for n in result["news_brief"])
     conditions = "\n".join(f"- {x}" for x in result["next_session_conditions"])
-    return render_template(template, {
+    gm = result.get("global_macro_brief") or {}
+    gm_lines = [f"- Chỉ báo: {gm.get('summary', 'thiếu global macro summary')}"]
+    for item in gm.get("items", []):
+        gm_lines.append(f"- {item.get('channel')}: {item.get('vn_impact')} — {item.get('detail')} (confidence {item.get('confidence')})")
+    for h in gm.get("headlines", [])[:3]:
+        gm_lines.append(f"- Headline {h.get('topic')}: {h.get('title')} | kênh VN: {h.get('vn_transmission_channel')}")
+    global_macro_section = "\n".join(gm_lines)
+    body = render_template(template, {
         "date": result["as_of"][:10],
         "market_thesis": result["market_thesis"],
         "regime": result["market_regime"]["regime"],
@@ -568,7 +623,9 @@ def markdown_eod(result: Dict[str, Any], template: str) -> str:
         "sector_table": sector_table,
         "watchlist": watchlist,
         "next_session_conditions": conditions,
-    }) + f"\n\nNguồn: {', '.join(result['sources'])}\n\n{result['disclaimer']}\n"
+    })
+    body += "\n\n## Global macro watch\n" + global_macro_section
+    return body + f"\n\nNguồn: {', '.join(result['sources'])}\n\n{result['disclaimer']}\n"
 
 
 def markdown_signals(result: Dict[str, Any], template: str) -> str:

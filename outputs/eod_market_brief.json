@@ -1,9 +1,9 @@
 {
-  "run_id": "eod_market_brief_2026-05-08T20:57:41+07:00",
-  "as_of": "2026-05-08T20:57:29+07:00",
+  "run_id": "eod_market_brief_2026-05-08T21:45:00+07:00",
+  "as_of": "2026-05-08T21:44:45+07:00",
   "pipeline": "eod_market_brief",
   "market_regime": {
-    "as_of": "2026-05-08T20:57:29+07:00",
+    "as_of": "2026-05-08T21:44:45+07:00",
     "regime": "risk_off",
     "risk_appetite": 25.0,
     "evidence": [
@@ -44,7 +44,72 @@
     "source": "cophieu68_amibroker_ohlcv",
     "confidence": 0.74
   },
-  "market_thesis": "Thị trường nghiêng risk_off với risk appetite 25.0/100. Bằng chứng chính: VNINDEX 0.00%, value 2623.67 tỷ VND; Breadth adv/dec 0.00 (0/0).",
+  "global_macro_brief": {
+    "summary": "fed_effective_rate=3.64 (flat, 2026-05-06); dxy=118.3926 (down, 2026-05-01); us_10y_yield=4.36 (down, 2026-05-06); brent_oil=118.26 (up, 2026-05-01); gold_usd_oz=None (n/a, n/a)",
+    "items": [
+      {
+        "channel": "oil/inflation",
+        "vn_impact": "mixed_negative",
+        "detail": "Oil rising can support oil & gas names but pressure transport, inflation expectation, and import costs.",
+        "confidence": 0.65
+      },
+      {
+        "channel": "headline/geopolitical",
+        "vn_impact": "scenario_watch",
+        "detail": "Trade-war/geopolitical headlines require sector mapping before acting: exporters, industrial parks, logistics, oil & gas, banks.",
+        "confidence": 0.6
+      }
+    ],
+    "headlines": [
+      {
+        "topic": "fed",
+        "title": "Agencies issue host state loan-to-deposit ratios",
+        "source": "Federal Reserve press releases",
+        "published_at": "2026-05-01T15:00:00+00:00",
+        "vn_transmission_channel": "USD/VND, foreign flow, equity discount rate, bank funding sentiment"
+      },
+      {
+        "topic": "fed",
+        "title": "Federal Reserve issues FOMC statement",
+        "source": "Federal Reserve press releases",
+        "published_at": "2026-04-29T18:00:00+00:00",
+        "vn_transmission_channel": "USD/VND, foreign flow, equity discount rate, bank funding sentiment"
+      },
+      {
+        "topic": "fed",
+        "title": "Federal Reserve Board announces approval of application by OceanFirst Financial Corp.",
+        "source": "Federal Reserve press releases",
+        "published_at": "2026-04-24T20:00:00+00:00",
+        "vn_transmission_channel": "USD/VND, foreign flow, equity discount rate, bank funding sentiment"
+      },
+      {
+        "topic": "fed",
+        "title": "Federal Reserve Board announces approval of application by Banco de Credito del Peru",
+        "source": "Federal Reserve press releases",
+        "published_at": "2026-04-24T20:00:00+00:00",
+        "vn_transmission_channel": "USD/VND, foreign flow, equity discount rate, bank funding sentiment"
+      },
+      {
+        "topic": "fed",
+        "title": "Agencies finalize changes to enhance community bank leverage ratio",
+        "source": "Federal Reserve press releases",
+        "published_at": "2026-04-23T19:30:00+00:00",
+        "vn_transmission_channel": "USD/VND, foreign flow, equity discount rate, bank funding sentiment"
+      },
+      {
+        "topic": "fed",
+        "title": "Federal Reserve Board issues enforcement action with former employee of First Financial Bank",
+        "source": "Federal Reserve press releases",
+        "published_at": "2026-04-22T15:00:00+00:00",
+        "vn_transmission_channel": "USD/VND, foreign flow, equity discount rate, bank funding sentiment"
+      }
+    ],
+    "warnings": [
+      "fred_fetch_failed:gold_usd_oz:GOLDAMGBD228NLBM:HTTP Error 404: Not Found",
+      "partial_indicator_coverage:7/8"
+    ]
+  },
+  "market_thesis": "Thị trường nghiêng risk_off với risk appetite 25.0/100. Bằng chứng chính: VNINDEX 0.00%, value 2623.67 tỷ VND; Breadth adv/dec 0.00 (0/0). Global macro: Oil rising can support oil & gas names but pressure transport, inflation expectation, and import costs.",
   "sector_table": [
     [
       "unknown",
@@ -104,6 +169,7 @@
   "next_session_conditions": [
     "Ưu tiên giải ngân nếu VNINDEX giữ trên tham chiếu và breadth tiếp tục > 1.2.",
     "Giảm tốc nếu thanh khoản tăng nhưng breadth xấu đi hoặc basis phái sinh âm rộng.",
+    "Kiểm tra global macro: FED/DXY/yields/oil/gold/geopolitical headlines trước khi tăng beta.",
     "Không gọi nhóm dẫn dắt nếu sector ranking không duy trì qua ít nhất 2 phiên."
   ],
   "sources": [
@@ -120,7 +186,21 @@
     "CafeF",
     "WebGia deposit rates",
     "WebGia USD FX",
-    "Vietcombank exchange rates"
+    "Vietcombank exchange rates",
+    "FRED:DCOILBRENTEU",
+    "FRED:DCOILWTICO",
+    "FRED:DFF",
+    "FRED:DGS10",
+    "FRED:DGS2",
+    "FRED:DTWEXBGS",
+    "FRED:GOLDAMGBD228NLBM",
+    "FRED:VIXCLS",
+    "Federal Reserve press releases",
+    "Geopolitical risk Google News",
+    "Gold macro Google News",
+    "Oil geopolitics Google News",
+    "Reuters Fed Google News",
+    "US China trade war Google News"
   ],
   "confidence": 0.74,
   "disclaimer": "Thông tin hỗ trợ quyết định, không phải khuyến nghị đầu tư cá nhân hóa bắt buộc mua/bán.",

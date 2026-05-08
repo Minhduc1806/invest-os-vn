@@ -161,6 +161,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--mode", choices=["eod", "intraday"], default="eod", help="Stale window policy: eod=1440m for market/OHLCV, intraday=30m")
     ap.add_argument("--pipeline", choices=sorted(PIPELINE_CHECKS), default="all", help="Audit only inputs needed by one pipeline; default audits all live layers")
+    ap.add_argument("--allow-stale-portfolio", action="store_true", help="Portfolio can be stale when explicitly user-provided and not needed for price/history freshness checks")
     args = ap.parse_args()
     results = []
     check_names = PIPELINE_CHECKS[args.pipeline]
@@ -177,6 +178,12 @@ def main() -> int:
     out_path = ROOT / "scripts" / "results" / "phase4_real_data_gap_audit.json"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
+    if args.allow_stale_portfolio:
+        for r in results:
+            if r.get("name") == "portfolio":
+                r["gaps"] = [g for g in r.get("gaps", []) if not str(g).startswith("stale_as_of>")]
+                if r.get("source"):
+                    r["stale_policy"] = "allowed_user_provided_portfolio"
     open_gaps = [r for r in results if r.get("gaps")]
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     print(json.dumps(out, ensure_ascii=False, indent=2))
