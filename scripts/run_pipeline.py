@@ -118,6 +118,7 @@ def live_input_path(name: str, universe: str) -> str:
         "news": "data_live/news_live.vn.json",
         "macro_rates": "data_live/macro_rates_live.vn.json",
         "global_macro": "data_live/global_macro_live.json",
+        "derivatives": "data_live/derivatives_live.vn.json",
         "cophieu68_market_data": "data_live/cophieu68_market_data.vn.json",
     }
     return live_overrides[name]
@@ -199,6 +200,7 @@ def run_phase4_real_only_gate(pipeline_name: str = "all") -> None:
         [sys.executable, str(ROOT / "scripts" / "refresh_news_live.py"), "--allow-partial"],
         [sys.executable, str(ROOT / "scripts" / "macro_rates_parser.py")],
         [sys.executable, str(ROOT / "scripts" / "global_macro_ingest.py")],
+        [sys.executable, str(ROOT / "scripts" / "refresh_derivatives_live.py")],
     ]
     for cmd in preflight:
         subprocess.run(cmd, cwd=ROOT, check=True)
@@ -402,9 +404,36 @@ def _global_macro_brief(global_macro: Dict[str, Any] | None) -> Dict[str, Any]:
     return {"summary": summary, "items": items, "headlines": headline_items, "warnings": global_macro.get("warnings", [])}
 
 
+
+def _derivatives_brief(derivatives: Dict[str, Any] | None) -> Dict[str, Any]:
+    if not isinstance(derivatives, dict):
+        return {"summary": "Thiếu lớp derivatives_live.vn.json.", "latest": [], "warnings": ["missing_derivatives"]}
+    rows = derivatives.get("rows") or []
+    latest_by_symbol: Dict[str, Dict[str, Any]] = {}
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        sym = str(row.get("symbol") or "")
+        if sym and sym not in latest_by_symbol:
+            latest_by_symbol[sym] = row
+    latest = list(latest_by_symbol.values())[:4]
+    parts = []
+    for row in latest[:3]:
+        parts.append(f"{row.get('symbol')}: basis {row.get('basis_points')} điểm ({row.get('basis_pct')}%), OI {row.get('open_interest')}, ΔOI {row.get('open_interest_change')}")
+    summary = "; ".join(parts) if parts else "Không có dòng phái sinh đủ dữ liệu."
+    return {
+        "summary": summary,
+        "latest": latest,
+        "quality_score": derivatives.get("quality_score"),
+        "warnings": derivatives.get("warnings", []),
+        "source_policy": derivatives.get("source_policy"),
+    }
+
 def run_eod_market_brief(inputs: Dict[str, Any]) -> Dict[str, Any]:
     market, news, macro = inputs["market_snapshot"], inputs["news"], inputs["macro_rates"]
     global_macro = inputs.get("global_macro")
+    derivatives = inputs.get("derivatives")
+    derivatives_brief = _derivatives_brief(derivatives)
     regime = derive_market_regime(market, macro)
     global_brief = _global_macro_brief(global_macro)
     news_items = news["items"][:5]
@@ -421,6 +450,7 @@ def run_eod_market_brief(inputs: Dict[str, Any]) -> Dict[str, Any]:
         "pipeline": "eod_market_brief",
         "market_regime": regime,
         "global_macro_brief": global_brief,
+        "derivatives_brief": derivatives_brief,
         "market_thesis": thesis,
         "sector_table": sector_rows,
         "news_brief": [{"title": n["title"], "tickers": n["tickers"], "url": n["url"], "summary": n["summary"]} for n in news_items],
@@ -430,7 +460,7 @@ def run_eod_market_brief(inputs: Dict[str, Any]) -> Dict[str, Any]:
             "Kiểm tra global macro: FED/DXY/yields/oil/gold/geopolitical headlines trước khi tăng beta.",
             "Không gọi nhóm dẫn dắt nếu sector ranking không duy trì qua ít nhất 2 phiên.",
         ],
-        "sources": source_list([market["source"], news["source"], macro["source"], global_macro.get("source") if isinstance(global_macro, dict) else None]),
+        "sources": source_list([market["source"], news["source"], macro["source"], global_macro.get("source") if isinstance(global_macro, dict) else None, derivatives.get("source") if isinstance(derivatives, dict) else None]),
         "confidence": 0.74,
         "disclaimer": "Thông tin hỗ trợ quyết định, không phải khuyến nghị đầu tư cá nhân hóa bắt buộc mua/bán.",
     }
@@ -493,6 +523,7 @@ def run_stock_signal_scan(inputs: Dict[str, Any]) -> Dict[str, Any]:
 
 def run_portfolio_daily_advice(inputs: Dict[str, Any]) -> Dict[str, Any]:
     portfolio, market, news, ohlcv = inputs["portfolio"], inputs["market_snapshot"], inputs["news"], inputs["ohlcv"]
+    derivatives_brief = _derivatives_brief(inputs.get("derivatives"))
     bars = {b["ticker"]: b for b in ohlcv["bars"]}
     positions = []
     equity_value = 0
@@ -555,8 +586,9 @@ def run_portfolio_daily_advice(inputs: Dict[str, Any]) -> Dict[str, Any]:
         "sector_weights": sector_weights,
         "ticker_news": ticker_news,
         "risks": risks or ["Chưa phát hiện rủi ro vượt ngưỡng cấu hình."],
+        "derivatives_brief": derivatives_brief,
         "actions": actions,
-        "sources": source_list([portfolio["source"], market["source"], news["source"], ohlcv["source"]]),
+        "sources": source_list([portfolio["source"], market["source"], news["source"], ohlcv["source"], (inputs.get("derivatives") or {}).get("source") if isinstance(inputs.get("derivatives"), dict) else None]),
         "confidence": 0.76,
         "disclaimer": "Kế hoạch danh mục cần đối chiếu khẩu vị rủi ro thật và lệnh thực tế.",
     }
@@ -564,6 +596,7 @@ def run_portfolio_daily_advice(inputs: Dict[str, Any]) -> Dict[str, Any]:
 
 def run_company_deep_dive(inputs: Dict[str, Any], ticker: str) -> Dict[str, Any]:
     fundamentals, news, ohlcv = inputs["fundamentals"], inputs["news"], inputs["ohlcv"]
+    derivatives_brief = _derivatives_brief(inputs.get("derivatives"))
     co = next((c for c in fundamentals["companies"] if c["ticker"] == ticker), None)
     if not co:
         raise ValueError(f"Ticker not found in fundamentals mock: {ticker}")
@@ -593,12 +626,13 @@ def run_company_deep_dive(inputs: Dict[str, Any], ticker: str) -> Dict[str, Any]
         "technical_snapshot": bar,
         "news": related_news,
         "risks": co.get("risks", []),
+        "derivatives_brief": derivatives_brief,
         "watch_conditions": [
             "Kết quả kinh doanh quý tới xác nhận tăng trưởng.",
             "Giá không thủng vùng hỗ trợ kỹ thuật chính.",
             "Định giá không mở rộng quá nhanh so với tăng trưởng lợi nhuận.",
         ],
-        "sources": source_list([fundamentals["source"], news["source"], ohlcv["source"]]),
+        "sources": source_list([fundamentals["source"], news["source"], ohlcv["source"], (inputs.get("derivatives") or {}).get("source") if isinstance(inputs.get("derivatives"), dict) else None]),
         "confidence": 0.73,
         "disclaimer": "Company deep dive là hồ sơ tham chiếu, không phải lệnh mua/bán.",
     }
@@ -624,7 +658,9 @@ def markdown_eod(result: Dict[str, Any], template: str) -> str:
         "watchlist": watchlist,
         "next_session_conditions": conditions,
     })
+    db = result.get("derivatives_brief") or {}
     body += "\n\n## Global macro watch\n" + global_macro_section
+    body += "\n\n## Derivatives watch\n- " + db.get("summary", "thiếu derivatives summary")
     return body + f"\n\nNguồn: {', '.join(result['sources'])}\n\n{result['disclaimer']}\n"
 
 
@@ -640,12 +676,16 @@ def markdown_portfolio(result: Dict[str, Any], template: str) -> str:
     pos_rows = [[p["ticker"], p["weight_pct"], money_vnd(p["value_vnd"]), p["pnl_pct"], p["technical_status"]] for p in result["positions"]]
     position_alerts = md_table(["Ticker", "Weight %", "Value", "P&L %", "Tech"], pos_rows) + "\n\n" + "\n".join(f"- {r}" for r in result["risks"])
     action_plan = "\n".join(f"- {a}" for a in result["actions"])
+    db = result.get("derivatives_brief") or {}
+    action_plan += "\n- Phái sinh: " + db.get("summary", "thiếu derivatives summary")
     return render_template(template, {"date": result["as_of"][:10], "nav_summary": nav_summary, "position_alerts": position_alerts, "action_plan": action_plan}) + f"\n\nNguồn: {', '.join(result['sources'])}\n\n{result['disclaimer']}\n"
 
 
 def markdown_company(result: Dict[str, Any], template: str) -> str:
     financials = result["financial_quality"]
     risks = "\n".join(f"- {r}" for r in result["risks"])
+    db = result.get("derivatives_brief") or {}
+    risks += "\n- Phái sinh: " + db.get("summary", "thiếu derivatives summary")
     return render_template(template, {"ticker": result["ticker"], "business": result["business"], "financials": financials, "valuation": result["valuation"], "risks": risks}) + f"\n\nNguồn: {', '.join(result['sources'])}\n\n{result['disclaimer']}\n"
 
 

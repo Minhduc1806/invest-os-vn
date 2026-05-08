@@ -35,6 +35,7 @@ inputs:
   fundamentals: mock_data/fundamentals_sample.vn.json
   macro_rates: mock_data/macro_rates_sample.vn.json
   global_macro: data_live/global_macro_live.json
+  derivatives: data_live/derivatives_live.vn.json
   cophieu68_market_data: data_live/cophieu68_market_data.vn.json
   asset_ledger: mock_data/asset_ledger_sample.json
 
@@ -94,6 +95,7 @@ pipelines:
       - news
       - macro_rates
       - global_macro
+      - derivatives
     outputs:
       json: outputs/eod_market_brief.json
       markdown: outputs/eod_market_brief.md
@@ -174,6 +176,7 @@ pipelines:
       - market_snapshot
       - news
       - global_macro
+      - derivatives
       - ohlcv
     outputs:
       json: outputs/portfolio_daily.json
@@ -219,6 +222,7 @@ pipelines:
       - cophieu68_market_data
       - news
       - global_macro
+      - derivatives
       - ohlcv
     outputs:
       json: outputs/company_deep_dive.json

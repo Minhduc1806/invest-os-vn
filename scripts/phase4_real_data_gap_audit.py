@@ -21,13 +21,14 @@ CHECKS = {
     "news_live": ROOT / "data_live" / "news_live.vn.json",
     "macro_rates_live": ROOT / "data_live" / "macro_rates_live.vn.json",
     "global_macro_live": ROOT / "data_live" / "global_macro_live.json",
+    "derivatives_live": ROOT / "data_live" / "derivatives_live.vn.json",
 }
 
 PIPELINE_CHECKS = {
-    "eod_market_brief": ["market_snapshot", "news_live", "macro_rates_live", "global_macro_live"],
+    "eod_market_brief": ["market_snapshot", "news_live", "macro_rates_live", "global_macro_live", "derivatives_live"],
     "stock_signal_scan": ["market_snapshot", "ohlcv_investable", "ohlcv_hose_all"],
-    "portfolio_daily_advice": ["portfolio", "market_snapshot", "news_live", "macro_rates_live", "global_macro_live", "ohlcv_investable"],
-    "company_deep_dive": ["market_snapshot", "news_live", "macro_rates_live", "global_macro_live", "ohlcv_investable"],
+    "portfolio_daily_advice": ["portfolio", "market_snapshot", "news_live", "macro_rates_live", "global_macro_live", "ohlcv_investable", "derivatives_live"],
+    "company_deep_dive": ["market_snapshot", "news_live", "macro_rates_live", "global_macro_live", "ohlcv_investable", "derivatives_live"],
     "all": list(CHECKS),
 }
 
@@ -42,6 +43,7 @@ STALE_MINUTES = {
         "news_live": 1440,
         "macro_rates_live": 1440,
         "global_macro_live": 1440,
+        "derivatives_live": 1440,
     },
     "intraday": {
         "market_snapshot": 30,
@@ -51,6 +53,7 @@ STALE_MINUTES = {
         "news_live": 1440,
         "macro_rates_live": 1440,
         "global_macro_live": 1440,
+        "derivatives_live": 1440,
     },
 }
 
@@ -142,6 +145,22 @@ def audit_payload(name: str, path: Path, data: Any, mode: str = "eod") -> dict[s
             gaps.append("empty_global_macro_events")
         if float(data.get("quality_score") or 0) < 0.7:
             gaps.append("low_global_macro_quality")
+    if name == "derivatives_live" and isinstance(data, dict):
+        rows = data.get("rows") or []
+        if not rows:
+            gaps.append("empty_derivatives_rows")
+        if float(data.get("quality_score") or 0) < 0.7:
+            gaps.append("low_derivatives_quality")
+        source_policy = str(data.get("source_policy") or "")
+        if "production_safe_public_no_secret" not in source_policy:
+            gaps.append("invalid_derivatives_source_policy")
+        for i, row in enumerate(rows[:10]):
+            if not isinstance(row, dict):
+                gaps.append(f"derivatives_row_{i}_not_object")
+                continue
+            missing = [k for k in ("date", "symbol", "future_close", "vn30_close", "basis", "basis_pct", "open_interest") if row.get(k) is None]
+            if missing:
+                gaps.append(f"derivatives_row_{i}_missing:" + ",".join(missing))
     if name.startswith("ohlcv") and isinstance(data, dict):
         bars = data.get("bars") or []
         if not bars:
