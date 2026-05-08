@@ -34,6 +34,7 @@ inputs:
   news: mock_data/news_sample.vn.json
   fundamentals: mock_data/fundamentals_sample.vn.json
   macro_rates: mock_data/macro_rates_sample.vn.json
+  global_macro: data_live/global_macro_live.json
   cophieu68_market_data: data_live/cophieu68_market_data.vn.json
   asset_ledger: mock_data/asset_ledger_sample.json
 
@@ -64,6 +65,7 @@ pipelines:
     agent_ids:
       - market-strategist
       - macro-strategist
+      - global-macro-strategist
       - financial-news-editor
       - rates-fixed-income-analyst
       - investment-data-designer
@@ -77,6 +79,7 @@ pipelines:
     agents:
       - agents/market-strategist.md
       - agents/macro-strategist.md
+      - agents/global-macro-strategist.md
       - agents/financial-news-editor.md
       - agents/rates-fixed-income-analyst.md
       - agents/investment-data-designer.md
@@ -84,11 +87,13 @@ pipelines:
     tools:
       - tools/market_data.spec.md
       - tools/news_ingest.spec.md
+      - tools/global_macro_ingest.spec.md
       - tools/report_delivery.spec.md
     inputs:
       - market_snapshot
       - news
       - macro_rates
+      - global_macro
     outputs:
       json: outputs/eod_market_brief.json
       markdown: outputs/eod_market_brief.md
@@ -141,6 +146,7 @@ pipelines:
       - real-estate-sector-analyst
       - steel-sector-analyst
       - macro-strategist
+      - global-macro-strategist
       - risk-manager
     quality_report: outputs/portfolio_daily.json
     final_writer: portfolio-advisor
@@ -156,15 +162,18 @@ pipelines:
       - agents/real-estate-sector-analyst.md
       - agents/steel-sector-analyst.md
       - agents/macro-strategist.md
+      - agents/global-macro-strategist.md
       - agents/risk-manager.md
     tools:
       - tools/portfolio_engine.spec.md
       - tools/news_ingest.spec.md
+      - tools/global_macro_ingest.spec.md
       - tools/technical_engine.spec.md
     inputs:
       - portfolio
       - market_snapshot
       - news
+      - global_macro
       - ohlcv
     outputs:
       json: outputs/portfolio_daily.json
@@ -181,6 +190,7 @@ pipelines:
       - real-estate-sector-analyst
       - steel-sector-analyst
       - macro-strategist
+      - global-macro-strategist
       - risk-manager
     quality_report: outputs/company_deep_dive.json
     final_writer: fundamental-analyst
@@ -197,15 +207,18 @@ pipelines:
       - agents/real-estate-sector-analyst.md
       - agents/steel-sector-analyst.md
       - agents/macro-strategist.md
+      - agents/global-macro-strategist.md
       - agents/risk-manager.md
     tools:
       - tools/fundamental_engine.spec.md
       - tools/news_ingest.spec.md
+      - tools/global_macro_ingest.spec.md
       - tools/technical_engine.spec.md
     inputs:
       - fundamentals
       - cophieu68_market_data
       - news
+      - global_macro
       - ohlcv
     outputs:
       json: outputs/company_deep_dive.json
@@ -216,6 +229,7 @@ handoff_rules:
   market-strategist:
     sends_to:
       - macro-strategist
+      - global-macro-strategist
       - banking-sector-analyst
       - real-estate-sector-analyst
       - steel-sector-analyst
@@ -225,11 +239,22 @@ handoff_rules:
       - investment-data-designer
   macro-strategist:
     sends_to:
+      - global-macro-strategist
       - banking-sector-analyst
       - real-estate-sector-analyst
       - steel-sector-analyst
       - risk-manager
       - portfolio-advisor
+  global-macro-strategist:
+    sends_to:
+      - macro-strategist
+      - banking-sector-analyst
+      - real-estate-sector-analyst
+      - steel-sector-analyst
+      - rates-fixed-income-analyst
+      - risk-manager
+      - portfolio-advisor
+      - financial-news-editor
   banking-sector-analyst:
     sends_to:
       - equity-technical-analyst

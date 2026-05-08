@@ -117,6 +117,7 @@ def live_input_path(name: str, universe: str) -> str:
         "portfolio": "data_live/portfolio_real.json",
         "news": "data_live/news_live.vn.json",
         "macro_rates": "data_live/macro_rates_live.vn.json",
+        "global_macro": "data_live/global_macro_live.json",
         "cophieu68_market_data": "data_live/cophieu68_market_data.vn.json",
     }
     return live_overrides[name]
