@@ -419,7 +419,11 @@ def _derivatives_brief(derivatives: Dict[str, Any] | None) -> Dict[str, Any]:
     latest = list(latest_by_symbol.values())[:4]
     parts = []
     for row in latest[:3]:
-        parts.append(f"{row.get('symbol')}: basis {row.get('basis_points')} điểm ({row.get('basis_pct')}%), OI {row.get('open_interest')}, ΔOI {row.get('open_interest_change')}")
+        basis = row.get("basis_points") if row.get("basis_points") is not None else row.get("basis")
+        oi_change = row.get("open_interest_change") if row.get("open_interest_change") is not None else row.get("oi_change")
+        basis_txt = round(float(basis), 2) if basis is not None else "N/A"
+        basis_pct_txt = round(float(row.get("basis_pct")), 3) if row.get("basis_pct") is not None else "N/A"
+        parts.append(f"{row.get('symbol')}: basis {basis_txt} điểm ({basis_pct_txt}%), OI {row.get('open_interest')}, ΔOI {oi_change}")
     summary = "; ".join(parts) if parts else "Không có dòng phái sinh đủ dữ liệu."
     return {
         "summary": summary,
