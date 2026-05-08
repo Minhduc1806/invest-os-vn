@@ -1,5 +1,5 @@
 {
-  "run_id": "portfolio_daily_advice_2026-05-05T19:10:10+07:00",
+  "run_id": "portfolio_daily_advice_2026-05-08T15:24:16+07:00",
   "as_of": "2026-05-05T15:51:00+07:00",
   "pipeline": "portfolio_daily_advice",
   "nav_vnd": 1020966015,
@@ -24,10 +24,9 @@
   },
   "ticker_news": {
     "PNJ": [
-      "Câu chuyện PNJ",
-      "Quan hệ cổ đông (IR)",
-      "Tài khoản của tôi",
-      "Hàng đặt trước"
+      "Đại hội đồng cổ đông",
+      "Báo cáo tài chính",
+      "Báo cáo thường niên"
     ]
   },
   "risks": [
@@ -39,11 +38,11 @@
   ],
   "sources": [
     "user_provided_real_portfolio_telegram_2026-05-05",
-    "vnstock_history_adapter_partial_market",
+    "cophieu68_amibroker_ohlcv",
     "Trading Economics",
     "PNJ investor relations",
     "CafeF lãi suất - tỷ giá",
-    "fdata_universe_filter"
+    "Vietstock mới cập nhật"
   ],
   "confidence": 0.76,
   "disclaimer": "Kế hoạch danh mục cần đối chiếu khẩu vị rủi ro thật và lệnh thực tế.",
@@ -54,7 +53,12 @@
     "agents": [
       "portfolio-advisor",
       "financial-news-editor",
-      "equity-technical-analyst"
+      "equity-technical-analyst",
+      "banking-sector-analyst",
+      "real-estate-sector-analyst",
+      "steel-sector-analyst",
+      "macro-strategist",
+      "risk-manager"
     ],
     "tool_outputs": [
       "tools/portfolio_engine.spec.md",

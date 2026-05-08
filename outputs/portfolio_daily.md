@@ -15,6 +15,6 @@ NAV 1.02 tỷ VND; cổ phiếu 2.18 tỷ VND; cash 0.0%; P&L -136.08 triệu VN
 - PNJ: rà soát điểm giảm rủi ro vì tín hiệu kỹ thuật chưa đủ mạnh.
 
 
-Nguồn: user_provided_real_portfolio_telegram_2026-05-05, vnstock_history_adapter_partial_market, Trading Economics, PNJ investor relations, CafeF lãi suất - tỷ giá, fdata_universe_filter
+Nguồn: user_provided_real_portfolio_telegram_2026-05-05, cophieu68_amibroker_ohlcv, Trading Economics, PNJ investor relations, CafeF lãi suất - tỷ giá, Vietstock mới cập nhật
 
 Kế hoạch danh mục cần đối chiếu khẩu vị rủi ro thật và lệnh thực tế.

@@ -1,99 +1,104 @@
 {
-  "run_id": "eod_market_brief_2026-05-05T19:10:10+07:00",
-  "as_of": "2026-05-05T19:09:51+07:00",
+  "run_id": "eod_market_brief_2026-05-08T15:23:01+07:00",
+  "as_of": "2026-05-08T15:22:50+07:00",
   "pipeline": "eod_market_brief",
   "market_regime": {
-    "as_of": "2026-05-05T19:09:51+07:00",
+    "as_of": "2026-05-08T15:22:50+07:00",
     "regime": "risk_off",
-    "risk_appetite": 52.5,
+    "risk_appetite": 25.0,
     "evidence": [
-      "VNINDEX 1.12%, value 0 tỷ VND",
-      "Breadth adv/dec 0.50 (9/18)",
-      "Sector positive ratio 50%",
+      "VNINDEX 0.00%, value 2623.67 tỷ VND",
+      "Breadth adv/dec 0.00 (0/0)",
+      "Sector positive ratio 0%",
       "Foreign net flow 0 tỷ VND"
     ],
     "top_sectors_by_data": [
       {
+        "name": "unknown",
+        "count": 1330,
+        "change_pct": 0.0,
+        "value_bil_vnd": 0,
+        "relative_strength_20d": 0.0,
+        "advancers": 0,
+        "decliners": 0
+      },
+      {
         "name": "Bất động sản",
-        "change_pct": 5.01,
+        "count": 35,
+        "change_pct": 0.0,
         "value_bil_vnd": 0,
-        "relative_strength_20d": 3.19
+        "relative_strength_20d": 0.0,
+        "advancers": 0,
+        "decliners": 0
       },
       {
-        "name": "Khác",
-        "change_pct": 0.07,
+        "name": "Xây dựng và Vật liệu",
+        "count": 35,
+        "change_pct": 0.0,
         "value_bil_vnd": 0,
-        "relative_strength_20d": -0.61
-      },
-      {
-        "name": "Ngân hàng",
-        "change_pct": -0.88,
-        "value_bil_vnd": 0,
-        "relative_strength_20d": -0.68
+        "relative_strength_20d": 0.0,
+        "advancers": 0,
+        "decliners": 0
       }
     ],
-    "source": "vnstock_history_adapter_partial_market",
+    "source": "cophieu68_amibroker_ohlcv",
     "confidence": 0.74
   },
-  "market_thesis": "Thị trường nghiêng risk_off với risk appetite 52.5/100. Bằng chứng chính: VNINDEX 1.12%, value 0 tỷ VND; Breadth adv/dec 0.50 (9/18).",
+  "market_thesis": "Thị trường nghiêng risk_off với risk appetite 25.0/100. Bằng chứng chính: VNINDEX 0.00%, value 2623.67 tỷ VND; Breadth adv/dec 0.00 (0/0).",
   "sector_table": [
     [
+      "unknown",
+      "0.00%",
+      0,
+      0.0
+    ],
+    [
       "Bất động sản",
-      "5.01%",
+      "0.00%",
       0,
-      3.19
+      0.0
     ],
     [
-      "Khác",
-      "0.07%",
+      "Xây dựng và Vật liệu",
+      "0.00%",
       0,
-      -0.61
-    ],
-    [
-      "Ngân hàng",
-      "-0.88%",
-      0,
-      -0.68
+      0.0
     ]
   ],
   "news_brief": [
     {
-      "title": "Câu chuyện PNJ",
-      "tickers": [
-        "PNJ"
-      ],
-      "url": "https://www.pnj.com.vn/cau-chuyen-pnj.html",
-      "summary": "Câu chuyện PNJ"
+      "title": "Vietnam Stock Market was reported by Trading Economics with current market context.",
+      "tickers": [],
+      "url": "https://tradingeconomics.com/vietnam/news",
+      "summary": "Vietnam Stock Market was reported by Trading Economics with current market context."
     },
     {
-      "title": "Quan hệ cổ đông (IR)",
+      "title": "Vietnam interest rate and inflation updates remain key macro inputs for local equities.",
+      "tickers": [],
+      "url": "https://tradingeconomics.com/vietnam/news",
+      "summary": "Vietnam interest rate and inflation updates remain key macro inputs for local equities."
+    },
+    {
+      "title": "Vietnam currency and VND market news monitored for daily investable report risk context.",
+      "tickers": [],
+      "url": "https://tradingeconomics.com/vietnam/news",
+      "summary": "Vietnam currency and VND market news monitored for daily investable report risk context."
+    },
+    {
+      "title": "Đại hội đồng cổ đông",
       "tickers": [
         "PNJ"
       ],
       "url": "https://www.pnj.com.vn/quan-he-co-dong/dai-hoi-dong-co-dong/",
-      "summary": "Quan hệ cổ đông (IR)"
+      "summary": "Đại hội đồng cổ đông"
     },
     {
-      "title": "Tài khoản của tôi",
+      "title": "Báo cáo tài chính",
       "tickers": [
         "PNJ"
       ],
-      "url": "https://www.pnj.com.vn/customer/home",
-      "summary": "Tài khoản của tôi"
-    },
-    {
-      "title": "Hàng đặt trước",
-      "tickers": [
-        "PNJ"
-      ],
-      "url": "https://www.pnj.com.vn/hang-dat-truoc/?sort_by=timestamp&sort_order=desc?features_hash=43-19673",
-      "summary": "Hàng đặt trước"
-    },
-    {
-      "title": "Bảng giá điện tử",
-      "tickers": [],
-      "url": "https://liveboard.cafef.vn",
-      "summary": "Bảng giá điện tử"
+      "url": "https://www.pnj.com.vn/quan-he-co-dong/bao-cao-tai-chinh/",
+      "summary": "Báo cáo tài chính"
     }
   ],
   "next_session_conditions": [
@@ -102,10 +107,11 @@
     "Không gọi nhóm dẫn dắt nếu sector ranking không duy trì qua ít nhất 2 phiên."
   ],
   "sources": [
-    "vnstock_history_adapter_partial_market",
+    "cophieu68_amibroker_ohlcv",
     "Trading Economics",
     "PNJ investor relations",
     "CafeF lãi suất - tỷ giá",
+    "Vietstock mới cập nhật",
     "Trading Economics interest rate",
     "World Bank CPI",
     "World Bank unemployment",
@@ -124,9 +130,11 @@
     "lead_agent": "market-strategist",
     "agents": [
       "market-strategist",
+      "macro-strategist",
       "financial-news-editor",
       "rates-fixed-income-analyst",
-      "investment-data-designer"
+      "investment-data-designer",
+      "risk-manager"
     ],
     "tool_outputs": [
       "tools/market_data.spec.md",
