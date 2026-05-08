@@ -55,3 +55,26 @@ data_live/*.json
 outputs/*.json
 outputs/*.md
 scripts/__pycache__/
+
+# Generated report/build artifacts
+outputs/**/*.pdf
+outputs/**/*.html
+outputs/**/*.zip
+outputs/fireant_scan/
+outputs/delivery_*/
+outputs/subagent_raw/
+outputs/multi_agent_handoff*.json
+outputs/production_readiness_audit.json
+outputs/daily_job_watch.json
+outputs/company_deep_dive_real.*
+outputs/investos_vn_daily_BLOCKER_*.pdf
+
+# Local scratch scripts
+_tmp*.py
+tmp_*.py
+make_market_json.py
+
+# Build/cache artifacts
+**/__pycache__/
+*.pyc
+
