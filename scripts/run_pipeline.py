@@ -113,7 +113,7 @@ def live_input_path(name: str, universe: str) -> str:
     live_overrides = {
         "market_snapshot": "data_live/market_snapshot.vn.json",
         "ohlcv": live_ohlcv_path(universe),
-        "fundamentals": "data_live/fundamentals_sample.vn.json",
+        "fundamentals": "data_live/fundamentals_live.vn.json",
         "portfolio": "data_live/portfolio_real.json",
         "news": "data_live/news_live.vn.json",
         "macro_rates": "data_live/macro_rates_live.vn.json",
@@ -194,6 +194,7 @@ def refresh_live_market_snapshot_if_needed(config: Dict[str, Any], pipeline_name
 def run_phase4_real_only_gate() -> None:
     preflight = [
         [sys.executable, str(ROOT / "scripts" / "cophieu68_to_fdata.py"), "--refresh"],
+        [sys.executable, str(ROOT / "scripts" / "fundamental_real_layer.py")],
         [sys.executable, str(ROOT / "scripts" / "refresh_news_live.py"), "--allow-partial"],
         [sys.executable, str(ROOT / "scripts" / "macro_rates_parser.py")],
     ]
