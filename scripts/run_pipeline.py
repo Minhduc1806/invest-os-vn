@@ -192,7 +192,7 @@ def refresh_live_market_snapshot_if_needed(config: Dict[str, Any], pipeline_name
         return
     subprocess.run([sys.executable, str(ROOT / "scripts" / "data_adapters.py"), "--market", "--tickers", _market_refresh_tickers(universe)], cwd=ROOT, check=True)
 
-def run_phase4_real_only_gate() -> None:
+def run_phase4_real_only_gate(pipeline_name: str = "all") -> None:
     preflight = [
         [sys.executable, str(ROOT / "scripts" / "cophieu68_to_fdata.py"), "--refresh"],
         [sys.executable, str(ROOT / "scripts" / "fundamental_real_layer.py")],
@@ -202,9 +202,9 @@ def run_phase4_real_only_gate() -> None:
     ]
     for cmd in preflight:
         subprocess.run(cmd, cwd=ROOT, check=True)
-    proc = subprocess.run([sys.executable, str(ROOT / "scripts" / "phase4_real_data_gap_audit.py")], cwd=ROOT, text=True, encoding="utf-8", errors="replace")
+    proc = subprocess.run([sys.executable, str(ROOT / "scripts" / "phase4_real_data_gap_audit.py"), "--pipeline", pipeline_name], cwd=ROOT, text=True, encoding="utf-8", errors="replace")
     if proc.returncode != 0:
-        raise RuntimeError("PHASE4_REAL_ONLY_GATE_BLOCKED: scripts/phase4_real_data_gap_audit.py failed")
+        raise RuntimeError(f"PHASE4_REAL_ONLY_GATE_BLOCKED: scripts/phase4_real_data_gap_audit.py failed for {pipeline_name}")
 
 def load_inputs(config: Dict[str, Any], pipeline: Dict[str, Any], live: bool = True, universe: str = "hose_all", pipeline_name: str = "", refresh: bool = True) -> Dict[str, Any]:
     if refresh and live and "market_snapshot" in pipeline.get("inputs", []):
@@ -617,7 +617,7 @@ def main() -> int:
 
     audit(log_path, {"event": "pipeline_start", "pipeline": args.pipeline, "mock": args.mock, "live": live_mode, "universe": args.universe})
     if live_mode:
-        run_phase4_real_only_gate()
+        run_phase4_real_only_gate(args.pipeline)
     inputs = load_inputs(config, pipeline, live=live_mode, universe=args.universe, pipeline_name=args.pipeline, refresh=not args.no_refresh)
     warnings = quality_gate(config, inputs, args.pipeline)
     assert_quality_or_raise(config, warnings, args.allow_quality_warnings or args.mock)

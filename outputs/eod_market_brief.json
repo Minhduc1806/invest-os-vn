@@ -1,9 +1,9 @@
 {
-  "run_id": "eod_market_brief_2026-05-08T15:23:01+07:00",
-  "as_of": "2026-05-08T15:22:50+07:00",
+  "run_id": "eod_market_brief_2026-05-08T20:57:41+07:00",
+  "as_of": "2026-05-08T20:57:29+07:00",
   "pipeline": "eod_market_brief",
   "market_regime": {
-    "as_of": "2026-05-08T15:22:50+07:00",
+    "as_of": "2026-05-08T20:57:29+07:00",
     "regime": "risk_off",
     "risk_appetite": 25.0,
     "evidence": [
@@ -131,6 +131,7 @@
     "agents": [
       "market-strategist",
       "macro-strategist",
+      "global-macro-strategist",
       "financial-news-editor",
       "rates-fixed-income-analyst",
       "investment-data-designer",
@@ -139,6 +140,7 @@
     "tool_outputs": [
       "tools/market_data.spec.md",
       "tools/news_ingest.spec.md",
+      "tools/global_macro_ingest.spec.md",
       "tools/report_delivery.spec.md"
     ],
     "quality_report": [],

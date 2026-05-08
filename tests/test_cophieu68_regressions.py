@@ -55,7 +55,10 @@ def test_phase4_preflight_refreshes_cophieu68_before_gate(monkeypatch):
     assert any(c[-1] == "--refresh" and c[-2].endswith("cophieu68_to_fdata.py") for c in calls)
     assert any(c[-1] == "--allow-partial" and c[-2].endswith("refresh_news_live.py") for c in calls)
     assert any(c[-1].endswith("macro_rates_parser.py") for c in calls)
-    assert calls[-1][-1].endswith("phase4_real_data_gap_audit.py")
+    assert any(c[-1].endswith("global_macro_ingest.py") for c in calls)
+    assert any(x.endswith("phase4_real_data_gap_audit.py") for x in calls[-1])
+    assert "--pipeline" in calls[-1]
+    assert calls[-1][-1] == "all"
 
 
 def test_portfolio_review_alias_written(tmp_path, monkeypatch):

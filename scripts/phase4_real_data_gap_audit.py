@@ -13,14 +13,23 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 
-CHECKS = [
-    ("market_snapshot", ROOT / "data_live" / "market_snapshot.vn.json"),
-    ("ohlcv_investable", ROOT / "data_live" / "fdata_investable_bars.json"),
-    ("ohlcv_hose_all", ROOT / "data_live" / "fdata_hose_all_bars.json"),
-    ("portfolio", ROOT / "data_live" / "portfolio_real.json"),
-    ("news_live", ROOT / "data_live" / "news_live.vn.json"),
-    ("macro_rates_live", ROOT / "data_live" / "macro_rates_live.vn.json"),
-]
+CHECKS = {
+    "market_snapshot": ROOT / "data_live" / "market_snapshot.vn.json",
+    "ohlcv_investable": ROOT / "data_live" / "fdata_investable_bars.json",
+    "ohlcv_hose_all": ROOT / "data_live" / "fdata_hose_all_bars.json",
+    "portfolio": ROOT / "data_live" / "portfolio_real.json",
+    "news_live": ROOT / "data_live" / "news_live.vn.json",
+    "macro_rates_live": ROOT / "data_live" / "macro_rates_live.vn.json",
+    "global_macro_live": ROOT / "data_live" / "global_macro_live.json",
+}
+
+PIPELINE_CHECKS = {
+    "eod_market_brief": ["market_snapshot", "news_live", "macro_rates_live", "global_macro_live"],
+    "stock_signal_scan": ["market_snapshot", "ohlcv_investable", "ohlcv_hose_all"],
+    "portfolio_daily_advice": ["portfolio", "market_snapshot", "news_live", "macro_rates_live", "global_macro_live", "ohlcv_investable"],
+    "company_deep_dive": ["market_snapshot", "news_live", "macro_rates_live", "global_macro_live", "ohlcv_investable"],
+    "all": list(CHECKS),
+}
 
 BLOCKED_SOURCES = {"mock_news_hub", "mock_macro_provider", "manual_real_portfolio_required", "sample", "template"}
 PLACEHOLDER_STATUSES = {"placeholder_not_real", "template", "sample"}
@@ -32,6 +41,7 @@ STALE_MINUTES = {
         "portfolio": 4320,
         "news_live": 1440,
         "macro_rates_live": 1440,
+        "global_macro_live": 1440,
     },
     "intraday": {
         "market_snapshot": 30,
@@ -40,6 +50,7 @@ STALE_MINUTES = {
         "portfolio": 4320,
         "news_live": 1440,
         "macro_rates_live": 1440,
+        "global_macro_live": 1440,
     },
 }
 
@@ -124,6 +135,13 @@ def audit_payload(name: str, path: Path, data: Any, mode: str = "eod") -> dict[s
     if name.startswith("macro") and isinstance(data, dict):
         if not any(k in data for k in ("rates", "macro", "items", "series")):
             gaps.append("empty_macro_series")
+    if name == "global_macro_live" and isinstance(data, dict):
+        if not data.get("indicators"):
+            gaps.append("empty_global_macro_indicators")
+        if not data.get("events"):
+            gaps.append("empty_global_macro_events")
+        if float(data.get("quality_score") or 0) < 0.7:
+            gaps.append("low_global_macro_quality")
     if name.startswith("ohlcv") and isinstance(data, dict):
         bars = data.get("bars") or []
         if not bars:
@@ -142,9 +160,12 @@ def main() -> int:
     import argparse
     ap = argparse.ArgumentParser()
     ap.add_argument("--mode", choices=["eod", "intraday"], default="eod", help="Stale window policy: eod=1440m for market/OHLCV, intraday=30m")
+    ap.add_argument("--pipeline", choices=sorted(PIPELINE_CHECKS), default="all", help="Audit only inputs needed by one pipeline; default audits all live layers")
     args = ap.parse_args()
     results = []
-    for name, path in CHECKS:
+    check_names = PIPELINE_CHECKS[args.pipeline]
+    for name in check_names:
+        path = CHECKS[name]
         if not path.exists():
             results.append({"name": name, "path": str(path.relative_to(ROOT)), "exists": False, "gaps": ["missing_file"]})
             continue
@@ -152,7 +173,7 @@ def main() -> int:
             results.append(audit_payload(name, path, load(path), mode=args.mode))
         except Exception as exc:
             results.append({"name": name, "path": str(path.relative_to(ROOT)), "exists": True, "gaps": [f"read_error:{exc}"]})
-    out = {"as_of": datetime.now().astimezone().isoformat(timespec="seconds"), "mode": args.mode, "results": results}
+    out = {"as_of": datetime.now().astimezone().isoformat(timespec="seconds"), "mode": args.mode, "pipeline": args.pipeline, "results": results}
     out_path = ROOT / "scripts" / "results" / "phase4_real_data_gap_audit.json"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
