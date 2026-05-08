@@ -198,6 +198,7 @@ def run_phase4_real_only_gate() -> None:
         [sys.executable, str(ROOT / "scripts" / "fundamental_real_layer.py")],
         [sys.executable, str(ROOT / "scripts" / "refresh_news_live.py"), "--allow-partial"],
         [sys.executable, str(ROOT / "scripts" / "macro_rates_parser.py")],
+        [sys.executable, str(ROOT / "scripts" / "global_macro_ingest.py")],
     ]
     for cmd in preflight:
         subprocess.run(cmd, cwd=ROOT, check=True)
