@@ -14,6 +14,22 @@ Smoke using existing cache, no provider refresh:
 python scripts/run_daily_production.py --no-refresh --quiet
 ```
 
+## Windows scheduled task
+
+Task name: `InvestOSVN Daily Production`
+
+Command:
+
+```bat
+C:\Users\DUC\.openclaw\workspace\invest-os-vn\scripts\run_daily_production.bat
+```
+
+Log file:
+
+```text
+C:\Users\DUC\.openclaw\workspace\invest-os-vn\logs\daily_production.log
+```
+
 ## Notes
 
 - Daily runner sequence: `eod_market_brief`, `stock_signal_scan --universe investable`, `portfolio_daily_advice`, `company_deep_dive --ticker FPT`.
