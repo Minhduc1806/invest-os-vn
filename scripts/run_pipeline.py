@@ -193,17 +193,18 @@ def refresh_live_market_snapshot_if_needed(config: Dict[str, Any], pipeline_name
         return
     subprocess.run([sys.executable, str(ROOT / "scripts" / "data_adapters.py"), "--market", "--tickers", _market_refresh_tickers(universe)], cwd=ROOT, check=True)
 
-def run_phase4_real_only_gate(pipeline_name: str = "all") -> None:
-    preflight = [
-        [sys.executable, str(ROOT / "scripts" / "cophieu68_to_fdata.py"), "--refresh"],
-        [sys.executable, str(ROOT / "scripts" / "fundamental_real_layer.py")],
-        [sys.executable, str(ROOT / "scripts" / "refresh_news_live.py"), "--allow-partial"],
-        [sys.executable, str(ROOT / "scripts" / "macro_rates_parser.py")],
-        [sys.executable, str(ROOT / "scripts" / "global_macro_ingest.py")],
-        [sys.executable, str(ROOT / "scripts" / "refresh_derivatives_live.py")],
-    ]
-    for cmd in preflight:
-        subprocess.run(cmd, cwd=ROOT, check=True)
+def run_phase4_real_only_gate(pipeline_name: str = "all", refresh: bool = True) -> None:
+    if refresh:
+        preflight = [
+            [sys.executable, str(ROOT / "scripts" / "cophieu68_to_fdata.py"), "--refresh"],
+            [sys.executable, str(ROOT / "scripts" / "fundamental_real_layer.py")],
+            [sys.executable, str(ROOT / "scripts" / "refresh_news_live.py"), "--allow-partial"],
+            [sys.executable, str(ROOT / "scripts" / "macro_rates_parser.py")],
+            [sys.executable, str(ROOT / "scripts" / "global_macro_ingest.py")],
+            [sys.executable, str(ROOT / "scripts" / "refresh_derivatives_live.py")],
+        ]
+        for cmd in preflight:
+            subprocess.run(cmd, cwd=ROOT, check=True)
     gate_cmd = [sys.executable, str(ROOT / "scripts" / "phase4_real_data_gap_audit.py"), "--pipeline", pipeline_name]
     if pipeline_name == "portfolio_daily_advice":
         gate_cmd.append("--allow-stale-portfolio")
@@ -722,7 +723,7 @@ def main() -> int:
 
     audit(log_path, {"event": "pipeline_start", "pipeline": args.pipeline, "mock": args.mock, "live": live_mode, "universe": args.universe})
     if live_mode:
-        run_phase4_real_only_gate(args.pipeline)
+        run_phase4_real_only_gate(args.pipeline, refresh=not args.no_refresh)
     inputs = load_inputs(config, pipeline, live=live_mode, universe=args.universe, pipeline_name=args.pipeline, refresh=not args.no_refresh)
     warnings = quality_gate(config, inputs, args.pipeline)
     assert_quality_or_raise(config, warnings, args.allow_quality_warnings or args.mock)
