@@ -228,6 +228,8 @@ pipelines:
       json: outputs/company_deep_dive.json
       markdown: outputs/company_deep_dive.md
       template: reports/templates/company_deep_dive.md
+    post_steps:
+      - build_hf_lens_full_pdf_report
 
 handoff_rules:
   market-strategist:

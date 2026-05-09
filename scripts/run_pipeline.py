@@ -693,6 +693,10 @@ def markdown_company(result: Dict[str, Any], template: str) -> str:
     return render_template(template, {"ticker": result["ticker"], "business": result["business"], "financials": financials, "valuation": result["valuation"], "risks": risks}) + f"\n\nNguồn: {', '.join(result['sources'])}\n\n{result['disclaimer']}\n"
 
 
+def _build_full_pdf_report() -> None:
+    subprocess.run([sys.executable, str(ROOT / "scripts" / "build_hf_lens_full_pdf_report.py")], cwd=ROOT, check=True)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--config", default="orchestrator.yaml")
@@ -756,6 +760,10 @@ def main() -> int:
         save_json(alias_json, result)
         save_text(alias_md, md)
     audit(log_path, {"event": "pipeline_done", "pipeline": args.pipeline, "json": str(out_json), "markdown": str(out_md), "warnings": warnings})
+    post_steps = pipeline.get("post_steps", []) or []
+    if "build_hf_lens_full_pdf_report" in post_steps:
+        _build_full_pdf_report()
+        audit(log_path, {"event": "post_step_done", "pipeline": args.pipeline, "step": "build_hf_lens_full_pdf_report"})
     print(f"OK {args.pipeline}")
     print(f"JSON: {out_json}")
     print(f"MD:   {out_md}")
