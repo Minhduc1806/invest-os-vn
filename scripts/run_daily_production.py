@@ -25,7 +25,14 @@ def run_step(args: list[str], *, quiet: bool = False) -> None:
     pipeline = args[args.index("--pipeline") + 1]
     print("RUN", " ".join(str(part) for part in cmd), flush=True)
     if quiet:
-        completed = subprocess.run(cmd, cwd=ROOT, text=True, capture_output=True)
+        completed = subprocess.run(
+            cmd,
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+            encoding="utf-8",
+            errors="replace",
+        )
         if completed.returncode != 0:
             if completed.stdout:
                 print(completed.stdout, end="")
